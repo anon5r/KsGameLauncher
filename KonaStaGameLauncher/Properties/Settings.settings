@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="KonaStaGameLauncher.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="appInfoURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://s3.onaws.anon.network/konasta/appinfo.json</Value>
+    </Setting>
+    <Setting Name="appInfoLocal" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">appinfo.json</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
