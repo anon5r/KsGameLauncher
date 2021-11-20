@@ -148,6 +148,12 @@
   <data name="Authors" xml:space="preserve">
     <value>anon</value>
   </data>
+  <data name="CredentialDomain" xml:space="preserve">
+    <value>account.konami.net</value>
+  </data>
+  <data name="CredentialTarget" xml:space="preserve">
+    <value>KonaSta Launcher</value>
+  </data>
   <data name="ealogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icons\ealogo.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

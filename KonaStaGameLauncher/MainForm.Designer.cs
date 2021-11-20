@@ -32,9 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.contextMenuStrip_Sub = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageAccountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.konamiAccountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip_Sub.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +43,7 @@
             this.contextMenuStrip_Sub.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.contextMenuStrip_Sub.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem,
-            this.konamiAccountsToolStripMenuItem,
+            this.manageAccountsToolStripMenuItem,
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.contextMenuStrip_Sub.Name = "contextMenuStrip_Sub";
@@ -55,7 +55,13 @@
             this.aboutToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             resources.ApplyResources(this.aboutToolStripMenuItem, "aboutToolStripMenuItem");
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
+            // 
+            // manageAccountsToolStripMenuItem
+            // 
+            this.manageAccountsToolStripMenuItem.Name = "manageAccountsToolStripMenuItem";
+            resources.ApplyResources(this.manageAccountsToolStripMenuItem, "manageAccountsToolStripMenuItem");
+            this.manageAccountsToolStripMenuItem.Click += new System.EventHandler(this.ManageAccountsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -67,12 +73,7 @@
             this.exitToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             resources.ApplyResources(this.exitToolStripMenuItem, "exitToolStripMenuItem");
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // konamiAccountsToolStripMenuItem
-            // 
-            this.konamiAccountsToolStripMenuItem.Name = "konamiAccountsToolStripMenuItem";
-            resources.ApplyResources(this.konamiAccountsToolStripMenuItem, "konamiAccountsToolStripMenuItem");
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -91,7 +92,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem konamiAccountsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageAccountsToolStripMenuItem;
     }
 }
 

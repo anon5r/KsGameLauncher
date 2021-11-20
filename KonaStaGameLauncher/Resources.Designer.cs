@@ -61,6 +61,24 @@ namespace KonaStaGameLauncher {
         }
         
         /// <summary>
+        ///   Failed to remove account.\nYou can try removing it from &quot;Credential Manager&quot; in Control Panel.\nIf you click &quot;Retry&quot;, it will be open the &quot;Credential Manager&quot; window. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string AccountRemoveFailed {
+            get {
+                return ResourceManager.GetString("AccountRemoveFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Registered your account has been removed. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string AccountRemoveSucceeded {
+            get {
+                return ResourceManager.GetString("AccountRemoveSucceeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Already running に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string AlreadyRunning {
@@ -79,11 +97,83 @@ namespace KonaStaGameLauncher {
         }
         
         /// <summary>
+        ///   &amp;Close に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ButtonClose {
+            get {
+                return ResourceManager.GetString("ButtonClose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &amp;Remove に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ButtonRemove {
+            get {
+                return ResourceManager.GetString("ButtonRemove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &amp;Update に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ButtonUpdate {
+            get {
+                return ResourceManager.GetString("ButtonUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &amp;Register に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ButtonUpdate_Register {
+            get {
+                return ResourceManager.GetString("ButtonUpdate_Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Are you sure you want to exit ? に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ConfirmToExit {
             get {
                 return ResourceManager.GetString("ConfirmToExit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Remove confirm に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ConfirmToRemove {
+            get {
+                return ResourceManager.GetString("ConfirmToRemove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Are you sure you want to remove your account from the registered list ? に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ConfirmToRemoveAccountFromList {
+            get {
+                return ResourceManager.GetString("ConfirmToRemoveAccountFromList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Enter your account ID and password に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string EnterYourAccountPasswordPrompt {
+            get {
+                return ResourceManager.GetString("EnterYourAccountPasswordPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   No account registered に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NoAccountRegistered {
+            get {
+                return ResourceManager.GetString("NoAccountRegistered", resourceCulture);
             }
         }
         

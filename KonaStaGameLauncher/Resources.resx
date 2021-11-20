@@ -117,14 +117,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccountRemoveFailed" xml:space="preserve">
+    <value>Failed to remove account.\nYou can try removing it from "Credential Manager" in Control Panel.\nIf you click "Retry", it will be open the "Credential Manager" window.</value>
+  </data>
+  <data name="AccountRemoveSucceeded" xml:space="preserve">
+    <value>Registered your account has been removed.</value>
+  </data>
   <data name="AlreadyRunning" xml:space="preserve">
     <value>Already running</value>
   </data>
   <data name="AppName" xml:space="preserve">
     <value>KonaSta Game Launcher</value>
   </data>
+  <data name="ButtonClose" xml:space="preserve">
+    <value>&amp;Close</value>
+  </data>
+  <data name="ButtonRemove" xml:space="preserve">
+    <value>&amp;Remove</value>
+  </data>
+  <data name="ButtonUpdate" xml:space="preserve">
+    <value>&amp;Update</value>
+  </data>
+  <data name="ButtonUpdate_Register" xml:space="preserve">
+    <value>&amp;Register</value>
+  </data>
   <data name="ConfirmToExit" xml:space="preserve">
     <value>Are you sure you want to exit ?</value>
+  </data>
+  <data name="ConfirmToRemove" xml:space="preserve">
+    <value>Remove confirm</value>
+  </data>
+  <data name="ConfirmToRemoveAccountFromList" xml:space="preserve">
+    <value>Are you sure you want to remove your account from the registered list ?</value>
+  </data>
+  <data name="EnterYourAccountPasswordPrompt" xml:space="preserve">
+    <value>Enter your account ID and password</value>
+  </data>
+  <data name="NoAccountRegistered" xml:space="preserve">
+    <value>No account registered</value>
   </data>
   <data name="NoInstalledGames" xml:space="preserve">
     <value>No installed games</value>

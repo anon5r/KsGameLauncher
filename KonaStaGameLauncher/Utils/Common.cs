@@ -40,5 +40,23 @@ namespace KonaStaGameLauncher.Utils
             }
             Application.Exit();
         }
+
+        public static void OpenControlPanel()
+        {
+            ProcessStartInfo info = new ProcessStartInfo("rundll32.exe");
+            info.Arguments = "shell32.dll,Control_RunDLL";
+            Process proc = new Process();
+            proc.StartInfo = info;
+            proc.Start();
+        }
+
+        public static void OpenControlPanel(string name)
+        {
+            ProcessStartInfo info = new ProcessStartInfo("rundll32.exe");
+            info.Arguments = "shell32.dll,Control_RunDLL " + name;
+            Process proc = new Process();
+            proc.StartInfo = info;
+            proc.Start();
+        }
     }
 }

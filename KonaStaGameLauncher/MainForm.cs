@@ -183,7 +183,7 @@ namespace KonaStaGameLauncher
         }
 
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(Resources.ConfirmToExit, Resources.AppName, 
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question, 
@@ -198,12 +198,18 @@ namespace KonaStaGameLauncher
                 
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutForm aboutForm = new AboutForm();
             aboutForm.ShowInTaskbar = false;
             aboutForm.ShowDialog();
 
+        }
+
+        private void ManageAccountsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AccountForm accountForm = new AccountForm();
+            accountForm.Show();
         }
     }
 }

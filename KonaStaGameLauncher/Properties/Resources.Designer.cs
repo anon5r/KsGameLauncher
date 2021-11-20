@@ -160,6 +160,24 @@ namespace KonaStaGameLauncher.Properties {
         }
         
         /// <summary>
+        ///   account.konami.net に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CredentialDomain {
+            get {
+                return ResourceManager.GetString("CredentialDomain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   KonaSta Launcher に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CredentialTarget {
+            get {
+                return ResourceManager.GetString("CredentialTarget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
         /// </summary>
         internal static System.Drawing.Icon ealogo {
