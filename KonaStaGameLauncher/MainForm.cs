@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Security.Permissions;
 using System.Windows.Forms;
 using System.Text.Json;
+using System.Threading.Tasks;
 
 #if DEBUG
 using System.Diagnostics;
@@ -29,7 +29,8 @@ namespace KonaStaGameLauncher
         protected override CreateParams CreateParams
         {
             [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
-            get {
+            get
+            {
                 const int CP_NOCLOSE_BUTTON = 0x200;
                 CreateParams cp = base.CreateParams;
                 cp.ClassStyle = cp.ClassStyle | CP_NOCLOSE_BUTTON;
@@ -50,6 +51,8 @@ namespace KonaStaGameLauncher
             this.CreateNotificationIcon();
             this.ShowInTaskbar = false;
             this.WindowState = FormWindowState.Minimized;
+
+
         }
 
 
@@ -59,7 +62,7 @@ namespace KonaStaGameLauncher
             notifyIcon.Dispose();
         }
 
-        private void CreateNotificationIcon()
+        async private void CreateNotificationIcon()
         {
             notifyIcon = new NotifyIcon();
             notifyIcon.Icon = Properties.Resources.app;
@@ -68,8 +71,8 @@ namespace KonaStaGameLauncher
 
             notifyIcon.MouseClick += NotifyIcon_MouseClick;
 
-            menuStripMain = InitializeGameList(GetJson());
-            
+            menuStripMain = await InitializeGameList(GetJson());
+
         }
 
         /// <summary>
@@ -125,7 +128,7 @@ namespace KonaStaGameLauncher
             return json;
         }
 
-        private ContextMenuStrip InitializeGameList(string json)
+        async private Task<ContextMenuStrip> InitializeGameList(string json)
         {
             ContextMenuStrip menu = new ContextMenuStrip();
             menu.Items.Clear();
@@ -134,7 +137,7 @@ namespace KonaStaGameLauncher
             try
             {
                 JsonSerializer.Deserialize<List<AppInfo>>(json).ForEach(appInfo =>
-                {   
+                {
 #if DEBUG
                     Debug.WriteLine(JsonSerializer.Serialize(appInfo));
 #endif
@@ -147,9 +150,33 @@ namespace KonaStaGameLauncher
                             item.Image = icon;
                         item.Click += delegate
                         {
-                            MessageBox.Show(appInfo.Name + " => " + appInfo.Login.URL + "\n" + appInfo.Login.Xpath);
-                            System.Diagnostics.Process.Start(appInfo.Login.URL);
-                            // TODO Launcher.startGame(appInfo)
+                            try
+                            {
+                                Launcher launcher = Launcher.Create();
+                                launcher.StartApp(appInfo);
+                            }
+                            catch (LoginException ex)
+                            {
+                                MessageBox.Show(String.Format(
+                                    "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
+                                    appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
+                                , Resources.ErrorWhileLogin, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            catch (LauncherException ex)
+                            {
+                                MessageBox.Show(String.Format(
+                                    "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
+                                    appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
+                                , ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(String.Format(
+                                    "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
+                                    appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
+                                , ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+
                         };
                         menu.Items.Add(item);
                     }
@@ -185,17 +212,18 @@ namespace KonaStaGameLauncher
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(Resources.ConfirmToExit, Resources.AppName, 
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Question, 
+            DialogResult result = MessageBox.Show(Resources.ConfirmToExit, Resources.AppName,
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
                 MessageBoxDefaultButton.Button2, MessageBoxOptions.DefaultDesktopOnly);
 
             if (result == DialogResult.OK)
             {
                 notifyIcon.Visible = false;
                 notifyIcon.Dispose();
+                Properties.Settings.Default.Save();
                 Application.Exit();
             }
-                
+
         }
 
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -208,8 +236,12 @@ namespace KonaStaGameLauncher
 
         private void ManageAccountsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AccountForm accountForm = new AccountForm();
-            accountForm.Show();
+            (new AccountForm()).Show();
+        }
+
+        private void OptionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (new OptionsForm()).Show();
         }
     }
 }
