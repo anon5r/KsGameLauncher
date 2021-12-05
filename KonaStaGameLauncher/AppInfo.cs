@@ -19,8 +19,6 @@ namespace KonaStaGameLauncher
         public string IconPath { get; set; }
         [JsonIgnore]
         private System.Drawing.Icon _icon;
-        [JsonIgnore]
-        private bool IsInstalled = false;
 
         public System.Drawing.Icon GetIcon()
         {

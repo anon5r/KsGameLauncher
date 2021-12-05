@@ -61,7 +61,7 @@ namespace KonaStaGameLauncher {
         }
         
         /// <summary>
-        ///   Failed to remove account.\nYou can try removing it from &quot;Credential Manager&quot; in Control Panel.\nIf you click &quot;Retry&quot;, it will be open the &quot;Credential Manager&quot; window. に類似しているローカライズされた文字列を検索します。
+        ///   Failed to remove account information.\nYou can try removing it from &quot;Credential Manager&quot; in Control Panel.\nIf you click &quot;Retry&quot;, it will be open the &quot;Credential Manager&quot; window. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string AccountRemoveFailed {
             get {
@@ -70,7 +70,7 @@ namespace KonaStaGameLauncher {
         }
         
         /// <summary>
-        ///   Registered your account has been removed. に類似しているローカライズされた文字列を検索します。
+        ///   Registered your account information has been removed from the app. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string AccountRemoveSucceeded {
             get {
@@ -142,7 +142,7 @@ namespace KonaStaGameLauncher {
         }
         
         /// <summary>
-        ///   &amp;Register に類似しているローカライズされた文字列を検索します。
+        ///   Re&amp;gister に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ButtonUpdate_Register {
             get {
@@ -178,7 +178,7 @@ namespace KonaStaGameLauncher {
         }
         
         /// <summary>
-        ///   Are you sure you want to remove your account from the registered list ? に類似しているローカライズされた文字列を検索します。
+        ///   Are you sure you want to logout your account from the registered list ? に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ConfirmToRemoveAccountFromList {
             get {
@@ -223,6 +223,33 @@ namespace KonaStaGameLauncher {
         }
         
         /// <summary>
+        ///   Failed to load {0} に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string FailedToLoadFile {
+            get {
+                return ResourceManager.GetString("FailedToLoadFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Terms of Service に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string GameTermsOfServiceExceptionDialogName {
+            get {
+                return ResourceManager.GetString("GameTermsOfServiceExceptionDialogName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Registered account に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string GroupBoxAccountInfo {
+            get {
+                return ResourceManager.GetString("GroupBoxAccountInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Incorrect username or password に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string IncorrectUsernameOrPassword {
@@ -232,7 +259,16 @@ namespace KonaStaGameLauncher {
         }
         
         /// <summary>
-        ///   Launcher error に類似しているローカライズされた文字列を検索します。
+        ///   Account ID に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string LabelAccountID {
+            get {
+                return ResourceManager.GetString("LabelAccountID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Starting error に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string LauncherExceptionDialogName {
             get {
@@ -331,11 +367,20 @@ namespace KonaStaGameLauncher {
         }
         
         /// <summary>
-        ///   You should check terms of service for game, please read it. に類似しているローカライズされた文字列を検索します。
+        ///   You should check terms of service for game, please check it. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ShouldCheckTermOfService {
             get {
                 return ResourceManager.GetString("ShouldCheckTermOfService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Game has been starting, please wait. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string StartngLauncher {
+            get {
+                return ResourceManager.GetString("StartngLauncher", resourceCulture);
             }
         }
         

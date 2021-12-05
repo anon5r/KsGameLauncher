@@ -32,10 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.contextMenuStrip_Sub = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageAccountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageAccountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator_Bottom = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip_Sub.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +46,7 @@
             this.aboutToolStripMenuItem,
             this.optionsToolStripMenuItem,
             this.manageAccountsToolStripMenuItem,
-            this.toolStripSeparator1,
+            this.toolStripSeparator_Bottom,
             this.exitToolStripMenuItem});
             this.contextMenuStrip_Sub.Name = "contextMenuStrip_Sub";
             this.contextMenuStrip_Sub.ShowImageMargin = false;
@@ -59,16 +59,22 @@
             resources.ApplyResources(this.aboutToolStripMenuItem, "aboutToolStripMenuItem");
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            resources.ApplyResources(this.optionsToolStripMenuItem, "optionsToolStripMenuItem");
+            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.OptionsToolStripMenuItem_Click);
+            // 
             // manageAccountsToolStripMenuItem
             // 
             this.manageAccountsToolStripMenuItem.Name = "manageAccountsToolStripMenuItem";
             resources.ApplyResources(this.manageAccountsToolStripMenuItem, "manageAccountsToolStripMenuItem");
             this.manageAccountsToolStripMenuItem.Click += new System.EventHandler(this.ManageAccountsToolStripMenuItem_Click);
             // 
-            // toolStripSeparator1
+            // toolStripSeparator_Bottom
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            this.toolStripSeparator_Bottom.Name = "toolStripSeparator_Bottom";
+            resources.ApplyResources(this.toolStripSeparator_Bottom, "toolStripSeparator_Bottom");
             // 
             // exitToolStripMenuItem
             // 
@@ -76,12 +82,6 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             resources.ApplyResources(this.exitToolStripMenuItem, "exitToolStripMenuItem");
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
-            // 
-            // optionsToolStripMenuItem
-            // 
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            resources.ApplyResources(this.optionsToolStripMenuItem, "optionsToolStripMenuItem");
-            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.OptionsToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -99,7 +99,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip_Sub;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator_Bottom;
         private System.Windows.Forms.ToolStripMenuItem manageAccountsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
     }

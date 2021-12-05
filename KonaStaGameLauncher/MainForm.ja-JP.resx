@@ -117,120 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AccountRemoveFailed" xml:space="preserve">
-    <value>アカウント情報の削除に失敗しました。\nコントロールパネルの"資格情報マネージャー"からアカウント情報を削除してください。\n"再試行"をクリックすると"資格情報マネージャー"を起動します。</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="aboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 32</value>
   </data>
-  <data name="AccountRemoveSucceeded" xml:space="preserve">
-    <value>登録されたアカウント情報をアプリから削除しました</value>
+  <data name="aboutToolStripMenuItem.Text" xml:space="preserve">
+    <value>アプリについて(&amp;A)</value>
   </data>
-  <data name="AlreadyRunning" xml:space="preserve">
-    <value>すでに起動しています</value>
+  <data name="optionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 32</value>
   </data>
-  <data name="AppName" xml:space="preserve">
-    <value>コナステゲームランチャー</value>
+  <data name="optionsToolStripMenuItem.Text" xml:space="preserve">
+    <value>オプション(&amp;O)</value>
   </data>
-  <data name="AuthorizeFailed" xml:space="preserve">
-    <value>アカウント認証に失敗しました</value>
+  <data name="manageAccountsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 32</value>
   </data>
-  <data name="ButtonClose" xml:space="preserve">
-    <value>閉じる (&amp;C)</value>
+  <data name="manageAccountsToolStripMenuItem.Text" xml:space="preserve">
+    <value>アカウント管理(&amp;M)</value>
   </data>
-  <data name="ButtonRemove" xml:space="preserve">
-    <value>削除 (&amp;R)</value>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 6</value>
   </data>
-  <data name="ButtonSave" xml:space="preserve">
-    <value>保存 (&amp;S)</value>
+  <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 32</value>
   </data>
-  <data name="ButtonUpdate" xml:space="preserve">
-    <value>更新 (&amp;U)</value>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>終了(&amp;X)</value>
   </data>
-  <data name="ButtonUpdate_Register" xml:space="preserve">
-    <value>登録 (&amp;G)</value>
+  <data name="contextMenuStrip_Sub.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 138</value>
   </data>
-  <data name="CheckFollowingPage" xml:space="preserve">
-    <value>ページを確認してください (ブラウザが開きます)</value>
-  </data>
-  <data name="ConfirmToExit" xml:space="preserve">
-    <value>本当に終了しますか？</value>
-  </data>
-  <data name="ConfirmToRemove" xml:space="preserve">
-    <value>削除確認</value>
-  </data>
-  <data name="ConfirmToRemoveAccountFromList" xml:space="preserve">
-    <value>アカウント情報の登録を削除してもよろしいですか？</value>
-  </data>
-  <data name="ConnectionTimeout" xml:space="preserve">
-    <value>通信がタイムアウトしました。接続状況を確認してください。</value>
-  </data>
-  <data name="EnterYourAccountPasswordPrompt" xml:space="preserve">
-    <value>アカウントIDとパスワードを入力してください。</value>
-    <comment>DIalog error message</comment>
-  </data>
-  <data name="ErrorText" xml:space="preserve">
-    <value>エラー</value>
-  </data>
-  <data name="ErrorWhileLogin" xml:space="preserve">
-    <value>ログイン処理中にエラーが発生しました</value>
-  </data>
-  <data name="FailedToLoadFile" xml:space="preserve">
-    <value>{0} を読み込めませんでした</value>
-  </data>
-  <data name="GroupBoxAccountInfo" xml:space="preserve">
-    <value>登録済みアカウント情報</value>
-  </data>
-  <data name="IncorrectUsernameOrPassword" xml:space="preserve">
-    <value>アカウントIDまたはパスワードが異なります</value>
-    <comment>Dialog error message</comment>
-  </data>
-  <data name="LabelAccountID" xml:space="preserve">
-    <value>アカウントID</value>
-  </data>
-  <data name="LauncherExceptionDialogName" xml:space="preserve">
-    <value>起動エラー</value>
-    <comment>Dialog title bar</comment>
-  </data>
-  <data name="LauncherURLCannotBeUsed" xml:space="preserve">
-    <value>ランチャーURLが変更されたか、一時的に利用できなくなっています。</value>
-    <comment>Launcher URL could not be found, or denied</comment>
-  </data>
-  <data name="LoginExceptionDialogName" xml:space="preserve">
-    <value>ログインエラー</value>
-    <comment>Dialog title bar</comment>
-  </data>
-  <data name="LoginSessionHasBeenExpired" xml:space="preserve">
-    <value>ログイン時のセッションが切れました。再度実行し直してください。</value>
-  </data>
-  <data name="NoAccountRegistered" xml:space="preserve">
-    <value>アカウントは登録されていません</value>
-    <comment>DIalog error message</comment>
-  </data>
-  <data name="NoInstalledGames" xml:space="preserve">
-    <value>インストール済みゲームがありません</value>
-  </data>
-  <data name="OptionsProxySettingsLink" xml:space="preserve">
-    <value>プロキシ設定を開く</value>
-    <comment>Open link label for proxy settings in options screen</comment>
-  </data>
-  <data name="OptionsUseProxyText" xml:space="preserve">
-    <value>プロキシを使用する</value>
-    <comment>Use Proxy checkbox label in options screen</comment>
-  </data>
-  <data name="OptionsWindowTitle" xml:space="preserve">
-    <value>オプション</value>
-  </data>
-  <data name="ServiceIsTemporaryUnavailable" xml:space="preserve">
-    <value>サービスが一時的に停止しているか、利用できません。</value>
-  </data>
-  <data name="ShouldBeSetAccountBeforeLaunch" xml:space="preserve">
-    <value>最初に"アカウント管理"からアカウントの登録を行ってください。</value>
-  </data>
-  <data name="ShouldCheckTermOfService" xml:space="preserve">
-    <value>起動前に利用規約を確認してください。</value>
-  </data>
-  <data name="StartngLauncher" xml:space="preserve">
-    <value>ゲームを起動しています。しばらくお待ちください。</value>
-  </data>
-  <data name="UnknownStatusReceived" xml:space="preserve">
-    <value>不明なステータスを受信しました。</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>メイン</value>
   </data>
 </root>

@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccountRemoveFailed" xml:space="preserve">
-    <value>Failed to remove account.\nYou can try removing it from "Credential Manager" in Control Panel.\nIf you click "Retry", it will be open the "Credential Manager" window.</value>
+    <value>Failed to remove account information.\nYou can try removing it from "Credential Manager" in Control Panel.\nIf you click "Retry", it will be open the "Credential Manager" window.</value>
   </data>
   <data name="AccountRemoveSucceeded" xml:space="preserve">
-    <value>Registered your account has been removed.</value>
+    <value>Registered your account information has been removed from the app.</value>
   </data>
   <data name="AlreadyRunning" xml:space="preserve">
     <value>Already running</value>
@@ -147,7 +147,7 @@
     <value>&amp;Update</value>
   </data>
   <data name="ButtonUpdate_Register" xml:space="preserve">
-    <value>&amp;Register</value>
+    <value>Re&amp;gister</value>
   </data>
   <data name="CheckFollowingPage" xml:space="preserve">
     <value>Please check following page. (will open the web browser)</value>
@@ -159,7 +159,7 @@
     <value>Remove confirm</value>
   </data>
   <data name="ConfirmToRemoveAccountFromList" xml:space="preserve">
-    <value>Are you sure you want to remove your account from the registered list ?</value>
+    <value>Are you sure you want to logout your account from the registered list ?</value>
   </data>
   <data name="ConnectionTimeout" xml:space="preserve">
     <value>Network connection was time out. please check your network.</value>
@@ -174,12 +174,24 @@
   <data name="ErrorWhileLogin" xml:space="preserve">
     <value>Error has occrred while login</value>
   </data>
+  <data name="FailedToLoadFile" xml:space="preserve">
+    <value>Failed to load {0}</value>
+  </data>
+  <data name="GameTermsOfServiceExceptionDialogName" xml:space="preserve">
+    <value>Terms of Service</value>
+  </data>
+  <data name="GroupBoxAccountInfo" xml:space="preserve">
+    <value>Registered account</value>
+  </data>
   <data name="IncorrectUsernameOrPassword" xml:space="preserve">
     <value>Incorrect username or password</value>
     <comment>Dialog error message</comment>
   </data>
+  <data name="LabelAccountID" xml:space="preserve">
+    <value>Account ID</value>
+  </data>
   <data name="LauncherExceptionDialogName" xml:space="preserve">
-    <value>Launcher error</value>
+    <value>Starting error</value>
     <comment>Dialog title bar</comment>
   </data>
   <data name="LauncherURLCannotBeUsed" xml:space="preserve">
@@ -219,7 +231,10 @@
     <value>Please setup your account from "Manage account" before launch app</value>
   </data>
   <data name="ShouldCheckTermOfService" xml:space="preserve">
-    <value>You should check terms of service for game, please read it.</value>
+    <value>You should check terms of service for game, please check it.</value>
+  </data>
+  <data name="StartngLauncher" xml:space="preserve">
+    <value>Game has been starting, please wait.</value>
   </data>
   <data name="UnknownStatusReceived" xml:space="preserve">
     <value>Unknown status received.</value>

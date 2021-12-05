@@ -2,7 +2,9 @@
 using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
-
+#if DEBUG
+using System.Diagnostics;
+#endif
 namespace KonaStaGameLauncher
 {
     internal static class Program
@@ -22,13 +24,16 @@ namespace KonaStaGameLauncher
             // Setup user language
             try
             {
+#if DEBUG
+                Debug.WriteLine(String.Format("User culture: {0}", CultureInfo.CurrentUICulture.Name));
+#endif
                 Properties.Resources.Culture = new CultureInfo(CultureInfo.CurrentUICulture.Name);
             }
             catch
             {
                 Properties.Resources.Culture = new CultureInfo("en-US");
             }
-            Properties.Resources.Culture = new CultureInfo("ja-JP");
+            //Properties.Resources.Culture = new CultureInfo("ja-JP");
 
 
             // Default displayed default messages on C#

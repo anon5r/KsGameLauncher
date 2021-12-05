@@ -6,6 +6,7 @@ using System.Security.Permissions;
 using System.Windows.Forms;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Net.Http;
 
 #if DEBUG
 using System.Diagnostics;
@@ -17,6 +18,8 @@ namespace KonaStaGameLauncher
     {
 
         private NotifyIcon notifyIcon;
+
+        private bool _launcherMutex = false;
 
         /// <summary>
         /// Left clicked icon
@@ -52,7 +55,6 @@ namespace KonaStaGameLauncher
             this.ShowInTaskbar = false;
             this.WindowState = FormWindowState.Minimized;
 
-
         }
 
 
@@ -64,14 +66,20 @@ namespace KonaStaGameLauncher
 
         async private void CreateNotificationIcon()
         {
-            notifyIcon = new NotifyIcon();
-            notifyIcon.Icon = Properties.Resources.app;
-            notifyIcon.Text = Resources.AppName;
-            notifyIcon.Visible = true;
+            notifyIcon = new NotifyIcon
+            {
+                Icon = Properties.Resources.app,
+                Text = Resources.AppName,
+                Visible = true
+            };
 
             notifyIcon.MouseClick += NotifyIcon_MouseClick;
 
-            menuStripMain = await InitializeGameList(GetJson());
+            string Json = await GetJson();
+            if (Json == null)
+                menuStripMain = CreateInitialMenuStripItems();
+            else
+                menuStripMain = InitializeGameList(Json);
 
         }
 
@@ -99,36 +107,41 @@ namespace KonaStaGameLauncher
             }
         }
 
-        private string GetJson()
+
+
+        async private Task<string> GetJson()
         {
             string json;
-            if (File.Exists(Properties.Settings.Default.appInfoLocal))
+            if (!File.Exists(Properties.Settings.Default.appInfoLocal))
+            {
+                // Load appinfo.json from the internet
+                // Download from `Properties.Settings.Default.appInfoURL`
+                await Utils.AppUtil.DownloadJson();
+            }
+
+            try
             {
                 // Load appinfo.json from local
                 using (StreamReader jsonStream = File.OpenText(Path.GetFullPath(Properties.Settings.Default.appInfoLocal)))
                 {
                     json = jsonStream.ReadToEnd();
                 }
+
 #if DEBUG
                 Debug.Write(json);
 #endif
+
+                return json;
             }
-            else
+            catch (FileNotFoundException)
             {
-                // Load appinfo.json from the internet
-                // TODO Download from `Properties.Settings.Default.appInfoURL`
-                using (StreamReader jsonStream = File.OpenText(Path.GetFullPath(Properties.Settings.Default.appInfoURL)))
-                {
-                    json = jsonStream.ReadToEnd();
-                }
-#if DEBUG
-                Debug.WriteLine(json);
-#endif
+                MessageBox.Show(String.Format(Resources.FailedToLoadFile, Properties.Settings.Default.appInfoLocal),
+                    Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            return json;
+            return null;
         }
 
-        async private Task<ContextMenuStrip> InitializeGameList(string json)
+        private ContextMenuStrip InitializeGameList(string json)
         {
             ContextMenuStrip menu = new ContextMenuStrip();
             menu.Items.Clear();
@@ -150,6 +163,14 @@ namespace KonaStaGameLauncher
                             item.Image = icon;
                         item.Click += delegate
                         {
+                            if (_launcherMutex)
+                            {
+                                MessageBox.Show(Resources.StartngLauncher, Resources.AppName,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                return;
+                            }
+
+                            _launcherMutex = true;
                             try
                             {
                                 Launcher launcher = Launcher.Create();
@@ -176,6 +197,10 @@ namespace KonaStaGameLauncher
                                     appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
                                 , ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
+                            finally
+                            {
+                                _launcherMutex = false;
+                            }
 
                         };
                         menu.Items.Add(item);
@@ -195,17 +220,23 @@ namespace KonaStaGameLauncher
 
             if (menu.Items.Count < 1)
             {
-                menu.Items.Clear();
-                ToolStripMenuItem item = new ToolStripMenuItem();
-                item.Text = Resources.NoInstalledGames;
-                item.Enabled = false;
-                item.AutoSize = true;
-                menu.Items.Add(item);
+                menu = CreateInitialMenuStripItems();
             }
 
+            return menu;
+        }
 
-            /// TODO インストール済みゲームリストからとゲーム情報を取得
-            /// TODO ゲーム情報: { ゲーム名, ゲーム起動パス, ゲーム起動URL, ゲームアイコン }
+        private ContextMenuStrip CreateInitialMenuStripItems()
+        {
+            ToolStripMenuItem item = new ToolStripMenuItem()
+            {
+                Text = Resources.NoInstalledGames,
+                Enabled = false,
+                AutoSize = true,
+            };
+            ContextMenuStrip menu = new ContextMenuStrip();
+            menu.Items.Add(item);
+
             return menu;
         }
 

@@ -12,7 +12,7 @@ namespace KonaStaGameLauncher.Utils
         /// Check running with Administrator
         /// </summary>
         /// <returns>True = Administrator, False = General user</returns>
-        public static bool isAdmin()
+        public static bool IsAdmin()
         {
             WindowsIdentity usrId = WindowsIdentity.GetCurrent();
             WindowsPrincipal p = new WindowsPrincipal(usrId);

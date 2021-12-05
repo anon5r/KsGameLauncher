@@ -18,6 +18,8 @@ namespace KonaStaGameLauncher
             button_Update.Text = Resources.ButtonUpdate;
             button_Remove.Text = Resources.ButtonRemove;
             button_Close.Text = Resources.ButtonClose;
+            groupBox_AccountInfo.Text = Resources.GroupBoxAccountInfo;
+            label_AccountID.Text = Resources.LabelAccountID;
         }
 
         ~AccountForm()
@@ -54,8 +56,8 @@ namespace KonaStaGameLauncher
                 {
                     if (CredentialManager.RemoveCredentials(CredentialName))
                     {
+                        RefreshRegisteredAccounts();
                         Launcher.Logout();
-                        label_UserAccountID_Value.Text = Resources.NoAccountRegistered;
                         MessageBox.Show(Resources.AccountRemoveSucceeded);
                     }
                     else

@@ -10,9 +10,7 @@ using System.Windows.Forms;
 using AngleSharp.Html.Parser;
 using AngleSharp.Html.Dom;
 using AdysTech.CredentialManager;
-#if DEBUG
 using System.Diagnostics;
-#endif
 
 namespace KonaStaGameLauncher
 {
@@ -25,9 +23,6 @@ namespace KonaStaGameLauncher
 
         internal HttpClient httpClient;
         internal HttpClientHandler httpHandler;
-
-
-        internal CookieContainer cookieContainer;
 
         private static Launcher instance;
 
@@ -203,7 +198,6 @@ namespace KonaStaGameLauncher
 
         async public void StartApp(AppInfo app)
         {
-            bool save = false;
             NetworkCredential credential = GetCredential();
             if (credential == null)
             {
@@ -220,8 +214,9 @@ namespace KonaStaGameLauncher
                     {
                         // Try to login
                         Uri loginUri = await GetLoginUri();
+#if DEBUG
                         Debug.WriteLine(string.Format("Login URL: {0}", loginUri.ToString()));
-
+#endif
                         if (!await Login(GetCredential(), loginUri))
                         {
                             MessageBox.Show(string.Format("Failed to login, cannot launch {0}", app.Name));
@@ -230,7 +225,7 @@ namespace KonaStaGameLauncher
                     }
                     catch (LoginException ex)
                     {
-                        MessageBox.Show(ex.Message, "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(ex.Message, Resources.LoginExceptionDialogName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     catch (Exception ex)
@@ -296,7 +291,7 @@ namespace KonaStaGameLauncher
                     }
                     else if (loadedURL.Contains(TOS_PATH))
                     {
-                        throw new GameTermOfServiceException(Resources.ShouldCheckTermOfService);
+                        throw new GameTermsOfServiceException(Resources.ShouldCheckTermOfService, loadedURL);
                     }
 
 
@@ -343,7 +338,7 @@ namespace KonaStaGameLauncher
                         }
 #if DEBUG
                         Debug.WriteLine(String.Format("Response page URI: {0}", response.RequestMessage.RequestUri.ToString()));
-                        Debug.WriteLine(content);
+                        //Debug.WriteLine(content);
 #endif
 
                         // parse launcher page
@@ -366,10 +361,10 @@ namespace KonaStaGameLauncher
             {
                 MessageBox.Show(e.Message, Resources.LoginExceptionDialogName);
             }
-            catch (GameTermOfServiceException ex)
+            catch (GameTermsOfServiceException ex)
             {
-                MessageBox.Show(ex.Message, ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Utils.Common.OpenUrlByDefaultBrowser(app.Launch.URL);
+                MessageBox.Show(ex.Message, Resources.GameTermsOfServiceExceptionDialogName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Utils.Common.OpenUrlByDefaultBrowser(ex.GetTosURL());
             }
             catch (Exception e)
             {
@@ -396,11 +391,12 @@ namespace KonaStaGameLauncher
             }
             string launcherCustomProtocol = launchButton.GetAttribute("href");
 #if DEBUG
-            Debug.WriteLine(String.Format("Launcher protocol: {0}", launcherCustomProtocol));
+            Debug.WriteLine(String.Format("Launcher custom URI: {0}", launcherCustomProtocol));
 #endif
 
             if (launcherCustomProtocol != null
-                && Regex.IsMatch(launcherCustomProtocol, @"^konaste\.[a-z0-9]+://login"))
+                && (Regex.IsMatch(launcherCustomProtocol, @"^konaste\.[a-z0-9\-]+://login")
+                   || Regex.IsMatch(launcherCustomProtocol, @"^bm2dxinf://login")))
             {
                 Uri customUri = new Uri(launcherCustomProtocol);
 #if DEBUG
