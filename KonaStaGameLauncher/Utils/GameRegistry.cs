@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Win32;
+using System.Collections.Generic;
 using System.Linq;
-using Microsoft.Win32;
 #if DEBUG
-using System.Diagnostics;
 #endif
 
 namespace KonaStaGameLauncher.Utils
@@ -34,7 +33,7 @@ namespace KonaStaGameLauncher.Utils
             return Registry.LocalMachine.OpenSubKey(REG_BASE_KEY + "\\" + GameName);
         }
 
-        
+
         /// <summary>
         /// Get registry value from specified key with game name
         /// </summary>
@@ -89,6 +88,20 @@ namespace KonaStaGameLauncher.Utils
             if (!IsInstalled(GameName))
                 return null;
             return (string)GetValue(GameName, "ResourceDir").ToString();
+        }
+
+        public static string GetLauncherPath(string ProtocolScheme)
+        {
+            if (string.IsNullOrEmpty(ProtocolScheme))
+                return null;
+
+            RegistryKey key = Registry.ClassesRoot.OpenSubKey(ProtocolScheme);
+            if (key.SubKeyCount < 1)
+                return null;
+
+            string path = key.OpenSubKey(@"shell\open\command").GetValue(null).ToString();
+            // path = '"C:\Games\NOSTALGIA\launcher\modules\launcher.exe" "%1"';
+            return path.Remove(path.Length - 5).Replace("\"", "").Trim();
         }
     }
 }

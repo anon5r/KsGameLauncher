@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace KonaStaGameLauncher
@@ -18,8 +13,8 @@ namespace KonaStaGameLauncher
         public string ID { get; set; }
         [JsonPropertyName("name")]
         public string Name { get; set; }
-        [JsonPropertyName("login")]
-        public AppInfoLogin Login { get; set; }
+        [JsonPropertyName("launch")]
+        public AppInfoLaunch Launch { get; set; }
         [JsonPropertyName("iconFile")]
         public string IconPath { get; set; }
         [JsonIgnore]
@@ -36,7 +31,7 @@ namespace KonaStaGameLauncher
                     // Load installDir path from Registory HKEY_LOCAL_MACHINE\SOFTWARE\KONAMI\{name}\installDir
                     string installDir = Utils.GameRegistry.GetInstallDir(this.Name);
                     if (installDir == null)
-                        throw new Exception("Game \"" + this.Name + "\" is not installed");
+                        throw new Exception(String.Format("Game \"{0}\" is not installed", this.Name));
                     _icon = new System.Drawing.Icon(IconPath.Replace("{{installDir}}", installDir));
                 }
                 catch
@@ -47,12 +42,12 @@ namespace KonaStaGameLauncher
             return _icon;
         }
 
-        internal class AppInfoLogin
+        internal class AppInfoLaunch
         {
             [JsonPropertyName("url")]
             public string URL { get; set; }
-            [JsonPropertyName("xpath")]
-            public string Xpath { get; set; }
+            [JsonPropertyName("selector")]
+            public string Selector { get; set; }
             public Uri GetUri()
             {
                 return new Uri(URL);

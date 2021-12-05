@@ -97,6 +97,15 @@ namespace KonaStaGameLauncher {
         }
         
         /// <summary>
+        ///   Failed to authorize に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string AuthorizeFailed {
+            get {
+                return ResourceManager.GetString("AuthorizeFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   &amp;Close に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ButtonClose {
@@ -115,6 +124,15 @@ namespace KonaStaGameLauncher {
         }
         
         /// <summary>
+        ///   &amp;Save に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ButtonSave {
+            get {
+                return ResourceManager.GetString("ButtonSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   &amp;Update に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ButtonUpdate {
@@ -129,6 +147,15 @@ namespace KonaStaGameLauncher {
         internal static string ButtonUpdate_Register {
             get {
                 return ResourceManager.GetString("ButtonUpdate_Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Please check following page. (will open the web browser) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CheckFollowingPage {
+            get {
+                return ResourceManager.GetString("CheckFollowingPage", resourceCulture);
             }
         }
         
@@ -160,11 +187,83 @@ namespace KonaStaGameLauncher {
         }
         
         /// <summary>
+        ///   Network connection was time out. please check your network. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ConnectionTimeout {
+            get {
+                return ResourceManager.GetString("ConnectionTimeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Enter your account ID and password に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string EnterYourAccountPasswordPrompt {
             get {
                 return ResourceManager.GetString("EnterYourAccountPasswordPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Error に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ErrorText {
+            get {
+                return ResourceManager.GetString("ErrorText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Error has occrred while login に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ErrorWhileLogin {
+            get {
+                return ResourceManager.GetString("ErrorWhileLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Incorrect username or password に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string IncorrectUsernameOrPassword {
+            get {
+                return ResourceManager.GetString("IncorrectUsernameOrPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Launcher error に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string LauncherExceptionDialogName {
+            get {
+                return ResourceManager.GetString("LauncherExceptionDialogName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Launcher URL has changed or is temporarily unavailable. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string LauncherURLCannotBeUsed {
+            get {
+                return ResourceManager.GetString("LauncherURLCannotBeUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Login error に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string LoginExceptionDialogName {
+            get {
+                return ResourceManager.GetString("LoginExceptionDialogName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Login session has been expired. Please login again. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string LoginSessionHasBeenExpired {
+            get {
+                return ResourceManager.GetString("LoginSessionHasBeenExpired", resourceCulture);
             }
         }
         
@@ -183,6 +282,69 @@ namespace KonaStaGameLauncher {
         internal static string NoInstalledGames {
             get {
                 return ResourceManager.GetString("NoInstalledGames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Open proxy settings に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string OptionsProxySettingsLink {
+            get {
+                return ResourceManager.GetString("OptionsProxySettingsLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Use proxy に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string OptionsUseProxyText {
+            get {
+                return ResourceManager.GetString("OptionsUseProxyText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Options に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string OptionsWindowTitle {
+            get {
+                return ResourceManager.GetString("OptionsWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Service is temporarily down or unavailable. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ServiceIsTemporaryUnavailable {
+            get {
+                return ResourceManager.GetString("ServiceIsTemporaryUnavailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Please setup your account from &quot;Manage account&quot; before launch app に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ShouldBeSetAccountBeforeLaunch {
+            get {
+                return ResourceManager.GetString("ShouldBeSetAccountBeforeLaunch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   You should check terms of service for game, please read it. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ShouldCheckTermOfService {
+            get {
+                return ResourceManager.GetString("ShouldCheckTermOfService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Unknown status received. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string UnknownStatusReceived {
+            get {
+                return ResourceManager.GetString("UnknownStatusReceived", resourceCulture);
             }
         }
     }

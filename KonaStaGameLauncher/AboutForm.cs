@@ -18,7 +18,7 @@ namespace KonaStaGameLauncher
             label_Authors.Text = Properties.Resources.Authors;
             linkLabel_Support.Text = Properties.Resources.SupportLabelText;
             linkLabel_Support.LinkClicked += LinkLabel_Support_LinkClicked;
-            
+
             button_Ok.Focus();
         }
 

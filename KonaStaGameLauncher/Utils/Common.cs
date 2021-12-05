@@ -58,5 +58,15 @@ namespace KonaStaGameLauncher.Utils
             proc.StartInfo = info;
             proc.Start();
         }
+
+        public static void OpenUrlByDefaultBrowser(string url)
+        {
+            System.Diagnostics.Process.Start(url);
+        }
+
+        public static void OpenUrlByDefaultBrowser(Uri uri)
+        {
+            System.Diagnostics.Process.Start(uri.AbsoluteUri.ToString());
+        }
     }
 }

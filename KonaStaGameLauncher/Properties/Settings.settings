@@ -2,11 +2,41 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="KonaStaGameLauncher.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="appInfoURL" Type="System.String" Scope="Application">
+    <Setting Name="appInfoURL" Type="System.String" Scope="User">
       <Value Profile="(Default)">https://s3.onaws.anon.network/konasta/appinfo.json</Value>
     </Setting>
     <Setting Name="appInfoLocal" Type="System.String" Scope="Application">
       <Value Profile="(Default)">appinfo.json</Value>
+    </Setting>
+    <Setting Name="selector_login_user" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#id_userId</Value>
+    </Setting>
+    <Setting Name="selector_login_pass" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#id_password</Value>
+    </Setting>
+    <Setting Name="selector_login_button" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#login&gt;div&gt;a.link-btn</Value>
+    </Setting>
+    <Setting Name="selector_login_csrf" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#login-form&gt;div.form-area&gt;form&gt;input[type=hidden][name=csrfmiddlewaretoken]</Value>
+    </Setting>
+    <Setting Name="selector_login_form" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#login-form&gt;div.form-area&gt;form</Value>
+    </Setting>
+    <Setting Name="UseProxy" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="LogoutURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://p.eagate.573.jp/gate/p/logout.html</Value>
+    </Setting>
+    <Setting Name="LoginURL" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://p.eagate.573.jp/gate/k/API/common/getloginurl.html</Value>
+    </Setting>
+    <Setting Name="BaseURL" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://p.eagate.573.jp/game/konasteapp/</Value>
+    </Setting>
+    <Setting Name="AuthPageURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://account.konami.net/auth/login</Value>
     </Setting>
   </Settings>
 </SettingsFile>

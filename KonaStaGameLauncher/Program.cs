@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Globalization;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace KonaStaGameLauncher
 {
@@ -23,7 +23,8 @@ namespace KonaStaGameLauncher
             try
             {
                 Properties.Resources.Culture = new CultureInfo(CultureInfo.CurrentUICulture.Name);
-            } catch
+            }
+            catch
             {
                 Properties.Resources.Culture = new CultureInfo("en-US");
             }

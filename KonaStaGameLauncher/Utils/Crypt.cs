@@ -97,7 +97,7 @@ namespace KonaStaGameLauncher.Utils
 
             return result;
         }
-        
+
 
         /// <summary>
         /// 共有キー用に、バイト配列のサイズを変更する
@@ -125,6 +125,6 @@ namespace KonaStaGameLauncher.Utils
             }
             return newBytes;
         }
-        
+
     }
 }

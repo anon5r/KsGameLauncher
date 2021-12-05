@@ -1,9 +1,8 @@
-﻿using System;
+﻿using AdysTech.CredentialManager;
+using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Security;
 using System.Windows.Forms;
-using AdysTech.CredentialManager;
 
 namespace KonaStaGameLauncher
 {
@@ -35,7 +34,7 @@ namespace KonaStaGameLauncher
                 // There are no account registered
                 // Display credential input prompt
                 bool save = true;
-                credential = CredentialManager.PromptForCredentials(CredentialName, ref save, 
+                credential = CredentialManager.PromptForCredentials(CredentialName, ref save,
                     Resources.EnterYourAccountPasswordPrompt, Resources.AppName, "");
                 if (credential != null)
                 {
@@ -54,7 +53,11 @@ namespace KonaStaGameLauncher
                 try
                 {
                     if (CredentialManager.RemoveCredentials(CredentialName))
+                    {
+                        Launcher.Logout();
+                        label_UserAccountID_Value.Text = Resources.NoAccountRegistered;
                         MessageBox.Show(Resources.AccountRemoveSucceeded);
+                    }
                     else
                     {
                         result = MessageBox.Show(Resources.AccountRemoveFailed, Resources.AppName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
@@ -84,7 +87,10 @@ namespace KonaStaGameLauncher
 
             credential = CredentialManager.PromptForCredentials(CredentialName, ref save, Resources.EnterYourAccountPasswordPrompt, Resources.AppName, defaultUserName);
             if (credential != null)
+            {
+                credential.Domain = Properties.Resources.CredentialDomain;
                 CredentialManager.SaveCredentials(CredentialName, credential);
+            }
             if (save)
             {
                 RefreshRegisteredAccounts();

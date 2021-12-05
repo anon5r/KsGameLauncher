@@ -188,6 +188,25 @@ namespace KonaStaGameLauncher.Properties {
         }
         
         /// <summary>
+        ///   AdysTech.CredentialManager (https://github.com/AdysTech/CredentialManager) 
+        ///HtmlAgilityPack (https://github.com/atifaziz/Hazz) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string License {
+            get {
+                return ResourceManager.GetString("License", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   メンテナンス期間 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string MaintenanceCheckString {
+            get {
+                return ResourceManager.GetString("MaintenanceCheckString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Github に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SupportLabelText {

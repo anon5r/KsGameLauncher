@@ -23,12 +23,15 @@ namespace KonaStaGameLauncher.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("https://s3.onaws.anon.network/konasta/appinfo.json")]
         public string appInfoURL {
             get {
                 return ((string)(this["appInfoURL"]));
+            }
+            set {
+                this["appInfoURL"] = value;
             }
         }
         
@@ -38,6 +41,116 @@ namespace KonaStaGameLauncher.Properties {
         public string appInfoLocal {
             get {
                 return ((string)(this["appInfoLocal"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#id_userId")]
+        public string selector_login_user {
+            get {
+                return ((string)(this["selector_login_user"]));
+            }
+            set {
+                this["selector_login_user"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#id_password")]
+        public string selector_login_pass {
+            get {
+                return ((string)(this["selector_login_pass"]));
+            }
+            set {
+                this["selector_login_pass"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#login>div>a.link-btn")]
+        public string selector_login_button {
+            get {
+                return ((string)(this["selector_login_button"]));
+            }
+            set {
+                this["selector_login_button"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#login-form>div.form-area>form>input[type=hidden][name=csrfmiddlewaretoken]")]
+        public string selector_login_csrf {
+            get {
+                return ((string)(this["selector_login_csrf"]));
+            }
+            set {
+                this["selector_login_csrf"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#login-form>div.form-area>form")]
+        public string selector_login_form {
+            get {
+                return ((string)(this["selector_login_form"]));
+            }
+            set {
+                this["selector_login_form"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UseProxy {
+            get {
+                return ((bool)(this["UseProxy"]));
+            }
+            set {
+                this["UseProxy"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://p.eagate.573.jp/gate/p/logout.html")]
+        public string LogoutURL {
+            get {
+                return ((string)(this["LogoutURL"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://p.eagate.573.jp/gate/k/API/common/getloginurl.html")]
+        public string LoginURL {
+            get {
+                return ((string)(this["LoginURL"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://p.eagate.573.jp/game/konasteapp/")]
+        public string BaseURL {
+            get {
+                return ((string)(this["BaseURL"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://account.konami.net/auth/login")]
+        public string AuthPageURL {
+            get {
+                return ((string)(this["AuthPageURL"]));
             }
         }
     }

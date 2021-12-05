@@ -73,8 +73,8 @@
             // 
             // textBox1
             // 
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
             resources.ApplyResources(this.textBox1, "textBox1");
+            this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.ShortcutsEnabled = false;
