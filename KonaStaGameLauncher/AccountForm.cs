@@ -29,6 +29,7 @@ namespace KonaStaGameLauncher
 
         private void AccountForm_Load(object sender, EventArgs e)
         {
+            Text = Resources.AccountManagerForm;
             button_Update.Text = Resources.ButtonUpdate_Register;
             button_Remove.Enabled = false;
             if (!RefreshRegisteredAccounts())
@@ -40,7 +41,7 @@ namespace KonaStaGameLauncher
                     Resources.EnterYourAccountPasswordPrompt, Resources.AppName, "");
                 if (credential != null)
                 {
-                    credential.Domain = Properties.Resources.CredentialDomain;
+                    credential.Domain = Properties.Resources.AuthorizeDomain;
                     CredentialManager.SaveCredentials(CredentialName, credential);
                 }
                 RefreshRegisteredAccounts();
@@ -90,7 +91,7 @@ namespace KonaStaGameLauncher
             credential = CredentialManager.PromptForCredentials(CredentialName, ref save, Resources.EnterYourAccountPasswordPrompt, Resources.AppName, defaultUserName);
             if (credential != null)
             {
-                credential.Domain = Properties.Resources.CredentialDomain;
+                credential.Domain = Properties.Resources.AuthorizeDomain;
                 CredentialManager.SaveCredentials(CredentialName, credential);
             }
             if (save)

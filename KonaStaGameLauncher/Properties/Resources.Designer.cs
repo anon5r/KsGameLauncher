@@ -151,20 +151,20 @@ namespace KonaStaGameLauncher.Properties {
         }
         
         /// <summary>
+        ///   account.konami.net に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string AuthorizeDomain {
+            get {
+                return ResourceManager.GetString("AuthorizeDomain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   anon に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string Authors {
             get {
                 return ResourceManager.GetString("Authors", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   account.konami.net に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string CredentialDomain {
-            get {
-                return ResourceManager.GetString("CredentialDomain", resourceCulture);
             }
         }
         
@@ -198,6 +198,15 @@ namespace KonaStaGameLauncher.Properties {
         }
         
         /// <summary>
+        ///   M573SSID に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string LoginCookieSessionKey {
+            get {
+                return ResourceManager.GetString("LoginCookieSessionKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   メンテナンス期間 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string MaintenanceCheckString {
@@ -221,6 +230,15 @@ namespace KonaStaGameLauncher.Properties {
         internal static string SupportLabelURL {
             get {
                 return ResourceManager.GetString("SupportLabelURL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   /terms_of_service/index.html に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string TosCheckPath {
+            get {
+                return ResourceManager.GetString("TosCheckPath", resourceCulture);
             }
         }
     }

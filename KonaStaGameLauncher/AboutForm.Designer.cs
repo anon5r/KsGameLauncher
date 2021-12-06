@@ -35,7 +35,8 @@
             this.label_Authors = new System.Windows.Forms.Label();
             this.linkLabel_Support = new System.Windows.Forms.LinkLabel();
             this.label_SpecialThanks = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_SpecialThanks = new System.Windows.Forms.TextBox();
+            this.linkLabel_License = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label_Application
@@ -48,7 +49,7 @@
             resources.ApplyResources(this.button_Ok, "button_Ok");
             this.button_Ok.Name = "button_Ok";
             this.button_Ok.UseVisualStyleBackColor = true;
-            this.button_Ok.Click += new System.EventHandler(this.button_Ok_Click);
+            this.button_Ok.Click += new System.EventHandler(this.Button_Ok_Click);
             // 
             // label_Version
             // 
@@ -65,25 +66,34 @@
             resources.ApplyResources(this.linkLabel_Support, "linkLabel_Support");
             this.linkLabel_Support.Name = "linkLabel_Support";
             this.linkLabel_Support.TabStop = true;
+            this.linkLabel_Support.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel_Support_LinkClicked);
             // 
             // label_SpecialThanks
             // 
             resources.ApplyResources(this.label_SpecialThanks, "label_SpecialThanks");
             this.label_SpecialThanks.Name = "label_SpecialThanks";
             // 
-            // textBox1
+            // textBox_SpecialThanks
             // 
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ShortcutsEnabled = false;
-            this.textBox1.TabStop = false;
+            resources.ApplyResources(this.textBox_SpecialThanks, "textBox_SpecialThanks");
+            this.textBox_SpecialThanks.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textBox_SpecialThanks.Name = "textBox_SpecialThanks";
+            this.textBox_SpecialThanks.ReadOnly = true;
+            this.textBox_SpecialThanks.ShortcutsEnabled = false;
+            this.textBox_SpecialThanks.TabStop = false;
+            // 
+            // linkLabel_License
+            // 
+            resources.ApplyResources(this.linkLabel_License, "linkLabel_License");
+            this.linkLabel_License.Name = "linkLabel_License";
+            this.linkLabel_License.TabStop = true;
+            this.linkLabel_License.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel_License_LinkClicked);
             // 
             // AboutForm
             // 
             resources.ApplyResources(this, "$this");
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.linkLabel_License);
+            this.Controls.Add(this.textBox_SpecialThanks);
             this.Controls.Add(this.label_SpecialThanks);
             this.Controls.Add(this.linkLabel_Support);
             this.Controls.Add(this.label_Authors);
@@ -108,6 +118,7 @@
         private System.Windows.Forms.Label label_Authors;
         private System.Windows.Forms.LinkLabel linkLabel_Support;
         private System.Windows.Forms.Label label_SpecialThanks;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_SpecialThanks;
+        private System.Windows.Forms.LinkLabel linkLabel_License;
     }
 }

@@ -24,11 +24,13 @@ namespace KonaStaGameLauncher.Utils
         /// </summary>
         public static void RestartApplicationAtAdministratorAuthority()
         {
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.UseShellExecute = true;
-            startInfo.WorkingDirectory = Environment.CurrentDirectory;
-            startInfo.FileName = Application.ExecutablePath;
-            startInfo.Verb = "runas";
+            ProcessStartInfo startInfo = new ProcessStartInfo
+            {
+                UseShellExecute = true,
+                WorkingDirectory = Environment.CurrentDirectory,
+                FileName = Application.ExecutablePath,
+                Verb = "runas"
+            };
 
             try
             {
@@ -43,19 +45,27 @@ namespace KonaStaGameLauncher.Utils
 
         public static void OpenControlPanel()
         {
-            ProcessStartInfo info = new ProcessStartInfo("rundll32.exe");
-            info.Arguments = "shell32.dll,Control_RunDLL";
-            Process proc = new Process();
-            proc.StartInfo = info;
+            ProcessStartInfo info = new ProcessStartInfo("rundll32.exe")
+            {
+                Arguments = "shell32.dll,Control_RunDLL"
+            };
+            Process proc = new Process
+            {
+                StartInfo = info
+            };
             proc.Start();
         }
 
         public static void OpenControlPanel(string name)
         {
-            ProcessStartInfo info = new ProcessStartInfo("rundll32.exe");
-            info.Arguments = "shell32.dll,Control_RunDLL " + name;
-            Process proc = new Process();
-            proc.StartInfo = info;
+            ProcessStartInfo info = new ProcessStartInfo("rundll32.exe")
+            {
+                Arguments = "shell32.dll,Control_RunDLL " + name
+            };
+            Process proc = new Process
+            {
+                StartInfo = info
+            };
             proc.Start();
         }
 

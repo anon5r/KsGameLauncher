@@ -1,5 +1,10 @@
-﻿using System;
+﻿using AdysTech.CredentialManager;
+using AngleSharp.Html.Dom;
+using AngleSharp.Html.Parser;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -7,26 +12,17 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using AngleSharp.Html.Parser;
-using AngleSharp.Html.Dom;
-using AdysTech.CredentialManager;
-using System.Diagnostics;
 
 namespace KonaStaGameLauncher
 {
 
     internal class Launcher
     {
-        const string TOS_PATH = "/terms_of_service/index.html";
-
-        const string LOGIN_SESSION_KEY = "M573SSID";
-
         internal HttpClient httpClient;
         internal HttpClientHandler httpHandler;
 
         private static Launcher instance;
 
-        static System.Threading.SemaphoreSlim _semaphore = new System.Threading.SemaphoreSlim(1, 1);
 
 
         internal static Launcher Create()
@@ -57,8 +53,10 @@ namespace KonaStaGameLauncher
             {
                 httpHandler.Proxy = WebRequest.GetSystemWebProxy();
             }
-            HttpClient httpClient = new HttpClient(httpHandler);
-            httpClient.Timeout = TimeSpan.FromMilliseconds(10000);
+            HttpClient httpClient = new HttpClient(httpHandler)
+            {
+                Timeout = TimeSpan.FromMilliseconds(10000)
+            };
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
             // User-Agent
@@ -68,7 +66,7 @@ namespace KonaStaGameLauncher
                 Application.ProductName,
                 Application.ProductVersion)
             );
-            httpClient.DefaultRequestHeaders.Add("Accept-Language", "ja-JP");
+            httpClient.DefaultRequestHeaders.Add("Accept-Language", CultureInfo.CurrentUICulture.Name);
 
             // Timeout
             httpClient.Timeout = TimeSpan.FromSeconds(10.0);
@@ -90,7 +88,7 @@ namespace KonaStaGameLauncher
             foreach (Cookie cookie in cookies)
             {
                 Debug.WriteLine(String.Format("Cookie: {0}", cookie.Name));
-                if (cookie.Name == LOGIN_SESSION_KEY)
+                if (cookie.Name == Properties.Resources.LoginCookieSessionKey)
                 {
                     isLogin = true;
                     break;
@@ -188,7 +186,7 @@ namespace KonaStaGameLauncher
                 //string rescontent = await response.Content.ReadAsStringAsync();
                 //Debug.WriteLine(rescontent);
 #endif
-                if (response.RequestMessage.RequestUri.AbsolutePath.Contains(Properties.Settings.Default.AuthPageURL))
+                if (response.RequestMessage.RequestUri.Host.Contains(Properties.Resources.AuthorizeDomain))
                 {
                     throw new LoginException(Resources.IncorrectUsernameOrPassword);
                 }
@@ -254,9 +252,9 @@ namespace KonaStaGameLauncher
                     //}
 #endif
 
-                    if (response.RequestMessage.RequestUri.AbsoluteUri.StartsWith(Properties.Settings.Default.AuthPageURL))
+                    if (response.RequestMessage.RequestUri.Host.Contains(Properties.Resources.AuthorizeDomain))
                     {
-                        MessageBox.Show(string.Format("Failed to launch {0}, because not login", app.Name));
+                        MessageBox.Show(Resources.IncorrectUsernameOrPassword);
                         return;
                     }
 
@@ -285,11 +283,11 @@ namespace KonaStaGameLauncher
 
                     // Page URL check
                     string loadedURL = response.RequestMessage.RequestUri.ToString();
-                    if (loadedURL.StartsWith(Properties.Settings.Default.AuthPageURL))
+                    if (response.RequestMessage.RequestUri.Host.Contains(Properties.Resources.AuthorizeDomain))
                     {
                         throw new LoginException(Resources.LoginSessionHasBeenExpired);
                     }
-                    else if (loadedURL.Contains(TOS_PATH))
+                    else if (loadedURL.Contains(Properties.Resources.TosCheckPath))
                     {
                         throw new GameTermsOfServiceException(Resources.ShouldCheckTermOfService, loadedURL);
                     }

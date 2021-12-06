@@ -12,7 +12,6 @@ namespace KonaStaGameLauncher
 
         private static System.Threading.Mutex _mutex;
 
-        private static MainForm mainForm;
 
         /// <summary>
         /// Main entrypoint of an application
@@ -43,15 +42,17 @@ namespace KonaStaGameLauncher
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            if (Program.isLoaded())
+            if (Program.IsLoaded())
             {
                 MessageBox.Show(Resources.AlreadyRunning, Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
 
 
-            mainForm = new MainForm();
-            mainForm.Icon = Properties.Resources.app48;
+            new MainForm
+            {
+                Icon = Properties.Resources.app48
+            };
             Application.Run();
 
         }
@@ -62,7 +63,7 @@ namespace KonaStaGameLauncher
         /// Does it has been already running
         /// </summary>
         /// <returns>true = Running, false = Not running</returns>
-        private static bool isLoaded()
+        private static bool IsLoaded()
         {
             // Create mutex
             _mutex = new System.Threading.Mutex(false, Application.ProductName);

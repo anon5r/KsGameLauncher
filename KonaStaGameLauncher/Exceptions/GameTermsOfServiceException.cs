@@ -36,9 +36,7 @@ namespace KonaStaGameLauncher
 
         public void SetTosURL(string url)
         {
-            if (url == null)
-                throw new ArgumentNullException("url");
-            TosURL = url;
+            TosURL = url ?? throw new ArgumentNullException("url");
         }
         public void SetTosURL(Uri url)
         {

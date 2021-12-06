@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutThisApp" xml:space="preserve">
+    <value>About this</value>
+  </data>
+  <data name="AccountManagerForm" xml:space="preserve">
+    <value>Account Manager</value>
+  </data>
   <data name="AccountRemoveFailed" xml:space="preserve">
     <value>Failed to remove account information.\nYou can try removing it from "Credential Manager" in Control Panel.\nIf you click "Retry", it will be open the "Credential Manager" window.</value>
   </data>
@@ -232,6 +238,9 @@
   </data>
   <data name="ShouldCheckTermOfService" xml:space="preserve">
     <value>You should check terms of service for game, please check it.</value>
+  </data>
+  <data name="ShowLicense" xml:space="preserve">
+    <value>Show licenses</value>
   </data>
   <data name="StartngLauncher" xml:space="preserve">
     <value>Game has been starting, please wait.</value>

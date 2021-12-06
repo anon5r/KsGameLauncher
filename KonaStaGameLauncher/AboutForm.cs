@@ -13,11 +13,12 @@ namespace KonaStaGameLauncher
 
         private void About_Load(object sender, EventArgs e)
         {
+            Text = Resources.AboutThisApp;
             label_Application.Text = Resources.AppName;
             label_Version.Text = "ver. " + Application.ProductVersion;
             label_Authors.Text = Properties.Resources.Authors;
             linkLabel_Support.Text = Properties.Resources.SupportLabelText;
-            linkLabel_Support.LinkClicked += LinkLabel_Support_LinkClicked;
+            linkLabel_License.Text = Resources.ShowLicense;
 
             button_Ok.Focus();
         }
@@ -27,6 +28,11 @@ namespace KonaStaGameLauncher
             System.Diagnostics.Process.Start(Properties.Resources.SupportLabelURL);
         }
 
-        private void button_Ok_Click(object sender, EventArgs e) => Close();
+        private void Button_Ok_Click(object sender, EventArgs e) => Close();
+
+        private void LinkLabel_License_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            (new LicensesForm()).Show(this);
+        }
     }
 }

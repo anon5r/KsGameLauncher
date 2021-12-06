@@ -129,7 +129,7 @@
     <value>12, 26</value>
   </data>
   <data name="label_Application.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 18</value>
+    <value>107, 12</value>
   </data>
   <data name="label_Application.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -147,14 +147,14 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label_Application.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="button_Ok.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
   </data>
   <data name="button_Ok.Location" type="System.Drawing.Point, System.Drawing">
-    <value>124, 325</value>
+    <value>84, 232</value>
   </data>
   <data name="button_Ok.Size" type="System.Drawing.Size, System.Drawing">
     <value>123, 32</value>
@@ -175,7 +175,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_Ok.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="label_Version.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -184,7 +184,7 @@
     <value>12, 57</value>
   </data>
   <data name="label_Version.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 18</value>
+    <value>72, 12</value>
   </data>
   <data name="label_Version.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -202,16 +202,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label_Version.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="label_Authors.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label_Authors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 92</value>
+    <value>12, 82</value>
   </data>
   <data name="label_Authors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 18</value>
+    <value>73, 12</value>
   </data>
   <data name="label_Authors.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -229,16 +229,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label_Authors.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="linkLabel_Support.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="linkLabel_Support.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 128</value>
+    <value>12, 104</value>
   </data>
   <data name="linkLabel_Support.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 18</value>
+    <value>93, 12</value>
   </data>
   <data name="linkLabel_Support.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -256,16 +256,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;linkLabel_Support.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="label_SpecialThanks.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label_SpecialThanks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 159</value>
+    <value>12, 163</value>
   </data>
   <data name="label_SpecialThanks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 18</value>
+    <value>85, 12</value>
   </data>
   <data name="label_SpecialThanks.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -283,49 +283,76 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label_SpecialThanks.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
-  <data name="textBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="textBox_SpecialThanks.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="textBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="textBox_SpecialThanks.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 186</value>
+  <data name="textBox_SpecialThanks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 178</value>
   </data>
-  <data name="textBox1.Multiline" type="System.Boolean, mscorlib">
+  <data name="textBox_SpecialThanks.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="textBox1.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+  <data name="textBox_SpecialThanks.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
     <value>Vertical</value>
   </data>
-  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>349, 133</value>
+  <data name="textBox_SpecialThanks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>265, 48</value>
   </data>
-  <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="textBox_SpecialThanks.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="textBox1.Text" xml:space="preserve">
-    <value>KONAMI Digital Entertainment</value>
+  <data name="textBox_SpecialThanks.Text" xml:space="preserve">
+    <value>KONAMI Amusement</value>
   </data>
-  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
-    <value>textBox1</value>
+  <data name="&gt;&gt;textBox_SpecialThanks.Name" xml:space="preserve">
+    <value>textBox_SpecialThanks</value>
   </data>
-  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;textBox_SpecialThanks.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;textBox_SpecialThanks.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;textBox_SpecialThanks.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="linkLabel_License.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="linkLabel_License.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 134</value>
+  </data>
+  <data name="linkLabel_License.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 12</value>
+  </data>
+  <data name="linkLabel_License.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="linkLabel_License.Text" xml:space="preserve">
+    <value>Show licenses</value>
+  </data>
+  <data name="&gt;&gt;linkLabel_License.Name" xml:space="preserve">
+    <value>linkLabel_License</value>
+  </data>
+  <data name="&gt;&gt;linkLabel_License.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;linkLabel_License.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;linkLabel_License.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>375, 369</value>
+    <value>291, 276</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

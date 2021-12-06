@@ -61,6 +61,24 @@ namespace KonaStaGameLauncher {
         }
         
         /// <summary>
+        ///   About this に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string AboutThisApp {
+            get {
+                return ResourceManager.GetString("AboutThisApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Account Manager に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string AccountManagerForm {
+            get {
+                return ResourceManager.GetString("AccountManagerForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Failed to remove account information.\nYou can try removing it from &quot;Credential Manager&quot; in Control Panel.\nIf you click &quot;Retry&quot;, it will be open the &quot;Credential Manager&quot; window. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string AccountRemoveFailed {
@@ -372,6 +390,15 @@ namespace KonaStaGameLauncher {
         internal static string ShouldCheckTermOfService {
             get {
                 return ResourceManager.GetString("ShouldCheckTermOfService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Show licenses に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ShowLicense {
+            get {
+                return ResourceManager.GetString("ShowLicense", resourceCulture);
             }
         }
         

@@ -6,7 +6,6 @@ using System.Security.Permissions;
 using System.Windows.Forms;
 using System.Text.Json;
 using System.Threading.Tasks;
-using System.Net.Http;
 
 #if DEBUG
 using System.Diagnostics;
@@ -36,7 +35,7 @@ namespace KonaStaGameLauncher
             {
                 const int CP_NOCLOSE_BUTTON = 0x200;
                 CreateParams cp = base.CreateParams;
-                cp.ClassStyle = cp.ClassStyle | CP_NOCLOSE_BUTTON;
+                cp.ClassStyle |= CP_NOCLOSE_BUTTON;
                 return cp;
             }
         }
@@ -259,8 +258,10 @@ namespace KonaStaGameLauncher
 
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AboutForm aboutForm = new AboutForm();
-            aboutForm.ShowInTaskbar = false;
+            AboutForm aboutForm = new AboutForm
+            {
+                ShowInTaskbar = false
+            };
             aboutForm.ShowDialog();
 
         }
