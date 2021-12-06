@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KonaStaGameLauncher.Properties {
+namespace KsGameLauncher.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace KonaStaGameLauncher.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("KonaStaGameLauncher.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("KsGameLauncher.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -169,7 +169,7 @@ namespace KonaStaGameLauncher.Properties {
         }
         
         /// <summary>
-        ///   KonaSta Launcher に類似しているローカライズされた文字列を検索します。
+        ///   Ks Game Launcher に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string CredentialTarget {
             get {
@@ -189,6 +189,7 @@ namespace KonaStaGameLauncher.Properties {
         
         /// <summary>
         ///   AdysTech.CredentialManager (https://github.com/AdysTech/CredentialManager) 
+        ///
         ///HtmlAgilityPack (https://github.com/atifaziz/Hazz) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string License {
@@ -225,7 +226,7 @@ namespace KonaStaGameLauncher.Properties {
         }
         
         /// <summary>
-        ///   https://github.com/anon5r/KonaStaGameLauncher に類似しているローカライズされた文字列を検索します。
+        ///   https://github.com/anon5r/KsGameLauncher に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SupportLabelURL {
             get {

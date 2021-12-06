@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace KonaStaGameLauncher
+namespace KsGameLauncher
 {
     public partial class LicensesForm : Form
     {

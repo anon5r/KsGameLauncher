@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KonaStaGameLauncher {
+namespace KsGameLauncher {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace KonaStaGameLauncher {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("KonaStaGameLauncher.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("KsGameLauncher.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -106,7 +106,7 @@ namespace KonaStaGameLauncher {
         }
         
         /// <summary>
-        ///   KonaSta Game Launcher に類似しているローカライズされた文字列を検索します。
+        ///   Ks Game Launcher に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string AppName {
             get {

@@ -4,7 +4,7 @@ using System.Linq;
 #if DEBUG
 #endif
 
-namespace KonaStaGameLauncher.Utils
+namespace KsGameLauncher.Utils
 {
     internal class GameRegistry
     {

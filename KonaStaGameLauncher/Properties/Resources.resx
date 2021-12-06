@@ -152,13 +152,14 @@
     <value>anon</value>
   </data>
   <data name="CredentialTarget" xml:space="preserve">
-    <value>KonaSta Launcher</value>
+    <value>Ks Game Launcher</value>
   </data>
   <data name="ealogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icons\ealogo.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="License" xml:space="preserve">
     <value>AdysTech.CredentialManager (https://github.com/AdysTech/CredentialManager) 
+
 HtmlAgilityPack (https://github.com/atifaziz/Hazz)</value>
   </data>
   <data name="LoginCookieSessionKey" xml:space="preserve">
@@ -171,7 +172,7 @@ HtmlAgilityPack (https://github.com/atifaziz/Hazz)</value>
     <value>Github</value>
   </data>
   <data name="SupportLabelURL" xml:space="preserve">
-    <value>https://github.com/anon5r/KonaStaGameLauncher</value>
+    <value>https://github.com/anon5r/KsGameLauncher</value>
   </data>
   <data name="TosCheckPath" xml:space="preserve">
     <value>/terms_of_service/index.html</value>

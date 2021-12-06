@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace KonaStaGameLauncher
+namespace KsGameLauncher
 {
     [Serializable]
     internal class LauncherException : Exception

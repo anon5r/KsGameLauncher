@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace KonaStaGameLauncher.Utils
+namespace KsGameLauncher.Utils
 {
     /// <summary>
     /// Crypts library

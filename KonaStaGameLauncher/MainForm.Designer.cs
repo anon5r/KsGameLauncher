@@ -1,4 +1,4 @@
-﻿namespace KonaStaGameLauncher
+﻿namespace KsGameLauncher
 {
     partial class MainForm
     {

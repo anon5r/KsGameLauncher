@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Windows.Forms;
 
-namespace KonaStaGameLauncher
+namespace KsGameLauncher
 {
     public partial class AccountForm : Form
     {

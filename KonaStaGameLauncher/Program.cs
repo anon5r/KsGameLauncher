@@ -5,7 +5,7 @@ using System.Windows.Forms;
 #if DEBUG
 using System.Diagnostics;
 #endif
-namespace KonaStaGameLauncher
+namespace KsGameLauncher
 {
     internal static class Program
     {

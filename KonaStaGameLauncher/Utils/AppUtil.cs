@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 #endif
 
-namespace KonaStaGameLauncher.Utils
+namespace KsGameLauncher.Utils
 {
     internal class AppUtil
     {

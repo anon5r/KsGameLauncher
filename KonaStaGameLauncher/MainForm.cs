@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 #endif
 
-namespace KonaStaGameLauncher
+namespace KsGameLauncher
 {
     public partial class MainForm : Form
     {
