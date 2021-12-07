@@ -189,6 +189,12 @@
   <data name="GroupBoxAccountInfo" xml:space="preserve">
     <value>Registered account</value>
   </data>
+  <data name="IconBalloonMessage_Launching" xml:space="preserve">
+    <value>Launching {0}...</value>
+  </data>
+  <data name="IconBalloonMessage_WhileLogin" xml:space="preserve">
+    <value>Login process...</value>
+  </data>
   <data name="IncorrectUsernameOrPassword" xml:space="preserve">
     <value>Incorrect username or password</value>
     <comment>Dialog error message</comment>

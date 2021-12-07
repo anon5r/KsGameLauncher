@@ -268,6 +268,24 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   Launching {0}... に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string IconBalloonMessage_Launching {
+            get {
+                return ResourceManager.GetString("IconBalloonMessage_Launching", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Login process... に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string IconBalloonMessage_WhileLogin {
+            get {
+                return ResourceManager.GetString("IconBalloonMessage_WhileLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Incorrect username or password に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string IncorrectUsernameOrPassword {

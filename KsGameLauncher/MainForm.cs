@@ -16,7 +16,7 @@ namespace KsGameLauncher
     public partial class MainForm : Form
     {
 
-        private NotifyIcon notifyIcon;
+        private static NotifyIcon notifyIcon;
 
         private bool _launcherMutex = false;
 
@@ -50,9 +50,10 @@ namespace KsGameLauncher
 
 
             // Hide from taskbar
-            this.CreateNotificationIcon();
-            this.ShowInTaskbar = false;
-            this.WindowState = FormWindowState.Minimized;
+            CreateNotificationIcon();
+            ShowInTaskbar = false;
+            WindowState = FormWindowState.Minimized;
+            contextMenuStrip_Sub.AutoClose = true;
 
         }
 
@@ -63,14 +64,24 @@ namespace KsGameLauncher
             notifyIcon.Dispose();
         }
 
-        async private void CreateNotificationIcon()
+        private static NotifyIcon CreateNotifyIcon()
         {
-            notifyIcon = new NotifyIcon
+            NotifyIcon notify = new NotifyIcon
             {
                 Icon = Properties.Resources.app,
                 Text = Resources.AppName,
-                Visible = true
+                Visible = true,
+                BalloonTipTitle = Resources.AppName,
             };
+
+            return notify;
+        }
+
+
+
+        async private void CreateNotificationIcon()
+        {
+            notifyIcon = CreateNotifyIcon();
 
             notifyIcon.MouseClick += NotifyIcon_MouseClick;
 
@@ -142,7 +153,10 @@ namespace KsGameLauncher
 
         private ContextMenuStrip InitializeGameList(string json)
         {
-            ContextMenuStrip menu = new ContextMenuStrip();
+            ContextMenuStrip menu = new ContextMenuStrip
+            {
+                AutoClose = true
+            };
             menu.Items.Clear();
 
 
@@ -274,6 +288,15 @@ namespace KsGameLauncher
         private void OptionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             (new OptionsForm()).Show();
+        }
+
+        public static void DisplayToolTip(string message, int timeout)
+        {
+            if (notifyIcon == null)
+                notifyIcon = CreateNotifyIcon();
+
+            notifyIcon.BalloonTipText = message;
+            notifyIcon.ShowBalloonTip(timeout);
         }
     }
 }

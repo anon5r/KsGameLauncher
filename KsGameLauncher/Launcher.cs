@@ -80,8 +80,10 @@ namespace KsGameLauncher
         internal bool IsLogin()
         {
             if (httpClient == null || httpHandler == null)
+            {
+                httpClient = CreateHttp();
                 return false;
-
+            }
 
             bool isLogin = false;
             CookieCollection cookies = httpHandler.CookieContainer.GetCookies(new Uri(Properties.Settings.Default.BaseURL));
@@ -208,6 +210,7 @@ namespace KsGameLauncher
             {
                 if (!IsLogin())
                 {
+                    MainForm.DisplayToolTip(Resources.IconBalloonMessage_WhileLogin, 5000);
                     try
                     {
                         // Try to login
@@ -237,6 +240,7 @@ namespace KsGameLauncher
 #if DEBUG
                 Debug.WriteLine(String.Format("Open launcher URL:  {0}", app.Launch.URL));
 #endif
+                MainForm.DisplayToolTip(String.Format(Resources.IconBalloonMessage_Launching, app.Name), 3000);
                 using (HttpResponseMessage response = await httpClient.GetAsync(app.Launch.GetUri()))
                 {
                     response.EnsureSuccessStatusCode();
@@ -432,9 +436,15 @@ namespace KsGameLauncher
         /// <summary>
         /// Logout current session
         /// </summary>
-        public static void Logout()
+        async public static Task<HttpResponseMessage> Logout()
         {
-            Create().httpClient.GetAsync(Properties.Settings.Default.LogoutURL).Wait();
+            Launcher instance = Create();
+            HttpResponseMessage response = await instance.httpClient.GetAsync(Properties.Settings.Default.LogoutURL);
+            response.EnsureSuccessStatusCode();
+
+            instance.httpClient = null;
+
+            return response;
         }
     }
 }

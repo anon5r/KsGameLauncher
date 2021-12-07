@@ -48,7 +48,7 @@ namespace KsGameLauncher
             }
         }
 
-        private void Button_Remove_Click(object sender, EventArgs e)
+        async private void Button_Remove_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(Resources.ConfirmToRemoveAccountFromList, Resources.ConfirmToRemove, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
@@ -57,8 +57,8 @@ namespace KsGameLauncher
                 {
                     if (CredentialManager.RemoveCredentials(CredentialName))
                     {
+                        await Launcher.Logout();
                         RefreshRegisteredAccounts();
-                        Launcher.Logout();
                         MessageBox.Show(Resources.AccountRemoveSucceeded);
                     }
                     else

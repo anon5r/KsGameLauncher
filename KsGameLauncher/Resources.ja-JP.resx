@@ -184,6 +184,12 @@
   <data name="GroupBoxAccountInfo" xml:space="preserve">
     <value>登録済みアカウント情報</value>
   </data>
+  <data name="IconBalloonMessage_Launching" xml:space="preserve">
+    <value>{0} を起動中...</value>
+  </data>
+  <data name="IconBalloonMessage_WhileLogin" xml:space="preserve">
+    <value>ログイン処理中...</value>
+  </data>
   <data name="IncorrectUsernameOrPassword" xml:space="preserve">
     <value>アカウントIDまたはパスワードが異なります</value>
     <comment>Dialog error message</comment>
