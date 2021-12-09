@@ -358,6 +358,15 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   Display notification に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string OptionsDisplayNotification {
+            get {
+                return ResourceManager.GetString("OptionsDisplayNotification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Open proxy settings に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string OptionsProxySettingsLink {

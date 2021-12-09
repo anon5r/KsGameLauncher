@@ -8,9 +8,14 @@ namespace KsGameLauncher
         public OptionsForm()
         {
             InitializeComponent();
+            // Default values
             checkBox_UseProxy.Checked = Properties.Settings.Default.UseProxy;
+            checkBox_Notification.Checked = Properties.Settings.Default.EnableNotification;
+
+            // String
             Text = Resources.OptionsWindowTitle;
             checkBox_UseProxy.Text = Resources.OptionsUseProxyText;
+            checkBox_Notification.Text = Resources.OptionsDisplayNotification;
             linkLabel_OpenProxySettings.Text = Resources.OptionsProxySettingsLink;
             button_Save.Text = Resources.ButtonSave;
         }
@@ -20,16 +25,15 @@ namespace KsGameLauncher
             Utils.Common.OpenControlPanel("inetcpl.cpl,,4");
         }
 
-        private void CheckBox_UseProxy_CheckedChanged(object sender, EventArgs e)
-        {
-        }
 
         private void Button_Save_Click(object sender, EventArgs e)
         {
-            // Save using proxy
+            // Save settings
             Properties.Settings.Default.UseProxy = checkBox_UseProxy.Checked;
+            Properties.Settings.Default.EnableNotification = checkBox_Notification.Checked;
             Properties.Settings.Default.Save();
             Close();
         }
+
     }
 }

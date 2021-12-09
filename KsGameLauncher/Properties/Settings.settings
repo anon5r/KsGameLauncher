@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="KonaStaGameLauncher.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="KsGameLauncher.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="appInfoURL" Type="System.String" Scope="User">
@@ -37,6 +37,9 @@
     </Setting>
     <Setting Name="AuthPageURL" Type="System.String" Scope="Application">
       <Value Profile="(Default)">https://account.konami.net/auth/login</Value>
+    </Setting>
+    <Setting Name="EnableNotification" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

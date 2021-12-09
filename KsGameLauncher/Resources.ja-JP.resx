@@ -219,6 +219,9 @@
   <data name="NoInstalledGames" xml:space="preserve">
     <value>インストール済みゲームがありません</value>
   </data>
+  <data name="OptionsDisplayNotification" xml:space="preserve">
+    <value>通知を表示</value>
+  </data>
   <data name="OptionsProxySettingsLink" xml:space="preserve">
     <value>プロキシ設定を開く</value>
     <comment>Open link label for proxy settings in options screen</comment>

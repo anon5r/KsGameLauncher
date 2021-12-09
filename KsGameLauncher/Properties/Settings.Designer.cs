@@ -153,5 +153,17 @@ namespace KsGameLauncher.Properties {
                 return ((string)(this["AuthPageURL"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EnableNotification {
+            get {
+                return ((bool)(this["EnableNotification"]));
+            }
+            set {
+                this["EnableNotification"] = value;
+            }
+        }
     }
 }

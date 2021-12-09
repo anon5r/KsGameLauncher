@@ -292,11 +292,14 @@ namespace KsGameLauncher
 
         public static void DisplayToolTip(string message, int timeout)
         {
-            if (notifyIcon == null)
-                notifyIcon = CreateNotifyIcon();
+            if (Properties.Settings.Default.EnableNotification)
+            {
+                if (notifyIcon == null)
+                    notifyIcon = CreateNotifyIcon();
 
-            notifyIcon.BalloonTipText = message;
-            notifyIcon.ShowBalloonTip(timeout);
+                notifyIcon.BalloonTipText = message;
+                notifyIcon.ShowBalloonTip(timeout);
+            }
         }
     }
 }

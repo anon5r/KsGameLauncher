@@ -120,6 +120,11 @@ namespace KsGameLauncher
 
         public async Task<bool> Login(NetworkCredential credential, Uri loginURL)
         {
+            if (Properties.Settings.Default.EnableNotification)
+            {
+                MainForm.DisplayToolTip(Resources.IconBalloonMessage_WhileLogin, 5000);
+            }
+
             httpClient.CancelPendingRequests();
             Debug.WriteLine(String.Format("Start login to: {0}", loginURL.ToString()));
 
@@ -210,7 +215,6 @@ namespace KsGameLauncher
             {
                 if (!IsLogin())
                 {
-                    MainForm.DisplayToolTip(Resources.IconBalloonMessage_WhileLogin, 5000);
                     try
                     {
                         // Try to login
@@ -240,7 +244,10 @@ namespace KsGameLauncher
 #if DEBUG
                 Debug.WriteLine(String.Format("Open launcher URL:  {0}", app.Launch.URL));
 #endif
-                MainForm.DisplayToolTip(String.Format(Resources.IconBalloonMessage_Launching, app.Name), 3000);
+                if (Properties.Settings.Default.EnableNotification)
+                {
+                    MainForm.DisplayToolTip(String.Format(Resources.IconBalloonMessage_Launching, app.Name), 3000);
+                }
                 using (HttpResponseMessage response = await httpClient.GetAsync(app.Launch.GetUri()))
                 {
                     response.EnsureSuccessStatusCode();

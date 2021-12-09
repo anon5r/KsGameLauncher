@@ -225,6 +225,9 @@
     <value>No installed games</value>
     <comment>DIalog error message</comment>
   </data>
+  <data name="OptionsDisplayNotification" xml:space="preserve">
+    <value>Display notification</value>
+  </data>
   <data name="OptionsProxySettingsLink" xml:space="preserve">
     <value>Open proxy settings</value>
     <comment>Open link label for proxy settings in options screen</comment>
