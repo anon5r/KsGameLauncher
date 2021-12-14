@@ -105,12 +105,14 @@ namespace KsGameLauncher
             {
                 case MouseButtons.Right:
                     {
+                        // Display sub menu
                         contextMenuStrip_Sub.Show(this, PointToClient(Cursor.Position));
                     }
                     break;
 
                 case MouseButtons.Left:
                     {
+                        // Display main menu (games)
                         menuStripMain.Show(this, PointToClient(Cursor.Position));
                     }
                     break;
@@ -256,19 +258,30 @@ namespace KsGameLauncher
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(Resources.ConfirmToExit, Resources.AppName,
+            if (!Properties.Settings.Default.ShowConfirmExit)
+            {
+                ExitingProcess();
+                return;
+            }
+
+            DialogResult result = MessageBox.Show(Resources.ConfirmExitDialogMessage, Resources.AppName,
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
                 MessageBoxDefaultButton.Button2, MessageBoxOptions.DefaultDesktopOnly);
 
             if (result == DialogResult.OK)
             {
-                notifyIcon.Visible = false;
-                notifyIcon.Dispose();
-                Properties.Settings.Default.Save();
-                Application.Exit();
+                ExitingProcess();
             }
-
         }
+
+        private void ExitingProcess()
+        {
+            notifyIcon.Visible = false;
+            notifyIcon.Dispose();
+            Properties.Settings.Default.Save();
+            Application.Exit();
+        }
+
 
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -276,18 +289,18 @@ namespace KsGameLauncher
             {
                 ShowInTaskbar = false
             };
-            aboutForm.ShowDialog();
+            aboutForm.ShowDialog(this);
 
         }
 
         private void ManageAccountsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            (new AccountForm()).Show();
+            (new AccountForm()).Show(this);
         }
 
         private void OptionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            (new OptionsForm()).Show();
+            (new OptionsForm()).ShowDialog(this);
         }
 
         public static void DisplayToolTip(string message, int timeout)

@@ -122,7 +122,7 @@ namespace KsGameLauncher
         {
             if (Properties.Settings.Default.EnableNotification)
             {
-                MainForm.DisplayToolTip(Resources.IconBalloonMessage_WhileLogin, 5000);
+                MainForm.DisplayToolTip(Resources.IconBalloonMessage_WhileLogin, Properties.Settings.Default.NotificationTimeout);
             }
 
             httpClient.CancelPendingRequests();
@@ -246,22 +246,12 @@ namespace KsGameLauncher
 #endif
                 if (Properties.Settings.Default.EnableNotification)
                 {
-                    MainForm.DisplayToolTip(String.Format(Resources.IconBalloonMessage_Launching, app.Name), 3000);
+                    MainForm.DisplayToolTip(String.Format(Resources.IconBalloonMessage_Launching, app.Name), Properties.Settings.Default.NotificationTimeout);
                 }
                 using (HttpResponseMessage response = await httpClient.GetAsync(app.Launch.GetUri()))
                 {
                     response.EnsureSuccessStatusCode();
-#if DEBUG
-                    //Debug.WriteLine(response.Headers.ToString());
-                    //Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-                    //Encoding encode = Encoding.GetEncoding("Windows-31J");
-                    //using (Stream stream = await response.Content.ReadAsStreamAsync())
-                    //using (TextReader reader = (new StreamReader(stream, encode, true)) as TextReader)
-                    //{
-                    //    string body = await reader.ReadToEndAsync();
-                    //    Debug.WriteLine(String.Format("Response body ====== {0}", body));
-                    //}
-#endif
+
 
                     if (response.RequestMessage.RequestUri.Host.Contains(Properties.Resources.AuthorizeDomain))
                     {

@@ -118,44 +118,26 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="alert_y" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\icons\alert-y.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="app" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icons\app.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="app1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icons\app.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="app128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\icons\app128.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="app16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\icons\app16.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="app24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\icons\app24.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="app32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\icons\app32.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="app48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\icons\app48.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="app64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\icons\app64.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AppIconDesigner" xml:space="preserve">
+    <value>anon</value>
   </data>
   <data name="AuthorizeDomain" xml:space="preserve">
     <value>account.konami.net</value>
   </data>
-  <data name="Authors" xml:space="preserve">
-    <value>anon</value>
-  </data>
   <data name="CredentialTarget" xml:space="preserve">
     <value>Ks Game Launcher</value>
   </data>
-  <data name="ealogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\icons\ealogo.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="default_game_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\default-game-icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Developers" xml:space="preserve">
+    <value>anon</value>
   </data>
   <data name="License" xml:space="preserve">
     <value>AdysTech.CredentialManager (https://github.com/AdysTech/CredentialManager) 
@@ -167,6 +149,10 @@ HtmlAgilityPack (https://github.com/atifaziz/Hazz)</value>
   </data>
   <data name="MaintenanceCheckString" xml:space="preserve">
     <value>メンテナンス期間</value>
+  </data>
+  <data name="SpecialThanks" xml:space="preserve">
+    <value>KONAMI Amusement Inc.
+flaticon ( https://www.flaticon.com )</value>
   </data>
   <data name="SupportLabelText" xml:space="preserve">
     <value>Github</value>

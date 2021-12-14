@@ -63,16 +63,6 @@ namespace KsGameLauncher.Properties {
         /// <summary>
         ///   (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
         /// </summary>
-        internal static System.Drawing.Icon alert_y {
-            get {
-                object obj = ResourceManager.GetObject("alert_y", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
-        /// </summary>
         internal static System.Drawing.Icon app {
             get {
                 object obj = ResourceManager.GetObject("app", resourceCulture);
@@ -91,62 +81,11 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
-        ///   (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
+        ///   anon に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static System.Drawing.Icon app128 {
+        internal static string AppIconDesigner {
             get {
-                object obj = ResourceManager.GetObject("app128", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
-        /// </summary>
-        internal static System.Drawing.Icon app16 {
-            get {
-                object obj = ResourceManager.GetObject("app16", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
-        /// </summary>
-        internal static System.Drawing.Icon app24 {
-            get {
-                object obj = ResourceManager.GetObject("app24", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
-        /// </summary>
-        internal static System.Drawing.Icon app32 {
-            get {
-                object obj = ResourceManager.GetObject("app32", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
-        /// </summary>
-        internal static System.Drawing.Icon app48 {
-            get {
-                object obj = ResourceManager.GetObject("app48", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
-        /// </summary>
-        internal static System.Drawing.Icon app64 {
-            get {
-                object obj = ResourceManager.GetObject("app64", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                return ResourceManager.GetString("AppIconDesigner", resourceCulture);
             }
         }
         
@@ -156,15 +95,6 @@ namespace KsGameLauncher.Properties {
         internal static string AuthorizeDomain {
             get {
                 return ResourceManager.GetString("AuthorizeDomain", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   anon に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string Authors {
-            get {
-                return ResourceManager.GetString("Authors", resourceCulture);
             }
         }
         
@@ -180,10 +110,19 @@ namespace KsGameLauncher.Properties {
         /// <summary>
         ///   (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
         /// </summary>
-        internal static System.Drawing.Icon ealogo {
+        internal static System.Drawing.Icon default_game_icon {
             get {
-                object obj = ResourceManager.GetObject("ealogo", resourceCulture);
+                object obj = ResourceManager.GetObject("default_game_icon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   anon に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Developers {
+            get {
+                return ResourceManager.GetString("Developers", resourceCulture);
             }
         }
         
@@ -213,6 +152,16 @@ namespace KsGameLauncher.Properties {
         internal static string MaintenanceCheckString {
             get {
                 return ResourceManager.GetString("MaintenanceCheckString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   KONAMI Amusement Inc.
+        ///flaticon ( https://www.flaticon.com ) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SpecialThanks {
+            get {
+                return ResourceManager.GetString("SpecialThanks", resourceCulture);
             }
         }
         

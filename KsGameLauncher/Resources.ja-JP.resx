@@ -156,7 +156,7 @@
   <data name="CheckFollowingPage" xml:space="preserve">
     <value>ページを確認してください (ブラウザが開きます)</value>
   </data>
-  <data name="ConfirmToExit" xml:space="preserve">
+  <data name="ConfirmExitDialogMessage" xml:space="preserve">
     <value>本当に終了しますか？</value>
   </data>
   <data name="ConfirmToRemove" xml:space="preserve">
@@ -197,6 +197,12 @@
   <data name="LabelAccountID" xml:space="preserve">
     <value>アカウントID</value>
   </data>
+  <data name="LabelDeveloper" xml:space="preserve">
+    <value>開発者</value>
+  </data>
+  <data name="LabelIconDesigner" xml:space="preserve">
+    <value>アイコンデザイン</value>
+  </data>
   <data name="LauncherExceptionDialogName" xml:space="preserve">
     <value>起動エラー</value>
     <comment>Dialog title bar</comment>
@@ -204,6 +210,9 @@
   <data name="LauncherURLCannotBeUsed" xml:space="preserve">
     <value>ランチャーURLが変更されたか、一時的に利用できなくなっています。</value>
     <comment>Launcher URL could not be found, or denied</comment>
+  </data>
+  <data name="LicenseWindowTitle" xml:space="preserve">
+    <value>ライセンス</value>
   </data>
   <data name="LoginExceptionDialogName" xml:space="preserve">
     <value>ログインエラー</value>
@@ -241,6 +250,9 @@
   </data>
   <data name="ShouldCheckTermOfService" xml:space="preserve">
     <value>起動前に利用規約を確認してください。</value>
+  </data>
+  <data name="ShowConfirmExit" xml:space="preserve">
+    <value>終了時に確認する</value>
   </data>
   <data name="ShowLicense" xml:space="preserve">
     <value>ライセンスを表示</value>

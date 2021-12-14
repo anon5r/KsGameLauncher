@@ -165,5 +165,29 @@ namespace KsGameLauncher.Properties {
                 this["EnableNotification"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public int NotificationTimeout {
+            get {
+                return ((int)(this["NotificationTimeout"]));
+            }
+            set {
+                this["NotificationTimeout"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowConfirmExit {
+            get {
+                return ((bool)(this["ShowConfirmExit"]));
+            }
+            set {
+                this["ShowConfirmExit"] = value;
+            }
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace KsGameLauncher
                 }
                 catch
                 {
-                    _icon = Properties.Resources.ealogo;
+                    _icon = Properties.Resources.default_game_icon;
                 }
             }
             return _icon;

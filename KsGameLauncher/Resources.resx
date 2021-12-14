@@ -158,7 +158,7 @@
   <data name="CheckFollowingPage" xml:space="preserve">
     <value>Please check following page. (will open the web browser)</value>
   </data>
-  <data name="ConfirmToExit" xml:space="preserve">
+  <data name="ConfirmExitDialogMessage" xml:space="preserve">
     <value>Are you sure you want to exit ?</value>
   </data>
   <data name="ConfirmToRemove" xml:space="preserve">
@@ -202,6 +202,12 @@
   <data name="LabelAccountID" xml:space="preserve">
     <value>Account ID</value>
   </data>
+  <data name="LabelDeveloper" xml:space="preserve">
+    <value>Developer</value>
+  </data>
+  <data name="LabelIconDesigner" xml:space="preserve">
+    <value>Icon desiner</value>
+  </data>
   <data name="LauncherExceptionDialogName" xml:space="preserve">
     <value>Starting error</value>
     <comment>Dialog title bar</comment>
@@ -209,6 +215,9 @@
   <data name="LauncherURLCannotBeUsed" xml:space="preserve">
     <value>Launcher URL has changed or is temporarily unavailable.</value>
     <comment>Launcher URL could not be found, or denied</comment>
+  </data>
+  <data name="LicenseWindowTitle" xml:space="preserve">
+    <value>Licenses</value>
   </data>
   <data name="LoginExceptionDialogName" xml:space="preserve">
     <value>Login error</value>
@@ -247,6 +256,9 @@
   </data>
   <data name="ShouldCheckTermOfService" xml:space="preserve">
     <value>You should check terms of service for game, please check it.</value>
+  </data>
+  <data name="ShowConfirmExit" xml:space="preserve">
+    <value>Show confirm exit</value>
   </data>
   <data name="ShowLicense" xml:space="preserve">
     <value>Show licenses</value>

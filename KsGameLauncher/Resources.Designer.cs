@@ -180,9 +180,9 @@ namespace KsGameLauncher {
         /// <summary>
         ///   Are you sure you want to exit ? に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string ConfirmToExit {
+        internal static string ConfirmExitDialogMessage {
             get {
-                return ResourceManager.GetString("ConfirmToExit", resourceCulture);
+                return ResourceManager.GetString("ConfirmExitDialogMessage", resourceCulture);
             }
         }
         
@@ -304,6 +304,24 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   Developer に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string LabelDeveloper {
+            get {
+                return ResourceManager.GetString("LabelDeveloper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Icon desiner に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string LabelIconDesigner {
+            get {
+                return ResourceManager.GetString("LabelIconDesigner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Starting error に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string LauncherExceptionDialogName {
@@ -318,6 +336,15 @@ namespace KsGameLauncher {
         internal static string LauncherURLCannotBeUsed {
             get {
                 return ResourceManager.GetString("LauncherURLCannotBeUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Licenses に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string LicenseWindowTitle {
+            get {
+                return ResourceManager.GetString("LicenseWindowTitle", resourceCulture);
             }
         }
         
@@ -417,6 +444,15 @@ namespace KsGameLauncher {
         internal static string ShouldCheckTermOfService {
             get {
                 return ResourceManager.GetString("ShouldCheckTermOfService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Show confirm exit に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ShowConfirmExit {
+            get {
+                return ResourceManager.GetString("ShowConfirmExit", resourceCulture);
             }
         }
         

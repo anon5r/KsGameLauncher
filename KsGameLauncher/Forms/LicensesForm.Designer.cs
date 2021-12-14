@@ -44,6 +44,7 @@
             this.textBox_LicenseText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox_LicenseText.Size = new System.Drawing.Size(355, 363);
             this.textBox_LicenseText.TabIndex = 0;
+            this.textBox_LicenseText.Text = "License agreement text";
             // 
             // button_Close
             // 
@@ -64,7 +65,8 @@
             this.MinimizeBox = false;
             this.Name = "LicensesForm";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Licenses";
             this.Load += new System.EventHandler(this.Licenses_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

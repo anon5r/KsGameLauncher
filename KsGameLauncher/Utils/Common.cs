@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Windows.Forms;
 
@@ -78,5 +79,9 @@ namespace KsGameLauncher.Utils
         {
             System.Diagnostics.Process.Start(uri.AbsoluteUri.ToString());
         }
+
+        [DllImport("user32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool SetForegroundWindow(IntPtr hWnd);
     }
 }

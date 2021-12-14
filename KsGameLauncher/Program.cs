@@ -51,7 +51,7 @@ namespace KsGameLauncher
 
             new MainForm
             {
-                Icon = Properties.Resources.app48
+                Icon = Properties.Resources.app
             };
             Application.Run();
 
