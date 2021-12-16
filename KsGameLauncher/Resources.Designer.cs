@@ -214,6 +214,24 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   Large に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ContextMenuSize_Text_Large {
+            get {
+                return ResourceManager.GetString("ContextMenuSize_Text_Large", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Normal に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ContextMenuSize_Text_Normal {
+            get {
+                return ResourceManager.GetString("ContextMenuSize_Text_Normal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Enter your account ID and password に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string EnterYourAccountPasswordPrompt {

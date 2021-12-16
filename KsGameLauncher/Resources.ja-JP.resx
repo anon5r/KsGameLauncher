@@ -168,6 +168,12 @@
   <data name="ConnectionTimeout" xml:space="preserve">
     <value>通信がタイムアウトしました。接続状況を確認してください。</value>
   </data>
+  <data name="ContextMenuSize_Text_Large" xml:space="preserve">
+    <value>大きめ</value>
+  </data>
+  <data name="ContextMenuSize_Text_Normal" xml:space="preserve">
+    <value>通常</value>
+  </data>
   <data name="EnterYourAccountPasswordPrompt" xml:space="preserve">
     <value>アカウントIDとパスワードを入力してください。</value>
     <comment>DIalog error message</comment>

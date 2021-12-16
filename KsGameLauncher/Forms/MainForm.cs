@@ -85,12 +85,16 @@ namespace KsGameLauncher
 
             notifyIcon.MouseClick += NotifyIcon_MouseClick;
 
+            LoadGamesMenu();
+        }
+
+        async public void LoadGamesMenu()
+        {
             string Json = await GetJson();
             if (Json == null)
                 menuStripMain = CreateInitialMenuStripItems();
             else
                 menuStripMain = InitializeGameList(Json);
-
         }
 
         /// <summary>
@@ -157,10 +161,25 @@ namespace KsGameLauncher
         {
             ContextMenuStrip menu = new ContextMenuStrip
             {
-                AutoClose = true
+                AutoClose = true,
+                
             };
             menu.Items.Clear();
 
+            Font font;
+            int iconSize;
+            switch (Properties.Settings.Default.ContextMenuSize)
+            {
+                case 1:
+                    font = new Font(Control.DefaultFont.FontFamily, (float)(Control.DefaultFont.Size * 1.5));
+                    iconSize = 64;
+                    break;
+                case 0:
+                default:
+                    font = Control.DefaultFont;
+                    iconSize = 16;
+                    break;
+            }
 
             try
             {
@@ -169,13 +188,23 @@ namespace KsGameLauncher
 #if DEBUG
                     Debug.WriteLine(JsonSerializer.Serialize(appInfo));
 #endif
-                    ToolStripMenuItem item = new ToolStripMenuItem();
+                    ToolStripMenuItem item = new ToolStripMenuItem
+                    {
+                        ImageScaling = ToolStripItemImageScaling.None
+                    };
+
+
                     if (Utils.GameRegistry.IsInstalled(appInfo.Name))
                     {
                         item.Text = appInfo.Name;
-                        Image icon = appInfo.GetIcon().ToBitmap();
+                        item.Font = font;
+                        item.Size = new Size(iconSize, iconSize);
+
+                        Icon icon = appInfo.GetIcon();
+
                         if (icon != null)
-                            item.Image = icon;
+                            item.Image = (new Icon(icon, iconSize, iconSize)).ToBitmap();
+
                         item.Click += delegate
                         {
                             if (_launcherMutex)
@@ -221,6 +250,7 @@ namespace KsGameLauncher
                         menu.Items.Add(item);
                     }
                 });
+                menu.ImageScalingSize = new Size(iconSize, iconSize);
             }
             catch (Exception ex)
             {

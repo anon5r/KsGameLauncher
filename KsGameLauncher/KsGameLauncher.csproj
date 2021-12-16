@@ -194,6 +194,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Structures\ComboBoxItem.cs" />
     <Compile Include="Utils\AppUtil.cs" />
     <Compile Include="Utils\Common.cs" />
     <Compile Include="Utils\Crypt.cs" />

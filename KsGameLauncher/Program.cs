@@ -12,6 +12,8 @@ namespace KsGameLauncher
 
         private static System.Threading.Mutex _mutex;
 
+        static internal MainForm mainForm;
+
 
         /// <summary>
         /// Main entrypoint of an application
@@ -49,7 +51,7 @@ namespace KsGameLauncher
             }
 
 
-            new MainForm
+            mainForm = new MainForm
             {
                 Icon = Properties.Resources.app
             };

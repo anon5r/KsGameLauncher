@@ -34,6 +34,8 @@
             this.button_Save = new System.Windows.Forms.Button();
             this.checkBox_Notification = new System.Windows.Forms.CheckBox();
             this.checkBox_ConfirmExit = new System.Windows.Forms.CheckBox();
+            this.comboBox_ContextMenuSize = new System.Windows.Forms.ComboBox();
+            this.label_ContextMenuSize = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // checkBox_UseProxy
@@ -57,6 +59,7 @@
             this.linkLabel_OpenProxySettings.TabIndex = 1;
             this.linkLabel_OpenProxySettings.TabStop = true;
             this.linkLabel_OpenProxySettings.Text = "Open proxy settings";
+            this.linkLabel_OpenProxySettings.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.linkLabel_OpenProxySettings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel_OpenProxySettings_LinkClicked);
             // 
             // button_Save
@@ -95,16 +98,37 @@
             this.checkBox_ConfirmExit.Text = "Show confirm exit";
             this.checkBox_ConfirmExit.UseVisualStyleBackColor = true;
             // 
+            // comboBox_ContextMenuSize
+            // 
+            this.comboBox_ContextMenuSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_ContextMenuSize.FormattingEnabled = true;
+            this.comboBox_ContextMenuSize.Location = new System.Drawing.Point(12, 139);
+            this.comboBox_ContextMenuSize.Name = "comboBox_ContextMenuSize";
+            this.comboBox_ContextMenuSize.Size = new System.Drawing.Size(121, 20);
+            this.comboBox_ContextMenuSize.TabIndex = 5;
+            // 
+            // label_ContextMenuSize
+            // 
+            this.label_ContextMenuSize.AutoSize = true;
+            this.label_ContextMenuSize.Location = new System.Drawing.Point(12, 124);
+            this.label_ContextMenuSize.Name = "label_ContextMenuSize";
+            this.label_ContextMenuSize.Size = new System.Drawing.Size(100, 12);
+            this.label_ContextMenuSize.TabIndex = 6;
+            this.label_ContextMenuSize.Text = "Context menu size";
+            // 
             // OptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(227, 206);
+            this.Controls.Add(this.label_ContextMenuSize);
+            this.Controls.Add(this.comboBox_ContextMenuSize);
             this.Controls.Add(this.checkBox_ConfirmExit);
             this.Controls.Add(this.checkBox_Notification);
             this.Controls.Add(this.button_Save);
             this.Controls.Add(this.linkLabel_OpenProxySettings);
             this.Controls.Add(this.checkBox_UseProxy);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
@@ -112,6 +136,7 @@
             this.Name = "OptionsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Options";
+            this.Load += new System.EventHandler(this.OptionsForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,5 +149,7 @@
         private System.Windows.Forms.Button button_Save;
         private System.Windows.Forms.CheckBox checkBox_Notification;
         private System.Windows.Forms.CheckBox checkBox_ConfirmExit;
+        private System.Windows.Forms.ComboBox comboBox_ContextMenuSize;
+        private System.Windows.Forms.Label label_ContextMenuSize;
     }
 }

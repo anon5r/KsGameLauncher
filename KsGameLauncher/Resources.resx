@@ -170,6 +170,12 @@
   <data name="ConnectionTimeout" xml:space="preserve">
     <value>Network connection was time out. please check your network.</value>
   </data>
+  <data name="ContextMenuSize_Text_Large" xml:space="preserve">
+    <value>Large</value>
+  </data>
+  <data name="ContextMenuSize_Text_Normal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
   <data name="EnterYourAccountPasswordPrompt" xml:space="preserve">
     <value>Enter your account ID and password</value>
     <comment>DIalog error message</comment>

@@ -189,5 +189,17 @@ namespace KsGameLauncher.Properties {
                 this["ShowConfirmExit"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ContextMenuSize {
+            get {
+                return ((int)(this["ContextMenuSize"]));
+            }
+            set {
+                this["ContextMenuSize"] = value;
+            }
+        }
     }
 }
