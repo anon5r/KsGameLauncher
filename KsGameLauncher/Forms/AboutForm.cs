@@ -38,5 +38,10 @@ namespace KsGameLauncher
         {
             (new LicensesForm()).ShowDialog(this);
         }
+
+        private void AboutForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }

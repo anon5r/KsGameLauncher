@@ -50,5 +50,14 @@
     <Setting Name="ContextMenuSize" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="AppInfo_selector_default" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#login&gt;div&gt;a.link-btn</Value>
+    </Setting>
+    <Setting Name="MenuIconSize_Large" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">64</Value>
+    </Setting>
+    <Setting Name="MenuIconSize_Default" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">16</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

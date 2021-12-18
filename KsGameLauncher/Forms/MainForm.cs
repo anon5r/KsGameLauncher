@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Security.Permissions;
 using System.Windows.Forms;
-using System.Text.Json;
 using System.Threading.Tasks;
+using KsGameLauncher.Forms;
 
 #if DEBUG
 using System.Diagnostics;
@@ -79,7 +78,7 @@ namespace KsGameLauncher
 
 
 
-        async private void CreateNotificationIcon()
+        private void CreateNotificationIcon()
         {
             notifyIcon = CreateNotifyIcon();
 
@@ -90,11 +89,14 @@ namespace KsGameLauncher
 
         async public void LoadGamesMenu()
         {
-            string Json = await GetJson();
-            if (Json == null)
+            string json = await GetJson();
+            if (json == null)
                 menuStripMain = CreateInitialMenuStripItems();
             else
-                menuStripMain = InitializeGameList(Json);
+            {
+                AppInfo.LoadFromJson(json);
+            }
+            menuStripMain = InitGameMenu();
         }
 
         /// <summary>
@@ -141,6 +143,7 @@ namespace KsGameLauncher
                 using (StreamReader jsonStream = File.OpenText(Path.GetFullPath(Properties.Settings.Default.appInfoLocal)))
                 {
                     json = jsonStream.ReadToEnd();
+                    jsonStream.Close();
                 }
 
 #if DEBUG
@@ -157,111 +160,38 @@ namespace KsGameLauncher
             return null;
         }
 
-        private ContextMenuStrip InitializeGameList(string json)
+
+
+
+        private ContextMenuStrip InitGameMenu()
         {
             ContextMenuStrip menu = new ContextMenuStrip
             {
                 AutoClose = true,
-                
+
             };
             menu.Items.Clear();
 
-            Font font;
-            int iconSize;
-            switch (Properties.Settings.Default.ContextMenuSize)
-            {
-                case 1:
-                    font = new Font(Control.DefaultFont.FontFamily, (float)(Control.DefaultFont.Size * 1.5));
-                    iconSize = 64;
-                    break;
-                case 0:
-                default:
-                    font = Control.DefaultFont;
-                    iconSize = 16;
-                    break;
-            }
+            Font font = GetFontSize();
+            int iconSize = GetIconSize();
 
-            try
+            if (AppInfo.GetList().Count > 0)
             {
-                JsonSerializer.Deserialize<List<AppInfo>>(json).ForEach(appInfo =>
+
+                foreach (AppInfo appInfo in AppInfo.GetList())
                 {
-#if DEBUG
-                    Debug.WriteLine(JsonSerializer.Serialize(appInfo));
-#endif
-                    ToolStripMenuItem item = new ToolStripMenuItem
-                    {
-                        ImageScaling = ToolStripItemImageScaling.None
-                    };
-
-
+                    //#if DEBUG
+                    //                    Debug.WriteLine(JsonSerializer.Serialize(appInfo));
+                    //#endif
                     if (Utils.GameRegistry.IsInstalled(appInfo.Name))
                     {
-                        item.Text = appInfo.Name;
-                        item.Font = font;
-                        item.Size = new Size(iconSize, iconSize);
-
-                        Icon icon = appInfo.GetIcon();
-
-                        if (icon != null)
-                            item.Image = (new Icon(icon, iconSize, iconSize)).ToBitmap();
-
-                        item.Click += delegate
-                        {
-                            if (_launcherMutex)
-                            {
-                                MessageBox.Show(Resources.StartngLauncher, Resources.AppName,
-                                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                return;
-                            }
-
-                            _launcherMutex = true;
-                            try
-                            {
-                                Launcher launcher = Launcher.Create();
-                                launcher.StartApp(appInfo);
-                            }
-                            catch (LoginException ex)
-                            {
-                                MessageBox.Show(String.Format(
-                                    "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
-                                    appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
-                                , Resources.ErrorWhileLogin, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            catch (LauncherException ex)
-                            {
-                                MessageBox.Show(String.Format(
-                                    "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
-                                    appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
-                                , ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show(String.Format(
-                                    "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
-                                    appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
-                                , ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            finally
-                            {
-                                _launcherMutex = false;
-                            }
-
-                        };
+                        var item = CreateNewMenuItem(appInfo, font, iconSize);
                         menu.Items.Add(item);
                     }
-                });
-                menu.ImageScalingSize = new Size(iconSize, iconSize);
+                }
             }
-            catch (Exception ex)
-            {
-#if DEBUG
+            menu.ImageScalingSize = new Size(iconSize, iconSize);
 
-                MessageBox.Show("Failed to parse JSON file correctly."
-                    + "\n\n" + ex.GetType().ToString() + ":\n" + ex.Message
-                    + "\n\n" + ex.InnerException.GetType().ToString() + ":\n" + ex.InnerException.Message
-                    , Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-#endif
-            }
 
             if (menu.Items.Count < 1)
             {
@@ -269,6 +199,93 @@ namespace KsGameLauncher
             }
 
             return menu;
+        }
+
+        private int GetIconSize()
+        {
+            switch (Properties.Settings.Default.ContextMenuSize)
+            {
+                case 1:
+                    return Properties.Settings.Default.MenuIconSize_Large;
+            }
+            return Properties.Settings.Default.MenuIconSize_Default;
+        }
+
+        private Font GetFontSize()
+        {
+            Font font = Control.DefaultFont;
+            switch (Properties.Settings.Default.ContextMenuSize)
+            {
+                case 1:
+                    return new Font(Control.DefaultFont.FontFamily, (float)(Control.DefaultFont.Size * 1.5));
+            }
+            return font;
+        }
+
+        internal ToolStripMenuItem CreateNewMenuItem(AppInfo appInfo)
+        {
+            return CreateNewMenuItem(appInfo, GetFontSize(), GetIconSize());
+        }
+
+        internal ToolStripMenuItem CreateNewMenuItem(AppInfo appInfo, Font font, int iconSize)
+        {
+            ToolStripMenuItem item = new ToolStripMenuItem
+            {
+                ImageScaling = ToolStripItemImageScaling.None
+            };
+
+            item.Text = appInfo.Name;
+            item.Font = font;
+            item.Size = new Size(iconSize, iconSize);
+
+            Icon icon = appInfo.GetIcon();
+
+            if (icon != null)
+                item.Image = (new Icon(icon, iconSize, iconSize)).ToBitmap();
+
+            item.Click += delegate
+            {
+                if (_launcherMutex)
+                {
+                    MessageBox.Show(Resources.StartngLauncher, Resources.AppName,
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                _launcherMutex = true;
+                try
+                {
+                    Launcher launcher = Launcher.Create();
+                    launcher.StartApp(appInfo);
+                }
+                catch (LoginException ex)
+                {
+                    MessageBox.Show(String.Format(
+                        "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
+                        appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
+                    , Resources.ErrorWhileLogin, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (LauncherException ex)
+                {
+                    MessageBox.Show(String.Format(
+                        "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
+                        appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
+                    , ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(String.Format(
+                        "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
+                        appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
+                    , ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    _launcherMutex = false;
+                }
+
+            };
+            return item;
         }
 
         private ContextMenuStrip CreateInitialMenuStripItems()
@@ -343,6 +360,27 @@ namespace KsGameLauncher
                 notifyIcon.BalloonTipText = message;
                 notifyIcon.ShowBalloonTip(timeout);
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            Text = Resources.AppName;
+        }
+
+
+        private void AddNewGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (new AddNewGame()).ShowDialog(this);
+        }
+
+        internal ContextMenuStrip GetMenuStrip()
+        {
+            return menuStripMain;
+        }
+
+        internal void SetMenuStrip(ContextMenuStrip menu)
+        {
+            menuStripMain = menu;
         }
     }
 }

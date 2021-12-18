@@ -97,6 +97,24 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   Add new game に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string AddNewGameWindowTitle {
+            get {
+                return ResourceManager.GetString("AddNewGameWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &quot;{0}&quot; is already exists に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string AlreadyGameExists {
+            get {
+                return ResourceManager.GetString("AlreadyGameExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Already running に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string AlreadyRunning {
@@ -169,11 +187,29 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   Could not be saved game list, because not allowed write files. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CannotSaveGameList {
+            get {
+                return ResourceManager.GetString("CannotSaveGameList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Please check following page. (will open the web browser) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string CheckFollowingPage {
             get {
                 return ResourceManager.GetString("CheckFollowingPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Are you sure you want to add &quot;{0}&quot; ? に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ConfirmAddNewGame {
+            get {
+                return ResourceManager.GetString("ConfirmAddNewGame", resourceCulture);
             }
         }
         
@@ -196,7 +232,7 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
-        ///   Are you sure you want to logout your account from the registered list ? に類似しているローカライズされた文字列を検索します。
+        ///   Are you sure you want to logout your account from the registered List ? に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ConfirmToRemoveAccountFromList {
             get {
@@ -228,6 +264,15 @@ namespace KsGameLauncher {
         internal static string ContextMenuSize_Text_Normal {
             get {
                 return ResourceManager.GetString("ContextMenuSize_Text_Normal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Drop shortcut here に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string DropHere {
+            get {
+                return ResourceManager.GetString("DropHere", resourceCulture);
             }
         }
         
@@ -300,6 +345,15 @@ namespace KsGameLauncher {
         internal static string IconBalloonMessage_WhileLogin {
             get {
                 return ResourceManager.GetString("IconBalloonMessage_WhileLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Incorrect file format, please put &quot;Internet shortcut&quot; file に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string IncorrectFileFormat {
+            get {
+                return ResourceManager.GetString("IncorrectFileFormat", resourceCulture);
             }
         }
         
@@ -399,6 +453,15 @@ namespace KsGameLauncher {
         internal static string NoInstalledGames {
             get {
                 return ResourceManager.GetString("NoInstalledGames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   This seems like a different shortcut に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NotSupportedShortcut {
+            get {
+                return ResourceManager.GetString("NotSupportedShortcut", resourceCulture);
             }
         }
         

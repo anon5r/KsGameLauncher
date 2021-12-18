@@ -41,7 +41,7 @@
             // button_Update
             // 
             this.button_Update.Location = new System.Drawing.Point(239, 15);
-            this.button_Update.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_Update.Margin = new System.Windows.Forms.Padding(2);
             this.button_Update.Name = "button_Update";
             this.button_Update.Size = new System.Drawing.Size(59, 26);
             this.button_Update.TabIndex = 3;
@@ -52,7 +52,7 @@
             // button_Remove
             // 
             this.button_Remove.Location = new System.Drawing.Point(239, 53);
-            this.button_Remove.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_Remove.Margin = new System.Windows.Forms.Padding(2);
             this.button_Remove.Name = "button_Remove";
             this.button_Remove.Size = new System.Drawing.Size(59, 26);
             this.button_Remove.TabIndex = 4;
@@ -66,9 +66,9 @@
             this.groupBox_AccountInfo.Controls.Add(this.label_AccountID);
             this.groupBox_AccountInfo.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.groupBox_AccountInfo.Location = new System.Drawing.Point(7, 9);
-            this.groupBox_AccountInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox_AccountInfo.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox_AccountInfo.Name = "groupBox_AccountInfo";
-            this.groupBox_AccountInfo.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox_AccountInfo.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox_AccountInfo.Size = new System.Drawing.Size(228, 107);
             this.groupBox_AccountInfo.TabIndex = 5;
             this.groupBox_AccountInfo.TabStop = false;
@@ -97,8 +97,9 @@
             // 
             // button_Close
             // 
+            this.button_Close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_Close.Location = new System.Drawing.Point(239, 89);
-            this.button_Close.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_Close.Margin = new System.Windows.Forms.Padding(2);
             this.button_Close.Name = "button_Close";
             this.button_Close.Size = new System.Drawing.Size(59, 26);
             this.button_Close.TabIndex = 6;
@@ -110,6 +111,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.button_Close;
             this.ClientSize = new System.Drawing.Size(308, 128);
             this.Controls.Add(this.button_Close);
             this.Controls.Add(this.groupBox_AccountInfo);
@@ -117,7 +119,7 @@
             this.Controls.Add(this.button_Update);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AccountForm";

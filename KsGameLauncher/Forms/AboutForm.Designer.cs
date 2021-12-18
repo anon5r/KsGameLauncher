@@ -50,6 +50,7 @@
             // button_Ok
             // 
             resources.ApplyResources(this.button_Ok, "button_Ok");
+            this.button_Ok.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_Ok.Name = "button_Ok";
             this.button_Ok.UseVisualStyleBackColor = true;
             this.button_Ok.Click += new System.EventHandler(this.Button_Ok_Click);
@@ -109,6 +110,8 @@
             // 
             // AboutForm
             // 
+            this.AcceptButton = this.button_Ok;
+            this.CancelButton = this.button_Ok;
             resources.ApplyResources(this, "$this");
             this.Controls.Add(this.label_Develop);
             this.Controls.Add(this.label_IconDesign);

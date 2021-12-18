@@ -123,5 +123,6 @@ namespace KsGameLauncher
             }
             return list != null && list.Count > 0;
         }
+
     }
 }

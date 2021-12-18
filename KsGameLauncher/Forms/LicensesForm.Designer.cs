@@ -48,6 +48,9 @@
             // 
             // button_Close
             // 
+            this.button_Close.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_Close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_Close.Location = new System.Drawing.Point(153, 381);
             this.button_Close.Name = "button_Close";
             this.button_Close.Size = new System.Drawing.Size(75, 23);
@@ -58,6 +61,9 @@
             // 
             // LicensesForm
             // 
+            this.AcceptButton = this.button_Close;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.CancelButton = this.button_Close;
             this.ClientSize = new System.Drawing.Size(379, 414);
             this.Controls.Add(this.button_Close);
             this.Controls.Add(this.textBox_LicenseText);

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Threading;
-using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace KsGameLauncher
@@ -10,6 +8,20 @@ namespace KsGameLauncher
         public OptionsForm()
         {
             InitializeComponent();
+            var cancel = new System.Windows.Forms.Button()
+            {
+                Visible = false,
+            };
+            cancel.Click += delegate
+            {
+                Close();
+            };
+            CancelButton = cancel;
+        }
+
+        private void OptionsForm_Load(object sender, EventArgs e)
+        {
+
             string[] items = {
                 // Normal
                 Resources.ContextMenuSize_Text_Normal,
@@ -32,8 +44,7 @@ namespace KsGameLauncher
             checkBox_ConfirmExit.Text = Resources.ShowConfirmExit;
             linkLabel_OpenProxySettings.Text = Resources.OptionsProxySettingsLink;
             button_Save.Text = Resources.ButtonSave;
-
-    }
+        }
 
         private void LinkLabel_OpenProxySettings_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -51,16 +62,17 @@ namespace KsGameLauncher
             Properties.Settings.Default.ShowConfirmExit = checkBox_ConfirmExit.Checked;
             Properties.Settings.Default.ContextMenuSize = comboBox_ContextMenuSize.SelectedIndex;
             Properties.Settings.Default.Save();
-            
+
             if (menuSizeChanged)
                 Program.mainForm.LoadGamesMenu();   // Re-load menu
 
             Close();
         }
 
-        private void OptionsForm_Load(object sender, EventArgs e)
+        private void OptionsForm_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (e.KeyChar == (char)Keys.Escape)
+                Close();
         }
     }
 }

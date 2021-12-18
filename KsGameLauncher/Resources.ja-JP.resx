@@ -129,6 +129,12 @@
   <data name="AccountRemoveSucceeded" xml:space="preserve">
     <value>登録されたアカウント情報をアプリから削除しました</value>
   </data>
+  <data name="AddNewGameWindowTitle" xml:space="preserve">
+    <value>ゲームを追加</value>
+  </data>
+  <data name="AlreadyGameExists" xml:space="preserve">
+    <value>"{0}" は既に存在します</value>
+  </data>
   <data name="AlreadyRunning" xml:space="preserve">
     <value>すでに起動しています</value>
   </data>
@@ -153,8 +159,14 @@
   <data name="ButtonUpdate_Register" xml:space="preserve">
     <value>登録 (&amp;G)</value>
   </data>
+  <data name="CannotSaveGameList" xml:space="preserve">
+    <value>ファイルへの書き込みが許可されていないため\nゲーム一覧を保存できませんでした。</value>
+  </data>
   <data name="CheckFollowingPage" xml:space="preserve">
     <value>ページを確認してください (ブラウザが開きます)</value>
+  </data>
+  <data name="ConfirmAddNewGame" xml:space="preserve">
+    <value>"{0}" を追加してよろしいですか？</value>
   </data>
   <data name="ConfirmExitDialogMessage" xml:space="preserve">
     <value>本当に終了しますか？</value>
@@ -173,6 +185,9 @@
   </data>
   <data name="ContextMenuSize_Text_Normal" xml:space="preserve">
     <value>通常</value>
+  </data>
+  <data name="DropHere" xml:space="preserve">
+    <value>ここにショートカットをドラッグ＆ドロップ</value>
   </data>
   <data name="EnterYourAccountPasswordPrompt" xml:space="preserve">
     <value>アカウントIDとパスワードを入力してください。</value>
@@ -195,6 +210,9 @@
   </data>
   <data name="IconBalloonMessage_WhileLogin" xml:space="preserve">
     <value>ログイン処理中...</value>
+  </data>
+  <data name="IncorrectFileFormat" xml:space="preserve">
+    <value>"インターネットショートカット" のファイルのみサポートされています</value>
   </data>
   <data name="IncorrectUsernameOrPassword" xml:space="preserve">
     <value>アカウントIDまたはパスワードが異なります</value>
@@ -233,6 +251,9 @@
   </data>
   <data name="NoInstalledGames" xml:space="preserve">
     <value>インストール済みゲームがありません</value>
+  </data>
+  <data name="NotSupportedShortcut" xml:space="preserve">
+    <value>異なるショートカットファイルのようです</value>
   </data>
   <data name="OptionsDisplayNotification" xml:space="preserve">
     <value>通知を表示</value>

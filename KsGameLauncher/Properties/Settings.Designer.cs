@@ -201,5 +201,35 @@ namespace KsGameLauncher.Properties {
                 this["ContextMenuSize"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#login>div>a.link-btn")]
+        public string AppInfo_selector_default {
+            get {
+                return ((string)(this["AppInfo_selector_default"]));
+            }
+            set {
+                this["AppInfo_selector_default"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("64")]
+        public int MenuIconSize_Large {
+            get {
+                return ((int)(this["MenuIconSize_Large"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("16")]
+        public int MenuIconSize_Default {
+            get {
+                return ((int)(this["MenuIconSize_Default"]));
+            }
+        }
     }
 }

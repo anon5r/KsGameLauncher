@@ -152,7 +152,13 @@
     <Compile Include="Forms\AccountForm.Designer.cs">
       <DependentUpon>AccountForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AppInfo.cs" />
+    <Compile Include="Forms\AddNewGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddNewGame.Designer.cs">
+      <DependentUpon>AddNewGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Structures\AppInfo.cs" />
     <Compile Include="Forms\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,7 +200,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Structures\ComboBoxItem.cs" />
+    <Compile Include="Structures\InternetShortcut.cs" />
+    <Compile Include="Exceptions\InvalidFormatException.cs" />
     <Compile Include="Utils\AppUtil.cs" />
     <Compile Include="Utils\Common.cs" />
     <Compile Include="Utils\Crypt.cs" />
@@ -205,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AccountForm.resx">
       <DependentUpon>AccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddNewGame.resx">
+      <DependentUpon>AddNewGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LicensesForm.resx">
       <DependentUpon>LicensesForm.cs</DependentUpon>

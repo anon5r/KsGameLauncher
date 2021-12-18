@@ -151,4 +151,7 @@
   <data name="$this.Text" xml:space="preserve">
     <value>メイン</value>
   </data>
+  <data name="addNewGameToolStripMenuItem.Text" xml:space="preserve">
+    <value>ゲームを追加(&amp;N)</value>
+  </data>
 </root>

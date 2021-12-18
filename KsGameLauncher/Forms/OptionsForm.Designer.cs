@@ -118,6 +118,7 @@
             // 
             // OptionsForm
             // 
+            this.AcceptButton = this.button_Save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(227, 206);
@@ -137,6 +138,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Options";
             this.Load += new System.EventHandler(this.OptionsForm_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OptionsForm_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 

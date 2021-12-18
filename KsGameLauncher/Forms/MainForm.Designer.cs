@@ -36,6 +36,7 @@
             this.manageAccountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator_Bottom = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip_Sub.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +47,7 @@
             this.aboutToolStripMenuItem,
             this.optionsToolStripMenuItem,
             this.manageAccountsToolStripMenuItem,
+            this.addNewGameToolStripMenuItem,
             this.toolStripSeparator_Bottom,
             this.exitToolStripMenuItem});
             this.contextMenuStrip_Sub.Name = "contextMenuStrip_Sub";
@@ -83,13 +85,21 @@
             resources.ApplyResources(this.exitToolStripMenuItem, "exitToolStripMenuItem");
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
+            // addNewGameToolStripMenuItem
+            // 
+            this.addNewGameToolStripMenuItem.Name = "addNewGameToolStripMenuItem";
+            resources.ApplyResources(this.addNewGameToolStripMenuItem, "addNewGameToolStripMenuItem");
+            this.addNewGameToolStripMenuItem.Click += new System.EventHandler(this.AddNewGameToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
+            this.AllowDrop = true;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "MainForm";
             this.ShowInTaskbar = false;
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.contextMenuStrip_Sub.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -102,6 +112,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator_Bottom;
         private System.Windows.Forms.ToolStripMenuItem manageAccountsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNewGameToolStripMenuItem;
     }
 }
 
