@@ -71,16 +71,6 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
-        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
-        /// </summary>
-        internal static System.Drawing.Bitmap app1 {
-            get {
-                object obj = ResourceManager.GetObject("app1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   anon に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string AppIconDesigner {
@@ -127,13 +117,23 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap icon {
+            get {
+                object obj = ResourceManager.GetObject("icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   AdysTech.CredentialManager (https://github.com/AdysTech/CredentialManager) 
         ///
         ///HtmlAgilityPack (https://github.com/atifaziz/Hazz) に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string License {
+        internal static string Licenses {
             get {
-                return ResourceManager.GetString("License", resourceCulture);
+                return ResourceManager.GetString("Licenses", resourceCulture);
             }
         }
         
@@ -166,7 +166,7 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
-        ///   Github に類似しているローカライズされた文字列を検索します。
+        ///   Support に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SupportLabelText {
             get {

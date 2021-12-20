@@ -37,8 +37,6 @@
             this.label_SpecialThanks = new System.Windows.Forms.Label();
             this.textBox_SpecialThanks = new System.Windows.Forms.TextBox();
             this.linkLabel_License = new System.Windows.Forms.LinkLabel();
-            this.AppIconDesigner = new System.Windows.Forms.Label();
-            this.label_IconDesign = new System.Windows.Forms.Label();
             this.label_Develop = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -93,16 +91,6 @@
             this.linkLabel_License.TabStop = true;
             this.linkLabel_License.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel_License_LinkClicked);
             // 
-            // AppIconDesigner
-            // 
-            resources.ApplyResources(this.AppIconDesigner, "AppIconDesigner");
-            this.AppIconDesigner.Name = "AppIconDesigner";
-            // 
-            // label_IconDesign
-            // 
-            resources.ApplyResources(this.label_IconDesign, "label_IconDesign");
-            this.label_IconDesign.Name = "label_IconDesign";
-            // 
             // label_Develop
             // 
             resources.ApplyResources(this.label_Develop, "label_Develop");
@@ -114,12 +102,10 @@
             this.CancelButton = this.button_Ok;
             resources.ApplyResources(this, "$this");
             this.Controls.Add(this.label_Develop);
-            this.Controls.Add(this.label_IconDesign);
             this.Controls.Add(this.linkLabel_License);
             this.Controls.Add(this.textBox_SpecialThanks);
             this.Controls.Add(this.label_SpecialThanks);
             this.Controls.Add(this.linkLabel_Support);
-            this.Controls.Add(this.AppIconDesigner);
             this.Controls.Add(this.AppDeveloper);
             this.Controls.Add(this.label_Version);
             this.Controls.Add(this.button_Ok);
@@ -144,8 +130,6 @@
         private System.Windows.Forms.Label label_SpecialThanks;
         private System.Windows.Forms.TextBox textBox_SpecialThanks;
         private System.Windows.Forms.LinkLabel linkLabel_License;
-        private System.Windows.Forms.Label AppIconDesigner;
-        private System.Windows.Forms.Label label_IconDesign;
         private System.Windows.Forms.Label label_Develop;
     }
 }

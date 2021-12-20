@@ -264,9 +264,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Icons\default-game-icon.ico" />
     <Content Include="Resources\Icons\app.ico" />
-    <Content Include="Resources\Icons\app.png" />
+    <Content Include="Resources\Icons\default-game-icon.ico" />
+    <Content Include="Resources\Icons\icon256.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">

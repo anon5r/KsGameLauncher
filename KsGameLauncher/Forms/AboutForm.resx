@@ -147,14 +147,14 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label_Application.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>8</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="button_Ok.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
   </data>
   <data name="button_Ok.Location" type="System.Drawing.Point, System.Drawing">
-    <value>84, 232</value>
+    <value>84, 211</value>
   </data>
   <data name="button_Ok.Size" type="System.Drawing.Size, System.Drawing">
     <value>123, 32</value>
@@ -175,7 +175,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_Ok.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>7</value>
   </data>
   <data name="label_Version.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -208,7 +208,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label_Version.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>6</value>
   </data>
   <data name="AppDeveloper.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -235,13 +235,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;AppDeveloper.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>5</value>
   </data>
   <data name="linkLabel_Support.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="linkLabel_Support.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 104</value>
+    <value>12, 82</value>
   </data>
   <data name="linkLabel_Support.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 12</value>
@@ -262,13 +262,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;linkLabel_Support.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="label_SpecialThanks.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label_SpecialThanks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 163</value>
+    <value>12, 128</value>
   </data>
   <data name="label_SpecialThanks.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 12</value>
@@ -289,7 +289,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label_SpecialThanks.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="textBox_SpecialThanks.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -298,7 +298,7 @@
     <value>NoControl</value>
   </data>
   <data name="textBox_SpecialThanks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 178</value>
+    <value>14, 143</value>
   </data>
   <data name="textBox_SpecialThanks.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -307,7 +307,7 @@
     <value>Vertical</value>
   </data>
   <data name="textBox_SpecialThanks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>265, 48</value>
+    <value>265, 62</value>
   </data>
   <data name="textBox_SpecialThanks.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -325,13 +325,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox_SpecialThanks.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="linkLabel_License.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="linkLabel_License.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 134</value>
+    <value>12, 105</value>
   </data>
   <data name="linkLabel_License.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 12</value>
@@ -352,63 +352,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;linkLabel_License.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="AppIconDesigner.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="AppIconDesigner.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="AppIconDesigner.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 79</value>
-  </data>
-  <data name="AppIconDesigner.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 12</value>
-  </data>
-  <data name="AppIconDesigner.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="AppIconDesigner.Text" xml:space="preserve">
-    <value>AppIconDesigner</value>
-  </data>
-  <data name="&gt;&gt;AppIconDesigner.Name" xml:space="preserve">
-    <value>AppIconDesigner</value>
-  </data>
-  <data name="&gt;&gt;AppIconDesigner.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;AppIconDesigner.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;AppIconDesigner.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="label_IconDesign.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label_IconDesign.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 79</value>
-  </data>
-  <data name="label_IconDesign.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 12</value>
-  </data>
-  <data name="label_IconDesign.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="label_IconDesign.Text" xml:space="preserve">
-    <value>Icon designer</value>
-  </data>
-  <data name="&gt;&gt;label_IconDesign.Name" xml:space="preserve">
-    <value>label_IconDesign</value>
-  </data>
-  <data name="&gt;&gt;label_IconDesign.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label_IconDesign.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label_IconDesign.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="label_Develop.AutoSize" type="System.Boolean, mscorlib">
@@ -445,7 +388,7 @@
     <value>True</value>
   </metadata>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>291, 276</value>
+    <value>291, 255</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

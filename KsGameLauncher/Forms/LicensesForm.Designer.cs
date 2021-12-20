@@ -37,10 +37,10 @@
             this.textBox_LicenseText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_LicenseText.Enabled = false;
             this.textBox_LicenseText.Location = new System.Drawing.Point(12, 12);
             this.textBox_LicenseText.Multiline = true;
             this.textBox_LicenseText.Name = "textBox_LicenseText";
+            this.textBox_LicenseText.ReadOnly = true;
             this.textBox_LicenseText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox_LicenseText.Size = new System.Drawing.Size(355, 363);
             this.textBox_LicenseText.TabIndex = 0;

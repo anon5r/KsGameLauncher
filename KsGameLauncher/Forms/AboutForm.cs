@@ -17,10 +17,10 @@ namespace KsGameLauncher
             label_Application.Text = Resources.AppName;
             label_Version.Text = "ver. " + Application.ProductVersion;
             label_Develop.Text = Resources.LabelDeveloper;
-            label_IconDesign.Text = Resources.LabelIconDesigner;
             AppDeveloper.Text = Properties.Resources.Developers;
-            AppIconDesigner.Text = Properties.Resources.AppIconDesigner;
-            textBox_SpecialThanks.Text = Properties.Resources.SpecialThanks;
+            textBox_SpecialThanks.Text = 
+                //string.Format("AppIcon: {0}", Properties.Resources.AppIconDesigner) + 
+                Properties.Resources.SpecialThanks;
             linkLabel_Support.Text = Properties.Resources.SupportLabelText;
             linkLabel_License.Text = Resources.ShowLicense;
 
