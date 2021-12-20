@@ -48,9 +48,10 @@ Run the Exe file.
 
 OS: Microsoft &reg; Windows &trade; 10 Aniversary Update or more
 
-Required runtime: Microsoft & reg; .NET Framework 4.8
+Required runtime: Microsoft &reg; .NET Framework 4.8
 
 If you need to install it, please install it from here.
+
 https://docs.microsoft.com/ja-jp/dotnet/framework/install/on-windows-10
 
 
@@ -63,7 +64,8 @@ Delete all the extracted files.
 
 
 
-#FAQ
+# FAQ
+
 
 
 ## Does this app send my ID and password to the any internet?
@@ -117,6 +119,6 @@ It is not considered to be a method, use, or purpose that goes against public or
 
 ## Found issues on this tool
 
-Please report the issue from [Github Issues] (https://github.com/anon5r/KsGameLauncher/issues).
+Please report the issue from [Github Issues](https://github.com/anon5r/KsGameLauncher/issues).
 
 This tool is UNOFFICIAL for Konami Amusement. Please DO NOT contact to Konami Amusement. 
