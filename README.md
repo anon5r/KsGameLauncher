@@ -22,9 +22,9 @@ You can enter your account information from within the tool.
 
 The saved account will be stored in the dedicated area managed in the OS of your computer (check the below).
 
-`` ```
+```
 Control Panel > User Accounts > Credential Manager > Windows Credentials
-`` ```
+```
 
 
 ## Use of account information
