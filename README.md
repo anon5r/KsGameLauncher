@@ -1,102 +1,100 @@
 ﻿Ks Game Launcher
 ====
 
+[Japanese (日本語)](README.ja-JP.md)
 
 
+# What is this?
 
-# これは何？
-
-コナステのゲームをワンクリックで起動するためのアプリケーションです。
-
-
-## どのような仕組み？
-
-コナステ版音楽ゲームをプレイする際は、ショートカットから一度ブラウザを起動し、画面内のボタンをクリックして初めてゲームランチャーを起動することができます。
-
-画面を行き来したりして少々煩わしいので、コナステにログインするためのアカウントを事前に登録しておき、ゲームは本ツールからワンクリックで起動することができるようにすることができます。
+This is an application to start the BEMANI for コナステ with one click.
 
 
-## アカウントの登録とは
+## How does it work?
 
-コナステにログインするアカウントを事前に登録しておきます。
-
-アカウント情報の入力はツール内から行うことができます。
-
-入力された情報は利用しているコンピューターのOS内で管理されている専用領域（下記から確認可能）に保存されます。
-
-```
-コントロール パネル > ユーザー アカウント > 資格情報マネージャー > Windows 資格情報
-```
+When playing the BEMANI games for the コナステ version, you can launch the game without your browser. You can be started with one click from this tool.
 
 
-## アカウント情報の利用について
+## What is account registration?
 
-所定の配布元から配布されたものに限り、本ツールを通じて登録されたアカウント情報を
-本来の目的（ゲームの起動）以外で通信することはありません。
+Register an account to log in to コナステ in advance.
+
+You can enter your account information from within the tool.
+
+The saved account will be stored in the dedicated area managed in the OS of your computer (check the below).
+
+`` ```
+Control Panel > User Accounts > Credential Manager > Windows Credentials
+`` ```
 
 
-所定外で配布されたものについては、改変されている可能性を考慮し、上記を保証することはできません。
+## Use of account information
+
+Only those distributed from the specified distribution source can use the account information registered through this tool.
+There is no communication other than the original purpose (starting the game).
+
+
+For items distributed outside the specified schedule, the above cannot be guaranteed in consideration of the possibility of modification.
 
 
 
 
-## 実行方法
+## Execution method
 
-Exeファイルを実行してください。
-
-
-# 実行環境
+Run the Exe file.
 
 
-OS: Microsoft&reg; Windows&trade; 10 Aniversary Update 以上
+# Running environment
 
-必要ランタイム: Microsoft&reg; .NET Framework 4.8
 
-インストールが必要な場合はこちらからインストールしてください。
+OS: Microsoft &reg; Windows &trade; 10 Aniversary Update or more
+
+Required runtime: Microsoft & reg; .NET Framework 4.8
+
+If you need to install it, please install it from here.
 https://docs.microsoft.com/ja-jp/dotnet/framework/install/on-windows-10
 
 
 
-## アンインストール
+## Uninstall
 
-展開されたファイルをすべて削除してください。
-
-
-
-
-
-# FAQ
-
-
-## アカウントIDとパスワードを入力するのが怖い
-
-IDとパスワードは正規のサービスサイトでログイン処理以外で送信されることはありません。
-万が一不安がぬぐえない場合、本ランチャーの使用を控えてください。
-
-本ツールはGithub上でオープンソースとして公開しています。
-もしコードを読むことができる場合、そーすコードを確認してどのように動作するか確認することができます。
-
-また、Visual Studioを用いてご自身でビルドして実行、確認することもできます。
-
-
-
-## IDとパスワードを保存しているが、どこに保存しているのか
-
-Windows OSにある「資格情報マネージャー」という機能を利用し、そこに入力されたIDとパスワードを補完するようにしています。
-資格情報マネージャーはコントロールパネルから確認することができます。
-
-使用開始後に疑念を感じた場合、上記から直接アカウント情報を削除することも可能です。
+Delete all the extracted files.
 
 
 
 
-## このツールは規約に違反しませんか？
+
+#FAQ
 
 
-実際の判断はサービス運営元のコナミの判断にゆだねられますが、
-規約としては [PC版コナステ 利用規約](https://p.eagate.573.jp/game/eacloud/p/common/tos_pc.html) の第9条の下記の部分が禁止事項が記載される部分となります。
+## Does this app send my ID and password to the any internet?
 
-一部抜粋
+Partialy yes. because your ID and password will be sent to only legitimate service site during the login process.
+
+Other than that, it will not be sent. All of your account information is stored only on your machine.
+
+But if you feel uneasy, please refrain from using this launcher.
+
+This tool is open source on Github. So if you can read the code, you can check the source code to see how it works.
+
+You can also build, run, and check it yourself using Visual Studio.
+
+
+
+## Where are my IDs and passwords stored?
+
+This is used a function called "Credential Manager" in the Windows OS. your ID and password is saved there.
+You can see the credential manager from the control panel.
+
+If you feel suspicious after starting to use it, you can also delete your account information directly from the above.
+
+
+
+
+## Does this tool violate the rules?
+
+
+The actual judgment is left to the service operator Konami,
+As for the terms, the following part of Article 9 of [PC版コナステ 利用規約](https://p.eagate.573.jp/game/eacloud/p/common/tos_pc.html) describes prohibited items. Excerpt,
 
 ```
 第9条（禁止事項）
@@ -107,16 +105,18 @@ Windows OSにある「資格情報マネージャー」という機能を利用�
 ...
 ```
 
-本ツールは不正を行うためのものではなく、あくまでもログインからゲームの起動を素早く行うための補助ツールであり、ゲーム本体ならびにプレイに影響を及ぼすものではありません。
-
-また、クライアントソフト（ゲーム本体）を複製、改変、リバースエンジニア、逆コンパイル、逆アセンブルということは行っていません。
-
-公序良俗および通常の倫理概念に反する方法、用途、目的とも考えられず、純粋にゲームを楽に起動したい、起動をワンクリックで行いたいという目的のみとなっています。
+This tool is not intended to cheat. It is an auxiliary tool to quickly start the game from login, and it does not affect the game itself or play.
 
 
-## ツールに問題を見つけました
+Also, we do not copy, modify, reverse engineer, decompile, or disassemble the client software.
 
-[GithubのIssues](https://github.com/anon5r/KsGameLauncher/issues)から問題の報告をお願いします。
 
-このツールはコナミアミューズメント非公式のものです。コナミアミューズメント様への問い合わせ行わないでください。
+It is not considered to be a method, use, or purpose that goes against public order and morals and ordinary ethical concepts, and is purely for the purpose of launching the game comfortably and with just one click.
 
+
+
+## Found issues on this tool
+
+Please report the issue from [Github Issues] (https://github.com/anon5r/KsGameLauncher/issues).
+
+This tool is UNOFFICIAL for Konami Amusement. Please DO NOT contact to Konami Amusement. 
