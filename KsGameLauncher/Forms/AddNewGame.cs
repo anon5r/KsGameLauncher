@@ -110,6 +110,7 @@ namespace KsGameLauncher.Forms
 
         private void AddNewGame_Load(object sender, EventArgs e)
         {
+            Icon = Properties.Resources.app;
             Text = Resources.AddNewGameWindowTitle;
             groupBox_DragHere.Text = Resources.DropHere;
         }

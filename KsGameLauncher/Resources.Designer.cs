@@ -376,6 +376,15 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   Game list size に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string LabelContextMenuSizeText {
+            get {
+                return ResourceManager.GetString("LabelContextMenuSizeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Developer に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string LabelDeveloper {

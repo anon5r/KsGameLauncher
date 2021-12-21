@@ -221,6 +221,9 @@
   <data name="LabelAccountID" xml:space="preserve">
     <value>アカウントID</value>
   </data>
+  <data name="LabelContextMenuSizeText" xml:space="preserve">
+    <value>リストの大きさ</value>
+  </data>
   <data name="LabelDeveloper" xml:space="preserve">
     <value>開発者</value>
   </data>

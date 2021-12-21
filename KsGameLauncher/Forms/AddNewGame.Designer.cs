@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddNewGame));
             this.groupBox_DragHere = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
@@ -53,7 +52,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(395, 249);
             this.Controls.Add(this.groupBox_DragHere);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "AddNewGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

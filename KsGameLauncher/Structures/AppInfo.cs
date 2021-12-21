@@ -93,14 +93,8 @@ namespace KsGameLauncher
             {
                 List = JsonSerializer.Deserialize<List<AppInfo>>(json);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-#if DEBUG
-                MessageBox.Show("Failed to parse JSON file correctly."
-                                + "\n\n" + ex.GetType().ToString() + ":\n" + ex.Message
-                                + "\n\n" + ex.InnerException.GetType().ToString() + ":\n" + ex.InnerException.Message
-                    , Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-#endif
                 return null;
             }
 

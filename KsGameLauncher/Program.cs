@@ -48,6 +48,7 @@ namespace KsGameLauncher
             {
                 MessageBox.Show(Resources.AlreadyRunning, Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
+                return;
             }
 
 

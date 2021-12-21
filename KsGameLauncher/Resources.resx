@@ -226,6 +226,9 @@
   <data name="LabelAccountID" xml:space="preserve">
     <value>Account ID</value>
   </data>
+  <data name="LabelContextMenuSizeText" xml:space="preserve">
+    <value>Game list size</value>
+  </data>
   <data name="LabelDeveloper" xml:space="preserve">
     <value>Developer</value>
   </data>

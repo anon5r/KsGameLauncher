@@ -364,6 +364,7 @@ namespace KsGameLauncher
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            Icon = Properties.Resources.app;
             Text = Resources.AppName;
         }
 

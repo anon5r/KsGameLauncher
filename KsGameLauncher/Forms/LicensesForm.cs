@@ -17,6 +17,7 @@ namespace KsGameLauncher
 
         private void Licenses_Load(object sender, EventArgs e)
         {
+            Icon = Properties.Resources.app;
             Text = Resources.LicenseWindowTitle;
             textBox_LicenseText.Text = Properties.Resources.Licenses;
             button_Close.Text = Resources.ButtonClose;

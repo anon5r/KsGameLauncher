@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionsForm));
             this.checkBox_UseProxy = new System.Windows.Forms.CheckBox();
             this.linkLabel_OpenProxySettings = new System.Windows.Forms.LinkLabel();
             this.button_Save = new System.Windows.Forms.Button();
@@ -130,7 +129,6 @@
             this.Controls.Add(this.linkLabel_OpenProxySettings);
             this.Controls.Add(this.checkBox_UseProxy);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

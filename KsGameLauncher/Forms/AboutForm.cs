@@ -13,6 +13,7 @@ namespace KsGameLauncher
 
         private void About_Load(object sender, EventArgs e)
         {
+            Icon = Properties.Resources.app;
             Text = Resources.AboutThisApp;
             label_Application.Text = Resources.AppName;
             label_Version.Text = "ver. " + Application.ProductVersion;

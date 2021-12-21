@@ -21,7 +21,7 @@ namespace KsGameLauncher
 
         private void OptionsForm_Load(object sender, EventArgs e)
         {
-
+            Icon = Properties.Resources.app;
             string[] items = {
                 // Normal
                 Resources.ContextMenuSize_Text_Normal,
@@ -39,6 +39,7 @@ namespace KsGameLauncher
 
             // String
             Text = Resources.OptionsWindowTitle;
+            label_ContextMenuSize.Text = Resources.LabelContextMenuSizeText;
             checkBox_UseProxy.Text = Resources.OptionsUseProxyText;
             checkBox_Notification.Text = Resources.OptionsDisplayNotification;
             checkBox_ConfirmExit.Text = Resources.ShowConfirmExit;
