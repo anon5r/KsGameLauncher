@@ -45,6 +45,7 @@ namespace KsGameLauncher
             checkBox_ConfirmExit.Text = Resources.ShowConfirmExit;
             linkLabel_OpenProxySettings.Text = Resources.OptionsProxySettingsLink;
             button_Save.Text = Resources.ButtonSave;
+            button_SyncAppInfo.Text = Resources.SynchWithServerButton;
         }
 
         private void LinkLabel_OpenProxySettings_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -74,6 +75,37 @@ namespace KsGameLauncher
         {
             if (e.KeyChar == (char)Keys.Escape)
                 Close();
+        }
+
+        private async void Button_SyncAppInfo_Click(object sender, EventArgs e)
+        {
+            
+            var dialogResult = MessageBox.Show(Resources.SyncWithServerConfirmMessage, Resources.SyncWithServerDialogTitle,
+                MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            if (dialogResult == DialogResult.Yes)
+            {
+                try
+                {
+                    bool result = await Utils.AppUtil.DownloadJson();
+                    if (result)
+                    {
+                        Program.mainForm.LoadGamesMenu();
+
+                        MessageBox.Show(Resources.SyncWithServerSuccessMessage, Resources.SyncWithServerDialogTitle,
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show(Resources.SyncWithServerFailedMessage, Resources.SyncWithServerDialogTitle,
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (System.Net.Http.HttpRequestException ex)
+                {
+                    MessageBox.Show(Resources.ErrorGetAppInfoFailed, Resources.SyncWithServerDialogTitle,
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

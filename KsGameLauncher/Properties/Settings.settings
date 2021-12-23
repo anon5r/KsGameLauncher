@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="appInfoURL" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://s3.onaws.anon.network/konasta/appinfo.json</Value>
+      <Value Profile="(Default)">https://launcher-app.sdvx.net/appinfo.json</Value>
     </Setting>
     <Setting Name="appInfoLocal" Type="System.String" Scope="Application">
       <Value Profile="(Default)">appinfo.json</Value>

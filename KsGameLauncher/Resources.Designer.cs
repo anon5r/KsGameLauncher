@@ -79,7 +79,8 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
-        ///   Failed to remove account information.\nYou can try removing it from &quot;Credential Manager&quot; in Control Panel.\nIf you click &quot;Retry&quot;, it will be open the &quot;Credential Manager&quot; window. に類似しているローカライズされた文字列を検索します。
+        ///   Failed to remove account information.
+        ///You can try removing it from &quot;Credential Manager&quot; in Control Panel.\nIf you click &quot;Retry&quot;, it will be open the &quot;Credential Manager&quot; window. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string AccountRemoveFailed {
             get {
@@ -282,6 +283,16 @@ namespace KsGameLauncher {
         internal static string EnterYourAccountPasswordPrompt {
             get {
                 return ResourceManager.GetString("EnterYourAccountPasswordPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Failed to get the game defined file.
+        ///This file may not exist or may be temporarily unavailable. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ErrorGetAppInfoFailed {
+            get {
+                return ResourceManager.GetString("ErrorGetAppInfoFailed", resourceCulture);
             }
         }
         
@@ -561,6 +572,52 @@ namespace KsGameLauncher {
         internal static string StartngLauncher {
             get {
                 return ResourceManager.GetString("StartngLauncher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sync with server に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SynchWithServerButton {
+            get {
+                return ResourceManager.GetString("SynchWithServerButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Are you sure you want to sync with server?
+        ///When you sync with the server, the games you manually registered will be initialized and will be as published on the server.  に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SyncWithServerConfirmMessage {
+            get {
+                return ResourceManager.GetString("SyncWithServerConfirmMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sycn with server に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SyncWithServerDialogTitle {
+            get {
+                return ResourceManager.GetString("SyncWithServerDialogTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Synchronization failed! に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SyncWithServerFailedMessage {
+            get {
+                return ResourceManager.GetString("SyncWithServerFailedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Synchronization was successful! に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SyncWithServerSuccessMessage {
+            get {
+                return ResourceManager.GetString("SyncWithServerSuccessMessage", resourceCulture);
             }
         }
         

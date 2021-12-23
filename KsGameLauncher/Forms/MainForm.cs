@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Net.Http;
 using System.Security.Permissions;
 using System.Windows.Forms;
 using System.Threading.Tasks;
@@ -129,34 +131,45 @@ namespace KsGameLauncher
 
         async private Task<string> GetJson()
         {
-            string json;
-            if (!File.Exists(Properties.Settings.Default.appInfoLocal))
-            {
-                // Load appinfo.json from the internet
-                // Download from `Properties.Settings.Default.appInfoURL`
-                await Utils.AppUtil.DownloadJson();
-            }
-
             try
             {
-                // Load appinfo.json from local
-                using (StreamReader jsonStream = File.OpenText(Path.GetFullPath(Properties.Settings.Default.appInfoLocal)))
+                string json;
+                if (!File.Exists(Properties.Settings.Default.appInfoLocal))
                 {
-                    json = jsonStream.ReadToEnd();
-                    jsonStream.Close();
+                    // Load appinfo.json from the internet
+                    // Download from `Properties.Settings.Default.appInfoURL`
+
+                    await Utils.AppUtil.DownloadJson();
                 }
 
+                try
+                {
+                    // Load appinfo.json from local
+                    using (StreamReader jsonStream =
+                           File.OpenText(Path.GetFullPath(Properties.Settings.Default.appInfoLocal)))
+                    {
+                        json = jsonStream.ReadToEnd();
+                        jsonStream.Close();
+                    }
+
 #if DEBUG
-                Debug.Write(json);
+                    Debug.Write(json);
 #endif
 
-                return json;
+                    return json;
+                }
+                catch (FileNotFoundException)
+                {
+                    MessageBox.Show(String.Format(Resources.FailedToLoadFile, Properties.Settings.Default.appInfoLocal),
+                        Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (FileNotFoundException)
+            catch (HttpRequestException ex)
             {
-                MessageBox.Show(String.Format(Resources.FailedToLoadFile, Properties.Settings.Default.appInfoLocal),
-                    Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Resources.ErrorGetAppInfoFailed, Resources.SyncWithServerDialogTitle,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
             return null;
         }
 
@@ -168,7 +181,6 @@ namespace KsGameLauncher
             ContextMenuStrip menu = new ContextMenuStrip
             {
                 AutoClose = true,
-
             };
             menu.Items.Clear();
 
@@ -382,6 +394,16 @@ namespace KsGameLauncher
         internal void SetMenuStrip(ContextMenuStrip menu)
         {
             menuStripMain = menu;
+        }
+
+        private void MainForm_Deactivate(object sender, EventArgs e)
+        {
+            Debug.WriteLine(String.Format("{0} Created: {1}, Capture :{2}",
+                menuStripMain.GetType().Name, menuStripMain.Created, menuStripMain.Capture));
+            if (menuStripMain.Created && !menuStripMain.Capture)
+                menuStripMain.Close();
+            if (contextMenuStrip_Sub.Created && !contextMenuStrip_Sub.Capture)
+                contextMenuStrip_Sub.Close();
         }
     }
 }

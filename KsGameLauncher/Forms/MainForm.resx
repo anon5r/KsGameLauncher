@@ -128,28 +128,28 @@
     <value>&amp;About</value>
   </data>
   <data name="optionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
+    <value>138, 22</value>
   </data>
   <data name="optionsToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Options</value>
   </data>
   <data name="manageAccountsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
+    <value>138, 22</value>
   </data>
   <data name="manageAccountsToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Manage account</value>
   </data>
   <data name="addNewGameToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
+    <value>138, 22</value>
   </data>
   <data name="addNewGameToolStripMenuItem.Text" xml:space="preserve">
     <value>Add &amp;new game</value>
   </data>
   <data name="toolStripSeparator_Bottom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 6</value>
+    <value>135, 6</value>
   </data>
   <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
+    <value>138, 22</value>
   </data>
   <data name="exitToolStripMenuItem.Text" xml:space="preserve">
     <value>E&amp;xit</value>
@@ -197,6 +197,12 @@
   <data name="&gt;&gt;manageAccountsToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;addNewGameToolStripMenuItem.Name" xml:space="preserve">
+    <value>addNewGameToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;addNewGameToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;toolStripSeparator_Bottom.Name" xml:space="preserve">
     <value>toolStripSeparator_Bottom</value>
   </data>
@@ -207,12 +213,6 @@
     <value>exitToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;exitToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;addNewGameToolStripMenuItem.Name" xml:space="preserve">
-    <value>addNewGameToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;addNewGameToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
