@@ -34,9 +34,9 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageAccountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator_Bottom = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip_Sub.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +73,12 @@
             resources.ApplyResources(this.manageAccountsToolStripMenuItem, "manageAccountsToolStripMenuItem");
             this.manageAccountsToolStripMenuItem.Click += new System.EventHandler(this.ManageAccountsToolStripMenuItem_Click);
             // 
+            // addNewGameToolStripMenuItem
+            // 
+            this.addNewGameToolStripMenuItem.Name = "addNewGameToolStripMenuItem";
+            resources.ApplyResources(this.addNewGameToolStripMenuItem, "addNewGameToolStripMenuItem");
+            this.addNewGameToolStripMenuItem.Click += new System.EventHandler(this.AddNewGameToolStripMenuItem_Click);
+            // 
             // toolStripSeparator_Bottom
             // 
             this.toolStripSeparator_Bottom.Name = "toolStripSeparator_Bottom";
@@ -85,12 +91,6 @@
             resources.ApplyResources(this.exitToolStripMenuItem, "exitToolStripMenuItem");
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
-            // addNewGameToolStripMenuItem
-            // 
-            this.addNewGameToolStripMenuItem.Name = "addNewGameToolStripMenuItem";
-            resources.ApplyResources(this.addNewGameToolStripMenuItem, "addNewGameToolStripMenuItem");
-            this.addNewGameToolStripMenuItem.Click += new System.EventHandler(this.AddNewGameToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AllowDrop = true;
@@ -99,6 +99,7 @@
             this.Name = "MainForm";
             this.ShowInTaskbar = false;
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.Deactivate += new System.EventHandler(this.MainForm_Deactivate);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.contextMenuStrip_Sub.ResumeLayout(false);
             this.ResumeLayout(false);

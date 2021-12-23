@@ -69,7 +69,7 @@ namespace KsGameLauncher
 
 
         [JsonIgnore]
-        private static List<AppInfo> List;
+        private static List<AppInfo> List = new List<AppInfo>();
 
         public static List<AppInfo> GetList()
         {

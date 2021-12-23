@@ -124,7 +124,8 @@
     <value>Account Manager</value>
   </data>
   <data name="AccountRemoveFailed" xml:space="preserve">
-    <value>Failed to remove account information.\nYou can try removing it from "Credential Manager" in Control Panel.\nIf you click "Retry", it will be open the "Credential Manager" window.</value>
+    <value>Failed to remove account information.
+You can try removing it from "Credential Manager" in Control Panel.\nIf you click "Retry", it will be open the "Credential Manager" window.</value>
   </data>
   <data name="AccountRemoveSucceeded" xml:space="preserve">
     <value>Registered your account information has been removed from the app.</value>
@@ -194,6 +195,10 @@
   <data name="EnterYourAccountPasswordPrompt" xml:space="preserve">
     <value>Enter your account ID and password</value>
     <comment>DIalog error message</comment>
+  </data>
+  <data name="ErrorGetAppInfoFailed" xml:space="preserve">
+    <value>Failed to get the game defined file.
+This file may not exist or may be temporarily unavailable.</value>
   </data>
   <data name="ErrorText" xml:space="preserve">
     <value>Error</value>
@@ -295,6 +300,22 @@
   </data>
   <data name="StartngLauncher" xml:space="preserve">
     <value>Game has been starting, please wait.</value>
+  </data>
+  <data name="SynchWithServerButton" xml:space="preserve">
+    <value>Sync with server</value>
+  </data>
+  <data name="SyncWithServerConfirmMessage" xml:space="preserve">
+    <value>Are you sure you want to sync with server?
+When you sync with the server, the games you manually registered will be initialized and will be as published on the server. </value>
+  </data>
+  <data name="SyncWithServerDialogTitle" xml:space="preserve">
+    <value>Sycn with server</value>
+  </data>
+  <data name="SyncWithServerFailedMessage" xml:space="preserve">
+    <value>Synchronization failed!</value>
+  </data>
+  <data name="SyncWithServerSuccessMessage" xml:space="preserve">
+    <value>Synchronization was successful!</value>
   </data>
   <data name="UnknownStatusReceived" xml:space="preserve">
     <value>Unknown status received.</value>

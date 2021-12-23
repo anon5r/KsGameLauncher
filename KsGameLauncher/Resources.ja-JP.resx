@@ -124,7 +124,9 @@
     <value>アカウント管理</value>
   </data>
   <data name="AccountRemoveFailed" xml:space="preserve">
-    <value>アカウント情報の削除に失敗しました。\nコントロールパネルの"資格情報マネージャー"からアカウント情報を削除してください。\n"再試行"をクリックすると"資格情報マネージャー"を起動します。</value>
+    <value>アカウント情報の削除に失敗しました。
+コントロールパネルの"資格情報マネージャー"からアカウント情報を削除してください。
+"再試行"をクリックすると"資格情報マネージャー"を起動します。</value>
   </data>
   <data name="AccountRemoveSucceeded" xml:space="preserve">
     <value>登録されたアカウント情報をアプリから削除しました</value>
@@ -160,7 +162,8 @@
     <value>登録 (&amp;G)</value>
   </data>
   <data name="CannotSaveGameList" xml:space="preserve">
-    <value>ファイルへの書き込みが許可されていないため\nゲーム一覧を保存できませんでした。</value>
+    <value>ファイルへの書き込みが許可されていないため
+ゲーム一覧を保存できませんでした。</value>
   </data>
   <data name="CheckFollowingPage" xml:space="preserve">
     <value>ページを確認してください (ブラウザが開きます)</value>
@@ -192,6 +195,10 @@
   <data name="EnterYourAccountPasswordPrompt" xml:space="preserve">
     <value>アカウントIDとパスワードを入力してください。</value>
     <comment>DIalog error message</comment>
+  </data>
+  <data name="ErrorGetAppInfoFailed" xml:space="preserve">
+    <value>ゲーム定義ファイルの取得に失敗しました。
+ファイルが存在しないか、一時的に利用できない可能性があります。</value>
   </data>
   <data name="ErrorText" xml:space="preserve">
     <value>エラー</value>
@@ -289,6 +296,22 @@
   </data>
   <data name="StartngLauncher" xml:space="preserve">
     <value>ゲームを起動しています。しばらくお待ちください。</value>
+  </data>
+  <data name="SynchWithServerButton" xml:space="preserve">
+    <value>サーバーと同期</value>
+  </data>
+  <data name="SyncWithServerConfirmMessage" xml:space="preserve">
+    <value>サーバーと同期を実行すると、あなたが手動で登録したゲームは初期化され、サーバーで公開されている状態と同じになります。
+実行してよろしいですか？</value>
+  </data>
+  <data name="SyncWithServerDialogTitle" xml:space="preserve">
+    <value>サーバーと同期の実行</value>
+  </data>
+  <data name="SyncWithServerFailedMessage" xml:space="preserve">
+    <value>同期に失敗しました</value>
+  </data>
+  <data name="SyncWithServerSuccessMessage" xml:space="preserve">
+    <value>同期に成功しました</value>
   </data>
   <data name="UnknownStatusReceived" xml:space="preserve">
     <value>不明なステータスを受信しました。</value>

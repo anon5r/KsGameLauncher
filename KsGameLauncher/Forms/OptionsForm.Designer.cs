@@ -35,6 +35,7 @@
             this.checkBox_ConfirmExit = new System.Windows.Forms.CheckBox();
             this.comboBox_ContextMenuSize = new System.Windows.Forms.ComboBox();
             this.label_ContextMenuSize = new System.Windows.Forms.Label();
+            this.button_SyncAppInfo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // checkBox_UseProxy
@@ -64,7 +65,7 @@
             // button_Save
             // 
             this.button_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_Save.Location = new System.Drawing.Point(166, 173);
+            this.button_Save.Location = new System.Drawing.Point(166, 224);
             this.button_Save.Margin = new System.Windows.Forms.Padding(2);
             this.button_Save.Name = "button_Save";
             this.button_Save.Size = new System.Drawing.Size(54, 25);
@@ -115,12 +116,24 @@
             this.label_ContextMenuSize.TabIndex = 6;
             this.label_ContextMenuSize.Text = "Context menu size";
             // 
+            // button_SyncAppInfo
+            // 
+            this.button_SyncAppInfo.Location = new System.Drawing.Point(12, 224);
+            this.button_SyncAppInfo.Name = "button_SyncAppInfo";
+            this.button_SyncAppInfo.Size = new System.Drawing.Size(100, 23);
+            this.button_SyncAppInfo.TabIndex = 7;
+            this.button_SyncAppInfo.TabStop = false;
+            this.button_SyncAppInfo.Text = "Sync with server";
+            this.button_SyncAppInfo.UseVisualStyleBackColor = true;
+            this.button_SyncAppInfo.Click += new System.EventHandler(this.Button_SyncAppInfo_Click);
+            // 
             // OptionsForm
             // 
             this.AcceptButton = this.button_Save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(227, 206);
+            this.ClientSize = new System.Drawing.Size(227, 257);
+            this.Controls.Add(this.button_SyncAppInfo);
             this.Controls.Add(this.label_ContextMenuSize);
             this.Controls.Add(this.comboBox_ContextMenuSize);
             this.Controls.Add(this.checkBox_ConfirmExit);
@@ -151,5 +164,6 @@
         private System.Windows.Forms.CheckBox checkBox_ConfirmExit;
         private System.Windows.Forms.ComboBox comboBox_ContextMenuSize;
         private System.Windows.Forms.Label label_ContextMenuSize;
+        private System.Windows.Forms.Button button_SyncAppInfo;
     }
 }

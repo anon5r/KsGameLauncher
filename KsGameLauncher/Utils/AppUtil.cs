@@ -10,7 +10,7 @@ namespace KsGameLauncher.Utils
 {
     internal class AppUtil
     {
-        async public static Task<bool> DownloadJson()
+        public static async Task<bool> DownloadJson()
         {
 
             HttpClient client = new HttpClient()
