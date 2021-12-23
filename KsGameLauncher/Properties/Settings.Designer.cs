@@ -25,7 +25,7 @@ namespace KsGameLauncher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://launcher-app.sdvx.net/appinfo.json")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://launcher-app.sdvx.net/conf/appinfo.json")]
         public string appInfoURL {
             get {
                 return ((string)(this["appInfoURL"]));
