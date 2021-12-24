@@ -4,6 +4,13 @@ Ks Game Launcher
 [English](index.md)
 
 
+<p align="center">
+  <a href="https://github.com/anon5r/KSGameLauncher/releases">
+    <img src="https://raw.githubusercontent.com/anon5r/KSGameLauncher/main/docs/res/screen1.png" alt="drawing" width="500">
+  </a>
+</p>
+
+
 # これは何？
 
 コナステのゲームをワンクリックで起動するためのアプリケーションです。

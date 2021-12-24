@@ -1,10 +1,20 @@
 ﻿Ks Game Launcher
 ====
+[![GitHub all releases](https://img.shields.io/github/downloads/anon5r/KSGameLauncher/total)](https://github.com/anon5r/KSGameLauncher/releases/latest) [![GitHub release (latest by date)](https://img.shields.io/github/v/release/anon5r/KSGameLauncher)](https://github.com/anon5r/KSGameLauncher/releases/latest)
+[![Discord Shield](https://discord.com/api/guilds/923996951568056370/widget.png?style=shield)](https://discord.gg/vHuCpNgQ7y)
+<a href="https://github.com/anon5r/KSGameLauncher/releases"><img src="https://github.com/anon5r/KSGameLauncher/raw/main/docs/assets/images/app-logo.png" alt="KS Game Launcher" width="120" align="right"></a>
 
 [English](README.md)
 
 
-# これは何？
+<p align="center">
+  <a href="https://github.com/anon5r/KSGameLauncher/releases">
+    <img src="https://raw.githubusercontent.com/anon5r/KSGameLauncher/main/docs/res/screen1.png" alt="drawing" width="500"/>
+  </a>
+</p>
+
+
+## これは何？
 
 コナステのゲームをワンクリックで起動するためのアプリケーションです。
 

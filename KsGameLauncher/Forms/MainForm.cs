@@ -1,12 +1,12 @@
-﻿using System;
+﻿using KsGameLauncher.Forms;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Net.Http;
 using System.Security.Permissions;
-using System.Windows.Forms;
 using System.Threading.Tasks;
-using KsGameLauncher.Forms;
+using System.Windows.Forms;
 
 #if DEBUG
 using System.Diagnostics;
