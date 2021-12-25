@@ -3,11 +3,10 @@ Ks Game Launcher
 
 [English](index.md)
 
+## 現在ベータプレビュー中 [ここからダウンロードできます](https://github.com/anon5r/KsGameLauncher/releases/tag/v1.0.0-beta)
 
 <p align="center">
-  <a href="https://github.com/anon5r/KSGameLauncher/releases">
-    <img src="https://raw.githubusercontent.com/anon5r/KSGameLauncher/main/docs/res/screen1.png" alt="drawing" width="500">
-  </a>
+  <img src="https://raw.githubusercontent.com/anon5r/KSGameLauncher/main/docs/res/screen1.png" alt="preview" width="500">
 </p>
 
 
@@ -47,11 +46,6 @@ Ks Game Launcher
 
 
 
-## 実行方法
-
-Exeファイルを実行してください。
-
-
 # 実行環境
 
 
@@ -63,11 +57,23 @@ OS: Microsoft&reg; Windows&trade; 10 Aniversary Update 以上
 https://docs.microsoft.com/ja-jp/dotnet/framework/install/on-windows-10
 
 
+# 実行方法
 
-## アンインストール
+`ksgamelauncher.exe`ファイルを実行してください。
+
+初回のみ、サーバーからJSONファイルをダウンロードします。 
+次回はダウンロードされた `appinfo.json` を使用するため、サーバーには接続しません。ただし、ファイルが存在しない場合は再度ダウンロードされます。
+
+
+# アンインストール
 
 展開されたファイルをすべて削除してください。
 
+## 設定ファイルの削除
+
+完全に削除するには下記のフォルダも削除してください
+
+`%LOCALAPPDATA%\KsGameLauncher`
 
 
 

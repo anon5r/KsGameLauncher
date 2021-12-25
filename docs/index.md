@@ -3,11 +3,11 @@ Ks Game Launcher
 
 [Japanese (日本語)](index.ja.md)
 
+## Now in beta preview! [You can try beta here](https://github.com/anon5r/KsGameLauncher/releases/tag/v1.0.0-beta)
+
 
 <p align="center">
-  <a href="https://github.com/anon5r/KSGameLauncher/releases">
-    <img src="https://raw.githubusercontent.com/anon5r/KSGameLauncher/main/docs/res/screen1.png" alt="drawing" width="500">
-  </a>
+  <img src="https://raw.githubusercontent.com/anon5r/KSGameLauncher/main/docs/res/screen1.png" alt="preview" width="500">
 </p>
 
 
@@ -44,12 +44,6 @@ For items distributed outside the specified schedule, the above cannot be guaran
 
 
 
-
-## Execution method
-
-Run the Exe file.
-
-
 # Running environment
 
 
@@ -61,13 +55,24 @@ If you need to install it, please install it from here.
 
 https://docs.microsoft.com/ja-jp/dotnet/framework/install/on-windows-10
 
+# How can I use this ?
+
+Just run `ksgamelauncher.exe` file.
+
+First time only, it will download JSON file from the server. Next time it will use `appinfo.json` in the same location as the program, so it will not connect to the server. But if it doesn't exist, it will be downloaded again.
 
 
-## Uninstall
+# Uninstall
 
-Delete all the extracted files.
+Delete all files.
 
+## Delete settings
 
+If you want to delete completely, please remove under following directory:
+
+`%LOCALAPPDATA%\KsGameLauncher`
+
+Here is stored application settings.
 
 
 
