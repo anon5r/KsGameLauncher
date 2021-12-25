@@ -231,5 +231,29 @@ namespace KsGameLauncher.Properties {
                 return ((int)(this["MenuIconSize_Default"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowOnlyInstalledGames {
+            get {
+                return ((bool)(this["ShowOnlyInstalledGames"]));
+            }
+            set {
+                this["ShowOnlyInstalledGames"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("400, 300")]
+        public global::System.Drawing.Size NewGameFormSize {
+            get {
+                return ((global::System.Drawing.Size)(this["NewGameFormSize"]));
+            }
+            set {
+                this["NewGameFormSize"] = value;
+            }
+        }
     }
 }

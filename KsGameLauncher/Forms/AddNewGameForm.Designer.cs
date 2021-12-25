@@ -1,6 +1,6 @@
-﻿namespace KsGameLauncher.Forms
+﻿namespace KsGameLauncher
 {
-    partial class AddNewGame
+    partial class AddNewGameForm
     {
         /// <summary>
         /// Required designer variable.
@@ -38,24 +38,25 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox_DragHere.Location = new System.Drawing.Point(12, 12);
             this.groupBox_DragHere.Name = "groupBox_DragHere";
-            this.groupBox_DragHere.Size = new System.Drawing.Size(371, 225);
+            this.groupBox_DragHere.Size = new System.Drawing.Size(360, 237);
             this.groupBox_DragHere.TabIndex = 0;
             this.groupBox_DragHere.TabStop = false;
             this.groupBox_DragHere.Text = "Drag here";
             this.groupBox_DragHere.DragDrop += new System.Windows.Forms.DragEventHandler(this.AddNewGame_DragDrop);
             this.groupBox_DragHere.DragEnter += new System.Windows.Forms.DragEventHandler(this.AddNewGame_DragEnter);
             // 
-            // AddNewGame
+            // AddNewGameForm
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(395, 249);
+            this.ClientSize = new System.Drawing.Size(384, 261);
             this.Controls.Add(this.groupBox_DragHere);
             this.MinimizeBox = false;
-            this.Name = "AddNewGame";
+            this.Name = "AddNewGameForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddNewGame";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddNewGameForm_FormClosed);
             this.Load += new System.EventHandler(this.AddNewGame_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.AddNewGame_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.AddNewGame_DragEnter);

@@ -35,23 +35,33 @@ namespace KsGameLauncher
             button_Remove.Enabled = false;
             if (!RefreshRegisteredAccounts())
             {
-                // There are no account registered
-                // Display credential input prompt
-                bool save = true;
-                credential = CredentialManager.PromptForCredentials(CredentialName, ref save,
-                    Resources.EnterYourAccountPasswordPrompt, Resources.AppName, "");
-                if (credential != null)
+                try
                 {
-                    credential.Domain = Properties.Resources.AuthorizeDomain;
-                    CredentialManager.SaveCredentials(CredentialName, credential);
+
+                    // There are no account registered
+                    // Display credential input prompt
+                    bool save = true;
+                    credential = CredentialManager.PromptForCredentials(CredentialName, ref save,
+                        Resources.EnterYourAccountPasswordPrompt, Resources.AppName, "");
+                    if (credential != null)
+                    {
+                        credential.Domain = Properties.Resources.AuthorizeDomain;
+                        CredentialManager.SaveCredentials(CredentialName, credential);
+                    }
+
+                }
+                catch (ArgumentNullException)
+                {
                 }
                 RefreshRegisteredAccounts();
             }
         }
 
-        async private void Button_Remove_Click(object sender, EventArgs e)
+        private async void Button_Remove_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(Resources.ConfirmToRemoveAccountFromList, Resources.ConfirmToRemove, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show(Resources.ConfirmToRemoveAccountFromList, Resources.ConfirmToRemove, 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             if (result == DialogResult.Yes)
             {
                 try
@@ -59,12 +69,15 @@ namespace KsGameLauncher
                     if (CredentialManager.RemoveCredentials(CredentialName))
                     {
                         await Launcher.Logout();
+                        credential = CredentialManager.GetCredentials(CredentialName);
                         RefreshRegisteredAccounts();
                         MessageBox.Show(Resources.AccountRemoveSucceeded);
                     }
                     else
                     {
-                        result = MessageBox.Show(Resources.AccountRemoveFailed, Resources.AppName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                        result = MessageBox.Show(Resources.AccountRemoveFailed, Resources.AppName, 
+                            MessageBoxButtons.RetryCancel, MessageBoxIcon.Error,
+                            MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                         if (result == DialogResult.Retry)
                         {
                             Utils.Common.OpenControlPanel("keymgr.dll,KRShowKeyMgr");
@@ -73,7 +86,9 @@ namespace KsGameLauncher
                 }
                 catch (CredentialAPIException)
                 {
-                    result = MessageBox.Show(Resources.AccountRemoveFailed, Resources.AppName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    result = MessageBox.Show(Resources.AccountRemoveFailed, Resources.AppName, 
+                        MessageBoxButtons.RetryCancel, MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                     if (result == DialogResult.Retry)
                     {
                         Utils.Common.OpenControlPanel("keymgr.dll,KRShowKeyMgr");
@@ -82,22 +97,32 @@ namespace KsGameLauncher
             }
         }
 
-        private void Button_Update_Click(object sender, EventArgs e)
+        private async void Button_Update_Click(object sender, EventArgs e)
         {
             bool save = true;
             string defaultUserName = "";
             if (credential != null)
                 defaultUserName = credential.UserName;
+            try
+            {
 
-            credential = CredentialManager.PromptForCredentials(CredentialName, ref save, Resources.EnterYourAccountPasswordPrompt, Resources.AppName, defaultUserName);
-            if (credential != null)
-            {
-                credential.Domain = Properties.Resources.AuthorizeDomain;
-                CredentialManager.SaveCredentials(CredentialName, credential);
+                credential = CredentialManager.PromptForCredentials(CredentialName, ref save,
+                    Resources.EnterYourAccountPasswordPrompt, Resources.AppName, defaultUserName);
+                if (credential != null)
+                {
+                    credential.Domain = Properties.Resources.AuthorizeDomain;
+                    CredentialManager.SaveCredentials(CredentialName, credential);
+                }
+
+                if (save)
+                {
+                    await Launcher.Logout();
+                    RefreshRegisteredAccounts();
+                }
             }
-            if (save)
+            catch (ArgumentNullException)
             {
-                RefreshRegisteredAccounts();
+
             }
         }
 

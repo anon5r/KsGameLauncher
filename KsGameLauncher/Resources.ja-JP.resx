@@ -294,6 +294,9 @@
   <data name="ShowLicense" xml:space="preserve">
     <value>ライセンスを表示</value>
   </data>
+  <data name="ShowOnlyInstalledGames" xml:space="preserve">
+    <value>インストール済みゲームのみ表示</value>
+  </data>
   <data name="StartngLauncher" xml:space="preserve">
     <value>ゲームを起動しています。しばらくお待ちください。</value>
   </data>

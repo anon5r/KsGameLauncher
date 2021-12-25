@@ -3,11 +3,11 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 
-namespace KsGameLauncher.Forms
+namespace KsGameLauncher
 {
-    public partial class AddNewGame : Form
+    public partial class AddNewGameForm : Form
     {
-        public AddNewGame()
+        public AddNewGameForm()
         {
             InitializeComponent();
         }
@@ -66,14 +66,14 @@ namespace KsGameLauncher.Forms
                     if (AppInfo.ContainID(appInfo.ID))
                     {
                         MessageBox.Show(string.Format(Resources.AlreadyGameExists, appInfo.Name), Resources.AppName,
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
+                            MessageBoxButtons.OK, MessageBoxIcon.Error,
+                            MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                         return;
                     }
 
                     var result = MessageBox.Show(String.Format(Resources.ConfirmAddNewGame, appInfo.Name),
-                        Resources.AppName, MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                        Resources.AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, 
+                        MessageBoxDefaultButton.Button2, MessageBoxOptions.DefaultDesktopOnly);
                     if (result == DialogResult.Yes)
                     {
                         // TODO AppInfoリストに追加し、JSON化して保存する
@@ -88,7 +88,9 @@ namespace KsGameLauncher.Forms
             }
             catch (FileFormatException ex)
             {
-                MessageBox.Show(ex.Message, Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, Resources.AppName, 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             }
 
             // Save loaded games to local file
@@ -113,6 +115,13 @@ namespace KsGameLauncher.Forms
             Icon = Properties.Resources.app;
             Text = Resources.AddNewGameWindowTitle;
             groupBox_DragHere.Text = Resources.DropHere;
+            Size = Properties.Settings.Default.NewGameFormSize;
+        }
+
+        private void AddNewGameForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Properties.Settings.Default.NewGameFormSize = Size;
+            Properties.Settings.Default.Save();
         }
     }
 }

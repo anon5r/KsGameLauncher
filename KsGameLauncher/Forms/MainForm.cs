@@ -1,5 +1,4 @@
-﻿using KsGameLauncher.Forms;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -8,15 +7,11 @@ using System.Security.Permissions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-#if DEBUG
-using System.Diagnostics;
-#endif
 
 namespace KsGameLauncher
 {
     public partial class MainForm : Form
     {
-
         private static NotifyIcon notifyIcon;
 
         private bool _launcherMutex = false;
@@ -40,6 +35,11 @@ namespace KsGameLauncher
                 return cp;
             }
         }
+
+        private AboutForm _aboutForm;
+        private AccountForm _accountForm;
+        private OptionsForm _optionsForm;
+        private AddNewGameForm _addNewGameForm;
 
 
         /// <summary>
@@ -161,13 +161,15 @@ namespace KsGameLauncher
                 catch (FileNotFoundException)
                 {
                     MessageBox.Show(String.Format(Resources.FailedToLoadFile, Properties.Settings.Default.appInfoLocal),
-                        Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                 }
             }
-            catch (HttpRequestException ex)
+            catch (HttpRequestException)
             {
                 MessageBox.Show(Resources.ErrorGetAppInfoFailed, Resources.SyncWithServerDialogTitle,
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBoxButtons.OK, MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             }
 
             return null;
@@ -198,6 +200,12 @@ namespace KsGameLauncher
                     if (Utils.GameRegistry.IsInstalled(appInfo.Name))
                     {
                         var item = CreateNewMenuItem(appInfo, font, iconSize);
+                        menu.Items.Add(item);
+                    }
+                    else if (!Properties.Settings.Default.ShowOnlyInstalledGames)
+                    {
+                        var item = CreateNewMenuItem(appInfo, font, iconSize);
+                        item.Enabled = false;
                         menu.Items.Add(item);
                     }
                 }
@@ -260,7 +268,8 @@ namespace KsGameLauncher
                 if (_launcherMutex)
                 {
                     MessageBox.Show(Resources.StartngLauncher, Resources.AppName,
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation,
+                        MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                     return;
                 }
 
@@ -275,21 +284,24 @@ namespace KsGameLauncher
                     MessageBox.Show(String.Format(
                         "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
                         appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
-                    , Resources.ErrorWhileLogin, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    , Resources.ErrorWhileLogin, MessageBoxButtons.OK, MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                 }
                 catch (LauncherException ex)
                 {
                     MessageBox.Show(String.Format(
                         "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
                         appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
-                    , ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    , ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(String.Format(
                         "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
                         appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
-                    , ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    , ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                 }
                 finally
                 {
@@ -344,22 +356,40 @@ namespace KsGameLauncher
 
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AboutForm aboutForm = new AboutForm
-            {
-                ShowInTaskbar = false
-            };
-            aboutForm.ShowDialog(this);
+            if (_aboutForm == null || _aboutForm.IsDisposed)
+                _aboutForm = new AboutForm
+                {
+                    ShowInTaskbar = false
+                };
+
+            if (!_aboutForm.Visible)
+                _aboutForm.ShowDialog(this);
+            else
+                _aboutForm.Activate();
 
         }
 
         private void ManageAccountsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            (new AccountForm()).Show(this);
+            if (_accountForm == null || _accountForm.IsDisposed)
+                _accountForm = new AccountForm();
+
+            if (!_accountForm.Visible)
+                _accountForm.ShowDialog(this);
+            else
+                _accountForm.Activate();
+
         }
 
         private void OptionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            (new OptionsForm()).ShowDialog(this);
+            if (_optionsForm == null || _optionsForm.IsDisposed)
+                _optionsForm = new OptionsForm();
+
+            if (!_optionsForm.Visible)
+                _optionsForm.ShowDialog(this);
+            else
+                _optionsForm.Activate();
         }
 
         public static void DisplayToolTip(string message, int timeout)
@@ -383,7 +413,13 @@ namespace KsGameLauncher
 
         private void AddNewGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            (new AddNewGame()).ShowDialog(this);
+            if (_addNewGameForm == null || _addNewGameForm.IsDisposed)
+                _addNewGameForm = new AddNewGameForm();
+
+            if (!_addNewGameForm.Visible)
+                _addNewGameForm.ShowDialog(this);
+            else
+                _addNewGameForm.Activate();
         }
 
         internal ContextMenuStrip GetMenuStrip()
@@ -394,16 +430,6 @@ namespace KsGameLauncher
         internal void SetMenuStrip(ContextMenuStrip menu)
         {
             menuStripMain = menu;
-        }
-
-        private void MainForm_Deactivate(object sender, EventArgs e)
-        {
-            Debug.WriteLine(String.Format("{0} Created: {1}, Capture :{2}",
-                menuStripMain.GetType().Name, menuStripMain.Created, menuStripMain.Capture));
-            if (menuStripMain.Created && !menuStripMain.Capture)
-                menuStripMain.Close();
-            if (contextMenuStrip_Sub.Created && !contextMenuStrip_Sub.Capture)
-                contextMenuStrip_Sub.Close();
         }
     }
 }

@@ -99,7 +99,6 @@
             this.Name = "MainForm";
             this.ShowInTaskbar = false;
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
-            this.Deactivate += new System.EventHandler(this.MainForm_Deactivate);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.contextMenuStrip_Sub.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -567,6 +567,15 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   Show only installed games に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ShowOnlyInstalledGames {
+            get {
+                return ResourceManager.GetString("ShowOnlyInstalledGames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Game has been starting, please wait. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StartngLauncher {

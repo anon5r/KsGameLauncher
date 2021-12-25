@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\ILMerge.3.0.41\build\ILMerge.props" Condition="Exists('..\packages\ILMerge.3.0.41\build\ILMerge.props')" />
+  <Import Project="..\packages\ILMerge.3.0.40\build\ILMerge.props" Condition="Exists('..\packages\ILMerge.3.0.40\build\ILMerge.props')" />
+  <Import Project="..\packages\Resource.Embedder.2.1.1\build\Resource.Embedder.props" Condition="Exists('..\packages\Resource.Embedder.2.1.1\build\Resource.Embedder.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -97,6 +98,9 @@
   <PropertyGroup />
   <PropertyGroup />
   <PropertyGroup />
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AdysTech.CredentialManager, Version=2.5.0.0, Culture=neutral, PublicKeyToken=42b78d2d57493ebe, processorArchitecture=MSIL">
       <HintPath>..\packages\AdysTech.CredentialManager.2.5.0\lib\net45\AdysTech.CredentialManager.dll</HintPath>
@@ -104,6 +108,8 @@
     <Reference Include="AngleSharp, Version=0.16.1.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
       <HintPath>..\packages\AngleSharp.0.16.1\lib\net472\AngleSharp.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -146,11 +152,11 @@
     <Compile Include="Forms\AccountForm.Designer.cs">
       <DependentUpon>AccountForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddNewGame.cs">
+    <Compile Include="Forms\AddNewGameForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddNewGame.Designer.cs">
-      <DependentUpon>AddNewGame.cs</DependentUpon>
+    <Compile Include="Forms\AddNewGameForm.Designer.cs">
+      <DependentUpon>AddNewGameForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Structures\AppInfo.cs" />
     <Compile Include="Forms\AboutForm.cs">
@@ -207,8 +213,8 @@
     <EmbeddedResource Include="Forms\AccountForm.resx">
       <DependentUpon>AccountForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddNewGame.resx">
-      <DependentUpon>AddNewGame.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AddNewGameForm.resx">
+      <DependentUpon>AddNewGameForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LicensesForm.resx">
       <DependentUpon>LicensesForm.cs</DependentUpon>
@@ -283,11 +289,15 @@
     <PropertyGroup>
       <ErrorText>このプロジェクトは、このコンピューター上にない NuGet パッケージを参照しています。それらのパッケージをダウンロードするには、[NuGet パッケージの復元] を使用します。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。見つからないファイルは {0} です。</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\ILMerge.3.0.41\build\ILMerge.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ILMerge.3.0.41\build\ILMerge.props'))" />
+    <Error Condition="!Exists('..\packages\Resource.Embedder.2.1.1\build\Resource.Embedder.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Resource.Embedder.2.1.1\build\Resource.Embedder.props'))" />
+    <Error Condition="!Exists('..\packages\ILMerge.3.0.40\build\ILMerge.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ILMerge.3.0.40\build\ILMerge.props'))" />
   </Target>
   <PropertyGroup>
     <PostBuildEvent>set output=$(TargetFileName)
-mkdir ILMerge
-"$(SolutionDir)\packages\ILMerge.3.0.41\tools\net452\ILMerge.exe" /wildcards /ndebug:fase /out:ILMerge\$(TargetFileName) $(TargetFileName) *.dll</PostBuildEvent>
+set outpath=publish
+set ILMERGE="$(SolutionDir)\packages\ILMerge.3.0.40\tools\net452\ILMerge.exe"
+if not exist %25outpath%25 mkdir %25outpath%25
+
+%25ILMERGE%25 /wildcards /ndebug:fase /out:%25outpath%25\%25output%25 $(TargetFileName) *.dll</PostBuildEvent>
   </PropertyGroup>
 </Project>

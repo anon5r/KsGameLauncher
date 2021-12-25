@@ -207,7 +207,8 @@ namespace KsGameLauncher
             if (credential == null)
             {
                 MessageBox.Show(Resources.ShouldBeSetAccountBeforeLaunch, Resources.ErrorText,
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBoxButtons.OK, MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                 return;
             }
 
@@ -230,7 +231,9 @@ namespace KsGameLauncher
                     }
                     catch (LoginException ex)
                     {
-                        MessageBox.Show(ex.Message, Resources.LoginExceptionDialogName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(ex.Message, Resources.LoginExceptionDialogName, 
+                            MessageBoxButtons.OK, MessageBoxIcon.Error,
+                            MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                         return;
                     }
                     catch (Exception ex)
@@ -255,7 +258,9 @@ namespace KsGameLauncher
 
                     if (response.RequestMessage.RequestUri.Host.Contains(Properties.Resources.AuthorizeDomain))
                     {
-                        MessageBox.Show(Resources.IncorrectUsernameOrPassword);
+                        MessageBox.Show(Resources.IncorrectUsernameOrPassword, Resources.AppName, 
+                            MessageBoxButtons.OK, MessageBoxIcon.Error,
+                            MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                         return;
                     }
 
@@ -265,7 +270,9 @@ namespace KsGameLauncher
                         {
                             case HttpStatusCode.Redirect:
                                 Uri redirectUri = response.Headers.Location;
-                                MessageBox.Show(Resources.CheckFollowingPage);
+                                MessageBox.Show(Resources.CheckFollowingPage,
+                                    Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning,
+                                    MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                                 Utils.Common.OpenUrlByDefaultBrowser(redirectUri);
                                 break;
 
@@ -358,11 +365,15 @@ namespace KsGameLauncher
             }
             catch (LoginException e)
             {
-                MessageBox.Show(e.Message, Resources.LoginExceptionDialogName);
+                MessageBox.Show(e.Message, Resources.LoginExceptionDialogName, 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             }
             catch (GameTermsOfServiceException ex)
             {
-                MessageBox.Show(ex.Message, Resources.GameTermsOfServiceExceptionDialogName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(ex.Message, Resources.GameTermsOfServiceExceptionDialogName, 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                 Utils.Common.OpenUrlByDefaultBrowser(ex.GetTosURL());
             }
             catch (Exception e)
@@ -385,7 +396,9 @@ namespace KsGameLauncher
             AngleSharp.Dom.IElement launchButton = document.QuerySelector(querySelector);
             if (launchButton == null)
             {
-                MessageBox.Show("Failed to parse page!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Failed to parse page!", Application.ProductName, 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                 return;
             }
             string launcherCustomProtocol = launchButton.GetAttribute("href");
@@ -436,6 +449,9 @@ namespace KsGameLauncher
         async public static Task<HttpResponseMessage> Logout()
         {
             Launcher instance = Create();
+            if (instance.httpClient == null)
+                instance.httpClient = instance.CreateHttp();
+
             HttpResponseMessage response = await instance.httpClient.GetAsync(Properties.Settings.Default.LogoutURL);
             response.EnsureSuccessStatusCode();
 

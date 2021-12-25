@@ -59,5 +59,11 @@
     <Setting Name="MenuIconSize_Default" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">16</Value>
     </Setting>
+    <Setting Name="ShowOnlyInstalledGames" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NewGameFormSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">400, 300</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
