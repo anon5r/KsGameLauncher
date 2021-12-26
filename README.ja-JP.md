@@ -62,8 +62,7 @@ OS: Microsoft&reg; Windows&trade; 10 Aniversary Update 以上
 
 必要ランタイム: Microsoft&reg; .NET Framework 4.8
 
-インストールが必要な場合はこちらからインストールしてください。
-https://docs.microsoft.com/ja-jp/dotnet/framework/install/on-windows-10
+インストールが必要な場合は [こちら](https://docs.microsoft.com/ja-jp/dotnet/framework/install/on-windows-10) からインストールしてください。
 
 
 
@@ -72,6 +71,20 @@ https://docs.microsoft.com/ja-jp/dotnet/framework/install/on-windows-10
 展開されたファイルをすべて削除してください。
 
 
+
+# ビルド方法
+
+Microsoft&reg; Visual Studio、または [MSBuild](https://docs.microsoft.com/ja-jp/visualstudio/msbuild/msbuild?view=vs-2022) を用いてビルドすることができます。
+
+## NuGet
+
+いくつかの外部ライブラリを使用しています。
+
+それらをインストールするためにNuGetから復元する必要があります。
+
+```
+nuget restore KsGameLauncher.sln
+```
 
 
 
@@ -84,7 +97,7 @@ IDとパスワードは正規のサービスサイトでログイン処理以外
 万が一不安がぬぐえない場合、本ランチャーの使用を控えてください。
 
 本ツールはGithub上でオープンソースとして公開しています。
-もしコードを読むことができる場合、そーすコードを確認してどのように動作するか確認することができます。
+もしコードを読むことができる場合、ソースコードを確認してどのように動作するか確認することができます。
 
 また、Visual Studioを用いてご自身でビルドして実行、確認することもできます。
 

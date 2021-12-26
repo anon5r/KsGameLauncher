@@ -60,9 +60,8 @@ OS: Microsoft &reg; Windows &trade; 10 Aniversary Update or more
 
 Required runtime: Microsoft &reg; .NET Framework 4.8
 
-If you need to install it, please install it from here.
+If you need to install it, please install it from [here](https://docs.microsoft.com/ja-jp/dotnet/framework/install/on-windows-10).
 
-https://docs.microsoft.com/ja-jp/dotnet/framework/install/on-windows-10
 
 
 
@@ -71,6 +70,20 @@ https://docs.microsoft.com/ja-jp/dotnet/framework/install/on-windows-10
 Delete all the extracted files.
 
 
+
+# How can I build this
+
+You can build on your machine with Microsoft&reg; Visual Studio or [MSBuild](https://docs.microsoft.com/visualstudio/msbuild/msbuild?view=vs-2022) 
+
+## NuGet
+
+We are using some outside libraries.
+
+You need to run the following command to install from NuGet.
+
+```
+nuget restore KsGameLauncher.sln
+```
 
 
 
