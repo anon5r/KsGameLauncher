@@ -128,7 +128,11 @@ namespace KsGameLauncher
         }
 
 
-
+        /// <summary>
+        /// Get appinfo JSON file
+        /// Load from local if exists, otherwise download from the internet
+        /// </summary>
+        /// <returns></returns>
         async private Task<string> GetJson()
         {
             try

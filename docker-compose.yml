@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  web:
+    container_name: ksglauncher-web
+    image: ksglauncher-web:latest
+    ports: 
+      - 8080:80
+    build: ./docker/nginx
+    volumes:
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+      - ./docs/conf:/var/www/html/conf
+    networks:
+      - ksgnet
+
+networks:
+  ksgnet:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.24.0/27
