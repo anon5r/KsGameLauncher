@@ -36,12 +36,18 @@ namespace KsGameLauncher
             return instance;
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         private Launcher()
         {
 
         }
 
-
+        /// <summary>
+        /// Create HTTP client instance
+        /// </summary>
+        /// <returns></returns>
         private HttpClient CreateHttp()
         {
             httpHandler = new HttpClientHandler()
@@ -76,7 +82,10 @@ namespace KsGameLauncher
 
 
 
-
+        /// <summary>
+        /// already logged in?
+        /// </summary>
+        /// <returns></returns>
         internal bool IsLogin()
         {
             if (httpClient == null || httpHandler == null)
@@ -100,7 +109,11 @@ namespace KsGameLauncher
         }
 
 
-
+        /// <summary>
+        /// Get login page URI
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="LoginUriException"></exception>
         private async Task<Uri> GetLoginUri()
         {
             Debug.WriteLine(String.Format("Get login page: {0}", Properties.Settings.Default.LoginURL));
@@ -118,6 +131,12 @@ namespace KsGameLauncher
 
         }
 
+        /// <summary>
+        /// Login process
+        /// </summary>
+        /// <param name="credential"></param>
+        /// <param name="loginURL"></param>
+        /// <returns></returns>
         public async Task<bool> Login(NetworkCredential credential, Uri loginURL)
         {
             if (Properties.Settings.Default.EnableNotification)
@@ -167,6 +186,13 @@ namespace KsGameLauncher
             }
         }
 
+        /// <summary>
+        /// Send requqest to login
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="requestParams"></param>
+        /// <returns></returns>
+        /// <exception cref="LoginException"></exception>
         private async Task<HttpResponseMessage> SendLoginRequest(Uri url, Dictionary<string, string> requestParams)
         {
 
@@ -201,6 +227,10 @@ namespace KsGameLauncher
             }
         }
 
+        /// <summary>
+        /// Startup games
+        /// </summary>
+        /// <param name="app"></param>
         async public void StartApp(AppInfo app)
         {
             NetworkCredential credential = GetCredential();
@@ -382,6 +412,12 @@ namespace KsGameLauncher
             }
         }
 
+        /// <summary>
+        /// Parse launcher launch page
+        /// </summary>
+        /// <param name="content"></param>
+        /// <param name="querySelector"></param>
+        /// <exception cref="LauncherException"></exception>
         async void LauncherLoginPage(string content, string querySelector)
         {
             if (content == null || content.Length < 0)
@@ -415,24 +451,73 @@ namespace KsGameLauncher
                 Debug.WriteLine(String.Format("launcherUri: {0}", launcherCustomProtocol));
                 Debug.WriteLine(String.Format("custom scheme: {0}", customUri.Scheme));
 #endif
-                string launcherPath = Utils.GameRegistry.GetLauncherPath(customUri.Scheme);
-#if DEBUG
-                Debug.WriteLine(String.Format("Launcher exec path: {0}", launcherPath));
-#endif
-
-                Process.Start(launcherPath, launcherCustomProtocol);
+                LaunchGame(customUri);
             }
 
         }
 
+        /// <summary>
+        /// Launch the launcher or game
+        /// </summary>
+        /// <param name="launcherUri"></param>
+        private void LaunchGame(Uri launcherUri)
+        {
+            string execPath = Utils.GameRegistry.GetLauncherPath(launcherUri.Scheme);
+            string args = launcherUri.ToString();
+#if DEBUG
+            Debug.WriteLine(String.Format("Launcher exec path: {0}", execPath));
+#endif
+            if (Properties.Settings.Default.RunGameDirect)
+            {
+                string launcherPath, errorReporterPath;
+                launcherPath = Properties.Settings.Default.LauncherPath;
+                errorReporterPath = Properties.Settings.Default.ErrorReporterPath;
+                if (launcherUri.Scheme.StartsWith("bm2dxinf"))
+                {
+                    launcherPath = Properties.Settings.Default.LauncherPath_2dx;
+                    errorReporterPath = Properties.Settings.Default.ErrorReporterPath_2dx;
+                }
+
+                string testPath = execPath.Replace(launcherPath, errorReporterPath);
+
+                if (File.Exists(testPath))
+                {
+                    execPath = testPath;
+                    string param = "tk=";
+                    if (launcherUri.Query.Contains("&"))
+                        args = string.Format("-t {0}", launcherUri.Query.Substring(1).Substring(launcherUri.Query.IndexOf(param)+param.Length, launcherUri.Query.IndexOf("&")));
+                    else
+                        args = string.Format("-t {0}", launcherUri.Query.Substring(1).Substring(launcherUri.Query.IndexOf(param) + param.Length));
+                }
+                else
+                {
+                    MessageBox.Show(Resources.CannotFindErrorReporter, Resources.AppName,
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.DefaultDesktopOnly);
+                }
+
+            }
+
+            Process.Start(execPath, args);
+        }
+
+        /// <summary>
+        /// Get credentials
+        /// </summary>
+        /// <returns></returns>
         private NetworkCredential GetCredential()
         {
             return CredentialManager.GetCredentials(target: Properties.Resources.CredentialTarget);
         }
 
+        /// <summary>
+        /// Find game exe
+        /// </summary>
+        /// <param name="launcherPath"></param>
+        /// <returns></returns>
         private string GetGamePathFromLauncher(string launcherPath)
         {
-            string gamePath = launcherPath.Replace(@"\launcher\modules\launcher.exe", @"game\modules\");
+            string gamePath = launcherPath.Replace(Properties.Settings.Default.LauncherPath, @"game\modules\");
             string[] files = Directory.GetFiles(gamePath, "*.exe");
             if (files.Length < 0)
                 return null;
