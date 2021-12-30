@@ -188,6 +188,15 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   Launcher launches because the game execution file cannot be found. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CannotFindErrorReporter {
+            get {
+                return ResourceManager.GetString("CannotFindErrorReporter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Could not be saved game list, because not allowed write files. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string CannotSaveGameList {
@@ -518,6 +527,15 @@ namespace KsGameLauncher {
         internal static string OptionsWindowTitle {
             get {
                 return ResourceManager.GetString("OptionsWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Run the game directly に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string RunGameDirectly {
+            get {
+                return ResourceManager.GetString("RunGameDirectly", resourceCulture);
             }
         }
         

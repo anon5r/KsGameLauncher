@@ -162,6 +162,9 @@ You can try removing it from "Credential Manager" in Control Panel.\nIf you clic
   <data name="ButtonUpdate_Register" xml:space="preserve">
     <value>Re&amp;gister</value>
   </data>
+  <data name="CannotFindErrorReporter" xml:space="preserve">
+    <value>Launcher launches because the game execution file cannot be found.</value>
+  </data>
   <data name="CannotSaveGameList" xml:space="preserve">
     <value>Could not be saved game list, because not allowed write files.</value>
   </data>
@@ -282,6 +285,9 @@ This file may not exist or may be temporarily unavailable.</value>
   </data>
   <data name="OptionsWindowTitle" xml:space="preserve">
     <value>Options</value>
+  </data>
+  <data name="RunGameDirectly" xml:space="preserve">
+    <value>Run the game directly</value>
   </data>
   <data name="ServiceIsTemporaryUnavailable" xml:space="preserve">
     <value>Service is temporarily down or unavailable.</value>

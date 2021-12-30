@@ -161,6 +161,9 @@
   <data name="ButtonUpdate_Register" xml:space="preserve">
     <value>登録 (&amp;G)</value>
   </data>
+  <data name="CannotFindErrorReporter" xml:space="preserve">
+    <value>ゲーム実行ファイルが見つからないためランチャーを起動します。</value>
+  </data>
   <data name="CannotSaveGameList" xml:space="preserve">
     <value>ファイルへの書き込みが許可されていないため
 ゲーム一覧を保存できませんでした。</value>
@@ -278,6 +281,9 @@
   </data>
   <data name="OptionsWindowTitle" xml:space="preserve">
     <value>オプション</value>
+  </data>
+  <data name="RunGameDirectly" xml:space="preserve">
+    <value>ランチャーをスキップ</value>
   </data>
   <data name="ServiceIsTemporaryUnavailable" xml:space="preserve">
     <value>サービスが一時的に停止しているか、利用できません。</value>

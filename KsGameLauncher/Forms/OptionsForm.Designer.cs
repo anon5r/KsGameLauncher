@@ -37,6 +37,7 @@
             this.label_ContextMenuSize = new System.Windows.Forms.Label();
             this.button_SyncAppInfo = new System.Windows.Forms.Button();
             this.checkBox_DisplayInstalledGamesOnly = new System.Windows.Forms.CheckBox();
+            this.checkBox_RunDirect = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // checkBox_UseProxy
@@ -52,6 +53,7 @@
             // 
             // linkLabel_OpenProxySettings
             // 
+            this.linkLabel_OpenProxySettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabel_OpenProxySettings.AutoSize = true;
             this.linkLabel_OpenProxySettings.Location = new System.Drawing.Point(112, 43);
             this.linkLabel_OpenProxySettings.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -66,7 +68,7 @@
             // button_Save
             // 
             this.button_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_Save.Location = new System.Drawing.Point(166, 224);
+            this.button_Save.Location = new System.Drawing.Point(171, 255);
             this.button_Save.Margin = new System.Windows.Forms.Padding(2);
             this.button_Save.Name = "button_Save";
             this.button_Save.Size = new System.Drawing.Size(54, 25);
@@ -101,17 +103,19 @@
             // 
             // comboBox_ContextMenuSize
             // 
+            this.comboBox_ContextMenuSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBox_ContextMenuSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_ContextMenuSize.FormattingEnabled = true;
-            this.comboBox_ContextMenuSize.Location = new System.Drawing.Point(10, 159);
+            this.comboBox_ContextMenuSize.Location = new System.Drawing.Point(12, 184);
             this.comboBox_ContextMenuSize.Name = "comboBox_ContextMenuSize";
-            this.comboBox_ContextMenuSize.Size = new System.Drawing.Size(121, 20);
+            this.comboBox_ContextMenuSize.Size = new System.Drawing.Size(125, 20);
             this.comboBox_ContextMenuSize.TabIndex = 5;
             // 
             // label_ContextMenuSize
             // 
+            this.label_ContextMenuSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label_ContextMenuSize.AutoSize = true;
-            this.label_ContextMenuSize.Location = new System.Drawing.Point(10, 144);
+            this.label_ContextMenuSize.Location = new System.Drawing.Point(12, 169);
             this.label_ContextMenuSize.Name = "label_ContextMenuSize";
             this.label_ContextMenuSize.Size = new System.Drawing.Size(100, 12);
             this.label_ContextMenuSize.TabIndex = 6;
@@ -119,9 +123,10 @@
             // 
             // button_SyncAppInfo
             // 
-            this.button_SyncAppInfo.Location = new System.Drawing.Point(10, 196);
+            this.button_SyncAppInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button_SyncAppInfo.Location = new System.Drawing.Point(12, 225);
             this.button_SyncAppInfo.Name = "button_SyncAppInfo";
-            this.button_SyncAppInfo.Size = new System.Drawing.Size(100, 23);
+            this.button_SyncAppInfo.Size = new System.Drawing.Size(125, 23);
             this.button_SyncAppInfo.TabIndex = 7;
             this.button_SyncAppInfo.TabStop = false;
             this.button_SyncAppInfo.Text = "Sync with server";
@@ -140,12 +145,23 @@
             this.checkBox_DisplayInstalledGamesOnly.Text = "Display installed games only";
             this.checkBox_DisplayInstalledGamesOnly.UseVisualStyleBackColor = true;
             // 
+            // checkBox_RunDirect
+            // 
+            this.checkBox_RunDirect.AutoSize = true;
+            this.checkBox_RunDirect.Location = new System.Drawing.Point(12, 137);
+            this.checkBox_RunDirect.Name = "checkBox_RunDirect";
+            this.checkBox_RunDirect.Size = new System.Drawing.Size(117, 16);
+            this.checkBox_RunDirect.TabIndex = 8;
+            this.checkBox_RunDirect.Text = "Run game directly";
+            this.checkBox_RunDirect.UseVisualStyleBackColor = true;
+            // 
             // OptionsForm
             // 
             this.AcceptButton = this.button_Save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(227, 257);
+            this.ClientSize = new System.Drawing.Size(232, 288);
+            this.Controls.Add(this.checkBox_RunDirect);
             this.Controls.Add(this.button_SyncAppInfo);
             this.Controls.Add(this.label_ContextMenuSize);
             this.Controls.Add(this.comboBox_ContextMenuSize);
@@ -180,5 +196,6 @@
         private System.Windows.Forms.Label label_ContextMenuSize;
         private System.Windows.Forms.Button button_SyncAppInfo;
         private System.Windows.Forms.CheckBox checkBox_DisplayInstalledGamesOnly;
+        private System.Windows.Forms.CheckBox checkBox_RunDirect;
     }
 }
