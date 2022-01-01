@@ -80,7 +80,7 @@ namespace KsGameLauncher
                         //JsonSerializer
                         AppInfo.GetList().Add(appInfo);
                         ToolStripMenuItem item = Program.mainForm.CreateNewMenuItem(appInfo);
-                        ContextMenuStrip menuStrip = Program.mainForm.GetMenuStrip();
+                        NotifyIconContextMenuStrip menuStrip = Program.mainForm.GetMenuStrip();
                         menuStrip.Items.Add(item);
                         Program.mainForm.SetMenuStrip(menuStrip);
                     }
@@ -94,7 +94,7 @@ namespace KsGameLauncher
             }
 
             // Save loaded games to local file
-            AppInfo.save();
+            AppInfo.Save();
 
         }
 

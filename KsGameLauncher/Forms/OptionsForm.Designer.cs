@@ -52,6 +52,7 @@
             // 
             // linkLabel_OpenProxySettings
             // 
+            this.linkLabel_OpenProxySettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabel_OpenProxySettings.AutoSize = true;
             this.linkLabel_OpenProxySettings.Location = new System.Drawing.Point(112, 43);
             this.linkLabel_OpenProxySettings.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -101,6 +102,7 @@
             // 
             // comboBox_ContextMenuSize
             // 
+            this.comboBox_ContextMenuSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBox_ContextMenuSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_ContextMenuSize.FormattingEnabled = true;
             this.comboBox_ContextMenuSize.Location = new System.Drawing.Point(10, 159);
@@ -110,6 +112,7 @@
             // 
             // label_ContextMenuSize
             // 
+            this.label_ContextMenuSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label_ContextMenuSize.AutoSize = true;
             this.label_ContextMenuSize.Location = new System.Drawing.Point(10, 144);
             this.label_ContextMenuSize.Name = "label_ContextMenuSize";
@@ -119,6 +122,7 @@
             // 
             // button_SyncAppInfo
             // 
+            this.button_SyncAppInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_SyncAppInfo.Location = new System.Drawing.Point(10, 196);
             this.button_SyncAppInfo.Name = "button_SyncAppInfo";
             this.button_SyncAppInfo.Size = new System.Drawing.Size(100, 23);

@@ -146,6 +146,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NotifyIconContextMenuStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Forms\AccountForm.cs">
       <SubType>Form</SubType>
     </Compile>

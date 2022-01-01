@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.contextMenuStrip_Sub = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip_Sub = new NotifyIconContextMenuStrip(this.components);
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageAccountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -106,7 +106,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip_Sub;
+        private NotifyIconContextMenuStrip contextMenuStrip_Sub;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator_Bottom;

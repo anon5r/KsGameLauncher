@@ -19,7 +19,7 @@ namespace KsGameLauncher
         /// <summary>
         /// Left clicked icon
         /// </summary>
-        private ContextMenuStrip menuStripMain;
+        private NotifyIconContextMenuStrip menuStripMain;
 
         /// <summary>
         /// Disabling "Close" button on control box
@@ -108,20 +108,20 @@ namespace KsGameLauncher
         /// <param name="e"></param>
         private void NotifyIcon_MouseClick(object sender, MouseEventArgs e)
         {
-            this.ShowInTaskbar = false;
+            ShowInTaskbar = false;
             switch (e.Button)
             {
                 case MouseButtons.Right:
                     {
                         // Display sub menu
-                        contextMenuStrip_Sub.Show(this, PointToClient(Cursor.Position));
+                        contextMenuStrip_Sub.ShowContext(this, PointToClient(Cursor.Position), notifyIcon);
                     }
                     break;
 
                 case MouseButtons.Left:
                     {
                         // Display main menu (games)
-                        menuStripMain.Show(this, PointToClient(Cursor.Position));
+                        menuStripMain.ShowContext(this, PointToClient(Cursor.Position), notifyIcon);
                     }
                     break;
             }
@@ -182,9 +182,9 @@ namespace KsGameLauncher
 
 
 
-        private ContextMenuStrip InitGameMenu()
+        private NotifyIconContextMenuStrip InitGameMenu()
         {
-            ContextMenuStrip menu = new ContextMenuStrip
+            NotifyIconContextMenuStrip menu = new NotifyIconContextMenuStrip
             {
                 AutoClose = true,
             };
@@ -316,7 +316,7 @@ namespace KsGameLauncher
             return item;
         }
 
-        private ContextMenuStrip CreateInitialMenuStripItems()
+        private NotifyIconContextMenuStrip CreateInitialMenuStripItems()
         {
             ToolStripMenuItem item = new ToolStripMenuItem()
             {
@@ -324,7 +324,7 @@ namespace KsGameLauncher
                 Enabled = false,
                 AutoSize = true,
             };
-            ContextMenuStrip menu = new ContextMenuStrip();
+            NotifyIconContextMenuStrip menu = new NotifyIconContextMenuStrip();
             menu.Items.Add(item);
 
             return menu;
@@ -376,7 +376,10 @@ namespace KsGameLauncher
         private void ManageAccountsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (_accountForm == null || _accountForm.IsDisposed)
-                _accountForm = new AccountForm();
+                _accountForm = new AccountForm
+                {
+                    ShowInTaskbar = false
+                };
 
             if (!_accountForm.Visible)
                 _accountForm.ShowDialog(this);
@@ -388,7 +391,10 @@ namespace KsGameLauncher
         private void OptionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (_optionsForm == null || _optionsForm.IsDisposed)
-                _optionsForm = new OptionsForm();
+                _optionsForm = new OptionsForm
+                {
+                    ShowInTaskbar = false
+                };
 
             if (!_optionsForm.Visible)
                 _optionsForm.ShowDialog(this);
@@ -418,7 +424,10 @@ namespace KsGameLauncher
         private void AddNewGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (_addNewGameForm == null || _addNewGameForm.IsDisposed)
-                _addNewGameForm = new AddNewGameForm();
+                _addNewGameForm = new AddNewGameForm()
+                {
+                    ShowInTaskbar = false
+                };
 
             if (!_addNewGameForm.Visible)
                 _addNewGameForm.ShowDialog(this);
@@ -426,12 +435,12 @@ namespace KsGameLauncher
                 _addNewGameForm.Activate();
         }
 
-        internal ContextMenuStrip GetMenuStrip()
+        internal NotifyIconContextMenuStrip GetMenuStrip()
         {
             return menuStripMain;
         }
 
-        internal void SetMenuStrip(ContextMenuStrip menu)
+        internal void SetMenuStrip(NotifyIconContextMenuStrip menu)
         {
             menuStripMain = menu;
         }
