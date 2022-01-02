@@ -42,7 +42,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="NotificationTimeout" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">3</Value>
+      <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="ShowConfirmExit" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -64,6 +64,9 @@
     </Setting>
     <Setting Name="NewGameFormSize" Type="System.Drawing.Size" Scope="User">
       <Value Profile="(Default)">400, 300</Value>
+    </Setting>
+    <Setting Name="AppUriScheme" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ksgamelauncher</Value>
     </Setting>
   </Settings>
 </SettingsFile>

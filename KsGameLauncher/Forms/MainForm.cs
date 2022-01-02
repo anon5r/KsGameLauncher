@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Drawing;
-using System.IO;
-using System.Net.Http;
 using System.Security.Permissions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -89,9 +85,9 @@ namespace KsGameLauncher
             LoadGamesMenu();
         }
 
-        async public void LoadGamesMenu()
+        public async void LoadGamesMenu()
         {
-            string json = await GetJson();
+            string json = await Launcher.GetJson();
             if (json == null)
                 menuStripMain = CreateInitialMenuStripItems();
             else
@@ -127,57 +123,6 @@ namespace KsGameLauncher
             }
         }
 
-
-        /// <summary>
-        /// Get appinfo JSON file
-        /// Load from local if exists, otherwise download from the internet
-        /// </summary>
-        /// <returns></returns>
-        async private Task<string> GetJson()
-        {
-            try
-            {
-                string json;
-                if (!File.Exists(Properties.Settings.Default.appInfoLocal))
-                {
-                    // Load appinfo.json from the internet
-                    // Download from `Properties.Settings.Default.appInfoURL`
-
-                    await Utils.AppUtil.DownloadJson();
-                }
-
-                try
-                {
-                    // Load appinfo.json from local
-                    using (StreamReader jsonStream =
-                           File.OpenText(Path.GetFullPath(Properties.Settings.Default.appInfoLocal)))
-                    {
-                        json = jsonStream.ReadToEnd();
-                        jsonStream.Close();
-                    }
-
-#if DEBUG
-                    Debug.Write(json);
-#endif
-
-                    return json;
-                }
-                catch (FileNotFoundException)
-                {
-                    MessageBox.Show(String.Format(Resources.FailedToLoadFile, Properties.Settings.Default.appInfoLocal),
-                        Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error,
-                        MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
-                }
-            }
-            catch (HttpRequestException)
-            {
-                MessageBox.Show(Resources.ErrorGetAppInfoFailed, Resources.SyncWithServerDialogTitle,
-                    MessageBoxButtons.OK, MessageBoxIcon.Error,
-                    MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
-            }
-
-            return null;
-        }
 
 
 

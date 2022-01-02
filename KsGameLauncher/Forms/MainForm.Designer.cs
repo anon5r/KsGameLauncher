@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.contextMenuStrip_Sub = new NotifyIconContextMenuStrip(this.components);
+            this.contextMenuStrip_Sub = new KsGameLauncher.NotifyIconContextMenuStrip(this.components);
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageAccountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();

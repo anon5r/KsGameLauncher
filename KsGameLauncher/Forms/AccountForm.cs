@@ -59,7 +59,7 @@ namespace KsGameLauncher
 
         private async void Button_Remove_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(Resources.ConfirmToRemoveAccountFromList, Resources.ConfirmToRemove, 
+            DialogResult result = MessageBox.Show(Resources.ConfirmToRemoveAccountFromList, Resources.ConfirmToRemove,
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question,
                 MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             if (result == DialogResult.Yes)
@@ -75,7 +75,7 @@ namespace KsGameLauncher
                     }
                     else
                     {
-                        result = MessageBox.Show(Resources.AccountRemoveFailed, Resources.AppName, 
+                        result = MessageBox.Show(Resources.AccountRemoveFailed, Resources.AppName,
                             MessageBoxButtons.RetryCancel, MessageBoxIcon.Error,
                             MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                         if (result == DialogResult.Retry)
@@ -86,7 +86,7 @@ namespace KsGameLauncher
                 }
                 catch (CredentialAPIException)
                 {
-                    result = MessageBox.Show(Resources.AccountRemoveFailed, Resources.AppName, 
+                    result = MessageBox.Show(Resources.AccountRemoveFailed, Resources.AppName,
                         MessageBoxButtons.RetryCancel, MessageBoxIcon.Error,
                         MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                     if (result == DialogResult.Retry)

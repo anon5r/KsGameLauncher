@@ -76,7 +76,10 @@ namespace KsGameLauncher
 
 
 
-
+        /// <summary>
+        /// Check login session is available
+        /// </summary>
+        /// <returns></returns>
         internal bool IsLogin()
         {
             if (httpClient == null || httpHandler == null)
@@ -101,6 +104,62 @@ namespace KsGameLauncher
 
 
 
+        /// <summary>
+        /// Get appinfo JSON file
+        /// Load from local if exists, otherwise download from the internet
+        /// </summary>
+        /// <returns></returns>
+        public async static Task<string> GetJson()
+        {
+            try
+            {
+                string json;
+                if (!File.Exists(Properties.Settings.Default.appInfoLocal))
+                {
+                    // Load appinfo.json from the internet
+                    // Download from `Properties.Settings.Default.appInfoURL`
+
+                    await Utils.AppUtil.DownloadJson();
+                }
+
+                try
+                {
+                    // Load appinfo.json from local
+                    using (StreamReader jsonStream =
+                           File.OpenText(Path.GetFullPath(Properties.Settings.Default.appInfoLocal)))
+                    {
+                        json = jsonStream.ReadToEnd();
+                        jsonStream.Close();
+                    }
+
+#if DEBUG
+                    Debug.Write(json);
+#endif
+
+                    return json;
+                }
+                catch (FileNotFoundException)
+                {
+                    MessageBox.Show(String.Format(Resources.FailedToLoadFile, Properties.Settings.Default.appInfoLocal),
+                        Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                }
+            }
+            catch (HttpRequestException)
+            {
+                MessageBox.Show(Resources.ErrorGetAppInfoFailed, Resources.SyncWithServerDialogTitle,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Get login page URL
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="LoginUriException"></exception>
         private async Task<Uri> GetLoginUri()
         {
             Debug.WriteLine(String.Format("Get login page: {0}", Properties.Settings.Default.LoginURL));
@@ -115,12 +174,17 @@ namespace KsGameLauncher
 
                 return new Uri(content);
             }
-
         }
 
+        /// <summary>
+        /// Login progress to KONASTE
+        /// </summary>
+        /// <param name="credential"></param>
+        /// <param name="loginURL"></param>
+        /// <returns></returns>
         public async Task<bool> Login(NetworkCredential credential, Uri loginURL)
         {
-            if (Properties.Settings.Default.EnableNotification)
+            if (Properties.Settings.Default.EnableNotification && Program.mainForm != null)
             {
                 MainForm.DisplayToolTip(Resources.IconBalloonMessage_WhileLogin, Properties.Settings.Default.NotificationTimeout);
             }
@@ -201,7 +265,11 @@ namespace KsGameLauncher
             }
         }
 
-        async public void StartApp(AppInfo app)
+        /// <summary>
+        /// Start game launcher
+        /// </summary>
+        /// <param name="app"></param>
+        public async void StartApp(AppInfo app)
         {
             NetworkCredential credential = GetCredential();
             if (credential == null)
@@ -231,7 +299,7 @@ namespace KsGameLauncher
                     }
                     catch (LoginException ex)
                     {
-                        MessageBox.Show(ex.Message, Resources.LoginExceptionDialogName, 
+                        MessageBox.Show(ex.Message, Resources.LoginExceptionDialogName,
                             MessageBoxButtons.OK, MessageBoxIcon.Error,
                             MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                         return;
@@ -247,7 +315,7 @@ namespace KsGameLauncher
 #if DEBUG
                 Debug.WriteLine(String.Format("Open launcher URL:  {0}", app.Launch.URL));
 #endif
-                if (Properties.Settings.Default.EnableNotification)
+                if (Properties.Settings.Default.EnableNotification && Program.mainForm != null)
                 {
                     MainForm.DisplayToolTip(String.Format(Resources.IconBalloonMessage_Launching, app.Name), Properties.Settings.Default.NotificationTimeout);
                 }
@@ -258,7 +326,7 @@ namespace KsGameLauncher
 
                     if (response.RequestMessage.RequestUri.Host.Contains(Properties.Resources.AuthorizeDomain))
                     {
-                        MessageBox.Show(Resources.IncorrectUsernameOrPassword, Resources.AppName, 
+                        MessageBox.Show(Resources.IncorrectUsernameOrPassword, Resources.AppName,
                             MessageBoxButtons.OK, MessageBoxIcon.Error,
                             MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                         return;
@@ -348,11 +416,11 @@ namespace KsGameLauncher
 #endif
 
                         // parse launcher page
-                        LauncherLoginPage(content, app.Launch.Selector);
+                        await LauncherLoginPage(content, app.Launch.Selector);
                     }
-
                 }
 
+                return;
             }
             catch (HttpRequestException e)
             {
@@ -365,13 +433,13 @@ namespace KsGameLauncher
             }
             catch (LoginException e)
             {
-                MessageBox.Show(e.Message, Resources.LoginExceptionDialogName, 
+                MessageBox.Show(e.Message, Resources.LoginExceptionDialogName,
                     MessageBoxButtons.OK, MessageBoxIcon.Error,
                     MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             }
             catch (GameTermsOfServiceException ex)
             {
-                MessageBox.Show(ex.Message, Resources.GameTermsOfServiceExceptionDialogName, 
+                MessageBox.Show(ex.Message, Resources.GameTermsOfServiceExceptionDialogName,
                     MessageBoxButtons.OK, MessageBoxIcon.Information,
                     MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                 Utils.Common.OpenUrlByDefaultBrowser(ex.GetTosURL());
@@ -380,9 +448,11 @@ namespace KsGameLauncher
             {
                 throw e;
             }
+
+            return;
         }
 
-        async void LauncherLoginPage(string content, string querySelector)
+        async Task<bool> LauncherLoginPage(string content, string querySelector)
         {
             if (content == null || content.Length < 0)
             {
@@ -396,10 +466,10 @@ namespace KsGameLauncher
             AngleSharp.Dom.IElement launchButton = document.QuerySelector(querySelector);
             if (launchButton == null)
             {
-                MessageBox.Show("Failed to parse page!", Application.ProductName, 
+                MessageBox.Show("Failed to parse page!", Application.ProductName,
                     MessageBoxButtons.OK, MessageBoxIcon.Error,
                     MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
-                return;
+                return false;
             }
             string launcherCustomProtocol = launchButton.GetAttribute("href");
 #if DEBUG
@@ -422,7 +492,7 @@ namespace KsGameLauncher
 
                 Process.Start(launcherPath, launcherCustomProtocol);
             }
-
+            return true;
         }
 
         private NetworkCredential GetCredential()

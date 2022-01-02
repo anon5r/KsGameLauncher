@@ -72,7 +72,7 @@ namespace KsGameLauncher
                     }
 
                     var result = MessageBox.Show(String.Format(Resources.ConfirmAddNewGame, appInfo.Name),
-                        Resources.AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, 
+                        Resources.AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Question,
                         MessageBoxDefaultButton.Button2, MessageBoxOptions.DefaultDesktopOnly);
                     if (result == DialogResult.Yes)
                     {
@@ -88,7 +88,7 @@ namespace KsGameLauncher
             }
             catch (FileFormatException ex)
             {
-                MessageBox.Show(ex.Message, Resources.AppName, 
+                MessageBox.Show(ex.Message, Resources.AppName,
                     MessageBoxButtons.OK, MessageBoxIcon.Error,
                     MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             }
