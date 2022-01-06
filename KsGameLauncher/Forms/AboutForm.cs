@@ -8,12 +8,12 @@ namespace KsGameLauncher
         public AboutForm()
         {
             InitializeComponent();
-            Icon = Properties.Resources.app;
+            Icon = Properties.Resources.appIcon;
         }
 
         private void About_Load(object sender, EventArgs e)
         {
-            Icon = Properties.Resources.app;
+            Icon = Properties.Resources.appIcon;
             Text = Resources.AboutThisApp;
             label_Application.Text = Resources.AppName;
             label_Version.Text = "ver. " + Application.ProductVersion;
@@ -37,7 +37,10 @@ namespace KsGameLauncher
 
         private void LinkLabel_License_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            (new LicensesForm()).ShowDialog(this);
+            (new LicensesForm()
+            {
+                ShowInTaskbar = false,
+            }).ShowDialog(this);
         }
 
         private void AboutForm_KeyPress(object sender, KeyPressEventArgs e)

@@ -79,10 +79,10 @@ namespace KsGameLauncher
                         // TODO AppInfoリストに追加し、JSON化して保存する
                         //JsonSerializer
                         AppInfo.GetList().Add(appInfo);
-                        ToolStripMenuItem item = Program.mainForm.CreateNewMenuItem(appInfo);
-                        NotifyIconContextMenuStrip menuStrip = Program.mainForm.GetMenuStrip();
+                        ToolStripMenuItem item = Program.mainContext.CreateNewMenuItem(appInfo);
+                        NotifyIconContextMenuStrip menuStrip = Program.mainContext.GetMenuStrip();
                         menuStrip.Items.Add(item);
-                        Program.mainForm.SetMenuStrip(menuStrip);
+                        Program.mainContext.SetMenuStrip(menuStrip);
                     }
                 }
             }
@@ -112,7 +112,7 @@ namespace KsGameLauncher
 
         private void AddNewGame_Load(object sender, EventArgs e)
         {
-            Icon = Properties.Resources.app;
+            Icon = Properties.Resources.appIcon;
             Text = Resources.AddNewGameWindowTitle;
             groupBox_DragHere.Text = Resources.DropHere;
             Size = Properties.Settings.Default.NewGameFormSize;

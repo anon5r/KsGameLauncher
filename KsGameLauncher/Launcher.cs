@@ -184,9 +184,9 @@ namespace KsGameLauncher
         /// <returns></returns>
         public async Task<bool> Login(NetworkCredential credential, Uri loginURL)
         {
-            if (Properties.Settings.Default.EnableNotification && Program.mainForm != null)
+            if (Properties.Settings.Default.EnableNotification && Program.mainContext != null)
             {
-                MainForm.DisplayToolTip(Resources.IconBalloonMessage_WhileLogin, Properties.Settings.Default.NotificationTimeout);
+                Program.mainContext.DisplayToolTip(Resources.IconBalloonMessage_WhileLogin, Properties.Settings.Default.NotificationTimeout);
             }
 
             httpClient.CancelPendingRequests();
@@ -269,7 +269,7 @@ namespace KsGameLauncher
         /// Start game launcher
         /// </summary>
         /// <param name="app"></param>
-        public async void StartApp(AppInfo app)
+        public async Task StartApp(AppInfo app)
         {
             NetworkCredential credential = GetCredential();
             if (credential == null)
@@ -315,9 +315,9 @@ namespace KsGameLauncher
 #if DEBUG
                 Debug.WriteLine(String.Format("Open launcher URL:  {0}", app.Launch.URL));
 #endif
-                if (Properties.Settings.Default.EnableNotification && Program.mainForm != null)
+                if (Properties.Settings.Default.EnableNotification && Program.mainContext != null)
                 {
-                    MainForm.DisplayToolTip(String.Format(Resources.IconBalloonMessage_Launching, app.Name), Properties.Settings.Default.NotificationTimeout);
+                    Program.mainContext.DisplayToolTip(String.Format(Resources.IconBalloonMessage_Launching, app.Name), Properties.Settings.Default.NotificationTimeout);
                 }
                 using (HttpResponseMessage response = await httpClient.GetAsync(app.Launch.GetUri()))
                 {
@@ -528,6 +528,66 @@ namespace KsGameLauncher
             instance.httpClient = null;
 
             return response;
+        }
+    
+        /// <summary>
+        /// Launch game by ID
+        /// </summary>
+        /// <param name="gameID"></param>
+        internal async static Task LaunchGames(string gameID)
+        {
+            string json = await Launcher.GetJson();
+            if (json == null)
+            {
+                MessageBox.Show("There are no games", Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            AppInfo.LoadFromJson(json);
+
+            if (!AppInfo.ContainID(gameID))
+            {
+                MessageBox.Show("Unsupported game specified", Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            AppInfo appInfo = AppInfo.Find(gameID);
+
+            if (appInfo == null)
+            {
+                MessageBox.Show("Cannot find that game you specified", Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                Launcher launcher = Launcher.Create();
+                await launcher.StartApp(appInfo);
+            }
+            catch (LoginException ex)
+            {
+                MessageBox.Show(String.Format(
+                    "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
+                    appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
+                , Resources.ErrorWhileLogin, MessageBoxButtons.OK, MessageBoxIcon.Error,
+                MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+            }
+            catch (LauncherException ex)
+            {
+                MessageBox.Show(String.Format(
+                    "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
+                    appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
+                , ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error,
+                MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(String.Format(
+                    "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
+                    appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
+                , ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error,
+                MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+            }
         }
     }
 }

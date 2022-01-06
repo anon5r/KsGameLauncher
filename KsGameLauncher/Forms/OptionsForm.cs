@@ -21,7 +21,7 @@ namespace KsGameLauncher
 
         private void OptionsForm_Load(object sender, EventArgs e)
         {
-            Icon = Properties.Resources.app;
+            Icon = Properties.Resources.appIcon;
             string[] items = {
                 // Normal
                 Resources.ContextMenuSize_Text_Normal,
@@ -70,7 +70,7 @@ namespace KsGameLauncher
             Properties.Settings.Default.Save();
 
             if (needsUpdateGames)
-                Program.mainForm.LoadGamesMenu();   // Re-load menu
+                Program.mainContext.LoadGamesMenu();   // Re-load menu
 
             Close();
         }
@@ -94,7 +94,7 @@ namespace KsGameLauncher
                     bool result = await Utils.AppUtil.DownloadJson();
                     if (result)
                     {
-                        Program.mainForm.LoadGamesMenu();
+                        Program.mainContext.LoadGamesMenu();
 
                         MessageBox.Show(Resources.SyncWithServerSuccessMessage, Resources.SyncWithServerDialogTitle,
                             MessageBoxButtons.OK, MessageBoxIcon.Information,

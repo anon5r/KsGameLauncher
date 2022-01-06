@@ -11,53 +11,45 @@ namespace KsGameLauncher
     internal static class Program
     {
 
+        internal static string[] args;
+
         private static System.Threading.Mutex _mutex;
 
-        static internal MainForm mainForm;
-
+        internal static MainContext mainContext;
 
         /// <summary>
         /// Main entrypoint of an application
         /// </summary>
         [STAThread]
-        static void Main(string[] args)
+        //static void Main(string[] args)
+        static async Task Main(string[] args)
         {
+            Program.args = new string[args.Length];
+            Program.args = args;
 
-            if (args.Length > 0)
+            if (args.Length == 1)
             {
-                if (Uri.TryCreate(args[0], UriKind.Absolute, out var uri) &&
-                    string.Equals(uri.Scheme, Properties.Settings.Default.AppUriScheme, StringComparison.OrdinalIgnoreCase))
+                try
                 {
-                    Debug.WriteLine(string.Format("Scheme: {0}", uri.Scheme));
-                    Debug.WriteLine(string.Format("Host: {0}", uri.Host));
-                    Debug.WriteLine(string.Format("Port: {0}", uri.Port.ToString()));
-                    Debug.WriteLine(string.Format("LocalPath: {0}", uri.LocalPath));
-                    Debug.WriteLine(string.Format("AbsolutePath: {0}", uri.AbsolutePath));
-                    Debug.WriteLine(string.Format("Query: {0}", uri.Query));
-                    // With Custom URI
-                    switch (uri.Host)
+                    if (Uri.TryCreate(args[0], UriKind.Absolute, out Uri uri))
                     {
-                        // Launch action
-                        case "launch":
-                            LaunchGames(uri.LocalPath.Substring(1));
-                            break;
-
-                        default:
-                            MessageBox.Show("Unknown action specified.", Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            break;
+                        await ProcessUri(uri);
+                        Application.Exit();
                     }
-                    Application.Exit();
-                    return;
                 }
-                else
+                catch (FormatException ex)
                 {
-                    MessageBox.Show("Incorrect parameters specified.", Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    MessageBox.Show("Unknown parameters specified. " + ex.Message, Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                return;
             }
 
 
-            /// Normal startup
+            // Normal startup
 
 
 
@@ -90,12 +82,52 @@ namespace KsGameLauncher
                 return;
             }
 
-
-            mainForm = new MainForm
+            mainContext = new MainContext(new MainForm
             {
-                Icon = Properties.Resources.app
-            };
-            Application.Run();
+                Text = Resources.AppName,
+                Icon = Properties.Resources.appIcon,
+                // Hide from taskbar
+                ShowInTaskbar = false,
+                WindowState = FormWindowState.Minimized,
+            });
+            Application.Run(mainContext);
+        }
+
+        /// <summary>
+        /// Processing custom URI for <see cref="Properties.Settings.Default.AppUriScheme"/>
+        /// </summary>
+        /// <param name="uri">Custom URI starts with `Properties.Settings.Default.AppUriScheme`</param>
+        static async Task ProcessUri(Uri uri)
+        {
+            if (string.Equals(uri.Scheme, Properties.Settings.Default.AppUriScheme, StringComparison.OrdinalIgnoreCase))
+            {
+
+#if DEBUG
+                Debug.WriteLine(string.Format("Scheme: {0}", uri.Scheme));
+                Debug.WriteLine(string.Format("Host: {0}", uri.Host));
+                Debug.WriteLine(string.Format("Port: {0}", uri.Port.ToString()));
+                Debug.WriteLine(string.Format("LocalPath: {0}", uri.LocalPath));
+                Debug.WriteLine(string.Format("AbsolutePath: {0}", uri.AbsolutePath));
+                Debug.WriteLine(string.Format("Query: {0}", uri.Query));
+#endif
+                // With Custom URI
+                switch (uri.Host)
+                {
+                    // Launch action
+                    case "launch":
+                        await Launcher.LaunchGames(uri.LocalPath.Substring(1));
+                        break;
+
+                    default:
+                        MessageBox.Show("Unknown action specified.", Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Incorrect parameters specified.", Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
 
 
@@ -117,62 +149,5 @@ namespace KsGameLauncher
             return false;
         }
         #endregion
-
-
-        private async static void LaunchGames(string gameID)
-        {
-            string json = await Launcher.GetJson();
-            if (json == null)
-            {
-                MessageBox.Show("There are no games", Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            AppInfo.LoadFromJson(json);
-
-            if (!AppInfo.ContainID(gameID))
-            {
-                MessageBox.Show("Unsupported game specified", Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            AppInfo appInfo = AppInfo.Find(gameID);
-
-            if (appInfo == null)
-            {
-                MessageBox.Show("Cannot find that game you specified", Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            try
-            {
-                Launcher launcher = Launcher.Create();
-                launcher.StartApp(appInfo);
-            }
-            catch (LoginException ex)
-            {
-                MessageBox.Show(String.Format(
-                    "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
-                    appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
-                , Resources.ErrorWhileLogin, MessageBoxButtons.OK, MessageBoxIcon.Error,
-                MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
-            }
-            catch (LauncherException ex)
-            {
-                MessageBox.Show(String.Format(
-                    "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
-                    appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
-                , ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error,
-                MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(String.Format(
-                    "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
-                    appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
-                , ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error,
-                MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
-            }
-        }
     }
 }

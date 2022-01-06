@@ -63,9 +63,9 @@ namespace KsGameLauncher.Properties {
         /// <summary>
         ///   (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
         /// </summary>
-        internal static System.Drawing.Icon app {
+        internal static System.Drawing.Icon appIcon {
             get {
-                object obj = ResourceManager.GetObject("app", resourceCulture);
+                object obj = ResourceManager.GetObject("appIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

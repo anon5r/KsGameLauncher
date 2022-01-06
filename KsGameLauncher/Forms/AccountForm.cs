@@ -29,7 +29,7 @@ namespace KsGameLauncher
 
         private void AccountForm_Load(object sender, EventArgs e)
         {
-            Icon = Properties.Resources.app;
+            Icon = Properties.Resources.appIcon;
             Text = Resources.AccountManagerForm;
             button_Update.Text = Resources.ButtonUpdate_Register;
             button_Remove.Enabled = false;
