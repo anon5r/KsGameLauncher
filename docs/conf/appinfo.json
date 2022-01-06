@@ -52,5 +52,14 @@
 			"selector": "#login>div>a.link-btn"
 		},
 		"iconFile": "{{installDir}}\\SOUND VOLTEX EXCEED GEAR.ico"
+	},
+	{
+		"game_id": "bomber-girl",
+		"name": "BomberGirl",
+		"launch": {
+			"url": "https://p.eagate.573.jp/game/konasteapp/API/login/login.html?game_id=bomber-girl",
+			"selector": "#login>div>a.link-btn"
+		},
+		"iconFile": "{{installDir}}\\BomberGirl.ico"
 	}
 ]
