@@ -89,6 +89,15 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
+        ///   Default game icon by flaticon (https://www.flaticon.com) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Copyrights {
+            get {
+                return ResourceManager.GetString("Copyrights", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ks Game Launcher に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string CredentialTarget {
@@ -152,16 +161,6 @@ namespace KsGameLauncher.Properties {
         internal static string MaintenanceCheckString {
             get {
                 return ResourceManager.GetString("MaintenanceCheckString", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   KONAMI Amusement Inc.
-        ///flaticon ( https://www.flaticon.com ) に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string SpecialThanks {
-            get {
-                return ResourceManager.GetString("SpecialThanks", resourceCulture);
             }
         }
         

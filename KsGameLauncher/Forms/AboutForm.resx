@@ -154,7 +154,7 @@
     <value>Bottom</value>
   </data>
   <data name="button_Ok.Location" type="System.Drawing.Point, System.Drawing">
-    <value>84, 211</value>
+    <value>84, 256</value>
   </data>
   <data name="button_Ok.Size" type="System.Drawing.Size, System.Drawing">
     <value>123, 32</value>
@@ -271,13 +271,13 @@
     <value>12, 128</value>
   </data>
   <data name="label_SpecialThanks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 12</value>
+    <value>62, 12</value>
   </data>
   <data name="label_SpecialThanks.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="label_SpecialThanks.Text" xml:space="preserve">
-    <value>Special Thanks:</value>
+    <value>Copyrights:</value>
   </data>
   <data name="&gt;&gt;label_SpecialThanks.Name" xml:space="preserve">
     <value>label_SpecialThanks</value>
@@ -291,40 +291,40 @@
   <data name="&gt;&gt;label_SpecialThanks.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="textBox_SpecialThanks.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="textBox_Copyrights.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="textBox_SpecialThanks.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="textBox_Copyrights.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="textBox_SpecialThanks.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="textBox_Copyrights.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 143</value>
   </data>
-  <data name="textBox_SpecialThanks.Multiline" type="System.Boolean, mscorlib">
+  <data name="textBox_Copyrights.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="textBox_SpecialThanks.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+  <data name="textBox_Copyrights.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
     <value>Vertical</value>
   </data>
-  <data name="textBox_SpecialThanks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>265, 62</value>
+  <data name="textBox_Copyrights.Size" type="System.Drawing.Size, System.Drawing">
+    <value>265, 107</value>
   </data>
-  <data name="textBox_SpecialThanks.TabIndex" type="System.Int32, mscorlib">
+  <data name="textBox_Copyrights.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="textBox_SpecialThanks.Text" xml:space="preserve">
-    <value>Special thanks</value>
+  <data name="textBox_Copyrights.Text" xml:space="preserve">
+    <value>Copyrights</value>
   </data>
-  <data name="&gt;&gt;textBox_SpecialThanks.Name" xml:space="preserve">
-    <value>textBox_SpecialThanks</value>
+  <data name="&gt;&gt;textBox_Copyrights.Name" xml:space="preserve">
+    <value>textBox_Copyrights</value>
   </data>
-  <data name="&gt;&gt;textBox_SpecialThanks.Type" xml:space="preserve">
+  <data name="&gt;&gt;textBox_Copyrights.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox_SpecialThanks.Parent" xml:space="preserve">
+  <data name="&gt;&gt;textBox_Copyrights.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;textBox_SpecialThanks.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;textBox_Copyrights.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="linkLabel_License.AutoSize" type="System.Boolean, mscorlib">
@@ -388,7 +388,7 @@
     <value>True</value>
   </metadata>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>291, 255</value>
+    <value>291, 300</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

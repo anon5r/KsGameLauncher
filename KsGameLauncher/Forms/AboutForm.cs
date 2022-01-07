@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace KsGameLauncher
@@ -19,13 +20,25 @@ namespace KsGameLauncher
             label_Version.Text = "ver. " + Application.ProductVersion;
             label_Develop.Text = Resources.LabelDeveloper;
             AppDeveloper.Text = Properties.Resources.Developers;
-            textBox_SpecialThanks.Text =
-                //string.Format("AppIcon: {0}", Properties.Resources.AppIconDesigner) + 
-                Properties.Resources.SpecialThanks;
+            string installedGameRights = string.Format("\"{0}\"", string.Join("\", \"", GetInstalledGamesName()));
+            textBox_Copyrights.Text = string.Format("{0} are KONAMI Amusement All Rights Reserved.\r\n", installedGameRights) +
+                Properties.Resources.Copyrights;
             linkLabel_Support.Text = Properties.Resources.SupportLabelText;
             linkLabel_License.Text = Resources.ShowLicense;
 
             button_Ok.Focus();
+        }
+
+        private string[] GetInstalledGamesName()
+        {
+            List<AppInfo> appInfo = AppInfo.GetList();
+            string[] gameList = new string[appInfo.Count];
+            int i = 0;
+            AppInfo.GetList().ForEach(info =>
+            {
+                gameList[i++] = info.Name;
+            });
+            return gameList;
         }
 
         private void LinkLabel_Support_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

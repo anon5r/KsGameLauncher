@@ -127,6 +127,9 @@
   <data name="AuthorizeDomain" xml:space="preserve">
     <value>account.konami.net</value>
   </data>
+  <data name="Copyrights" xml:space="preserve">
+    <value>Default game icon by flaticon (https://www.flaticon.com)</value>
+  </data>
   <data name="CredentialTarget" xml:space="preserve">
     <value>Ks Game Launcher</value>
   </data>
@@ -152,10 +155,6 @@ HtmlAgilityPack (https://github.com/atifaziz/Hazz)</value>
   <data name="MaintenanceCheckString" xml:space="preserve">
     <value>メンテナンス期間</value>
     <comment>Detect words under maintenance</comment>
-  </data>
-  <data name="SpecialThanks" xml:space="preserve">
-    <value>KONAMI Amusement Inc.
-flaticon ( https://www.flaticon.com )</value>
   </data>
   <data name="SupportLabelText" xml:space="preserve">
     <value>Support</value>
