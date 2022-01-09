@@ -56,9 +56,9 @@ namespace KsGameLauncher
             }).ShowDialog(this);
         }
 
-        private void AboutForm_KeyPress(object sender, KeyPressEventArgs e)
+        private void LinkLabel_Github_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            System.Diagnostics.Process.Start(Properties.Resources.GithubURL);
         }
     }
 }

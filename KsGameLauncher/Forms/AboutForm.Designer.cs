@@ -38,6 +38,7 @@
             this.textBox_Copyrights = new System.Windows.Forms.TextBox();
             this.linkLabel_License = new System.Windows.Forms.LinkLabel();
             this.label_Develop = new System.Windows.Forms.Label();
+            this.linkLabel_Github = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label_Application
@@ -96,6 +97,13 @@
             resources.ApplyResources(this.label_Develop, "label_Develop");
             this.label_Develop.Name = "label_Develop";
             // 
+            // linkLabel_Github
+            // 
+            resources.ApplyResources(this.linkLabel_Github, "linkLabel_Github");
+            this.linkLabel_Github.Name = "linkLabel_Github";
+            this.linkLabel_Github.TabStop = true;
+            this.linkLabel_Github.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel_Github_LinkClicked);
+            // 
             // AboutForm
             // 
             this.AcceptButton = this.button_Ok;
@@ -105,6 +113,7 @@
             this.Controls.Add(this.linkLabel_License);
             this.Controls.Add(this.textBox_Copyrights);
             this.Controls.Add(this.label_SpecialThanks);
+            this.Controls.Add(this.linkLabel_Github);
             this.Controls.Add(this.linkLabel_Support);
             this.Controls.Add(this.AppDeveloper);
             this.Controls.Add(this.label_Version);
@@ -132,5 +141,6 @@
         private System.Windows.Forms.TextBox textBox_Copyrights;
         private System.Windows.Forms.LinkLabel linkLabel_License;
         private System.Windows.Forms.Label label_Develop;
+        private System.Windows.Forms.LinkLabel linkLabel_Github;
     }
 }

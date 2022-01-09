@@ -126,6 +126,15 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
+        ///   https://github.com/anon5r/KsGameLauncher に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string GithubURL {
+            get {
+                return ResourceManager.GetString("GithubURL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         /// </summary>
         internal static System.Drawing.Bitmap icon {
@@ -174,7 +183,7 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
-        ///   https://github.com/anon5r/KsGameLauncher に類似しているローカライズされた文字列を検索します。
+        ///   https://launcher-app.sdvx.net に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SupportLabelURL {
             get {
