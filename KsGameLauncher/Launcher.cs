@@ -529,7 +529,7 @@ namespace KsGameLauncher
 
             return response;
         }
-    
+
         /// <summary>
         /// Launch game by ID
         /// </summary>

@@ -22,30 +22,47 @@ namespace KsGameLauncher
         /// </summary>
         [STAThread]
         //static void Main(string[] args)
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
             Program.args = new string[args.Length];
             Program.args = args;
 
+
             if (args.Length == 1)
             {
-                try
+
+                Thread t = new Thread(new ThreadStart(async () =>
                 {
-                    if (Uri.TryCreate(args[0], UriKind.Absolute, out Uri uri))
+                    // Set as running on background
+                    MainContext.RunBackground = true;
+
+                    try
                     {
-                        await ProcessUri(uri);
-                        Application.Exit();
+                        if (Uri.TryCreate(args[0], UriKind.Absolute, out Uri uri))
+                        {
+                            await ProcessUri(uri);
+                            Application.Exit();
+                        }
                     }
-                }
-                catch (FormatException ex)
-                {
-                    MessageBox.Show("Unknown parameters specified. " + ex.Message, Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                return;
+                    catch (FormatException ex)
+                    {
+                        MessageBox.Show("Unknown parameters specified. " + ex.Message, Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    if (mainContext != null)
+                    {
+                        mainContext.ExitingProcess();
+                    }
+                    return;
+
+                }));
+                t.SetApartmentState(System.Threading.ApartmentState.STA);
+                t.Start();
+
             }
 
 

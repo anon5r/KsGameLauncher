@@ -68,6 +68,7 @@ namespace KsGameLauncher
                         MessageBox.Show(string.Format(Resources.AlreadyGameExists, appInfo.Name), Resources.AppName,
                             MessageBoxButtons.OK, MessageBoxIcon.Error,
                             MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                        Activate();
                         return;
                     }
 
@@ -85,6 +86,7 @@ namespace KsGameLauncher
                         Program.mainContext.SetMenuStrip(menuStrip);
                     }
                 }
+                Activate();
             }
             catch (FileFormatException ex)
             {

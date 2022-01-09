@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace KsGameLauncher
@@ -14,6 +10,8 @@ namespace KsGameLauncher
 
         private NotifyIcon notifyIcon;
 
+        internal static bool RunBackground = false;
+
         private bool _launcherMutex = false;
 
         /// <summary>
@@ -21,10 +19,7 @@ namespace KsGameLauncher
         /// </summary>
         private NotifyIconContextMenuStrip menuStripMain;
 
-        private AboutForm _aboutForm;
-        private AccountForm _accountForm;
-        private OptionsForm _optionsForm;
-        private AddNewGameForm _addNewGameForm;
+        private Form _formWindow;
 
         public MainContext(MainForm _form) : base()
         {
@@ -78,7 +73,15 @@ namespace KsGameLauncher
             {
                 AppInfo.LoadFromJson(json);
             }
-            menuStripMain = InitGameMenu();
+
+            if (RunBackground)
+            {
+                // Only show the exit menu when running in background mode
+                menuStripMain = CreateMinimalMenuStripItems();
+                contextMenuStrip_Sub = CreateMinimalMenuStripItems();
+            }
+            else
+                menuStripMain = InitGameMenu();
         }
 
         /// <summary>
@@ -127,9 +130,6 @@ namespace KsGameLauncher
 
                 foreach (AppInfo appInfo in AppInfo.GetList())
                 {
-                    //#if DEBUG
-                    //                    Debug.WriteLine(JsonSerializer.Serialize(appInfo));
-                    //#endif
                     if (Utils.GameRegistry.IsInstalled(appInfo.Name))
                     {
                         var item = CreateNewMenuItem(appInfo, font, iconSize);
@@ -196,7 +196,7 @@ namespace KsGameLauncher
             if (icon != null)
                 item.Image = (new Icon(icon, iconSize, iconSize)).ToBitmap();
 
-            item.Click += delegate
+            item.Click += async delegate
             {
                 if (_launcherMutex)
                 {
@@ -210,7 +210,7 @@ namespace KsGameLauncher
                 try
                 {
                     Launcher launcher = Launcher.Create();
-                    launcher.StartApp(appInfo);
+                    await launcher.StartApp(appInfo);
                 }
                 catch (LoginException ex)
                 {
@@ -259,6 +259,21 @@ namespace KsGameLauncher
             return menu;
         }
 
+        private NotifyIconContextMenuStrip CreateMinimalMenuStripItems()
+        {
+            NotifyIconContextMenuStrip menu = new NotifyIconContextMenuStrip();
+            menu.Items.Clear();
+            ToolStripMenuItem item = new ToolStripMenuItem()
+            {
+                Text = MainContext.exitToolStripMenuItem_Text,
+                Enabled = true,
+            };
+            item.Click += ExitToolStripMenuItem_Click;
+            menu.Items.Add(item);
+
+            return menu;
+        }
+
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -278,7 +293,7 @@ namespace KsGameLauncher
             }
         }
 
-        private void ExitingProcess()
+        internal void ExitingProcess()
         {
             notifyIcon.Visible = false;
             notifyIcon.Dispose();
@@ -286,49 +301,63 @@ namespace KsGameLauncher
             Application.Exit();
         }
 
-
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_aboutForm == null || _aboutForm.IsDisposed)
-                _aboutForm = new AboutForm
+            if (_formWindow == null || _formWindow.IsDisposed)
+            {
+                _formWindow = new AboutForm
                 {
-                    ShowInTaskbar = false
+                    ShowInTaskbar = false,
                 };
-
-            if (!_aboutForm.Visible)
-                _aboutForm.ShowDialog(mainForm);
+                _formWindow.FormClosed += delegate
+                {
+                    _formWindow?.Dispose();
+                    _formWindow = null;
+                };
+                _formWindow.ShowDialog(mainForm);
+            }
             else
-                _aboutForm.Activate();
+                _formWindow.Activate();
 
         }
 
         private void ManageAccountsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_accountForm == null || _accountForm.IsDisposed)
-                _accountForm = new AccountForm
+            if (_formWindow == null || _formWindow.IsDisposed)
+            {
+                _formWindow = new AccountForm
                 {
                     ShowInTaskbar = false
                 };
-
-            if (!_accountForm.Visible)
-                _accountForm.ShowDialog(mainForm);
+                _formWindow.FormClosed += delegate
+                {
+                    _formWindow?.Dispose();
+                    _formWindow = null;
+                };
+                _formWindow.ShowDialog(mainForm);
+            }
             else
-                _accountForm.Activate();
+                _formWindow.Activate();
 
         }
 
         private void OptionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_optionsForm == null || _optionsForm.IsDisposed)
-                _optionsForm = new OptionsForm
+            if (_formWindow == null || _formWindow.IsDisposed)
+            {
+                _formWindow = new OptionsForm
                 {
                     ShowInTaskbar = false
                 };
-
-            if (!_optionsForm.Visible)
-                _optionsForm.ShowDialog(mainForm);
+                _formWindow.FormClosed += delegate
+                {
+                    _formWindow?.Dispose();
+                    _formWindow = null;
+                };
+                _formWindow.ShowDialog(mainForm);
+            }
             else
-                _optionsForm.Activate();
+                _formWindow.Activate();
         }
 
         public void DisplayToolTip(string message, int timeout)
@@ -345,18 +374,27 @@ namespace KsGameLauncher
 
         private void AddNewGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_addNewGameForm == null || _addNewGameForm.IsDisposed)
-                _addNewGameForm = new AddNewGameForm()
+            if (_formWindow == null || _formWindow.IsDisposed)
+            {
+                _formWindow = new AddNewGameForm()
                 {
                     ShowInTaskbar = true,
                     ShowIcon = true,
                     Icon = Properties.Resources.appIcon,
+                    AllowDrop = true,
                 };
-
-            if (!_addNewGameForm.Visible)
-                _addNewGameForm.ShowDialog(mainForm);
+                _formWindow.FormClosed += delegate
+                {
+                    _formWindow?.Dispose();
+                    _formWindow = null;
+                };
+#if DEBUG
+                Debug.WriteLine(Application.OleRequired());
+#endif
+                _formWindow.ShowDialog(mainForm);
+            }
             else
-                _addNewGameForm.Activate();
+                _formWindow.Activate();
         }
 
         internal NotifyIconContextMenuStrip GetMenuStrip()
