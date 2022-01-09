@@ -44,6 +44,65 @@ For items distributed outside the specified schedule, the above cannot be guaran
 
 
 
+## Launch from shortcuts
+
+You can launch the game directly from the shortcut without using this launcher app.
+
+
+
+### 1. Enable shortcuts
+
+
+Right-click the launcher icon on the task bar, and show "Options".
+
+Click "Enable shortcut launch" in the options screen.
+Confirm dialog will be displayed. Check the contents and select "Yes" if there are no problems.
+
+
+![Option screen](assets/images/shortcut_option_enable.png)
+
+Then you can quit the app.
+
+
+### 2. Edit the shortcut created by game
+
+Right-click on the shortcut file created during game installation and open its properties.
+
+![Before change URL](assets/images/shortcut_prop1.png)
+
+In the URL field of the Web document tab, copy the string after `game_id=`.
+On this image, `sdvx` is that.
+
+
+![After changing URL](assets/images/shortcut_prop2.png)
+
+Remove all strings on the URL field, and type `ksgamelauncher://launch/`.
+After this string, paste the string you just copied.
+
+For this example, it will be `ksgamelauncher://launch/sdvx`.
+
+
+You just press "Apply" and then "OK" to close.
+
+
+### 3. Click the shortcut to launch
+
+Double-clicking on the shortcut will instantly launch the Ks Game Launcher, but it will exit immediately.
+
+After that, the launcher of the game will be launched.
+
+
+
+### If you don't need shortcut launch feature
+
+Please disable this feature from option screen.
+Because this feature is update a part of registory on your computer.
+
+You can disable it only 1 click.
+
+
+
+
 # Running environment
 
 
