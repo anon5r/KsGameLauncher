@@ -388,9 +388,6 @@ namespace KsGameLauncher
                     _formWindow?.Dispose();
                     _formWindow = null;
                 };
-#if DEBUG
-                Debug.WriteLine(Application.OleRequired());
-#endif
                 _formWindow.ShowDialog(mainForm);
             }
             else

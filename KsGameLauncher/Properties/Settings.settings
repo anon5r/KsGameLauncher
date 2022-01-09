@@ -68,5 +68,8 @@
     <Setting Name="AppUriScheme" Type="System.String" Scope="Application">
       <Value Profile="(Default)">ksgamelauncher</Value>
     </Setting>
+    <Setting Name="RegisterCustomURI" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

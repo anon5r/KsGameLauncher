@@ -92,7 +92,7 @@ namespace KsGameLauncher
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            if (Program.IsLoaded())
+            if (!MainContext.RunBackground && Program.IsLoaded())
             {
                 MessageBox.Show(Resources.AlreadyRunning, Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
@@ -136,7 +136,7 @@ namespace KsGameLauncher
                         break;
 
                     default:
-                        MessageBox.Show("Unknown action specified.", Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(string.Format("Unknown action \"{0}\" specified.", uri.Host), Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
             }

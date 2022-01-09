@@ -114,7 +114,8 @@ namespace KsGameLauncher
             try
             {
                 string json;
-                if (!File.Exists(Properties.Settings.Default.appInfoLocal))
+                string localPath = Directory.GetParent(Application.ExecutablePath) + "\\" + Properties.Settings.Default.appInfoLocal;
+                if (!File.Exists(localPath))
                 {
                     // Load appinfo.json from the internet
                     // Download from `Properties.Settings.Default.appInfoURL`
@@ -126,7 +127,7 @@ namespace KsGameLauncher
                 {
                     // Load appinfo.json from local
                     using (StreamReader jsonStream =
-                           File.OpenText(Path.GetFullPath(Properties.Settings.Default.appInfoLocal)))
+                           File.OpenText(Path.GetFullPath(localPath)))
                     {
                         json = jsonStream.ReadToEnd();
                         jsonStream.Close();

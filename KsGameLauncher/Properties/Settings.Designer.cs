@@ -264,5 +264,17 @@ namespace KsGameLauncher.Properties {
                 return ((string)(this["AppUriScheme"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RegisterCustomURI {
+            get {
+                return ((bool)(this["RegisterCustomURI"]));
+            }
+            set {
+                this["RegisterCustomURI"] = value;
+            }
+        }
     }
 }
