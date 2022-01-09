@@ -3,7 +3,6 @@ Ks Game Launcher
 
 [Japanese (日本語)](index.ja.md)
 
-## Now in beta preview! [You can try beta here](https://github.com/anon5r/KsGameLauncher/releases/tag/v1.0.0-beta)
 
 
 <p align="center">

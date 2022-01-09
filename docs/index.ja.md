@@ -3,7 +3,6 @@ Ks Game Launcher
 
 [English](index.md)
 
-## 現在ベータプレビュー中 [ここからダウンロードできます](https://github.com/anon5r/KsGameLauncher/releases/tag/v1.0.0-beta)
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/anon5r/KSGameLauncher/main/docs/res/screen1.png" alt="preview" width="500">
