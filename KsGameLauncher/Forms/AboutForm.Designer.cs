@@ -35,9 +35,10 @@
             this.AppDeveloper = new System.Windows.Forms.Label();
             this.linkLabel_Support = new System.Windows.Forms.LinkLabel();
             this.label_SpecialThanks = new System.Windows.Forms.Label();
-            this.textBox_SpecialThanks = new System.Windows.Forms.TextBox();
+            this.textBox_Copyrights = new System.Windows.Forms.TextBox();
             this.linkLabel_License = new System.Windows.Forms.LinkLabel();
             this.label_Develop = new System.Windows.Forms.Label();
+            this.linkLabel_Github = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label_Application
@@ -75,14 +76,14 @@
             resources.ApplyResources(this.label_SpecialThanks, "label_SpecialThanks");
             this.label_SpecialThanks.Name = "label_SpecialThanks";
             // 
-            // textBox_SpecialThanks
+            // textBox_Copyrights
             // 
-            resources.ApplyResources(this.textBox_SpecialThanks, "textBox_SpecialThanks");
-            this.textBox_SpecialThanks.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox_SpecialThanks.Name = "textBox_SpecialThanks";
-            this.textBox_SpecialThanks.ReadOnly = true;
-            this.textBox_SpecialThanks.ShortcutsEnabled = false;
-            this.textBox_SpecialThanks.TabStop = false;
+            resources.ApplyResources(this.textBox_Copyrights, "textBox_Copyrights");
+            this.textBox_Copyrights.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textBox_Copyrights.Name = "textBox_Copyrights";
+            this.textBox_Copyrights.ReadOnly = true;
+            this.textBox_Copyrights.ShortcutsEnabled = false;
+            this.textBox_Copyrights.TabStop = false;
             // 
             // linkLabel_License
             // 
@@ -96,6 +97,13 @@
             resources.ApplyResources(this.label_Develop, "label_Develop");
             this.label_Develop.Name = "label_Develop";
             // 
+            // linkLabel_Github
+            // 
+            resources.ApplyResources(this.linkLabel_Github, "linkLabel_Github");
+            this.linkLabel_Github.Name = "linkLabel_Github";
+            this.linkLabel_Github.TabStop = true;
+            this.linkLabel_Github.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel_Github_LinkClicked);
+            // 
             // AboutForm
             // 
             this.AcceptButton = this.button_Ok;
@@ -103,8 +111,9 @@
             resources.ApplyResources(this, "$this");
             this.Controls.Add(this.label_Develop);
             this.Controls.Add(this.linkLabel_License);
-            this.Controls.Add(this.textBox_SpecialThanks);
+            this.Controls.Add(this.textBox_Copyrights);
             this.Controls.Add(this.label_SpecialThanks);
+            this.Controls.Add(this.linkLabel_Github);
             this.Controls.Add(this.linkLabel_Support);
             this.Controls.Add(this.AppDeveloper);
             this.Controls.Add(this.label_Version);
@@ -129,8 +138,9 @@
         private System.Windows.Forms.Label AppDeveloper;
         private System.Windows.Forms.LinkLabel linkLabel_Support;
         private System.Windows.Forms.Label label_SpecialThanks;
-        private System.Windows.Forms.TextBox textBox_SpecialThanks;
+        private System.Windows.Forms.TextBox textBox_Copyrights;
         private System.Windows.Forms.LinkLabel linkLabel_License;
         private System.Windows.Forms.Label label_Develop;
+        private System.Windows.Forms.LinkLabel linkLabel_Github;
     }
 }

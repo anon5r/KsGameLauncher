@@ -168,7 +168,7 @@ namespace KsGameLauncher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public int NotificationTimeout {
             get {
                 return ((int)(this["NotificationTimeout"]));
@@ -253,6 +253,27 @@ namespace KsGameLauncher.Properties {
             }
             set {
                 this["NewGameFormSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ksgamelauncher")]
+        public string AppUriScheme {
+            get {
+                return ((string)(this["AppUriScheme"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RegisterCustomURI {
+            get {
+                return ((bool)(this["RegisterCustomURI"]));
+            }
+            set {
+                this["RegisterCustomURI"] = value;
             }
         }
     }

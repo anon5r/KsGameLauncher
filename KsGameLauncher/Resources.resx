@@ -174,11 +174,20 @@ You can try removing it from "Credential Manager" in Control Panel.\nIf you clic
   <data name="ConfirmExitDialogMessage" xml:space="preserve">
     <value>Are you sure you want to exit ?</value>
   </data>
+  <data name="ConfirmRegisterCustomURI" xml:space="preserve">
+    <value>Are you sure you want to enable shortcut launch ?
+
+This will be registered the protocol to boot as {0}:// on your computer.
+This is used to launch the game directly from the shortcut.</value>
+  </data>
   <data name="ConfirmToRemove" xml:space="preserve">
     <value>Remove confirm</value>
   </data>
   <data name="ConfirmToRemoveAccountFromList" xml:space="preserve">
     <value>Are you sure you want to logout your account from the registered List ?</value>
+  </data>
+  <data name="ConfirmUnregisterCustomURI" xml:space="preserve">
+    <value>Are you sure you want to disable shortcut launch feature ?</value>
   </data>
   <data name="ConnectionTimeout" xml:space="preserve">
     <value>Network connection was time out. please check your network.</value>
@@ -189,8 +198,14 @@ You can try removing it from "Credential Manager" in Control Panel.\nIf you clic
   <data name="ContextMenuSize_Text_Normal" xml:space="preserve">
     <value>Normal</value>
   </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Disabled.</value>
+  </data>
   <data name="DropHere" xml:space="preserve">
     <value>Drop shortcut here</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>Enabled.</value>
   </data>
   <data name="EnterYourAccountPasswordPrompt" xml:space="preserve">
     <value>Enter your account ID and password</value>
@@ -285,6 +300,12 @@ This file may not exist or may be temporarily unavailable.</value>
   </data>
   <data name="ServiceIsTemporaryUnavailable" xml:space="preserve">
     <value>Service is temporarily down or unavailable.</value>
+  </data>
+  <data name="ShortcutLaunchCheckboxDisable" xml:space="preserve">
+    <value>Disable shortcut launch</value>
+  </data>
+  <data name="ShortcutLaunchCheckboxEnable" xml:space="preserve">
+    <value>Enable shortcut launch</value>
   </data>
   <data name="ShouldBeSetAccountBeforeLaunch" xml:space="preserve">
     <value>Please setup your account from "Manage account" before launch app</value>

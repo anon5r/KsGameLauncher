@@ -174,11 +174,20 @@
   <data name="ConfirmExitDialogMessage" xml:space="preserve">
     <value>本当に終了しますか？</value>
   </data>
+  <data name="ConfirmRegisterCustomURI" xml:space="preserve">
+    <value>ショートカット起動を有効にします。よろしいですか？
+
+これはコンピューターに {0}:// として起動するプロトコルを登録します。 
+これはショートカットからのゲームを起動する際に使用します。</value>
+  </data>
   <data name="ConfirmToRemove" xml:space="preserve">
     <value>削除確認</value>
   </data>
   <data name="ConfirmToRemoveAccountFromList" xml:space="preserve">
     <value>アカウント情報の登録を削除してもよろしいですか？</value>
+  </data>
+  <data name="ConfirmUnregisterCustomURI" xml:space="preserve">
+    <value>ショートカット起動を無効にします。よろしいですか？</value>
   </data>
   <data name="ConnectionTimeout" xml:space="preserve">
     <value>通信がタイムアウトしました。接続状況を確認してください。</value>
@@ -189,8 +198,14 @@
   <data name="ContextMenuSize_Text_Normal" xml:space="preserve">
     <value>通常</value>
   </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>無効にしました。</value>
+  </data>
   <data name="DropHere" xml:space="preserve">
     <value>ここにショートカットをドラッグ＆ドロップ</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>有効にしました。</value>
   </data>
   <data name="EnterYourAccountPasswordPrompt" xml:space="preserve">
     <value>アカウントIDとパスワードを入力してください。</value>
@@ -281,6 +296,12 @@
   </data>
   <data name="ServiceIsTemporaryUnavailable" xml:space="preserve">
     <value>サービスが一時的に停止しているか、利用できません。</value>
+  </data>
+  <data name="ShortcutLaunchCheckboxDisable" xml:space="preserve">
+    <value>ショートカット起動を無効にする</value>
+  </data>
+  <data name="ShortcutLaunchCheckboxEnable" xml:space="preserve">
+    <value>ショートカット起動を有効にする</value>
   </data>
   <data name="ShouldBeSetAccountBeforeLaunch" xml:space="preserve">
     <value>最初に"アカウント管理"からアカウントの登録を行ってください。</value>

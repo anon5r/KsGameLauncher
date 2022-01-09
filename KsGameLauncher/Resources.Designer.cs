@@ -224,6 +224,18 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   Are you sure you want to enable shortcut launch ?
+        ///
+        ///This will be registered the protocol to boot as {0}:// on your computer.
+        ///This is used to launch the game directly from the shortcut. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ConfirmRegisterCustomURI {
+            get {
+                return ResourceManager.GetString("ConfirmRegisterCustomURI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Remove confirm に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ConfirmToRemove {
@@ -238,6 +250,15 @@ namespace KsGameLauncher {
         internal static string ConfirmToRemoveAccountFromList {
             get {
                 return ResourceManager.GetString("ConfirmToRemoveAccountFromList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Are you sure you want to disable shortcut launch feature ? に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ConfirmUnregisterCustomURI {
+            get {
+                return ResourceManager.GetString("ConfirmUnregisterCustomURI", resourceCulture);
             }
         }
         
@@ -269,11 +290,29 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   Disabled. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Disabled {
+            get {
+                return ResourceManager.GetString("Disabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Drop shortcut here に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string DropHere {
             get {
                 return ResourceManager.GetString("DropHere", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Enabled. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Enabled {
+            get {
+                return ResourceManager.GetString("Enabled", resourceCulture);
             }
         }
         
@@ -527,6 +566,24 @@ namespace KsGameLauncher {
         internal static string ServiceIsTemporaryUnavailable {
             get {
                 return ResourceManager.GetString("ServiceIsTemporaryUnavailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Disable shortcut launch に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ShortcutLaunchCheckboxDisable {
+            get {
+                return ResourceManager.GetString("ShortcutLaunchCheckboxDisable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Enable shortcut launch に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ShortcutLaunchCheckboxEnable {
+            get {
+                return ResourceManager.GetString("ShortcutLaunchCheckboxEnable", resourceCulture);
             }
         }
         

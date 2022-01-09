@@ -68,27 +68,29 @@ namespace KsGameLauncher
                         MessageBox.Show(string.Format(Resources.AlreadyGameExists, appInfo.Name), Resources.AppName,
                             MessageBoxButtons.OK, MessageBoxIcon.Error,
                             MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                        Activate();
                         return;
                     }
 
                     var result = MessageBox.Show(String.Format(Resources.ConfirmAddNewGame, appInfo.Name),
-                        Resources.AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, 
+                        Resources.AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Question,
                         MessageBoxDefaultButton.Button2, MessageBoxOptions.DefaultDesktopOnly);
                     if (result == DialogResult.Yes)
                     {
                         // TODO AppInfoリストに追加し、JSON化して保存する
                         //JsonSerializer
                         AppInfo.GetList().Add(appInfo);
-                        ToolStripMenuItem item = Program.mainForm.CreateNewMenuItem(appInfo);
-                        NotifyIconContextMenuStrip menuStrip = Program.mainForm.GetMenuStrip();
+                        ToolStripMenuItem item = Program.mainContext.CreateNewMenuItem(appInfo);
+                        NotifyIconContextMenuStrip menuStrip = Program.mainContext.GetMenuStrip();
                         menuStrip.Items.Add(item);
-                        Program.mainForm.SetMenuStrip(menuStrip);
+                        Program.mainContext.SetMenuStrip(menuStrip);
                     }
                 }
+                Activate();
             }
             catch (FileFormatException ex)
             {
-                MessageBox.Show(ex.Message, Resources.AppName, 
+                MessageBox.Show(ex.Message, Resources.AppName,
                     MessageBoxButtons.OK, MessageBoxIcon.Error,
                     MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             }
@@ -112,7 +114,7 @@ namespace KsGameLauncher
 
         private void AddNewGame_Load(object sender, EventArgs e)
         {
-            Icon = Properties.Resources.app;
+            Icon = Properties.Resources.appIcon;
             Text = Resources.AddNewGameWindowTitle;
             groupBox_DragHere.Text = Resources.DropHere;
             Size = Properties.Settings.Default.NewGameFormSize;

@@ -63,9 +63,9 @@ namespace KsGameLauncher.Properties {
         /// <summary>
         ///   (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
         /// </summary>
-        internal static System.Drawing.Icon app {
+        internal static System.Drawing.Icon appIcon {
             get {
-                object obj = ResourceManager.GetObject("app", resourceCulture);
+                object obj = ResourceManager.GetObject("appIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -85,6 +85,15 @@ namespace KsGameLauncher.Properties {
         internal static string AuthorizeDomain {
             get {
                 return ResourceManager.GetString("AuthorizeDomain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Default game icon by flaticon (https://www.flaticon.com) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Copyrights {
+            get {
+                return ResourceManager.GetString("Copyrights", resourceCulture);
             }
         }
         
@@ -113,6 +122,15 @@ namespace KsGameLauncher.Properties {
         internal static string Developers {
             get {
                 return ResourceManager.GetString("Developers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   https://github.com/anon5r/KsGameLauncher に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string GithubURL {
+            get {
+                return ResourceManager.GetString("GithubURL", resourceCulture);
             }
         }
         
@@ -156,16 +174,6 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
-        ///   KONAMI Amusement Inc.
-        ///flaticon ( https://www.flaticon.com ) に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string SpecialThanks {
-            get {
-                return ResourceManager.GetString("SpecialThanks", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Support に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SupportLabelText {
@@ -175,7 +183,7 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
-        ///   https://github.com/anon5r/KsGameLauncher に類似しているローカライズされた文字列を検索します。
+        ///   https://launcher-app.sdvx.net に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SupportLabelURL {
             get {
