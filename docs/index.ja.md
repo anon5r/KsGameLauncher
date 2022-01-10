@@ -4,7 +4,7 @@ Ks Game Launcher
 [English](index.md)
 
 
-## [Download here](https://github.com/anon5r/KsGameLauncher/releases)
+## [ここからダウンロードできます](https://github.com/anon5r/KsGameLauncher/releases)
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/anon5r/KSGameLauncher/main/docs/res/screen1.png" alt="preview" width="500">
