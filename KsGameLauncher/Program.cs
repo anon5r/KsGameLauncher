@@ -41,6 +41,7 @@ namespace KsGameLauncher
                         if (Uri.TryCreate(args[0], UriKind.Absolute, out Uri uri))
                         {
                             await ProcessUri(uri);
+                            // Exit app when the game launched
                             Application.Exit();
                         }
                     }
@@ -91,6 +92,18 @@ namespace KsGameLauncher
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+
+            // Migrate user settings before version
+            if (!Properties.Settings.Default.IsUpgrated)
+            {
+                Properties.Settings.Default.Upgrade();
+                // Mark as Upgraded
+                Properties.Settings.Default.IsUpgrated = true;
+                Properties.Settings.Default.Save();
+            }
+
+
 
             if (!MainContext.RunBackground && Program.IsLoaded())
             {
