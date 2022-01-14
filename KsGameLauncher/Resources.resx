@@ -162,6 +162,9 @@ You can try removing it from "Credential Manager" in Control Panel.\nIf you clic
   <data name="ButtonUpdate_Register" xml:space="preserve">
     <value>Re&amp;gister</value>
   </data>
+  <data name="CannotLoadLoginPage" xml:space="preserve">
+    <value>Cannot load login page</value>
+  </data>
   <data name="CannotSaveGameList" xml:space="preserve">
     <value>Could not be saved game list, because not allowed write files.</value>
   </data>
@@ -340,6 +343,11 @@ When you sync with the server, the games you manually registered will be initial
   </data>
   <data name="SyncWithServerSuccessMessage" xml:space="preserve">
     <value>Synchronization was successful!</value>
+  </data>
+  <data name="UnderMaintenanceMessage" xml:space="preserve">
+    <value>The service is currently under maintenance and cannot be used.
+
+Do you want to display maintenance information?</value>
   </data>
   <data name="UnknownStatusReceived" xml:space="preserve">
     <value>Unknown status received.</value>

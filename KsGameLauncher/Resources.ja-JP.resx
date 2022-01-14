@@ -161,6 +161,9 @@
   <data name="ButtonUpdate_Register" xml:space="preserve">
     <value>登録 (&amp;G)</value>
   </data>
+  <data name="CannotLoadLoginPage" xml:space="preserve">
+    <value>ログインページを読み込むことができませんでした</value>
+  </data>
   <data name="CannotSaveGameList" xml:space="preserve">
     <value>ファイルへの書き込みが許可されていないため
 ゲーム一覧を保存できませんでした。</value>
@@ -336,6 +339,10 @@
   </data>
   <data name="SyncWithServerSuccessMessage" xml:space="preserve">
     <value>同期に成功しました</value>
+  </data>
+  <data name="UnderMaintenanceMessage" xml:space="preserve">
+    <value>ただいまサービスはメンテナンス中のため利用できません。
+メンテナンス情報を表示しますか？</value>
   </data>
   <data name="UnknownStatusReceived" xml:space="preserve">
     <value>不明なステータスを受信しました。</value>

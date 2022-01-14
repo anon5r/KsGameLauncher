@@ -188,6 +188,15 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   Cannot load login page に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CannotLoadLoginPage {
+            get {
+                return ResourceManager.GetString("CannotLoadLoginPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Could not be saved game list, because not allowed write files. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string CannotSaveGameList {
@@ -684,6 +693,17 @@ namespace KsGameLauncher {
         internal static string SyncWithServerSuccessMessage {
             get {
                 return ResourceManager.GetString("SyncWithServerSuccessMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   The service is currently under maintenance and cannot be used.
+        ///
+        ///Do you want to display maintenance information? に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string UnderMaintenanceMessage {
+            get {
+                return ResourceManager.GetString("UnderMaintenanceMessage", resourceCulture);
             }
         }
         
