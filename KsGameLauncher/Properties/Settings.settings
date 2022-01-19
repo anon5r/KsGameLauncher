@@ -71,5 +71,23 @@
     <Setting Name="RegisterCustomURI" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="LinkUrlOTP" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://my.konami.net/otp.html</Value>
+    </Setting>
+    <Setting Name="selector_login_pincode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#id_pincode</Value>
+    </Setting>
+    <Setting Name="selector_login_pincod_persistnt" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#is_persistent</Value>
+    </Setting>
+    <Setting Name="AuthPage_2FAPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">two_step.html</Value>
+    </Setting>
+    <Setting Name="UseOTP" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="LoginSession" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

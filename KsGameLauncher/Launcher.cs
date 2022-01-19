@@ -190,6 +190,27 @@ namespace KsGameLauncher
                 Program.mainContext.DisplayToolTip(Resources.IconBalloonMessage_WhileLogin, Properties.Settings.Default.NotificationTimeout);
             }
 
+            string otpCode = "";
+            if (Properties.Settings.Default.UseOTP)
+            {
+                await Task.Factory.StartNew(() =>
+                {
+                    // Use OTP by token generator device/app
+                    var otp = new Forms.OTPDialog();
+                    DialogResult otpResult = otp.ShowDialog(string.Format(Resources.OTPDialogMessage_OTP, 8), 8);
+                    if (DialogResult.OK == otpResult)
+                    {
+                        otpCode = otp.Code;
+                    }
+                    else if (DialogResult.Cancel == otpResult)
+                    {
+                        // Canceled process continueing
+                        instance.httpClient = null;
+                        throw new LoginCancelException();
+                    }
+                });
+            }
+
             httpClient.CancelPendingRequests();
             Debug.WriteLine(String.Format("Start login to: {0}", loginURL.ToString()));
 
@@ -208,7 +229,8 @@ namespace KsGameLauncher
                 var loginUsername = document.QuerySelector(Properties.Settings.Default.selector_login_user);
                 var loginPassword = document.QuerySelector(Properties.Settings.Default.selector_login_pass);
 
-                string formAction = form.GetAttribute("action");
+
+                    string formAction = form.GetAttribute("action");
                 string postURLString = response.RequestMessage.RequestUri.AbsoluteUri.Remove(response.RequestMessage.RequestUri.AbsoluteUri.LastIndexOf('/')) + "/" + formAction;
 
 
@@ -217,7 +239,7 @@ namespace KsGameLauncher
                     {csrfToken.GetAttribute("name"), csrfToken.GetAttribute("value")},
                     { loginUsername.GetAttribute("name"), credential.UserName },
                     { loginPassword.GetAttribute("name"), credential.Password },
-                    { "otpass", "" }
+                    { "otpass", otpCode }
                 };
                 try
                 {
@@ -247,10 +269,12 @@ namespace KsGameLauncher
 
                 if (response.RequestMessage.RequestUri.AbsolutePath.Contains("/login_error.html"))
                 {
+                    instance.httpClient = null;
                     throw new LoginException(Resources.IncorrectUsernameOrPassword);
                 }
                 if (response.RequestMessage.RequestUri.AbsolutePath.Contains("/timeout.html"))
                 {
+                    instance.httpClient = null;
                     throw new LoginException(Resources.AuthorizeFailed);
                 }
 #if DEBUG
@@ -260,6 +284,7 @@ namespace KsGameLauncher
 #endif
                 if (response.RequestMessage.RequestUri.Host.Contains(Properties.Resources.AuthorizeDomain))
                 {
+                    instance.httpClient = null;
                     throw new LoginException(Resources.IncorrectUsernameOrPassword);
                 }
                 return response;
@@ -298,6 +323,11 @@ namespace KsGameLauncher
                             return;
                         }
                     }
+                    catch (LoginCancelException ex)
+                    {
+                        // Canceled process
+                        throw ex;
+                    }
                     catch (LoginException ex)
                     {
                         MessageBox.Show(ex.Message, Resources.LoginExceptionDialogName,
@@ -327,6 +357,7 @@ namespace KsGameLauncher
 
                     if (response.RequestMessage.RequestUri.Host.Contains(Properties.Resources.AuthorizeDomain))
                     {
+                        instance.httpClient = null;
                         MessageBox.Show(Resources.IncorrectUsernameOrPassword, Resources.AppName,
                             MessageBoxButtons.OK, MessageBoxIcon.Error,
                             MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
@@ -564,6 +595,11 @@ namespace KsGameLauncher
             {
                 Launcher launcher = Launcher.Create();
                 await launcher.StartApp(appInfo);
+            }
+            catch (LoginCancelException)
+            {
+                // Canceled process while login
+                return;
             }
             catch (LoginException ex)
             {

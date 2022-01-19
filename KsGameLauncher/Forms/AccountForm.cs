@@ -20,6 +20,8 @@ namespace KsGameLauncher
             button_Close.Text = Resources.ButtonClose;
             groupBox_AccountInfo.Text = Resources.GroupBoxAccountInfo;
             label_AccountID.Text = Resources.LabelAccountID;
+            toolTip_Hint.SetToolTip(checkBox_UseOTP, Resources.ToolTipHintOTPDescription);
+            linkLabel_OTP.Text = Resources.WhatsOTP;
         }
 
         ~AccountForm()
@@ -33,6 +35,7 @@ namespace KsGameLauncher
             Text = Resources.AccountManagerForm;
             button_Update.Text = Resources.ButtonUpdate_Register;
             button_Remove.Enabled = false;
+            checkBox_UseOTP.Checked = Properties.Settings.Default.UseOTP;
             if (!RefreshRegisteredAccounts())
             {
                 try
@@ -150,5 +153,15 @@ namespace KsGameLauncher
             return list != null && list.Count > 0;
         }
 
+        private void LinkLabel_OTP_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Utils.Common.OpenUrlByDefaultBrowser(Properties.Settings.Default.LinkUrlOTP);
+        }
+
+        private void AccountForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.UseOTP = checkBox_UseOTP.Checked;
+            Properties.Settings.Default.Save();
+        }
     }
 }

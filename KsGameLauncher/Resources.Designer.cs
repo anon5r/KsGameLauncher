@@ -561,6 +561,24 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   Enter {0}-digits code you received here. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string OTPDialogMessage_2FA {
+            get {
+                return ResourceManager.GetString("OTPDialogMessage_2FA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Enter {0}-digits code displayed on your token device/app. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string OTPDialogMessage_OTP {
+            get {
+                return ResourceManager.GetString("OTPDialogMessage_OTP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Service is temporarily down or unavailable. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ServiceIsTemporaryUnavailable {
@@ -688,11 +706,29 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   If you check this, you will be prompted to enter the OTP at login. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ToolTipHintOTPDescription {
+            get {
+                return ResourceManager.GetString("ToolTipHintOTPDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Unknown status received. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string UnknownStatusReceived {
             get {
                 return ResourceManager.GetString("UnknownStatusReceived", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   What is OTP に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string WhatsOTP {
+            get {
+                return ResourceManager.GetString("WhatsOTP", resourceCulture);
             }
         }
     }

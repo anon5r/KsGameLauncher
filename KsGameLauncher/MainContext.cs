@@ -212,6 +212,11 @@ namespace KsGameLauncher
                     Launcher launcher = Launcher.Create();
                     await launcher.StartApp(appInfo);
                 }
+                catch (LoginCancelException)
+                {
+                    // Canceled process while login
+                    return;
+                }
                 catch (LoginException ex)
                 {
                     MessageBox.Show(String.Format(
