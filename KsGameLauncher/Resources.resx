@@ -353,6 +353,9 @@ When you sync with the server, the games you manually registered will be initial
   <data name="UnknownStatusReceived" xml:space="preserve">
     <value>Unknown status received.</value>
   </data>
+  <data name="UseOTP" xml:space="preserve">
+    <value>Use OTP</value>
+  </data>
   <data name="WhatsOTP" xml:space="preserve">
     <value>What is OTP</value>
   </data>

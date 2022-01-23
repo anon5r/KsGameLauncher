@@ -219,11 +219,17 @@ namespace KsGameLauncher
                 }
                 catch (LoginException ex)
                 {
+#if !DEBUG
+                    MessageBox.Show(ex.Message, Resources.LoginExceptionDialogName,
+                        MessageBoxButtons.OK, MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+#else
                     MessageBox.Show(String.Format(
                         "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
                         appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
                     , Resources.ErrorWhileLogin, MessageBoxButtons.OK, MessageBoxIcon.Error,
                     MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+#endif
                 }
                 catch (LauncherException ex)
                 {
@@ -235,11 +241,14 @@ namespace KsGameLauncher
                 }
                 catch (Exception ex)
                 {
+#if !DEBUG
                     MessageBox.Show(String.Format(
                         "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
                         appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
                     , ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error,
                     MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+#endif
+                    throw ex;
                 }
                 finally
                 {

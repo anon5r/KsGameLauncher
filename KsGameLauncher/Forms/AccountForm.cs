@@ -22,6 +22,7 @@ namespace KsGameLauncher
             label_AccountID.Text = Resources.LabelAccountID;
             toolTip_Hint.SetToolTip(checkBox_UseOTP, Resources.ToolTipHintOTPDescription);
             linkLabel_OTP.Text = Resources.WhatsOTP;
+            checkBox_UseOTP.Text = Resources.UseOTP;
         }
 
         ~AccountForm()

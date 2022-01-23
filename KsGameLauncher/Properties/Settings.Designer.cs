@@ -82,13 +82,13 @@ namespace KsGameLauncher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#login-form>div.form-area>form>input[type=hidden][name=csrfmiddlewaretoken]")]
-        public string selector_login_csrf {
+        [global::System.Configuration.DefaultSettingValueAttribute("div.form-area>form>input[type=hidden][name=csrfmiddlewaretoken]")]
+        public string selector_csrf {
             get {
-                return ((string)(this["selector_login_csrf"]));
+                return ((string)(this["selector_csrf"]));
             }
             set {
-                this["selector_login_csrf"] = value;
+                this["selector_csrf"] = value;
             }
         }
         
@@ -290,24 +290,24 @@ namespace KsGameLauncher.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#id_pincode")]
-        public string selector_login_pincode {
+        public string selector_2fa_pincode {
             get {
-                return ((string)(this["selector_login_pincode"]));
+                return ((string)(this["selector_2fa_pincode"]));
             }
             set {
-                this["selector_login_pincode"] = value;
+                this["selector_2fa_pincode"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#is_persistent")]
-        public string selector_login_pincod_persistnt {
+        public string selector_2fa_pincod_persistnt {
             get {
-                return ((string)(this["selector_login_pincod_persistnt"]));
+                return ((string)(this["selector_2fa_pincod_persistnt"]));
             }
             set {
-                this["selector_login_pincod_persistnt"] = value;
+                this["selector_2fa_pincod_persistnt"] = value;
             }
         }
         
@@ -344,6 +344,18 @@ namespace KsGameLauncher.Properties {
             }
             set {
                 this["LoginSession"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#two-step-form>div.form-area>form")]
+        public string selector_2fa_form {
+            get {
+                return ((string)(this["selector_2fa_form"]));
+            }
+            set {
+                this["selector_2fa_form"] = value;
             }
         }
     }

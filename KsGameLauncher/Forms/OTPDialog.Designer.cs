@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OTPDialog));
             this.label_Description = new System.Windows.Forms.Label();
             this.button_Ok = new System.Windows.Forms.Button();
-            this.maskedTextBox_OTPCode = new System.Windows.Forms.MaskedTextBox();
             this.button_Cancel = new System.Windows.Forms.Button();
+            this.textBox_OTPCode = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label_Description
@@ -55,22 +56,6 @@
             this.button_Ok.UseVisualStyleBackColor = true;
             this.button_Ok.Click += new System.EventHandler(this.Button_Ok_Click);
             // 
-            // maskedTextBox_OTPCode
-            // 
-            this.maskedTextBox_OTPCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.maskedTextBox_OTPCode.AsciiOnly = true;
-            this.maskedTextBox_OTPCode.Culture = new System.Globalization.CultureInfo("");
-            this.maskedTextBox_OTPCode.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.maskedTextBox_OTPCode.Location = new System.Drawing.Point(12, 56);
-            this.maskedTextBox_OTPCode.Mask = "000000";
-            this.maskedTextBox_OTPCode.Name = "maskedTextBox_OTPCode";
-            this.maskedTextBox_OTPCode.ResetOnSpace = false;
-            this.maskedTextBox_OTPCode.Size = new System.Drawing.Size(285, 19);
-            this.maskedTextBox_OTPCode.TabIndex = 0;
-            this.maskedTextBox_OTPCode.TextChanged += new System.EventHandler(this.MaskedTextBox_OTPCode_TextChanged);
-            this.maskedTextBox_OTPCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MaskedTextBox_OTPCode_KeyDown);
-            // 
             // button_Cancel
             // 
             this.button_Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -83,6 +68,21 @@
             this.button_Cancel.UseVisualStyleBackColor = true;
             this.button_Cancel.Click += new System.EventHandler(this.Button_Cancel_Click);
             // 
+            // textBox_OTPCode
+            // 
+            this.textBox_OTPCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_OTPCode.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBox_OTPCode.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.textBox_OTPCode.Location = new System.Drawing.Point(12, 34);
+            this.textBox_OTPCode.MaxLength = 6;
+            this.textBox_OTPCode.Name = "textBox_OTPCode";
+            this.textBox_OTPCode.Size = new System.Drawing.Size(285, 31);
+            this.textBox_OTPCode.TabIndex = 3;
+            this.textBox_OTPCode.TextChanged += new System.EventHandler(this.TextBox_OTPCode_TextChanged);
+            this.textBox_OTPCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_OTPCode_KeyDown);
+            this.textBox_OTPCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_OTPCode_KeyPress);
+            // 
             // OTPDialog
             // 
             this.AcceptButton = this.button_Ok;
@@ -90,11 +90,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.button_Cancel;
             this.ClientSize = new System.Drawing.Size(309, 111);
-            this.Controls.Add(this.maskedTextBox_OTPCode);
+            this.Controls.Add(this.textBox_OTPCode);
             this.Controls.Add(this.button_Cancel);
             this.Controls.Add(this.button_Ok);
             this.Controls.Add(this.label_Description);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OTPDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Enter the OTP";
@@ -107,7 +108,7 @@
         #endregion
         private System.Windows.Forms.Label label_Description;
         private System.Windows.Forms.Button button_Ok;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox_OTPCode;
         private System.Windows.Forms.Button button_Cancel;
+        private System.Windows.Forms.TextBox textBox_OTPCode;
     }
 }

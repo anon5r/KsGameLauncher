@@ -349,6 +349,9 @@
   <data name="UnknownStatusReceived" xml:space="preserve">
     <value>不明なステータスを受信しました。</value>
   </data>
+  <data name="UseOTP" xml:space="preserve">
+    <value>OTPを使用</value>
+  </data>
   <data name="WhatsOTP" xml:space="preserve">
     <value>OTPとは</value>
   </data>

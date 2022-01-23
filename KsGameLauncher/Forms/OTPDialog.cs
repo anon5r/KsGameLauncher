@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -40,22 +41,14 @@ namespace KsGameLauncher.Forms
 
         public DialogResult ShowDialog(int digits)
         {
-            maskedTextBox_OTPCode.Mask = new string('0', digits);
+            textBox_OTPCode.MaxLength = digits;
             return ShowDialog();
         }
 
         public DialogResult ShowDialog(string message, int digits)
         {
-            maskedTextBox_OTPCode.Mask = new string('0', digits);
             label_Description.Text = message;
-            return ShowDialog();
-        }
-
-        public DialogResult ShowDialog(string message, string format)
-        {
-            maskedTextBox_OTPCode.Mask = format;
-            label_Description.Text = message;
-            return ShowDialog();
+            return ShowDialog(digits);
         }
 
 
@@ -64,7 +57,7 @@ namespace KsGameLauncher.Forms
         {
             DialogResult = DialogResult.OK;
 
-            _code = maskedTextBox_OTPCode.Text.Trim();
+            _code = textBox_OTPCode.Text.Trim();
 
             Close();
         }
@@ -76,21 +69,52 @@ namespace KsGameLauncher.Forms
             Close();
         }
 
-        private void MaskedTextBox_OTPCode_KeyDown(object sender, KeyEventArgs e)
+        private void TextBox_OTPCode_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (maskedTextBox_OTPCode.MaskCompleted)
+                if (textBox_OTPCode.MaxLength == textBox_OTPCode.TextLength)
                     Button_Ok_Click(sender, e);
+            }
+            else if (e.KeyData == (Keys.Control | Keys.A))
+            {
+                textBox_OTPCode.SelectAll();
+            }
+            else if (e.KeyData == (Keys.Control | Keys.C))
+            {
+                textBox_OTPCode.Copy();
+            }
+            else if (e.KeyData == (Keys.Control | Keys.V))
+            {
+                textBox_OTPCode.Paste();
             }
         }
 
-        private void MaskedTextBox_OTPCode_TextChanged(object sender, EventArgs e)
+        private void TextBox_OTPCode_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!maskedTextBox_OTPCode.MaskCompleted)
+            if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TextBox_OTPCode_TextChanged(object sender, EventArgs e)
+        {
+            textBox_OTPCode.Text = AllowStringAsNumeric(textBox_OTPCode.Text);
+            if (textBox_OTPCode.MaxLength > textBox_OTPCode.TextLength)
                 button_Ok.Enabled = false;
             else
                 button_Ok.Enabled = true;
+        }
+
+        private string AllowStringAsNumeric(string text)
+        {
+            if (text.Length > 0 && !Regex.IsMatch(text, @"^\d+$"))
+            {
+                text = Regex.Replace(text, @"[^\d]+$", "");
+            }
+            return text;
+
         }
     }
 }

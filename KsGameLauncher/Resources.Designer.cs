@@ -724,6 +724,15 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   Use OTP に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string UseOTP {
+            get {
+                return ResourceManager.GetString("UseOTP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   What is OTP に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WhatsOTP {
