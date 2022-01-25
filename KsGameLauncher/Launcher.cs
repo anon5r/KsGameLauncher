@@ -41,6 +41,12 @@ namespace KsGameLauncher
 
         }
 
+        /// <summary>
+        /// Get encoding from WebName
+        /// Supports Japanese encoding name aliases similar to Shift-JIS
+        /// </summary>
+        /// <param name="encodeName"></param>
+        /// <returns></returns>
         internal static Encoding EncodingMapJapanese(string encodeName)
         {
             Encoding enc = null;
@@ -324,7 +330,8 @@ namespace KsGameLauncher
             httpClient.CancelPendingRequests();
             Debug.WriteLine(String.Format("Start login to: {0}", loginURL.ToString()));
             LoginDataSet loginResponse = await LoginRequest(credential, loginURL, otpCode);
-            try {
+            try
+            {
                 if (loginResponse.RequestUri.Host.Contains(Properties.Resources.AuthorizeDomain))
                 {
                     string responseURL = (string)loginResponse.RequestUri.AbsoluteUri;
@@ -580,7 +587,7 @@ namespace KsGameLauncher
 
                     if (response.RequestMessage.RequestUri.Host.Contains(Properties.Resources.AuthorizeDomain))
                     {
-                            instance.httpClient = null;
+                        instance.httpClient = null;
                         MessageBox.Show(Resources.IncorrectUsernameOrPassword, Resources.AppName,
                             MessageBoxButtons.OK, MessageBoxIcon.Error,
                             MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
@@ -624,7 +631,7 @@ namespace KsGameLauncher
                     }
 
                     string content = GetResponseContentWithEncoding(response);
-                    
+
                     // Status 200 returns while maintenance
                     if (content.Contains(Properties.Resources.MaintenanceCheckString))
                     {
@@ -827,7 +834,7 @@ namespace KsGameLauncher
             private HttpStatusCode _statusCode;
             private string _content;
             private System.Net.Http.Headers.HttpContentHeaders _headers;
-            
+
             public Uri RequestUri
             {
                 get { return _requestUri; }
@@ -840,7 +847,7 @@ namespace KsGameLauncher
             {
                 get { return _statusCode; }
             }
-            
+
             public string Content
             {
                 get { return _content; }
