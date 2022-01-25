@@ -285,7 +285,14 @@ namespace KsGameLauncher
             using (var response = await httpClient.GetAsync(Properties.Settings.Default.LoginURL))
             {
                 response.EnsureSuccessStatusCode();
-                string content = await response.Content.ReadAsStringAsync();
+
+                Stream stream = response.Content.ReadAsStreamAsync().Result;
+                Encoding enc = null;
+                if (response.Content.Headers.Contains("Content-Type"))
+                    enc = EncodingMapJapanese(response.Content.Headers.ContentType.CharSet);
+                else
+                    enc = Encoding.UTF8;
+                string content = ConvertEncoding(stream, enc);
 
                 if (content == null || !content.StartsWith("https:"))
                     throw new LoginUriException("Failed to get login URL");
