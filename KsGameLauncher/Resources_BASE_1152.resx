@@ -118,248 +118,230 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutThisApp" xml:space="preserve">
-    <value>このアプリについて</value>
+    <value>About this</value>
   </data>
   <data name="AccountManagerForm" xml:space="preserve">
-    <value>アカウント管理</value>
+    <value>Account Manager</value>
   </data>
   <data name="AccountRemoveFailed" xml:space="preserve">
-    <value>アカウント情報の削除に失敗しました。
-コントロールパネルの"資格情報マネージャー"からアカウント情報を削除してください。
-"再試行"をクリックすると"資格情報マネージャー"を起動します。</value>
+    <value>Failed to remove account information.
+You can try removing it from "Credential Manager" in Control Panel.\nIf you click "Retry", it will be open the "Credential Manager" window.</value>
   </data>
   <data name="AccountRemoveSucceeded" xml:space="preserve">
-    <value>登録されたアカウント情報をアプリから削除しました</value>
+    <value>Registered your account information has been removed from the app.</value>
   </data>
   <data name="AddNewGameWindowTitle" xml:space="preserve">
-    <value>ゲームを追加</value>
+    <value>Add new game</value>
   </data>
   <data name="AlreadyGameExists" xml:space="preserve">
-    <value>"{0}" は既に存在します</value>
+    <value>"{0}" is already exists</value>
   </data>
   <data name="AlreadyRunning" xml:space="preserve">
-    <value>すでに起動しています</value>
+    <value>Already running</value>
   </data>
   <data name="AppName" xml:space="preserve">
     <value>Ks Game Launcher</value>
   </data>
   <data name="AuthorizeFailed" xml:space="preserve">
-    <value>アカウント認証に失敗しました</value>
+    <value>Failed to authorize</value>
+    <comment>Dialog error message</comment>
   </data>
   <data name="ButtonClose" xml:space="preserve">
-    <value>閉じる (&amp;C)</value>
+    <value>&amp;Close</value>
   </data>
   <data name="ButtonRemove" xml:space="preserve">
-    <value>削除 (&amp;R)</value>
+    <value>&amp;Remove</value>
   </data>
   <data name="ButtonSave" xml:space="preserve">
-    <value>保存 (&amp;S)</value>
+    <value>&amp;Save</value>
+    <comment>Save button</comment>
   </data>
   <data name="ButtonUpdate" xml:space="preserve">
-    <value>更新 (&amp;U)</value>
+    <value>&amp;Update</value>
   </data>
   <data name="ButtonUpdate_Register" xml:space="preserve">
-    <value>登録 (&amp;G)</value>
-  </data>
-  <data name="CannotLoadLoginPage" xml:space="preserve">
-    <value>ログインページを読み込むことができませんでした</value>
+    <value>Re&amp;gister</value>
   </data>
   <data name="CannotSaveGameList" xml:space="preserve">
-    <value>ファイルへの書き込みが許可されていないため
-ゲーム一覧を保存できませんでした。</value>
+    <value>Could not be saved game list, because not allowed write files.</value>
   </data>
   <data name="CheckFollowingPage" xml:space="preserve">
-    <value>ページを確認してください (ブラウザが開きます)</value>
+    <value>Please check following page. (will open the web browser)</value>
   </data>
   <data name="ConfirmAddNewGame" xml:space="preserve">
-    <value>"{0}" を追加してよろしいですか？</value>
+    <value>Are you sure you want to add "{0}" ?</value>
   </data>
   <data name="ConfirmExitDialogMessage" xml:space="preserve">
-    <value>本当に終了しますか？</value>
+    <value>Are you sure you want to exit ?</value>
   </data>
   <data name="ConfirmRegisterCustomURI" xml:space="preserve">
-    <value>ショートカット起動を有効にします。よろしいですか？
+    <value>Are you sure you want to enable shortcut launch ?
 
-これはコンピューターに {0}:// として起動するプロトコルを登録します。 
-これはショートカットからのゲームを起動する際に使用します。</value>
+This will be registered the protocol to boot as {0}:// on your computer.
+This is used to launch the game directly from the shortcut.</value>
   </data>
   <data name="ConfirmToRemove" xml:space="preserve">
-    <value>削除確認</value>
+    <value>Remove confirm</value>
   </data>
   <data name="ConfirmToRemoveAccountFromList" xml:space="preserve">
-    <value>アカウント情報の登録を削除してもよろしいですか？</value>
+    <value>Are you sure you want to logout your account from the registered List ?</value>
   </data>
   <data name="ConfirmUnregisterCustomURI" xml:space="preserve">
-    <value>ショートカット起動を無効にします。よろしいですか？</value>
+    <value>Are you sure you want to disable shortcut launch feature ?</value>
   </data>
   <data name="ConnectionTimeout" xml:space="preserve">
-    <value>通信がタイムアウトしました。接続状況を確認してください。</value>
+    <value>Network connection was time out. please check your network.</value>
   </data>
   <data name="ContextMenuSize_Text_Large" xml:space="preserve">
-    <value>大きめ</value>
+    <value>Large</value>
   </data>
   <data name="ContextMenuSize_Text_Normal" xml:space="preserve">
-    <value>通常</value>
+    <value>Normal</value>
   </data>
   <data name="Disabled" xml:space="preserve">
-    <value>無効にしました。</value>
+    <value>Disabled.</value>
   </data>
   <data name="DropHere" xml:space="preserve">
-    <value>ここにショートカットをドラッグ＆ドロップ</value>
+    <value>Drop shortcut here</value>
   </data>
   <data name="Enabled" xml:space="preserve">
-    <value>有効にしました。</value>
+    <value>Enabled.</value>
   </data>
   <data name="EnterYourAccountPasswordPrompt" xml:space="preserve">
-    <value>アカウントIDとパスワードを入力してください。</value>
+    <value>Enter your account ID and password</value>
     <comment>DIalog error message</comment>
   </data>
   <data name="ErrorGetAppInfoFailed" xml:space="preserve">
-    <value>ゲーム定義ファイルの取得に失敗しました。
-ファイルが存在しないか、一時的に利用できない可能性があります。</value>
+    <value>Failed to get the game defined file.
+This file may not exist or may be temporarily unavailable.</value>
   </data>
   <data name="ErrorText" xml:space="preserve">
-    <value>エラー</value>
+    <value>Error</value>
   </data>
   <data name="ErrorWhileLogin" xml:space="preserve">
-    <value>ログイン処理中にエラーが発生しました</value>
+    <value>Error has occrred while login</value>
   </data>
   <data name="FailedToLoadFile" xml:space="preserve">
-    <value>{0} を読み込めませんでした</value>
+    <value>Failed to load {0}</value>
+  </data>
+  <data name="GameTermsOfServiceExceptionDialogName" xml:space="preserve">
+    <value>Terms of Service</value>
   </data>
   <data name="GroupBoxAccountInfo" xml:space="preserve">
-    <value>登録済みアカウント情報</value>
+    <value>Registered account</value>
   </data>
   <data name="IconBalloonMessage_Launching" xml:space="preserve">
-    <value>{0} を起動中...</value>
+    <value>Launching {0}...</value>
   </data>
   <data name="IconBalloonMessage_WhileLogin" xml:space="preserve">
-    <value>ログイン処理中...</value>
+    <value>Login process...</value>
   </data>
   <data name="IncorrectFileFormat" xml:space="preserve">
-    <value>"インターネットショートカット" のファイルのみサポートされています</value>
+    <value>Incorrect file format, please put "Internet shortcut" file</value>
   </data>
   <data name="IncorrectUsernameOrPassword" xml:space="preserve">
-    <value>アカウントIDまたはパスワードが異なります</value>
+    <value>Incorrect username or password</value>
     <comment>Dialog error message</comment>
   </data>
   <data name="LabelAccountID" xml:space="preserve">
-    <value>アカウントID</value>
+    <value>Account ID</value>
   </data>
   <data name="LabelContextMenuSizeText" xml:space="preserve">
-    <value>リストの大きさ</value>
+    <value>Game list size</value>
   </data>
   <data name="LabelDeveloper" xml:space="preserve">
-    <value>開発者</value>
+    <value>Developer</value>
   </data>
   <data name="LabelIconDesigner" xml:space="preserve">
-    <value>アイコンデザイン</value>
+    <value>Icon desiner</value>
   </data>
   <data name="LauncherExceptionDialogName" xml:space="preserve">
-    <value>起動エラー</value>
+    <value>Starting error</value>
     <comment>Dialog title bar</comment>
   </data>
   <data name="LauncherURLCannotBeUsed" xml:space="preserve">
-    <value>ランチャーURLが変更されたか、一時的に利用できなくなっています。</value>
+    <value>Launcher URL has changed or is temporarily unavailable.</value>
     <comment>Launcher URL could not be found, or denied</comment>
   </data>
   <data name="LicenseWindowTitle" xml:space="preserve">
-    <value>ライセンス</value>
+    <value>Licenses</value>
   </data>
   <data name="LoginExceptionDialogName" xml:space="preserve">
-    <value>ログインエラー</value>
+    <value>Login error</value>
     <comment>Dialog title bar</comment>
   </data>
   <data name="LoginSessionHasBeenExpired" xml:space="preserve">
-    <value>ログイン時のセッションが切れました。再度実行し直してください。</value>
+    <value>Login session has been expired. Please login again.</value>
   </data>
   <data name="NoAccountRegistered" xml:space="preserve">
-    <value>アカウントは登録されていません</value>
+    <value>No account registered</value>
     <comment>DIalog error message</comment>
   </data>
   <data name="NoInstalledGames" xml:space="preserve">
-    <value>インストール済みゲームがありません</value>
+    <value>No installed games</value>
+    <comment>DIalog error message</comment>
   </data>
   <data name="NotSupportedShortcut" xml:space="preserve">
-    <value>異なるショートカットファイルのようです</value>
+    <value>This seems like a different shortcut</value>
   </data>
   <data name="OptionsDisplayNotification" xml:space="preserve">
-    <value>通知を表示</value>
+    <value>Display notification</value>
   </data>
   <data name="OptionsProxySettingsLink" xml:space="preserve">
-    <value>プロキシ設定を開く</value>
+    <value>Open proxy settings</value>
     <comment>Open link label for proxy settings in options screen</comment>
   </data>
   <data name="OptionsUseProxyText" xml:space="preserve">
-    <value>プロキシを使用する</value>
+    <value>Use proxy</value>
     <comment>Use Proxy checkbox label in options screen</comment>
   </data>
   <data name="OptionsWindowTitle" xml:space="preserve">
-    <value>オプション</value>
-  </data>
-  <data name="OTPDialogMessage_2FA" xml:space="preserve">
-    <value>メールで受け取った{0}桁のコードを入力してください。</value>
-  </data>
-  <data name="OTPDialogMessage_OTP" xml:space="preserve">
-    <value>トークンに表示されている{0}桁のコードを入力してください。</value>
+    <value>Options</value>
   </data>
   <data name="ServiceIsTemporaryUnavailable" xml:space="preserve">
-    <value>サービスが一時的に停止しているか、利用できません。</value>
+    <value>Service is temporarily down or unavailable.</value>
   </data>
   <data name="ShortcutLaunchCheckboxDisable" xml:space="preserve">
-    <value>ショートカット起動を無効にする</value>
+    <value>Disable shortcut launch</value>
   </data>
   <data name="ShortcutLaunchCheckboxEnable" xml:space="preserve">
-    <value>ショートカット起動を有効にする</value>
+    <value>Enable shortcut launch</value>
   </data>
   <data name="ShouldBeSetAccountBeforeLaunch" xml:space="preserve">
-    <value>最初に"アカウント管理"からアカウントの登録を行ってください。</value>
+    <value>Please setup your account from "Manage account" before launch app</value>
   </data>
   <data name="ShouldCheckTermOfService" xml:space="preserve">
-    <value>起動前に利用規約を確認してください。</value>
+    <value>You should check terms of service for game, please check it.</value>
   </data>
   <data name="ShowConfirmExit" xml:space="preserve">
-    <value>終了時に確認する</value>
+    <value>Show confirm exit</value>
   </data>
   <data name="ShowLicense" xml:space="preserve">
-    <value>ライセンスを表示</value>
+    <value>Show licenses</value>
   </data>
   <data name="ShowOnlyInstalledGames" xml:space="preserve">
-    <value>インストール済みゲームのみ表示</value>
+    <value>Show only installed games</value>
   </data>
   <data name="StartngLauncher" xml:space="preserve">
-    <value>ゲームを起動しています。しばらくお待ちください。</value>
+    <value>Game has been starting, please wait.</value>
   </data>
   <data name="SynchWithServerButton" xml:space="preserve">
-    <value>サーバーと同期</value>
+    <value>Sync with server</value>
   </data>
   <data name="SyncWithServerConfirmMessage" xml:space="preserve">
-    <value>サーバーと同期を実行すると、あなたが手動で登録したゲームは初期化され、サーバーで公開されている状態と同じになります。
-実行してよろしいですか？</value>
+    <value>Are you sure you want to sync with server?
+When you sync with the server, the games you manually registered will be initialized and will be as published on the server. </value>
   </data>
   <data name="SyncWithServerDialogTitle" xml:space="preserve">
-    <value>サーバーと同期の実行</value>
+    <value>Sycn with server</value>
   </data>
   <data name="SyncWithServerFailedMessage" xml:space="preserve">
-    <value>同期に失敗しました</value>
+    <value>Synchronization failed!</value>
   </data>
   <data name="SyncWithServerSuccessMessage" xml:space="preserve">
-    <value>同期に成功しました</value>
-  </data>
-  <data name="ToolTipHintOTPDescription" xml:space="preserve">
-    <value>チェックするとログイン時にOTPの入力を求められます。</value>
-  </data>
-  <data name="UnderMaintenanceMessage" xml:space="preserve">
-    <value>ただいまサービスはメンテナンス中のため利用できません。
-メンテナンス情報を表示しますか？</value>
+    <value>Synchronization was successful!</value>
   </data>
   <data name="UnknownStatusReceived" xml:space="preserve">
-    <value>不明なステータスを受信しました。</value>
-  </data>
-  <data name="UseOTP" xml:space="preserve">
-    <value>OTPを使用</value>
-  </data>
-  <data name="WhatsOTP" xml:space="preserve">
-    <value>OTPとは</value>
+    <value>Unknown status received.</value>
   </data>
 </root>

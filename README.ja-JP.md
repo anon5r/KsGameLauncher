@@ -1,7 +1,6 @@
 ﻿Ks Game Launcher
 ====
-[![GitHub all releases](https://img.shields.io/github/downloads/anon5r/KSGameLauncher/total)](https://github.com/anon5r/KSGameLauncher/releases/latest) [![GitHub release (latest by date)](https://img.shields.io/github/v/release/anon5r/KSGameLauncher)](https://github.com/anon5r/KSGameLauncher/releases/latest)
-[![Discord Shield](https://discord.com/api/guilds/923996951568056370/widget.png?style=shield)](https://discord.gg/vHuCpNgQ7y)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/anon5r/KSGameLauncher)](https://github.com/anon5r/KSGameLauncher/releases/latest) [![GitHub all releases](https://img.shields.io/github/downloads/anon5r/KSGameLauncher/total)](https://github.com/anon5r/KSGameLauncher/releases/latest)
 <a href="https://github.com/anon5r/KSGameLauncher/releases"><img src="https://github.com/anon5r/KSGameLauncher/raw/main/docs/assets/images/app-logo.png" alt="KS Game Launcher" width="120" align="right"></a>
 
 [English](README.md)
@@ -14,62 +13,26 @@
 </p>
 
 
-## これは何？
+# これは何？
 
 コナステのゲームをワンクリックで起動するためのアプリケーションです。
 
-
-## どのような仕組み？
-
-コナステ版音楽ゲームをプレイする際は、ショートカットから一度ブラウザを起動し、画面内のボタンをクリックして初めてゲームランチャーを起動することができます。
-
-画面を行き来したりして少々煩わしいので、コナステにログインするためのアカウントを事前に登録しておき、ゲームは本ツールからワンクリックで起動することができるようにすることができます。
-
-
-## アカウントの登録とは
-
-コナステにログインするアカウントを事前に登録しておきます。
-
-アカウント情報の入力はツール内から行うことができます。
-
-入力された情報は利用しているコンピューターのOS内で管理されている専用領域（下記から確認可能）に保存されます。
-
-```
-コントロール パネル > ユーザー アカウント > 資格情報マネージャー > Windows 資格情報
-```
-
-
-## アカウント情報の利用について
-
-所定の配布元から配布されたものに限り、本ツールを通じて登録されたアカウント情報を
-本来の目的（ゲームの起動）以外で通信することはありません。
-
-
-所定外で配布されたものについては、改変されている可能性を考慮し、上記を保証することはできません。
+動作、機能などの詳細は[こちらのドキュメント](https://launcher-app.sdvx.net/index.ja.html)を確認してください。
 
 
 
+# 開発環境
 
-## 実行方法
-
-Exeファイルを実行してください。
-
-
-# 実行環境
-
-
-OS: Microsoft&reg; Windows&trade; 10 Aniversary Update 以上
+OS: Microsoft&reg; Windows&trade; 10 以上
 
 必要ランタイム: Microsoft&reg; .NET Framework 4.8
 
 インストールが必要な場合は [こちら](https://docs.microsoft.com/ja-jp/dotnet/framework/install/on-windows-10) からインストールしてください。
 
 
+## オプショナル
 
-## アンインストール
-
-展開されたファイルをすべて削除してください。
-
+- Docker
 
 
 # ビルド方法
@@ -78,7 +41,7 @@ Microsoft&reg; Visual Studio、または [MSBuild](https://docs.microsoft.com/ja
 
 ## NuGet
 
-いくつかの外部ライブラリを使用しています。
+いくつかのNuGetライブラリを使用しています。
 
 それらをインストールするためにNuGetから復元する必要があります。
 
@@ -87,59 +50,40 @@ nuget restore KsGameLauncher.sln
 ```
 
 
+# デバッグ
 
-# FAQ
-
-
-## アカウントIDとパスワードを入力するのが怖い
-
-IDとパスワードは正規のサービスサイトでログイン処理以外で送信されることはありません。
-万が一不安がぬぐえない場合、本ランチャーの使用を控えてください。
-
-本ツールはGithub上でオープンソースとして公開しています。
-もしコードを読むことができる場合、ソースコードを確認してどのように動作するか確認することができます。
-
-また、Visual Studioを用いてご自身でビルドして実行、確認することもできます。
+一部、サーバーからデータをダウンロードする機能があります。
+これをシミュレートするために簡易WebサーバーとしてDockerイメージを同梱しています。
 
 
-
-## IDとパスワードを保存しているが、どこに保存されていますか
-
-Windows OSにある「資格情報マネージャー」という機能を利用し、そこに入力されたIDとパスワードを補完するようにしています。
-資格情報マネージャーはコントロールパネルから確認することができます。
-
-使用開始後に疑念を感じた場合、上記から直接アカウント情報を削除することも可能です。
-
-
-
-
-## このツールは規約に違反しませんか？
-
-
-実際の判断はサービス運営元のコナミの判断にゆだねられますが、
-規約としては [PC版コナステ 利用規約](https://p.eagate.573.jp/game/eacloud/p/common/tos_pc.html) の第9条の下記の部分が禁止事項が記載される部分となります。
-
-一部抜粋
+## イメージのビルド
 
 ```
-第9条（禁止事項）
-...
-(4) 不正ツールを利用あるいは配布した場合。
-(5) クライアントソフトを複製、改変、リバースエンジニア、逆コンパイル、逆アセンブル、再現等した場合。
-(6) 本サービスを公序良俗および通常の倫理概念に反する方法、用途、目的、ならびに刑法もしくはその他の法律において禁止されている目的において使用した場合。
-...
+docker compose build
 ```
 
-本ツールは不正を行うためのものではなく、あくまでもログインからゲームの起動を素早く行うための補助ツールであり、ゲーム本体ならびにプレイに影響を及ぼすものではありません。
+## コンテナの作成、起動
 
-また、クライアントソフト（ゲーム本体）を複製、改変、リバースエンジニア、逆コンパイル、逆アセンブルということは行っていません。
+```
+docker compose up -d
+```
 
-公序良俗および通常の倫理概念に反する方法、用途、目的とも考えられず、純粋にゲームを楽に起動したい、起動をワンクリックで行いたいという目的のみとなっています。
+サーバーはポート `8080` で起動します。
+接続先 `http://localhost:8080`
 
 
-## ツールに問題を見つけました
+## コンテナの停止
 
-[GithubのIssues](https://github.com/anon5r/KsGameLauncher/issues)から問題の報告をお願いします。
+```
+docker compose stop
+```
 
-このツールはコナミアミューズメント非公式のものです。コナミアミューズメント様への問い合わせ行わないでください。
+## コンテナの削除
 
+```
+docker compose down
+```
+
+## トラブルシュート
+
+既存のポートと重複する場合は `docker-compose.yml` の `services.web.ports` で変更してください。

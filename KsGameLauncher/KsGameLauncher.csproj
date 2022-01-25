@@ -179,6 +179,7 @@
     <Compile Include="Forms\AddNewGameForm.Designer.cs">
       <DependentUpon>AddNewGameForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="Structures\AppInfo.cs" />
     <Compile Include="Forms\AboutForm.cs">
       <SubType>Form</SubType>
@@ -278,6 +279,7 @@
     <EmbeddedResource Include="Resources.ja-JP.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.ja-JP.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

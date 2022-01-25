@@ -636,7 +636,8 @@ namespace KsGameLauncher
                     if (content.Contains(Properties.Resources.MaintenanceCheckString))
                     {
                         // Display their maintenance message
-                        throw new LauncherException(content);
+                        //throw new LauncherException(content);
+                        throw new LauncherException(Resources.UnderMaintenanceMessage, loadedURL);
                     }
 #if DEBUG
                     Debug.WriteLine(String.Format("Response page URI: {0}", response.RequestMessage.RequestUri.ToString()));
@@ -805,18 +806,46 @@ namespace KsGameLauncher
             catch (LoginException ex)
             {
                 instance.httpClient = null;
-                MessageBox.Show(ex.Message, Resources.LoginExceptionDialogName,
-                    MessageBoxButtons.OK, MessageBoxIcon.Error,
-                    MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
-                return;
-            }
-            catch (LauncherException ex)
-            {
+                //MessageBox.Show(ex.Message, Resources.LoginExceptionDialogName,
+                //    MessageBoxButtons.OK, MessageBoxIcon.Error,
+                //    MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                //return;
+#if DEBUG
                 MessageBox.Show(String.Format(
                     "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
                     appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
-                , ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error,
+                , Resources.ErrorWhileLogin, MessageBoxButtons.OK, MessageBoxIcon.Error,
                 MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+#else
+                MessageBox.Show(ex.Message, Resources.ErrorWhileLogin, MessageBoxButtons.OK, MessageBoxIcon.Error,
+                MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+#endif
+
+            }
+            catch (LauncherException ex)
+            {
+                if (ex.OpenURL != null)
+                {
+                    DialogResult result = MessageBox.Show(ex.Message, Resources.AppName, MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                    if (result == DialogResult.Yes)
+                    {
+                        Utils.Common.OpenUrlByDefaultBrowser(ex.OpenURL);
+                    }
+                }
+                else
+                {
+#if DEBUG
+                    MessageBox.Show(String.Format(
+                        "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
+                        appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
+                    , ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+#else
+                    MessageBox.Show(ex.Message, Resources.ErrorWhileLogin, MessageBoxButtons.OK, MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+#endif
+                }
             }
             catch (Exception ex)
             {
