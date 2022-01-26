@@ -170,10 +170,17 @@ namespace KsGameLauncher
             {
                 httpHandler.Proxy = WebRequest.GetSystemWebProxy();
             }
+            Cookie savedCookie = Properties.Settings.Default.Cookie;
+            if (savedCookie != null
+                && !savedCookie.Expired)
+            {
+                httpHandler.CookieContainer.Add(savedCookie);
+            }
             HttpClient httpClient = new HttpClient(httpHandler)
             {
                 Timeout = TimeSpan.FromMilliseconds(10000)
             };
+
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
             // User-Agent
@@ -207,12 +214,20 @@ namespace KsGameLauncher
 
             bool isLogin = false;
             CookieCollection cookies = httpHandler.CookieContainer.GetCookies(new Uri(Properties.Settings.Default.BaseURL));
+            Cookie savedCookie = Properties.Settings.Default.Cookie;
             foreach (Cookie cookie in cookies)
             {
-                Debug.WriteLine(String.Format("Cookie: {0}", cookie.Name));
+                Debug.WriteLine(String.Format("CookieName: {0}", cookie.Name));
                 if (cookie.Name == Properties.Resources.LoginCookieSessionKey)
                 {
+                    Debug.WriteLine(String.Format("Cookie: {0}", cookie.ToString()));
                     isLogin = true;
+                    if (savedCookie == null || savedCookie.Expired)
+                    {
+                        // Save latest cookie value if it does not exists, or expired
+                        Properties.Settings.Default.Cookie = cookie;
+                        Properties.Settings.Default.Save();
+                    }
                     break;
                 }
             }
@@ -345,7 +360,7 @@ namespace KsGameLauncher
                     //string pageContent = ConvertEncoding(loginResponse.Content, Encoding.UTF8);
                     string pageContent = loginResponse.Content;
 #if DEBUG
-                    Debug.WriteLine(pageContent);
+                    //Debug.WriteLine(pageContent);
                     Debug.WriteLine("Login succeed");
 #endif
                     loginResponse.Dispose();
@@ -766,6 +781,8 @@ namespace KsGameLauncher
             response.EnsureSuccessStatusCode();
 
             instance.httpClient = null;
+            Properties.Settings.Default.Cookie = null;
+            Properties.Settings.Default.Save();
 
             return response;
         }
