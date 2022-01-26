@@ -30,18 +30,21 @@ namespace KsGameLauncher.Forms
 
         public DialogResult ShowDialog(string message)
         {
+            System.Media.SystemSounds.Beep.Play();
             label_Description.Text = message;
             return ShowDialog();
         }
 
         public DialogResult ShowDialog(int digits)
         {
+            System.Media.SystemSounds.Beep.Play();
             textBox_OTPCode.MaxLength = digits;
             return ShowDialog();
         }
 
         public DialogResult ShowDialog(string message, int digits)
         {
+            System.Media.SystemSounds.Beep.Play();
             label_Description.Text = message;
             return ShowDialog(digits);
         }
