@@ -1,14 +1,14 @@
 ﻿Ks Game Launcher
 ====
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/anon5r/KSGameLauncher)](https://github.com/anon5r/KSGameLauncher/releases/latest) [![GitHub all releases](https://img.shields.io/github/downloads/anon5r/KSGameLauncher/total)](https://github.com/anon5r/KSGameLauncher/releases/latest)
-<a href="https://github.com/anon5r/KSGameLauncher/releases"><img src="https://github.com/anon5r/KSGameLauncher/raw/main/docs/assets/images/app-logo.png" alt="KS Game Launcher" width="120" align="right"></a>
+<a href="https://github.com/anon5r/KSGameLauncher/releases"><img src="https://github.com/anon5r/ksgamelauncher-docs/raw/main/assets/images/app-logo.png" alt="KS Game Launcher" width="120" align="right"></a>
 
 [English](README.md)
 
 
 <p align="center">
   <a href="https://github.com/anon5r/KSGameLauncher/releases">
-    <img src="https://raw.githubusercontent.com/anon5r/KSGameLauncher/main/docs/res/screen1.png" alt="drawing" width="500"/>
+    <img src="https://raw.githubusercontent.com/anon5r/ksgamelauncher-docs/main/res/screen1.png" alt="drawing" width="500"/>
   </a>
 </p>
 
