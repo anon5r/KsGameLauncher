@@ -71,6 +71,8 @@ docker compose up -d
 サーバーはポート `8080` で起動します。
 接続先 `http://localhost:8080`
 
+ゲーム一覧となる `appinfo.json` は `http://localhost:8080/conf/appinfo.json` となります。
+
 
 ## コンテナの停止
 

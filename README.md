@@ -70,6 +70,9 @@ docker compose up -d
 Server will start on port `8080`
 Connect to `http://localhost:8080`
 
+`appinfo.json` will be put on `http://localhost:8080/conf/appinfo.json`.
+
+
 
 ## Stop the container
 
