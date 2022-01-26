@@ -301,6 +301,12 @@ This file may not exist or may be temporarily unavailable.</value>
   <data name="OptionsWindowTitle" xml:space="preserve">
     <value>Options</value>
   </data>
+  <data name="OTPDialogMessage_2FA" xml:space="preserve">
+    <value>Enter {0}-digits code you received here.</value>
+  </data>
+  <data name="OTPDialogMessage_OTP" xml:space="preserve">
+    <value>Enter {0}-digits code displayed on your token device/app.</value>
+  </data>
   <data name="ServiceIsTemporaryUnavailable" xml:space="preserve">
     <value>Service is temporarily down or unavailable.</value>
   </data>
@@ -344,6 +350,9 @@ When you sync with the server, the games you manually registered will be initial
   <data name="SyncWithServerSuccessMessage" xml:space="preserve">
     <value>Synchronization was successful!</value>
   </data>
+  <data name="ToolTipHintOTPDescription" xml:space="preserve">
+    <value>If you check this, you will be prompted to enter the OTP at login.</value>
+  </data>
   <data name="UnderMaintenanceMessage" xml:space="preserve">
     <value>The service is currently under maintenance and cannot be used.
 
@@ -351,5 +360,11 @@ Do you want to display maintenance information?</value>
   </data>
   <data name="UnknownStatusReceived" xml:space="preserve">
     <value>Unknown status received.</value>
+  </data>
+  <data name="UseOTP" xml:space="preserve">
+    <value>Use OTP</value>
+  </data>
+  <data name="WhatsOTP" xml:space="preserve">
+    <value>What is OTP</value>
   </data>
 </root>

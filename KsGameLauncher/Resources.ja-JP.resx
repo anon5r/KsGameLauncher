@@ -297,6 +297,12 @@
   <data name="OptionsWindowTitle" xml:space="preserve">
     <value>オプション</value>
   </data>
+  <data name="OTPDialogMessage_2FA" xml:space="preserve">
+    <value>メールで受け取った{0}桁のコードを入力してください。</value>
+  </data>
+  <data name="OTPDialogMessage_OTP" xml:space="preserve">
+    <value>トークンに表示されている{0}桁のコードを入力してください。</value>
+  </data>
   <data name="ServiceIsTemporaryUnavailable" xml:space="preserve">
     <value>サービスが一時的に停止しているか、利用できません。</value>
   </data>
@@ -340,11 +346,20 @@
   <data name="SyncWithServerSuccessMessage" xml:space="preserve">
     <value>同期に成功しました</value>
   </data>
+  <data name="ToolTipHintOTPDescription" xml:space="preserve">
+    <value>チェックするとログイン時にOTPの入力を求められます。</value>
+  </data>
   <data name="UnderMaintenanceMessage" xml:space="preserve">
     <value>ただいまサービスはメンテナンス中のため利用できません。
 メンテナンス情報を表示しますか？</value>
   </data>
   <data name="UnknownStatusReceived" xml:space="preserve">
     <value>不明なステータスを受信しました。</value>
+  </data>
+  <data name="UseOTP" xml:space="preserve">
+    <value>OTPを使用</value>
+  </data>
+  <data name="WhatsOTP" xml:space="preserve">
+    <value>OTPとは</value>
   </data>
 </root>

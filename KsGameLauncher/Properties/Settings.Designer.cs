@@ -82,13 +82,13 @@ namespace KsGameLauncher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#login-form>div.form-area>form>input[type=hidden][name=csrfmiddlewaretoken]")]
-        public string selector_login_csrf {
+        [global::System.Configuration.DefaultSettingValueAttribute("div.form-area>form>input[type=hidden][name=csrfmiddlewaretoken]")]
+        public string selector_csrf {
             get {
-                return ((string)(this["selector_login_csrf"]));
+                return ((string)(this["selector_csrf"]));
             }
             set {
-                this["selector_login_csrf"] = value;
+                this["selector_csrf"] = value;
             }
         }
         
@@ -274,6 +274,88 @@ namespace KsGameLauncher.Properties {
             }
             set {
                 this["RegisterCustomURI"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://my.konami.net/otp.html")]
+        public string LinkUrlOTP {
+            get {
+                return ((string)(this["LinkUrlOTP"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#id_pincode")]
+        public string selector_2fa_pincode {
+            get {
+                return ((string)(this["selector_2fa_pincode"]));
+            }
+            set {
+                this["selector_2fa_pincode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#is_persistent")]
+        public string selector_2fa_pincod_persistnt {
+            get {
+                return ((string)(this["selector_2fa_pincod_persistnt"]));
+            }
+            set {
+                this["selector_2fa_pincod_persistnt"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("two_step.html")]
+        public string AuthPage_2FAPath {
+            get {
+                return ((string)(this["AuthPage_2FAPath"]));
+            }
+            set {
+                this["AuthPage_2FAPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UseOTP {
+            get {
+                return ((bool)(this["UseOTP"]));
+            }
+            set {
+                this["UseOTP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LoginSession {
+            get {
+                return ((string)(this["LoginSession"]));
+            }
+            set {
+                this["LoginSession"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#two-step-form>div.form-area>form")]
+        public string selector_2fa_form {
+            get {
+                return ((string)(this["selector_2fa_form"]));
+            }
+            set {
+                this["selector_2fa_form"] = value;
             }
         }
     }

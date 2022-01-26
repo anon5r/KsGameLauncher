@@ -162,8 +162,8 @@
             // OptionsForm
             // 
             this.AcceptButton = this.button_Save;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(227, 297);
             this.Controls.Add(this.checkBox_RegisterCustomURI);
             this.Controls.Add(this.button_SyncAppInfo);

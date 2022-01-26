@@ -28,12 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button_Update = new System.Windows.Forms.Button();
             this.button_Remove = new System.Windows.Forms.Button();
             this.groupBox_AccountInfo = new System.Windows.Forms.GroupBox();
+            this.linkLabel_OTP = new System.Windows.Forms.LinkLabel();
+            this.checkBox_UseOTP = new System.Windows.Forms.CheckBox();
             this.label_UserAccountID_Value = new System.Windows.Forms.Label();
             this.label_AccountID = new System.Windows.Forms.Label();
             this.button_Close = new System.Windows.Forms.Button();
+            this.toolTip_Hint = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox_AccountInfo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +65,8 @@
             // 
             // groupBox_AccountInfo
             // 
+            this.groupBox_AccountInfo.Controls.Add(this.linkLabel_OTP);
+            this.groupBox_AccountInfo.Controls.Add(this.checkBox_UseOTP);
             this.groupBox_AccountInfo.Controls.Add(this.label_UserAccountID_Value);
             this.groupBox_AccountInfo.Controls.Add(this.label_AccountID);
             this.groupBox_AccountInfo.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -72,6 +78,34 @@
             this.groupBox_AccountInfo.TabIndex = 5;
             this.groupBox_AccountInfo.TabStop = false;
             this.groupBox_AccountInfo.Text = "Registered account";
+            // 
+            // linkLabel_OTP
+            // 
+            this.linkLabel_OTP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabel_OTP.AutoSize = true;
+            this.linkLabel_OTP.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.linkLabel_OTP.Location = new System.Drawing.Point(154, 87);
+            this.linkLabel_OTP.Name = "linkLabel_OTP";
+            this.linkLabel_OTP.Size = new System.Drawing.Size(69, 12);
+            this.linkLabel_OTP.TabIndex = 3;
+            this.linkLabel_OTP.TabStop = true;
+            this.linkLabel_OTP.Text = "What is OTP";
+            this.linkLabel_OTP.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.linkLabel_OTP.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.linkLabel_OTP.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel_OTP_LinkClicked);
+            // 
+            // checkBox_UseOTP
+            // 
+            this.checkBox_UseOTP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.checkBox_UseOTP.AutoSize = true;
+            this.checkBox_UseOTP.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.checkBox_UseOTP.Location = new System.Drawing.Point(16, 86);
+            this.checkBox_UseOTP.Name = "checkBox_UseOTP";
+            this.checkBox_UseOTP.Size = new System.Drawing.Size(70, 16);
+            this.checkBox_UseOTP.TabIndex = 2;
+            this.checkBox_UseOTP.Text = "Use OTP";
+            this.toolTip_Hint.SetToolTip(this.checkBox_UseOTP, "If you check this, you will be prompted to enter the OTP at login");
+            this.checkBox_UseOTP.UseVisualStyleBackColor = true;
             // 
             // label_UserAccountID_Value
             // 
@@ -108,8 +142,8 @@
             // 
             // AccountForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.button_Close;
             this.ClientSize = new System.Drawing.Size(308, 128);
             this.Controls.Add(this.button_Close);
@@ -123,6 +157,7 @@
             this.Name = "AccountForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AccountForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AccountForm_FormClosing);
             this.Load += new System.EventHandler(this.AccountForm_Load);
             this.groupBox_AccountInfo.ResumeLayout(false);
             this.groupBox_AccountInfo.PerformLayout();
@@ -137,5 +172,8 @@
         private System.Windows.Forms.Label label_UserAccountID_Value;
         private System.Windows.Forms.Label label_AccountID;
         private System.Windows.Forms.Button button_Close;
+        private System.Windows.Forms.LinkLabel linkLabel_OTP;
+        private System.Windows.Forms.CheckBox checkBox_UseOTP;
+        private System.Windows.Forms.ToolTip toolTip_Hint;
     }
 }

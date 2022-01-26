@@ -62,6 +62,8 @@
             // LicensesForm
             // 
             this.AcceptButton = this.button_Close;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CancelButton = this.button_Close;
             this.ClientSize = new System.Drawing.Size(379, 414);

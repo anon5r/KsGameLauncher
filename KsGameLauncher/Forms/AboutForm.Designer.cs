@@ -107,8 +107,9 @@
             // AboutForm
             // 
             this.AcceptButton = this.button_Ok;
-            this.CancelButton = this.button_Ok;
             resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.CancelButton = this.button_Ok;
             this.Controls.Add(this.label_Develop);
             this.Controls.Add(this.linkLabel_License);
             this.Controls.Add(this.textBox_Copyrights);
