@@ -15,16 +15,16 @@ namespace KsGameLauncher
         private void About_Load(object sender, EventArgs e)
         {
             Icon = Properties.Resources.appIcon;
-            Text = Resources.AboutThisApp;
-            label_Application.Text = Resources.AppName;
+            Text = Properties.Strings.AboutThisApp;
+            label_Application.Text = Properties.Strings.AppName;
             label_Version.Text = "ver. " + Application.ProductVersion;
-            label_Develop.Text = Resources.LabelDeveloper;
+            label_Develop.Text = Properties.Strings.LabelDeveloper;
             AppDeveloper.Text = Properties.Resources.Developers;
             string installedGameRights = string.Format("\"{0}\"", string.Join("\", \"", GetInstalledGamesName()));
             textBox_Copyrights.Text = string.Format("{0} are KONAMI Amusement All Rights Reserved.\r\n", installedGameRights) +
                 Properties.Resources.Copyrights;
             linkLabel_Support.Text = Properties.Resources.SupportLabelText;
-            linkLabel_License.Text = Resources.ShowLicense;
+            linkLabel_License.Text = Properties.Strings.ShowLicense;
 
             button_Ok.Focus();
         }

@@ -273,14 +273,14 @@ namespace KsGameLauncher
                 }
                 catch (FileNotFoundException)
                 {
-                    MessageBox.Show(String.Format(Resources.FailedToLoadFile, Properties.Settings.Default.appInfoLocal),
-                        Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error,
+                    MessageBox.Show(String.Format(Properties.Strings.FailedToLoadFile, Properties.Settings.Default.appInfoLocal),
+                        Properties.Strings.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error,
                         MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                 }
             }
             catch (HttpRequestException)
             {
-                MessageBox.Show(Resources.ErrorGetAppInfoFailed, Resources.SyncWithServerDialogTitle,
+                MessageBox.Show(Properties.Strings.ErrorGetAppInfoFailed, Properties.Strings.SyncWithServerDialogTitle,
                     MessageBoxButtons.OK, MessageBoxIcon.Error,
                     MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             }
@@ -326,7 +326,7 @@ namespace KsGameLauncher
         {
             if (Properties.Settings.Default.EnableNotification && Program.mainContext != null)
             {
-                Program.mainContext.DisplayToolTip(Resources.IconBalloonMessage_WhileLogin, Properties.Settings.Default.NotificationTimeout);
+                Program.mainContext.DisplayToolTip(Properties.Strings.IconBalloonMessage_WhileLogin, Properties.Settings.Default.NotificationTimeout);
             }
 
             string otpCode = "";
@@ -336,7 +336,7 @@ namespace KsGameLauncher
                 {
                     // Use OTP by token generator device/app
                     var otp = new Forms.OTPDialog();
-                    DialogResult otpResult = otp.ShowDialog(string.Format(Resources.OTPDialogMessage_OTP, 8), 8);
+                    DialogResult otpResult = otp.ShowDialog(string.Format(Properties.Strings.OTPDialogMessage_OTP, 8), 8);
                     if (DialogResult.OK == otpResult)
                     {
                         otpCode = otp.Code;
@@ -366,7 +366,7 @@ namespace KsGameLauncher
                     loginResponse.Dispose();
                     var twoStepResponse = await LoginTwoStep(pageContent, responseURL);
                     if (twoStepResponse == null)
-                        throw new LoginException(Resources.IncorrectUsernameOrPassword);
+                        throw new LoginException(Properties.Strings.IncorrectUsernameOrPassword);
                     twoStepResponse.Dispose();
                 }
             }
@@ -457,11 +457,11 @@ namespace KsGameLauncher
 #if DEBUG
                     Debug.WriteLine(string.Format("respond redirected URL: {0}", response.RequestMessage.RequestUri.ToString()));
 #endif
-                    throw new LoginException(Resources.IncorrectUsernameOrPassword);
+                    throw new LoginException(Properties.Strings.IncorrectUsernameOrPassword);
                 }
                 if (response.RequestMessage.RequestUri.AbsolutePath.Contains("/timeout.html"))
                 {
-                    throw new LoginException(Resources.AuthorizeFailed);
+                    throw new LoginException(Properties.Strings.AuthorizeFailed);
                 }
 #if DEBUG
                 //string content = GetResponseContentWithEncoding(response);
@@ -516,7 +516,7 @@ namespace KsGameLauncher
             {
                 // Use OTP by token generator device/app
                 var otp = new Forms.OTPDialog();
-                DialogResult otpResult = otp.ShowDialog(string.Format(Resources.OTPDialogMessage_2FA, 6), 6);
+                DialogResult otpResult = otp.ShowDialog(string.Format(Properties.Strings.OTPDialogMessage_2FA, 6), 6);
                 if (DialogResult.OK == otpResult)
                 {
                     twoStepCode = otp.Code;
@@ -557,7 +557,7 @@ namespace KsGameLauncher
             NetworkCredential credential = GetCredential();
             if (credential == null)
             {
-                MessageBox.Show(Resources.ShouldBeSetAccountBeforeLaunch, Resources.ErrorText,
+                MessageBox.Show(Properties.Strings.ShouldBeSetAccountBeforeLaunch, Properties.Strings.ErrorText,
                     MessageBoxButtons.OK, MessageBoxIcon.Error,
                     MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                 return;
@@ -600,7 +600,7 @@ namespace KsGameLauncher
 #endif
                 if (Properties.Settings.Default.EnableNotification && Program.mainContext != null)
                 {
-                    Program.mainContext.DisplayToolTip(String.Format(Resources.IconBalloonMessage_Launching, app.Name), Properties.Settings.Default.NotificationTimeout);
+                    Program.mainContext.DisplayToolTip(String.Format(Properties.Strings.IconBalloonMessage_Launching, app.Name), Properties.Settings.Default.NotificationTimeout);
                 }
                 using (HttpResponseMessage response = await httpClient.GetAsync(app.Launch.GetUri()))
                 {
@@ -610,7 +610,7 @@ namespace KsGameLauncher
                     if (response.RequestMessage.RequestUri.Host.Contains(Properties.Resources.AuthorizeDomain))
                     {
                         instance.httpClient = null;
-                        MessageBox.Show(Resources.IncorrectUsernameOrPassword, Resources.AppName,
+                        MessageBox.Show(Properties.Strings.IncorrectUsernameOrPassword, Properties.Strings.AppName,
                             MessageBoxButtons.OK, MessageBoxIcon.Error,
                             MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                         return;
@@ -622,22 +622,22 @@ namespace KsGameLauncher
                         {
                             case HttpStatusCode.Redirect:
                                 Uri redirectUri = response.Headers.Location;
-                                MessageBox.Show(Resources.CheckFollowingPage,
-                                    Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning,
+                                MessageBox.Show(Properties.Strings.CheckFollowingPage,
+                                    Properties.Strings.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning,
                                     MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                                 Utils.Common.OpenUrlByDefaultBrowser(redirectUri);
                                 break;
 
                             case HttpStatusCode.NotFound:
                             case HttpStatusCode.Forbidden:
-                                throw new LauncherException(Resources.LauncherURLCannotBeUsed);
+                                throw new LauncherException(Properties.Strings.LauncherURLCannotBeUsed);
 
                             case HttpStatusCode.InternalServerError:
                             case HttpStatusCode.ServiceUnavailable:
-                                throw new LauncherException(Resources.ServiceIsTemporaryUnavailable);
+                                throw new LauncherException(Properties.Strings.ServiceIsTemporaryUnavailable);
 
                             default:
-                                throw new LauncherException(String.Format("{0} => {1} {2}", Resources.UnknownStatusReceived, (int)response.StatusCode, response.ReasonPhrase));
+                                throw new LauncherException(String.Format("{0} => {1} {2}", Properties.Strings.UnknownStatusReceived, (int)response.StatusCode, response.ReasonPhrase));
                         }
                     }
 
@@ -645,11 +645,11 @@ namespace KsGameLauncher
                     string loadedURL = response.RequestMessage.RequestUri.ToString();
                     if (response.RequestMessage.RequestUri.Host.Contains(Properties.Resources.AuthorizeDomain))
                     {
-                        throw new LoginException(Resources.LoginSessionHasBeenExpired);
+                        throw new LoginException(Properties.Strings.LoginSessionHasBeenExpired);
                     }
                     else if (loadedURL.Contains(Properties.Resources.TosCheckPath))
                     {
-                        throw new GameTermsOfServiceException(Resources.ShouldCheckTermOfService, loadedURL);
+                        throw new GameTermsOfServiceException(Properties.Strings.ShouldCheckTermOfService, loadedURL);
                     }
 
                     string content = GetResponseContentWithEncoding(response);
@@ -659,7 +659,7 @@ namespace KsGameLauncher
                     {
                         // Display their maintenance message
                         //throw new LauncherException(content);
-                        throw new LauncherException(Resources.UnderMaintenanceMessage, loadedURL);
+                        throw new LauncherException(Properties.Strings.UnderMaintenanceMessage, loadedURL);
                     }
 #if DEBUG
                     Debug.WriteLine(String.Format("Response page URI: {0}", response.RequestMessage.RequestUri.ToString()));
@@ -679,13 +679,13 @@ namespace KsGameLauncher
             catch (TaskCanceledException)
             {
                 // Task cancelled / Connection Timeout
-                Console.WriteLine(Resources.ConnectionTimeout);
+                Console.WriteLine(Properties.Strings.ConnectionTimeout);
             }
             catch (LoginException e)
             {
                 instance.httpClient = null;
 #if !DEBUG
-                MessageBox.Show(e.Message, Resources.LoginExceptionDialogName,
+                MessageBox.Show(e.Message, Properties.Strings.LoginExceptionDialogName,
                     MessageBoxButtons.OK, MessageBoxIcon.Error,
                     MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
 #else
@@ -694,7 +694,7 @@ namespace KsGameLauncher
             }
             catch (GameTermsOfServiceException ex)
             {
-                MessageBox.Show(ex.Message, Resources.GameTermsOfServiceExceptionDialogName,
+                MessageBox.Show(ex.Message, Properties.Strings.GameTermsOfServiceExceptionDialogName,
                     MessageBoxButtons.OK, MessageBoxIcon.Information,
                     MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                 Utils.Common.OpenUrlByDefaultBrowser(ex.GetTosURL());
@@ -796,7 +796,7 @@ namespace KsGameLauncher
             string json = await Launcher.GetJson();
             if (json == null)
             {
-                MessageBox.Show("There are no games", Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("There are no games", Properties.Strings.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -804,7 +804,7 @@ namespace KsGameLauncher
 
             if (!AppInfo.ContainID(gameID))
             {
-                MessageBox.Show("Unsupported game specified", Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Unsupported game specified", Properties.Strings.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -812,7 +812,7 @@ namespace KsGameLauncher
 
             if (appInfo == null)
             {
-                MessageBox.Show("Cannot find that game you specified", Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Cannot find that game you specified", Properties.Strings.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -830,7 +830,7 @@ namespace KsGameLauncher
             catch (LoginException ex)
             {
                 instance.httpClient = null;
-                //MessageBox.Show(ex.Message, Resources.LoginExceptionDialogName,
+                //MessageBox.Show(ex.Message, Properties.Strings.LoginExceptionDialogName,
                 //    MessageBoxButtons.OK, MessageBoxIcon.Error,
                 //    MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                 //return;
@@ -838,10 +838,10 @@ namespace KsGameLauncher
                 MessageBox.Show(String.Format(
                     "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
                     appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
-                , Resources.ErrorWhileLogin, MessageBoxButtons.OK, MessageBoxIcon.Error,
+                , Properties.Strings.ErrorWhileLogin, MessageBoxButtons.OK, MessageBoxIcon.Error,
                 MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
 #else
-                MessageBox.Show(ex.Message, Resources.ErrorWhileLogin, MessageBoxButtons.OK, MessageBoxIcon.Error,
+                MessageBox.Show(ex.Message, Properties.Strings.ErrorWhileLogin, MessageBoxButtons.OK, MessageBoxIcon.Error,
                 MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
 #endif
 
@@ -850,7 +850,7 @@ namespace KsGameLauncher
             {
                 if (ex.OpenURL != null)
                 {
-                    DialogResult result = MessageBox.Show(ex.Message, Resources.AppName, MessageBoxButtons.YesNo,
+                    DialogResult result = MessageBox.Show(ex.Message, Properties.Strings.AppName, MessageBoxButtons.YesNo,
                         MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                     if (result == DialogResult.Yes)
                     {
@@ -866,7 +866,7 @@ namespace KsGameLauncher
                     , ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error,
                     MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
 #else
-                    MessageBox.Show(ex.Message, Resources.ErrorWhileLogin, MessageBoxButtons.OK, MessageBoxIcon.Error,
+                    MessageBox.Show(ex.Message, Properties.Strings.ErrorWhileLogin, MessageBoxButtons.OK, MessageBoxIcon.Error,
                     MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
 #endif
                 }

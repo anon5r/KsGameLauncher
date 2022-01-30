@@ -28,7 +28,7 @@ namespace KsGameLauncher
                     {
                         fstream.Close();
                         fstream = null;
-                        throw new FileFormatException(Resources.IncorrectFileFormat);
+                        throw new FileFormatException(Properties.Strings.IncorrectFileFormat);
                     }
 
                     InternetShortcut shortcut = InternetShortcut.Parse(fstream);
@@ -37,7 +37,7 @@ namespace KsGameLauncher
                     {
                         fstream.Close();
                         fstream = null;
-                        throw new FileFormatException(Resources.NotSupportedShortcut);
+                        throw new FileFormatException(Properties.Strings.NotSupportedShortcut);
                     }
 
                     string gameID;
@@ -65,15 +65,15 @@ namespace KsGameLauncher
                     // Check existing
                     if (AppInfo.ContainID(appInfo.ID))
                     {
-                        MessageBox.Show(string.Format(Resources.AlreadyGameExists, appInfo.Name), Resources.AppName,
+                        MessageBox.Show(string.Format(Properties.Strings.AlreadyGameExists, appInfo.Name), Properties.Strings.AppName,
                             MessageBoxButtons.OK, MessageBoxIcon.Error,
                             MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                         Activate();
                         return;
                     }
 
-                    var result = MessageBox.Show(String.Format(Resources.ConfirmAddNewGame, appInfo.Name),
-                        Resources.AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                    var result = MessageBox.Show(String.Format(Properties.Strings.ConfirmAddNewGame, appInfo.Name),
+                        Properties.Strings.AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Question,
                         MessageBoxDefaultButton.Button2, MessageBoxOptions.DefaultDesktopOnly);
                     if (result == DialogResult.Yes)
                     {
@@ -90,7 +90,7 @@ namespace KsGameLauncher
             }
             catch (FileFormatException ex)
             {
-                MessageBox.Show(ex.Message, Resources.AppName,
+                MessageBox.Show(ex.Message, Properties.Strings.AppName,
                     MessageBoxButtons.OK, MessageBoxIcon.Error,
                     MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             }
@@ -115,8 +115,8 @@ namespace KsGameLauncher
         private void AddNewGame_Load(object sender, EventArgs e)
         {
             Icon = Properties.Resources.appIcon;
-            Text = Resources.AddNewGameWindowTitle;
-            groupBox_DragHere.Text = Resources.DropHere;
+            Text = Properties.Strings.AddNewGameWindowTitle;
+            groupBox_DragHere.Text = Properties.Strings.DropHere;
             Size = Properties.Settings.Default.NewGameFormSize;
         }
 

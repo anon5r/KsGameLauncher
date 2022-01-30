@@ -47,11 +47,11 @@ namespace KsGameLauncher
                     }
                     catch (FormatException ex)
                     {
-                        MessageBox.Show("Unknown parameters specified. " + ex.Message, Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Unknown parameters specified. " + ex.Message, Properties.Strings.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message, Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(ex.Message, Properties.Strings.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                     if (mainContext != null)
@@ -107,14 +107,14 @@ namespace KsGameLauncher
 
             if (!MainContext.RunBackground && Program.IsLoaded())
             {
-                MessageBox.Show(Resources.AlreadyRunning, Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Properties.Strings.AlreadyRunning, Properties.Strings.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
                 return;
             }
 
             mainContext = new MainContext(new MainForm
             {
-                Text = Resources.AppName,
+                Text = Properties.Strings.AppName,
                 Icon = Properties.Resources.appIcon,
                 // Hide from taskbar
                 ShowInTaskbar = false,
@@ -149,13 +149,13 @@ namespace KsGameLauncher
                         break;
 
                     default:
-                        MessageBox.Show(string.Format("Unknown action \"{0}\" specified.", uri.Host), Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(string.Format("Unknown action \"{0}\" specified.", uri.Host), Properties.Strings.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
             }
             else
             {
-                MessageBox.Show("Incorrect parameters specified.", Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Incorrect parameters specified.", Properties.Strings.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }

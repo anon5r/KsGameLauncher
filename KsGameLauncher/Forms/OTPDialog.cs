@@ -24,7 +24,7 @@ namespace KsGameLauncher.Forms
         private void OTPDialog_Load(object sender, EventArgs e)
         {
             Icon = Properties.Resources.appIcon;
-            Text = Resources.AppName;
+            Text = Properties.Strings.AppName;
             button_Ok.Enabled = false;
         }
 

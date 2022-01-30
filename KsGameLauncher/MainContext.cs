@@ -45,9 +45,9 @@ namespace KsGameLauncher
             NotifyIcon notify = new NotifyIcon
             {
                 Icon = Properties.Resources.appIcon,
-                Text = Resources.AppName,
+                Text = Properties.Strings.AppName,
                 Visible = true,
-                BalloonTipTitle = Resources.AppName,
+                BalloonTipTitle = Properties.Strings.AppName,
             };
 
             return notify;
@@ -200,7 +200,7 @@ namespace KsGameLauncher
             {
                 if (_launcherMutex)
                 {
-                    MessageBox.Show(Resources.StartngLauncher, Resources.AppName,
+                    MessageBox.Show(Properties.Strings.StartngLauncher, Properties.Strings.AppName,
                         MessageBoxButtons.OK, MessageBoxIcon.Exclamation,
                         MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                     return;
@@ -220,14 +220,14 @@ namespace KsGameLauncher
                 catch (LoginException ex)
                 {
 #if !DEBUG
-                    MessageBox.Show(ex.Message, Resources.LoginExceptionDialogName,
+                    MessageBox.Show(ex.Message, Properties.Strings.LoginExceptionDialogName,
                         MessageBoxButtons.OK, MessageBoxIcon.Error,
                         MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
 #else
                     MessageBox.Show(String.Format(
                         "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
                         appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
-                    , Resources.ErrorWhileLogin, MessageBoxButtons.OK, MessageBoxIcon.Error,
+                    , Properties.Strings.ErrorWhileLogin, MessageBoxButtons.OK, MessageBoxIcon.Error,
                     MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
 #endif
                 }
@@ -263,7 +263,7 @@ namespace KsGameLauncher
         {
             ToolStripMenuItem item = new ToolStripMenuItem()
             {
-                Text = Resources.NoInstalledGames,
+                Text = Properties.Strings.NoInstalledGames,
                 Enabled = false,
                 AutoSize = true,
             };
@@ -297,7 +297,7 @@ namespace KsGameLauncher
                 return;
             }
 
-            DialogResult result = MessageBox.Show(Resources.ConfirmExitDialogMessage, Resources.AppName,
+            DialogResult result = MessageBox.Show(Properties.Strings.ConfirmExitDialogMessage, Properties.Strings.AppName,
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
                 MessageBoxDefaultButton.Button2, MessageBoxOptions.DefaultDesktopOnly);
 

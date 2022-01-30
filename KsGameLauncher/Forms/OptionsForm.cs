@@ -25,9 +25,9 @@ namespace KsGameLauncher
             Icon = Properties.Resources.appIcon;
             string[] items = {
                 // Normal
-                Resources.ContextMenuSize_Text_Normal,
+                Properties.Strings.ContextMenuSize_Text_Normal,
                 // Large
-                Resources.ContextMenuSize_Text_Large
+                Properties.Strings.ContextMenuSize_Text_Large
             };
             comboBox_ContextMenuSize.Items.Clear();
             comboBox_ContextMenuSize.Items.AddRange(items);
@@ -41,19 +41,19 @@ namespace KsGameLauncher
             comboBox_ContextMenuSize.SelectedIndex = Properties.Settings.Default.ContextMenuSize;
 
             // String
-            Text = Resources.OptionsWindowTitle;
-            label_ContextMenuSize.Text = Resources.LabelContextMenuSizeText;
-            checkBox_UseProxy.Text = Resources.OptionsUseProxyText;
-            checkBox_Notification.Text = Resources.OptionsDisplayNotification;
-            checkBox_ConfirmExit.Text = Resources.ShowConfirmExit;
-            checkBox_DisplayInstalledGamesOnly.Text = Resources.ShowOnlyInstalledGames;
-            linkLabel_OpenProxySettings.Text = Resources.OptionsProxySettingsLink;
-            button_Save.Text = Resources.ButtonSave;
-            button_SyncAppInfo.Text = Resources.SynchWithServerButton;
+            Text = Properties.Strings.OptionsWindowTitle;
+            label_ContextMenuSize.Text = Properties.Strings.LabelContextMenuSizeText;
+            checkBox_UseProxy.Text = Properties.Strings.OptionsUseProxyText;
+            checkBox_Notification.Text = Properties.Strings.OptionsDisplayNotification;
+            checkBox_ConfirmExit.Text = Properties.Strings.ShowConfirmExit;
+            checkBox_DisplayInstalledGamesOnly.Text = Properties.Strings.ShowOnlyInstalledGames;
+            linkLabel_OpenProxySettings.Text = Properties.Strings.OptionsProxySettingsLink;
+            button_Save.Text = Properties.Strings.ButtonSave;
+            button_SyncAppInfo.Text = Properties.Strings.SynchWithServerButton;
 
             checkBox_RegisterCustomURI.Text = (checkBox_RegisterCustomURI.Checked)
-                ? Resources.ShortcutLaunchCheckboxDisable
-                : Resources.ShortcutLaunchCheckboxEnable;
+                ? Properties.Strings.ShortcutLaunchCheckboxDisable
+                : Properties.Strings.ShortcutLaunchCheckboxEnable;
         }
 
         private void LinkLabel_OpenProxySettings_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -90,7 +90,7 @@ namespace KsGameLauncher
         private async void Button_SyncAppInfo_Click(object sender, EventArgs e)
         {
 
-            var dialogResult = MessageBox.Show(Resources.SyncWithServerConfirmMessage, Resources.SyncWithServerDialogTitle,
+            var dialogResult = MessageBox.Show(Properties.Strings.SyncWithServerConfirmMessage, Properties.Strings.SyncWithServerDialogTitle,
                 MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2,
                 MessageBoxOptions.DefaultDesktopOnly);
             if (dialogResult == DialogResult.Yes)
@@ -102,20 +102,20 @@ namespace KsGameLauncher
                     {
                         Program.mainContext.LoadGamesMenu();
 
-                        MessageBox.Show(Resources.SyncWithServerSuccessMessage, Resources.SyncWithServerDialogTitle,
+                        MessageBox.Show(Properties.Strings.SyncWithServerSuccessMessage, Properties.Strings.SyncWithServerDialogTitle,
                             MessageBoxButtons.OK, MessageBoxIcon.Information,
                             MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                     }
                     else
                     {
-                        MessageBox.Show(Resources.SyncWithServerFailedMessage, Resources.SyncWithServerDialogTitle,
+                        MessageBox.Show(Properties.Strings.SyncWithServerFailedMessage, Properties.Strings.SyncWithServerDialogTitle,
                             MessageBoxButtons.OK, MessageBoxIcon.Error,
                             MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                     }
                 }
                 catch (System.Net.Http.HttpRequestException)
                 {
-                    MessageBox.Show(Resources.ErrorGetAppInfoFailed, Resources.SyncWithServerDialogTitle,
+                    MessageBox.Show(Properties.Strings.ErrorGetAppInfoFailed, Properties.Strings.SyncWithServerDialogTitle,
                         MessageBoxButtons.OK, MessageBoxIcon.Error,
                         MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                 }
@@ -128,33 +128,33 @@ namespace KsGameLauncher
             CheckState state = ((CheckBox)sender).CheckState;
             if (state == CheckState.Checked)
             {
-                string message = string.Format(Resources.ConfirmRegisterCustomURI, Properties.Settings.Default.AppUriScheme);
-                dialogResult = MessageBox.Show(message, Resources.AppName,
+                string message = string.Format(Properties.Strings.ConfirmRegisterCustomURI, Properties.Settings.Default.AppUriScheme);
+                dialogResult = MessageBox.Show(message, Properties.Strings.AppName,
                     MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
                 if (dialogResult == DialogResult.Yes)
                 {
                     // Enable shortcut launch mode / Register custom URI scheme
                     AppUtil.RegisterScheme();
-                    checkBox_RegisterCustomURI.Text = Resources.ShortcutLaunchCheckboxDisable;
+                    checkBox_RegisterCustomURI.Text = Properties.Strings.ShortcutLaunchCheckboxDisable;
                     Properties.Settings.Default.RegisterCustomURI = (state == CheckState.Checked);
                     Properties.Settings.Default.Save();
-                    MessageBox.Show(Resources.Enabled, Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show(Properties.Strings.Enabled, Properties.Strings.AppName, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
                 else
                     checkBox_RegisterCustomURI.Checked = false;
             }
             else
             {
-                dialogResult = MessageBox.Show(Resources.ConfirmUnregisterCustomURI, Resources.AppName,
+                dialogResult = MessageBox.Show(Properties.Strings.ConfirmUnregisterCustomURI, Properties.Strings.AppName,
                     MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
                 if (dialogResult == DialogResult.Yes)
                 {
                     // Disable shortcut launch mode / Remove custom URI scheme
                     AppUtil.DeleteScheme();
-                    checkBox_RegisterCustomURI.Text = Resources.ShortcutLaunchCheckboxEnable;
+                    checkBox_RegisterCustomURI.Text = Properties.Strings.ShortcutLaunchCheckboxEnable;
                     Properties.Settings.Default.RegisterCustomURI = (state == CheckState.Checked);
                     Properties.Settings.Default.Save();
-                    MessageBox.Show(Resources.Disabled, Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show(Properties.Strings.Disabled, Properties.Strings.AppName, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
                 else
                     checkBox_RegisterCustomURI.Checked = true;

@@ -125,7 +125,7 @@ namespace KsGameLauncher
                 {
                     if (!fstream.CanWrite)
                     {
-                        MessageBox.Show(Resources.CannotSaveGameList);
+                        MessageBox.Show(Properties.Strings.CannotSaveGameList);
                         return;
                     }
 
