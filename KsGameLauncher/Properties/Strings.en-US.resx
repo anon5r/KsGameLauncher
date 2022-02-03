@@ -135,6 +135,7 @@ You can try removing it from "Credential Manager" in Control Panel.\nIf you clic
   </data>
   <data name="AlreadyGameExists" xml:space="preserve">
     <value>"{0}" is already exists</value>
+    <comment>{0} is Game name</comment>
   </data>
   <data name="AlreadyRunning" xml:space="preserve">
     <value>Already running</value>
@@ -254,6 +255,7 @@ This file may not exist or may be temporarily unavailable.</value>
   </data>
   <data name="FailedToLoadFile" xml:space="preserve">
     <value>Failed to load {0}</value>
+    <comment>{0} is JSON filename</comment>
   </data>
   <data name="GameTermsOfServiceExceptionDialogName" xml:space="preserve">
     <value>Terms of Service</value>
@@ -263,6 +265,7 @@ This file may not exist or may be temporarily unavailable.</value>
   </data>
   <data name="IconBalloonMessage_Launching" xml:space="preserve">
     <value>Launching {0}...</value>
+    <comment>{0} is Game name</comment>
   </data>
   <data name="IconBalloonMessage_WhileLogin" xml:space="preserve">
     <value>Login process...</value>
@@ -331,9 +334,11 @@ This file may not exist or may be temporarily unavailable.</value>
   </data>
   <data name="OTPDialogMessage_2FA" xml:space="preserve">
     <value>Enter {0}-digits code you received here.</value>
+    <comment>{0} is required number of digits</comment>
   </data>
   <data name="OTPDialogMessage_OTP" xml:space="preserve">
     <value>Enter {0}-digits code displayed on your token device/app.</value>
+    <comment>{0} is required number of digits</comment>
   </data>
   <data name="ServiceIsTemporaryUnavailable" xml:space="preserve">
     <value>Service is temporarily down or unavailable.</value>

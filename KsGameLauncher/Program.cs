@@ -75,16 +75,34 @@ namespace KsGameLauncher
             try
             {
 #if DEBUG
-                Debug.WriteLine(String.Format("User culture: {0}", CultureInfo.CurrentUICulture.Name));
+                Debug.WriteLine(String.Format("System culture: {0}", CultureInfo.CurrentUICulture.Name));
+                Debug.WriteLine(String.Format("User configurated culture: {0}", Properties.Settings.Default.Language));
 #endif
-                Properties.Resources.Culture = new CultureInfo(CultureInfo.CurrentUICulture.Name);
+                string CultureLanguage = Properties.Settings.Default.Language;
+                if (CultureLanguage.ToLower() == "system")
+                    CultureLanguage = CultureInfo.CurrentUICulture.Name;
+                else 
+                    CultureLanguage = Properties.Settings.Default.Language;
+
+                Language currentLanguate = new Language(CultureLanguage);
+
+                if (!Languages.GetAvailableLanguages().Exists(delegate (Language lang) { return lang.ID == currentLanguate.ID; }))
+                    CultureLanguage = Languages.DefaultLanguage.Name;
+
+#if DEBUG
+                Debug.WriteLine(String.Format("Detected language: {0}", CultureLanguage));
+#endif
+
+                Properties.Resources.Culture = new CultureInfo(CultureLanguage);
             }
             catch
             {
-                Properties.Resources.Culture = new CultureInfo("en-US");
+#if DEBUG
+                Debug.WriteLine(String.Format("Set default language as: {0}", "en-US"));
+#endif
+                Properties.Resources.Culture = new CultureInfo(Properties.Resources.DefaultInternalLanguage);
             }
-            //Properties.Resources.Culture = new CultureInfo("ja-JP");
-
+            
 
             // Default displayed default messages on C#
             Thread.CurrentThread.CurrentCulture = Properties.Resources.Culture;

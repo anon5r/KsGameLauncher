@@ -417,7 +417,7 @@ namespace KsGameLauncher
 
                 Dictionary<string, string> requstParams = new Dictionary<string, string>()
                 {
-                    {csrfToken.GetAttribute("name"), csrfToken.GetAttribute("value")},
+                    { csrfToken.GetAttribute("name"), csrfToken.GetAttribute("value") },
                     { loginUsername.GetAttribute("name"), credential.UserName },
                     { loginPassword.GetAttribute("name"), credential.Password },
                     { "otpass", otpCode }

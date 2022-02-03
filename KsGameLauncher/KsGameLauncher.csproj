@@ -155,6 +155,7 @@
     <Compile Include="Forms\OTPDialog.Designer.cs">
       <DependentUpon>OTPDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Languages.cs" />
     <Compile Include="MainContext.cs" />
     <Compile Include="MainContext.Designer.cs">
       <DependentUpon>MainContext.cs</DependentUpon>
@@ -178,6 +179,11 @@
     </Compile>
     <Compile Include="Forms\AddNewGameForm.Designer.cs">
       <DependentUpon>AddNewGameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Strings.en-US.Designer.cs">
+      <DependentUpon>Strings.en-US.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="Structures\AppInfo.cs" />
@@ -241,10 +247,6 @@
     <EmbeddedResource Include="Forms\LicensesForm.resx">
       <DependentUpon>LicensesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainForm.ja-JP.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -257,9 +259,6 @@
     <EmbeddedResource Include="MainContext.Designer.cs">
       <DependentUpon>MainContext.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainContext.ja-JP.resx">
-      <DependentUpon>MainContext.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainContext.resx">
       <DependentUpon>MainContext.cs</DependentUpon>
@@ -276,6 +275,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Properties\Strings.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.en-US.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Strings.ja-JP.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.ja-JP.Designer.cs</LastGenOutput>
@@ -286,6 +290,9 @@
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">

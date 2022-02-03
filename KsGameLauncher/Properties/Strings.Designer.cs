@@ -125,6 +125,15 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
+        ///   Application requires restarting に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ApplicationRequiresRestarting {
+            get {
+                return ResourceManager.GetString("ApplicationRequiresRestarting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ks Game Launcher に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string AppName {
@@ -224,6 +233,19 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
+        ///   You need to restart the app to change the language.
+        ///Are you sure you want to restart?
+        ///
+        ///If you select &quot;Yes&quot;, it will be restarted immediately.
+        ///If you select &quot;No&quot;, this changes will be applied at the next time. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ConfirmApplicationRestartingForLanguageSettings {
+            get {
+                return ResourceManager.GetString("ConfirmApplicationRestartingForLanguageSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Are you sure you want to exit ? に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ConfirmExitDialogMessage {
@@ -281,6 +303,51 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
+        ///   &amp;About に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ContextMenuItems_About {
+            get {
+                return ResourceManager.GetString("ContextMenuItems_About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Add &amp;New Game に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ContextMenuItems_AddNewGame {
+            get {
+                return ResourceManager.GetString("ContextMenuItems_AddNewGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   E&amp;xit に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ContextMenuItems_Exit {
+            get {
+                return ResourceManager.GetString("ContextMenuItems_Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &amp;Manage Accounts に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ContextMenuItems_ManageAccount {
+            get {
+                return ResourceManager.GetString("ContextMenuItems_ManageAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &amp;Options に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ContextMenuItems_Options {
+            get {
+                return ResourceManager.GetString("ContextMenuItems_Options", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Large に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ContextMenuSize_Text_Large {
@@ -304,6 +371,15 @@ namespace KsGameLauncher.Properties {
         internal static string Disabled {
             get {
                 return ResourceManager.GetString("Disabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Display language に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string DisplayLanguage {
+            get {
+                return ResourceManager.GetString("DisplayLanguage", resourceCulture);
             }
         }
         
@@ -711,6 +787,15 @@ namespace KsGameLauncher.Properties {
         internal static string SyncWithServerSuccessMessage {
             get {
                 return ResourceManager.GetString("SyncWithServerSuccessMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   System に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SystemText {
+            get {
+                return ResourceManager.GetString("SystemText", resourceCulture);
             }
         }
         

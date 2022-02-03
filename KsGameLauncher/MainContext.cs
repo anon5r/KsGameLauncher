@@ -77,11 +77,14 @@ namespace KsGameLauncher
             if (RunBackground)
             {
                 // Only show the exit menu when running in background mode
-                menuStripMain = CreateMinimalMenuStripItems();
-                contextMenuStrip_Sub = CreateMinimalMenuStripItems();
+                menuStripMain = CreateMinimalMenuStripItems(true);
+                contextMenuStrip_Sub = CreateMinimalMenuStripItems(true);
             }
             else
+            {
                 menuStripMain = InitGameMenu();
+                contextMenuStrip_Sub = CreateMinimalMenuStripItems();
+            }
         }
 
         /// <summary>
@@ -275,15 +278,35 @@ namespace KsGameLauncher
 
         private NotifyIconContextMenuStrip CreateMinimalMenuStripItems()
         {
+            return CreateMinimalMenuStripItems(false);
+        }
+
+        private NotifyIconContextMenuStrip CreateMinimalMenuStripItems(bool exitOnly)
+        {
             NotifyIconContextMenuStrip menu = new NotifyIconContextMenuStrip();
             menu.Items.Clear();
-            ToolStripMenuItem item = new ToolStripMenuItem()
+            if (exitOnly)
             {
-                Text = MainContext.exitToolStripMenuItem_Text,
-                Enabled = true,
-            };
-            item.Click += ExitToolStripMenuItem_Click;
-            menu.Items.Add(item);
+                // Run background
+                ToolStripMenuItem item = new ToolStripMenuItem()
+                {
+                    Text = Properties.Strings.ContextMenuItems_Exit,
+                    Enabled = true,
+                };
+                item.Click += ExitToolStripMenuItem_Click;
+                menu.Items.Add(item);
+            }
+            else
+            {
+                // Normal
+                aboutToolStripMenuItem.Text = Properties.Strings.ContextMenuItems_About;
+                optionsToolStripMenuItem.Text = Properties.Strings.ContextMenuItems_Options;
+                manageAccountsToolStripMenuItem.Text = Properties.Strings.ContextMenuItems_ManageAccount;
+                addNewGameToolStripMenuItem.Text = Properties.Strings.ContextMenuItems_AddNewGame;
+                exitToolStripMenuItem.Text = Properties.Strings.ContextMenuItems_Exit;
+                
+                menu = contextMenuStrip_Sub;
+            }
 
             return menu;
         }
@@ -313,6 +336,13 @@ namespace KsGameLauncher
             notifyIcon.Dispose();
             Properties.Settings.Default.Save();
             Application.Exit();
+        }
+
+        internal void RestartProcess()
+        {
+            notifyIcon.Visible = false;
+            notifyIcon.Dispose();
+            Application.Restart();
         }
 
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -361,7 +391,7 @@ namespace KsGameLauncher
             {
                 _formWindow = new OptionsForm
                 {
-                    ShowInTaskbar = false
+                    ShowInTaskbar = true
                 };
                 _formWindow.FormClosed += delegate
                 {

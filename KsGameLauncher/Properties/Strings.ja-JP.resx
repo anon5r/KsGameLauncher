@@ -140,6 +140,9 @@
   <data name="AlreadyRunning" xml:space="preserve">
     <value>すでに起動しています</value>
   </data>
+  <data name="ApplicationRequiresRestarting" xml:space="preserve">
+    <value>アプリケーションの再起動が必要です</value>
+  </data>
   <data name="AppName" xml:space="preserve">
     <value>Ks Game Launcher</value>
   </data>
@@ -174,6 +177,12 @@
   <data name="ConfirmAddNewGame" xml:space="preserve">
     <value>"{0}" を追加してよろしいですか？</value>
   </data>
+  <data name="ConfirmApplicationRestartingForLanguageSettings" xml:space="preserve">
+    <value>言語設定を変更するにはアプリの再起動が必要です。
+再起動してよろしいですか？
+「はい」を選択すると、すぐに再起動されます。
+「いいえ」を選択すると、次回起動時に変更が適用されます。</value>
+  </data>
   <data name="ConfirmExitDialogMessage" xml:space="preserve">
     <value>本当に終了しますか？</value>
   </data>
@@ -195,6 +204,21 @@
   <data name="ConnectionTimeout" xml:space="preserve">
     <value>通信がタイムアウトしました。接続状況を確認してください。</value>
   </data>
+  <data name="ContextMenuItems_About" xml:space="preserve">
+    <value>アプリについて (&amp;A)</value>
+  </data>
+  <data name="ContextMenuItems_AddNewGame" xml:space="preserve">
+    <value>ゲームの追加 (&amp;N)</value>
+  </data>
+  <data name="ContextMenuItems_Exit" xml:space="preserve">
+    <value>終了 (&amp;X)</value>
+  </data>
+  <data name="ContextMenuItems_ManageAccount" xml:space="preserve">
+    <value>アカウント管理 (&amp;M)</value>
+  </data>
+  <data name="ContextMenuItems_Options" xml:space="preserve">
+    <value>オプション (&amp;O)</value>
+  </data>
   <data name="ContextMenuSize_Text_Large" xml:space="preserve">
     <value>大きめ</value>
   </data>
@@ -203,6 +227,9 @@
   </data>
   <data name="Disabled" xml:space="preserve">
     <value>無効にしました。</value>
+  </data>
+  <data name="DisplayLanguage" xml:space="preserve">
+    <value>表示言語</value>
   </data>
   <data name="DropHere" xml:space="preserve">
     <value>ここにショートカットをドラッグ＆ドロップ</value>
@@ -345,6 +372,9 @@
   </data>
   <data name="SyncWithServerSuccessMessage" xml:space="preserve">
     <value>同期に成功しました</value>
+  </data>
+  <data name="SystemText" xml:space="preserve">
+    <value>システム</value>
   </data>
   <data name="ToolTipHintOTPDescription" xml:space="preserve">
     <value>チェックするとログイン時にOTPの入力を求められます。</value>

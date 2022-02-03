@@ -1,5 +1,6 @@
 ﻿using KsGameLauncher.Utils;
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace KsGameLauncher
@@ -31,6 +32,20 @@ namespace KsGameLauncher
             };
             comboBox_ContextMenuSize.Items.Clear();
             comboBox_ContextMenuSize.Items.AddRange(items);
+            // Language
+            Language currentLang = (string.IsNullOrEmpty(Properties.Settings.Default.Language) 
+                || Properties.Settings.Default.Language == Properties.Resources.DefaultLanguage)
+                ? Languages.GetLanguage(Properties.Resources.DefaultLanguage)
+                : Languages.GetLanguage(Properties.Settings.Default.Language);
+#if DEBUG
+            Debug.WriteLine(String.Format("[OPTION:Load] Current language configuration: {0}", currentLang));
+#endif
+            foreach (Language lang in Languages.GetAvailableLanguages())
+                comboBox_Languages.Items.Add(lang);
+            comboBox_Languages.SelectedIndex = comboBox_Languages.Items.IndexOf(currentLang);
+#if DEBUG
+            Debug.WriteLine(String.Format("[OPTION:Load] Language comboBox selectedIndex: {0}", comboBox_Languages.Items.IndexOf(currentLang)));
+#endif
 
             // Default values
             checkBox_UseProxy.Checked = Properties.Settings.Default.UseProxy;
@@ -42,6 +57,7 @@ namespace KsGameLauncher
 
             // String
             Text = Properties.Strings.OptionsWindowTitle;
+            label_Language.Text = Properties.Strings.DisplayLanguage;
             label_ContextMenuSize.Text = Properties.Strings.LabelContextMenuSizeText;
             checkBox_UseProxy.Text = Properties.Strings.OptionsUseProxyText;
             checkBox_Notification.Text = Properties.Strings.OptionsDisplayNotification;
@@ -67,16 +83,43 @@ namespace KsGameLauncher
             bool needsUpdateGames =
                 (Properties.Settings.Default.ShowOnlyInstalledGames != checkBox_DisplayInstalledGamesOnly.Checked)
                 || (Properties.Settings.Default.ContextMenuSize != comboBox_ContextMenuSize.SelectedIndex);
+
+            bool restartApp = false;
+
+            // Language settings
+            Language selectedLang = (Language)comboBox_Languages.Items[comboBox_Languages.SelectedIndex];
+#if DEBUG
+            Debug.WriteLine(String.Format("[OPTION:Save] Language before changes: {0}", Properties.Settings.Default.Language));
+            Debug.WriteLine(String.Format("[OPTION:Save] Language selected: {0}", selectedLang.ID));
+#endif
+            if (selectedLang.ID != Properties.Settings.Default.Language)
+            {
+                // Confirming to restart app if the language configuration has been changed
+                DialogResult confirm = MessageBox.Show(Properties.Strings.ConfirmApplicationRestartingForLanguageSettings,
+                    Properties.Strings.ApplicationRequiresRestarting,
+                    MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                if (confirm == DialogResult.Cancel)
+                    return;
+                if (confirm == DialogResult.Yes)
+                    restartApp = true;
+            }
+
             // Save settings
             Properties.Settings.Default.UseProxy = checkBox_UseProxy.Checked;
             Properties.Settings.Default.EnableNotification = checkBox_Notification.Checked;
             Properties.Settings.Default.ShowConfirmExit = checkBox_ConfirmExit.Checked;
             Properties.Settings.Default.ShowOnlyInstalledGames = checkBox_DisplayInstalledGamesOnly.Checked;
             Properties.Settings.Default.ContextMenuSize = comboBox_ContextMenuSize.SelectedIndex;
+            Properties.Settings.Default.Language = ((Language)comboBox_Languages.Items[comboBox_Languages.SelectedIndex]).ID;
             Properties.Settings.Default.Save();
 
             if (needsUpdateGames)
                 Program.mainContext.LoadGamesMenu();   // Re-load menu
+
+            if (restartApp)
+            {
+                Program.mainContext.RestartProcess();
+            }
 
             Close();
         }

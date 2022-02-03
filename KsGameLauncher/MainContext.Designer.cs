@@ -57,12 +57,13 @@ namespace KsGameLauncher
             // 
             this.contextMenuStrip_Sub.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.contextMenuStrip_Sub.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem,
-            this.optionsToolStripMenuItem,
-            this.manageAccountsToolStripMenuItem,
-            this.addNewGameToolStripMenuItem,
-            this.toolStripSeparator_Bottom,
-            this.exitToolStripMenuItem});
+                this.aboutToolStripMenuItem,
+                this.optionsToolStripMenuItem,
+                this.manageAccountsToolStripMenuItem,
+                this.addNewGameToolStripMenuItem,
+                this.toolStripSeparator_Bottom,
+                this.exitToolStripMenuItem
+            });
             this.contextMenuStrip_Sub.Name = "contextMenuStrip_Sub";
             this.contextMenuStrip_Sub.ShowImageMargin = false;
             resources.ApplyResources(this.contextMenuStrip_Sub, "contextMenuStrip_Sub");

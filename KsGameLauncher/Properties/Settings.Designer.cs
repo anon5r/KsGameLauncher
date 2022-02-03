@@ -337,18 +337,6 @@ namespace KsGameLauncher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string LoginSession {
-            get {
-                return ((string)(this["LoginSession"]));
-            }
-            set {
-                this["LoginSession"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#two-step-form>div.form-area>form")]
         public string selector_2fa_form {
             get {
@@ -356,6 +344,29 @@ namespace KsGameLauncher.Properties {
             }
             set {
                 this["selector_2fa_form"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("system")]
+        public string Language {
+            get {
+                return ((string)(this["Language"]));
+            }
+            set {
+                this["Language"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsd=\"http://www.w3." +
+            "org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n  <s" +
+            "tring>en-US</string>\r\n  <string>ja-JP</string>\r\n</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection SupportedLanguage {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["SupportedLanguage"]));
             }
         }
     }

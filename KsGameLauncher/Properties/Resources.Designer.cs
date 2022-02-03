@@ -117,6 +117,24 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
+        ///   en-US に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string DefaultInternalLanguage {
+            get {
+                return ResourceManager.GetString("DefaultInternalLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   system に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string DefaultLanguage {
+            get {
+                return ResourceManager.GetString("DefaultLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   anon に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string Developers {
