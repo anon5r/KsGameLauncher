@@ -20,9 +20,13 @@ namespace KsGameLauncher
             label_Version.Text = "ver. " + Application.ProductVersion;
             label_Develop.Text = Properties.Strings.LabelDeveloper;
             AppDeveloper.Text = Properties.Resources.Developers;
-            string installedGameRights = string.Format("\"{0}\"", string.Join("\", \"", GetInstalledGamesName()));
-            textBox_Copyrights.Text = string.Format("{0} are KONAMI Amusement All Rights Reserved.\r\n", installedGameRights) +
-                Properties.Resources.Copyrights;
+            textBox_Copyrights.Text = "";
+            if (GetInstalledGamesName().Length > 0)
+            {
+                string installedGameRights = string.Format("\"{0}\"", string.Join("\", \"", GetInstalledGamesName()));
+                textBox_Copyrights.Text += string.Format("{0} are KONAMI Amusement All Rights Reserved.\r\n", installedGameRights);
+            }
+            textBox_Copyrights.Text += Properties.Resources.Copyrights;
             linkLabel_Support.Text = Properties.Resources.SupportLabelText;
             linkLabel_License.Text = Properties.Strings.ShowLicense;
 

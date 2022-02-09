@@ -609,10 +609,10 @@ namespace KsGameLauncher
 
                     if (response.RequestMessage.RequestUri.Host.Contains(Properties.Resources.AuthorizeDomain))
                     {
-                        instance.httpClient = null;
                         MessageBox.Show(Properties.Strings.IncorrectUsernameOrPassword, Properties.Strings.AppName,
                             MessageBoxButtons.OK, MessageBoxIcon.Error,
                             MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                        await Logout();
                         return;
                     }
 
@@ -645,6 +645,7 @@ namespace KsGameLauncher
                     string loadedURL = response.RequestMessage.RequestUri.ToString();
                     if (response.RequestMessage.RequestUri.Host.Contains(Properties.Resources.AuthorizeDomain))
                     {
+                        await Logout();
                         throw new LoginException(Properties.Strings.LoginSessionHasBeenExpired);
                     }
                     else if (loadedURL.Contains(Properties.Resources.TosCheckPath))
