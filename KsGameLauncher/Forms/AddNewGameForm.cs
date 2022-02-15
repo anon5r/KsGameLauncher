@@ -77,11 +77,12 @@ namespace KsGameLauncher
                         MessageBoxDefaultButton.Button2, MessageBoxOptions.DefaultDesktopOnly);
                     if (result == DialogResult.Yes)
                     {
-                        // TODO AppInfoリストに追加し、JSON化して保存する
-                        //JsonSerializer
+                        // JsonSerializer
                         AppInfo.GetList().Add(appInfo);
                         ToolStripMenuItem item = Program.mainContext.CreateNewMenuItem(appInfo);
                         NotifyIconContextMenuStrip menuStrip = Program.mainContext.GetMenuStrip();
+                        if (menuStrip.Items.Count == 1 && menuStrip.Items[0].Text == Properties.Strings.NoInstalledGames)
+                            menuStrip.Items.Clear();
                         menuStrip.Items.Add(item);
                         Program.mainContext.SetMenuStrip(menuStrip);
                     }
