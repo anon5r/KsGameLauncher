@@ -20,64 +20,6 @@ This is an application to start the BEMANI for Konaste (コナステ) with one c
 Please check [this document](https://launcher-app.sdvx.net) for details such as operation and functions.
 
 
-## Process flow
-
-### Start up
-
-```mermaid
-  flowchart TD;
-      A[Start] --> B{Is appinfo.json already exists?};
-      B -- Yes --> E;
-      B -- No  --> C[Get appinfo.json file from the server];
-      C ----> D{Can I get and save it to disk?};
-      D -- Yes --> E[list games in context menu];
-      D -- No  --> F[No content in context menu];
-      E --> G[Finish startup];
-```
-
-### Launch the game
-
-```mermaid
-  flowchart TD;
-      subgraph Normal flow;
-        A([Choose the game]) --> B{Is the user account already set up?};
-        B -- Yes --> C[Load account information];
-        B -- No  --> D([Display dialog notifying 'Account settings required']);
-        C --> E{Check login session\n Already login ?};
-        E -- Yes --> F;
-        E -- No  --> AA([Go to login flow])
-        F[Send request to launche the game] --> G[Load the game launch page];
-        G -- Parse page --> H[Find 'Launch the game' button];
-        H --> I[Get custom URI for launch the game from the button];
-        I --> J[Find installed game path from registry];
-        J --> K[Run launcher.exe with custom URI parameters];
-        K --> L([Finish]);
-      end
-      X([After login]) --> F;
-```
-
-
-### Login flow
-
-```mermaid
-  flowchart TD;
-      Start([Login flow]) --> LoginScreen[Send request to login screen];
-      LoginScreen --> ReqOTP{Required OTP ?};
-      ReqOTP -- Yes --> OTP{{Display OTP dialog}};
-      ReqOTP -- No  --> SendLogin[Send request with credentials];
-      OTP -- Input OTP --> SendLogin[Send request with credentials];
-      OTP -- Cancel --> Cancel1([Cancel process]);
-      SendLogin --> IsSuccess{Succeed login ?};
-      IsSuccess -- Yes --> 2FARes{Require 2FA ?};
-      IsSuccess -- No  --> LoginFail;
-      IsSuccess -- Yes --> Continue([Continue launching process]);
-      2FARes -- Yes --> 2FA{{Display 2FA input dialog}};
-      2FARes -- No  --> Continue([Go to launch process]);
-      2FA -- Input 2FA --> IsSuccess{Succeed login ?};
-      2FA -- Cancel --> Cancel2([Cancel process]);
-      LoginFail[Display dialog 'Failed to login'];
-```
-
 # Development Environment
 
 OS: Microsoft&reg; Windows&trade; 10 or later
@@ -147,3 +89,64 @@ docker compose down
 ## Troubleshoot
 
 If it overlaps with an existing port, change it with `services.web.ports` in` docker-compose.yml`.
+
+
+# Process flow
+
+### Start up
+
+```mermaid
+  flowchart TD;
+      A([Start]) --> B{Is appinfo.json already exists?};
+      B -- Yes --> E;
+      B -- No  --> C[Get appinfo.json file from the server];
+      C ----> D{Can I get and save it to disk?};
+      D -- Yes --> E[list games in context menu];
+      D -- No  --> F[No content in context menu];
+      E --> G([Finish startup]);
+      F --> G([Finish startup]);
+```
+
+### Launch the game
+
+```mermaid
+  flowchart TD;
+      subgraph Normal flow;
+        A([Choose the game]) --> B{Is the user account already set up?};
+        B -- Yes --> C[Load account information];
+        B -- No  --> D([Display dialog notifying 'Account settings required']);
+        C --> E{Check login session\n Already login ?};
+        E -- Yes --> F;
+        E -- No  --> AA([Go to login flow])
+        F[Send request to launche the game] --> G[Load the game launch page];
+        G -- Parse page --> H[Find 'Launch the game' button];
+        H --> I[Get custom URI for launch the game from the button];
+        I --> J[Find installed game path from registry];
+        J --> K[Run launcher.exe with custom URI parameters];
+        K --> L([Finish]);
+      end
+      X([After login]) --> F;
+```
+
+
+### Login flow
+
+```mermaid
+  flowchart TD;
+      Start([Login flow]) --> LoginScreen[Send request to login screen];
+      LoginScreen --> ReqOTP{Required OTP ?};
+      ReqOTP -- Yes --> OTP{{Display OTP dialog}};
+      ReqOTP -- No  --> SendLogin[Send request with credentials];
+      OTP -- Input OTP --> SendLogin[Send request with credentials];
+      OTP -- Cancel --> Cancel1([Cancel process]);
+      SendLogin --> IsSuccess1{Succeed login ?};
+      IsSuccess1 -- Yes --> 2FARes{Require 2FA ?};
+      IsSuccess1 -- No  --> LoginFail;
+      2FARes -- Yes --> 2FA{{Display 2FA input dialog}};
+      2FARes -- No  --> Continue([Go to launch process]);
+      2FA -- Input 2FA --> IsSuccess2{Succeed login ?};
+      2FA -- Cancel --> Cancel2([Cancel process]);
+      IsSuccess2 -- Yes --> Continue([Continue launching process]);
+      IsSuccess2 -- No  --> LoginFail;
+      LoginFail([Display dialog 'Failed to login']);
+```

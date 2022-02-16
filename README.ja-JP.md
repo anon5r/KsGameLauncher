@@ -20,65 +20,6 @@
 動作、機能などの詳細は[こちらのドキュメント](https://launcher-app.sdvx.net/index.ja.html)を確認してください。
 
 
-## 処理フロー
-
-### 起動
-
-```mermaid
-  flowchart TD;
-      A[開始] --> B{appinfo.jsonが存在するか};
-      B -- ある --> E;
-      B -- ない  --> C[サーバーからappinfo.jsonを取得];
-      C ----> D{ファイルを取得/保存できたか};
-      D -- Yes --> E[コンテキストメニューに\nゲーム一覧を表示];
-      D -- No  --> F[コンテキストメニューに何も表示しない];
-      E --> G[起動完了];
-```
-
-### ゲーム起動フロー
-
-```mermaid
-  flowchart TD;
-      subgraph 通常フロー;
-        A([ゲームを選択]) --> B{アカウントの設定有無};
-        B -- 済み --> C[アカウント情報読込];
-        B -- まだ  --> D(['アカウントの設定が必要です'の表示]);
-        C --> E{ログインセッションの確認\nログイン済み};
-        E -- Yes --> F;
-        E -- No  --> AA([ログインフローへ])
-        F[ゲーム起動ページへリクエスト] --> G[ゲーム起動ページの読み込み];
-        G -- ページの解析 --> H["「ゲームを起動」ボタンをさがす"];
-        H --> I[ゲーム起動用カスタムURIを取得];
-        I --> J[レジストリからゲームのパスを取得];
-        J --> K[カスタムURIをパラメータに指定して\nlauncher.exeを実効];
-        K --> L([完了]);
-      end
-      X([ログインフロー後]) --> F;
-```
-
-
-### ログインフロー
-
-```mermaid
-  flowchart TD;
-      Start([ログインフロー]) --> LoginScreen[ログイン画面を取得];
-      LoginScreen --> ReqOTP{OTPが必要であるか};
-      ReqOTP -- Yes --> OTP{{OTP入力ダイアログ表示}};
-      ReqOTP -- No  --> SendLogin[認証情報を送信];
-      OTP -- OTP入力 --> SendLogin;
-      OTP -- キャンセル --> Cancel1([キャンセル処理]);
-      SendLogin --> IsSuccess{ログイン成功};
-      IsSuccess -- Yes --> 2FARes{二要素認証が必要};
-      IsSuccess -- No  --> LoginFail;
-      IsSuccess -- Yes --> Continue([ゲーム起動処理続行]);
-      2FARes -- Yes --> 2FA{{二要素認証入力ダイアログ表示}};
-      2FARes -- No  --> Continue([ゲーム起動処理続行]);
-      2FA -- コード入力 --> IsSuccess{ログイン成功};
-      2FA -- キャンセル --> Cancel2([キャンセル処理]);
-      LoginFail['ログイン失敗'ダイアログの表示];
-```
-
-
 # 開発環境
 
 OS: Microsoft&reg; Windows&trade; 10 以上
@@ -147,3 +88,63 @@ docker compose down
 ## トラブルシュート
 
 既存のポートと重複する場合は `docker-compose.yml` の `services.web.ports` で変更してください。
+
+
+# 処理フロー
+
+### 起動
+
+```mermaid
+  flowchart TD;
+      A([開始]) --> B{appinfo.jsonが存在するか};
+      B -- ある --> E;
+      B -- ない  --> C[サーバーからappinfo.jsonを取得];
+      C ----> D{ファイルを取得/保存できたか};
+      D -- Yes --> E[コンテキストメニューに\nゲーム一覧を表示];
+      D -- No  --> F[コンテキストメニューに何も表示しない];
+      E --> G([起動完了]);
+      F --> G([起動完了]);
+```
+
+### ゲーム起動フロー
+
+```mermaid
+  flowchart TD;
+      subgraph 通常フロー;
+        A([ゲームを選択]) --> B{アカウントの設定有無};
+        B -- 済み --> C[アカウント情報読込];
+        B -- まだ  --> D(['アカウントの設定が必要です'の表示]);
+        C --> E{ログインセッションの確認\nログイン済み};
+        E -- Yes --> F;
+        E -- No  --> AA([ログインフローへ])
+        F[ゲーム起動ページへリクエスト] --> G[ゲーム起動ページの読み込み];
+        G -- ページの解析 --> H["「ゲームを起動」ボタンをさがす"];
+        H --> I[ゲーム起動用カスタムURIを取得];
+        I --> J[レジストリからゲームのパスを取得];
+        J --> K[カスタムURIをパラメータに指定して\nlauncher.exeを実効];
+        K --> L([完了]);
+      end
+      X([ログインフロー後]) --> F;
+```
+
+### ログインフロー
+
+```mermaid
+  flowchart TD;
+      Start([ログインフロー]) --> LoginScreen[ログイン画面を取得];
+      LoginScreen --> ReqOTP{OTPが必要であるか};
+      ReqOTP -- Yes --> OTP{{OTP入力ダイアログ表示}};
+      ReqOTP -- No  --> SendLogin[認証情報を送信];
+      OTP -- OTP入力 --> SendLogin;
+      OTP -- キャンセル --> Cancel1([キャンセル処理]);
+      SendLogin --> IsSuccess1{ログイン成功};
+      IsSuccess1 -- Yes --> 2FARes{二要素認証が必要};
+      IsSuccess1 -- No  --> LoginFail;
+      2FARes -- Yes --> 2FA{{二要素認証入力ダイアログ表示}};
+      2FARes -- No  --> Continue([ゲーム起動処理続行]);
+      2FA -- コード入力 --> IsSuccess2{ログイン成功};
+      2FA -- キャンセル --> Cancel2([キャンセル処理]);
+      IsSuccess2 -- Yes --> Continue([ゲーム起動処理続行]);
+      IsSuccess2 -- No --> LoginFail(['ログイン失敗'ダイアログの表示]);
+```
+
