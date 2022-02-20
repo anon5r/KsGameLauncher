@@ -153,6 +153,7 @@
   </data>
   <data name="Licenses" xml:space="preserve">
     <value>AdysTech.CredentialManager (https://github.com/AdysTech/CredentialManager) 
+AutoUpdater.NET (https://github.com/ravibpatel/AutoUpdater.NET)
 
 HtmlAgilityPack (https://github.com/atifaziz/Hazz)</value>
     <comment>Using libraries</comment>
@@ -173,5 +174,8 @@ HtmlAgilityPack (https://github.com/atifaziz/Hazz)</value>
   </data>
   <data name="TosCheckPath" xml:space="preserve">
     <value>/terms_of_service/index.html</value>
+  </data>
+  <data name="UpdateXML" xml:space="preserve">
+    <value>https://launcher-app.sdvx.net/update.xml</value>
   </data>
 </root>

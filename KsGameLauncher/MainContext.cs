@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using AutoUpdaterDotNET;
 
 namespace KsGameLauncher
 {
@@ -26,6 +27,9 @@ namespace KsGameLauncher
             mainForm = _form;
             InitializeComponent();
             CreateNotificationIcon();
+
+
+            AutoUpdater.Start(Properties.Resources.UpdateXML, typeof(Program).Assembly);
         }
 
         ~MainContext()
