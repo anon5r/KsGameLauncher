@@ -40,6 +40,9 @@
             this.checkBox_RegisterCustomURI = new System.Windows.Forms.CheckBox();
             this.comboBox_Languages = new System.Windows.Forms.ComboBox();
             this.label_Language = new System.Windows.Forms.Label();
+            this.label_CheckAutoUpdateInterval = new System.Windows.Forms.Label();
+            this.comboBox_CheckInterval = new System.Windows.Forms.ComboBox();
+            this.button_ManualCheck = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // checkBox_UseProxy
@@ -68,7 +71,7 @@
             // button_Save
             // 
             this.button_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_Save.Location = new System.Drawing.Point(249, 428);
+            this.button_Save.Location = new System.Drawing.Point(249, 511);
             this.button_Save.Name = "button_Save";
             this.button_Save.Size = new System.Drawing.Size(81, 38);
             this.button_Save.TabIndex = 3;
@@ -107,7 +110,7 @@
             this.comboBox_ContextMenuSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBox_ContextMenuSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_ContextMenuSize.FormattingEnabled = true;
-            this.comboBox_ContextMenuSize.Location = new System.Drawing.Point(15, 292);
+            this.comboBox_ContextMenuSize.Location = new System.Drawing.Point(12, 284);
             this.comboBox_ContextMenuSize.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_ContextMenuSize.Name = "comboBox_ContextMenuSize";
             this.comboBox_ContextMenuSize.Size = new System.Drawing.Size(180, 26);
@@ -117,7 +120,7 @@
             // 
             this.label_ContextMenuSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label_ContextMenuSize.AutoSize = true;
-            this.label_ContextMenuSize.Location = new System.Drawing.Point(15, 270);
+            this.label_ContextMenuSize.Location = new System.Drawing.Point(12, 262);
             this.label_ContextMenuSize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_ContextMenuSize.Name = "label_ContextMenuSize";
             this.label_ContextMenuSize.Size = new System.Drawing.Size(146, 18);
@@ -127,7 +130,7 @@
             // button_SyncAppInfo
             // 
             this.button_SyncAppInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button_SyncAppInfo.Location = new System.Drawing.Point(15, 332);
+            this.button_SyncAppInfo.Location = new System.Drawing.Point(12, 324);
             this.button_SyncAppInfo.Margin = new System.Windows.Forms.Padding(4);
             this.button_SyncAppInfo.Name = "button_SyncAppInfo";
             this.button_SyncAppInfo.Size = new System.Drawing.Size(150, 34);
@@ -156,7 +159,7 @@
             this.checkBox_RegisterCustomURI.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox_RegisterCustomURI.AutoSize = true;
             this.checkBox_RegisterCustomURI.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.checkBox_RegisterCustomURI.Location = new System.Drawing.Point(15, 380);
+            this.checkBox_RegisterCustomURI.Location = new System.Drawing.Point(12, 372);
             this.checkBox_RegisterCustomURI.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox_RegisterCustomURI.Name = "checkBox_RegisterCustomURI";
             this.checkBox_RegisterCustomURI.Size = new System.Drawing.Size(173, 28);
@@ -185,12 +188,47 @@
             this.label_Language.TabIndex = 10;
             this.label_Language.Text = "Language";
             // 
+            // label_CheckAutoUpdateInterval
+            // 
+            this.label_CheckAutoUpdateInterval.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label_CheckAutoUpdateInterval.AutoSize = true;
+            this.label_CheckAutoUpdateInterval.Location = new System.Drawing.Point(12, 418);
+            this.label_CheckAutoUpdateInterval.Name = "label_CheckAutoUpdateInterval";
+            this.label_CheckAutoUpdateInterval.Size = new System.Drawing.Size(149, 18);
+            this.label_CheckAutoUpdateInterval.TabIndex = 11;
+            this.label_CheckAutoUpdateInterval.Text = "Check auto update";
+            // 
+            // comboBox_CheckInterval
+            // 
+            this.comboBox_CheckInterval.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboBox_CheckInterval.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_CheckInterval.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.comboBox_CheckInterval.FormattingEnabled = true;
+            this.comboBox_CheckInterval.Location = new System.Drawing.Point(12, 439);
+            this.comboBox_CheckInterval.Name = "comboBox_CheckInterval";
+            this.comboBox_CheckInterval.Size = new System.Drawing.Size(219, 26);
+            this.comboBox_CheckInterval.TabIndex = 12;
+            // 
+            // button_ManualCheck
+            // 
+            this.button_ManualCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button_ManualCheck.Location = new System.Drawing.Point(12, 471);
+            this.button_ManualCheck.Name = "button_ManualCheck";
+            this.button_ManualCheck.Size = new System.Drawing.Size(146, 35);
+            this.button_ManualCheck.TabIndex = 13;
+            this.button_ManualCheck.Text = "Manual check";
+            this.button_ManualCheck.UseVisualStyleBackColor = true;
+            this.button_ManualCheck.Click += new System.EventHandler(this.Button_ManualCheck_Click);
+            // 
             // OptionsForm
             // 
             this.AcceptButton = this.button_Save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(340, 477);
+            this.ClientSize = new System.Drawing.Size(340, 560);
+            this.Controls.Add(this.button_ManualCheck);
+            this.Controls.Add(this.comboBox_CheckInterval);
+            this.Controls.Add(this.label_CheckAutoUpdateInterval);
             this.Controls.Add(this.label_Language);
             this.Controls.Add(this.comboBox_Languages);
             this.Controls.Add(this.checkBox_RegisterCustomURI);
@@ -230,5 +268,8 @@
         private System.Windows.Forms.CheckBox checkBox_RegisterCustomURI;
         private System.Windows.Forms.ComboBox comboBox_Languages;
         private System.Windows.Forms.Label label_Language;
+        private System.Windows.Forms.Label label_CheckAutoUpdateInterval;
+        private System.Windows.Forms.ComboBox comboBox_CheckInterval;
+        private System.Windows.Forms.Button button_ManualCheck;
     }
 }

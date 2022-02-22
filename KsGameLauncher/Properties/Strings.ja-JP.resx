@@ -171,8 +171,33 @@
     <value>ファイルへの書き込みが許可されていないため
 ゲーム一覧を保存できませんでした。</value>
   </data>
+  <data name="CheckAutoUpdate" xml:space="preserve">
+    <value>自動アップデート確認</value>
+  </data>
   <data name="CheckFollowingPage" xml:space="preserve">
     <value>ページを確認してください (ブラウザが開きます)</value>
+  </data>
+  <data name="CheckUpdateInterval_Daily" xml:space="preserve">
+    <value>1日1回</value>
+  </data>
+  <data name="CheckUpdateInterval_Days" xml:space="preserve">
+    <value>{0}日ごと</value>
+    <comment>{0} is every N days</comment>
+  </data>
+  <data name="CheckUpdateInterval_Hourly" xml:space="preserve">
+    <value>1時間に1回</value>
+  </data>
+  <data name="CheckUpdateInterval_Hours" xml:space="preserve">
+    <value>{0}時間ごと</value>
+  </data>
+  <data name="CheckUpdateInterval_Minutely" xml:space="preserve">
+    <value>1分に1回</value>
+  </data>
+  <data name="CheckUpdateInterval_Minutes" xml:space="preserve">
+    <value>{0}分ごと</value>
+  </data>
+  <data name="CheckUpdateInterval_None" xml:space="preserve">
+    <value>しない</value>
   </data>
   <data name="ConfirmAddNewGame" xml:space="preserve">
     <value>"{0}" を追加してよろしいですか？</value>
@@ -191,6 +216,12 @@
 
 これはコンピューターに {0}:// として起動するプロトコルを登録します。 
 これはショートカットからのゲームを起動する際に使用します。</value>
+  </data>
+  <data name="ConfirmToExecuteCheckManualUpdatConfirmToExecuteCheckManualUpdate" xml:space="preserve">
+    <value>アップデートを確認しますか？</value>
+  </data>
+  <data name="ConfirmToExecuteCheckManualUpdate" xml:space="preserve">
+    <value>アップデートの確認をします。よろしいですか？</value>
   </data>
   <data name="ConfirmToRemove" xml:space="preserve">
     <value>削除確認</value>
@@ -299,6 +330,9 @@
   </data>
   <data name="LoginSessionHasBeenExpired" xml:space="preserve">
     <value>ログイン時のセッションが切れました。再度実行し直してください。</value>
+  </data>
+  <data name="ManualUpdateCheckButton" xml:space="preserve">
+    <value>手動確認</value>
   </data>
   <data name="NoAccountRegistered" xml:space="preserve">
     <value>アカウントは登録されていません</value>

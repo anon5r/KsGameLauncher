@@ -164,6 +164,7 @@ namespace KsGameLauncher.Properties {
         
         /// <summary>
         ///   AdysTech.CredentialManager (https://github.com/AdysTech/CredentialManager) 
+        ///AutoUpdater.NET (https://github.com/ravibpatel/AutoUpdater.NET)
         ///
         ///HtmlAgilityPack (https://github.com/atifaziz/Hazz) に類似しているローカライズされた文字列を検索します。
         /// </summary>
@@ -215,6 +216,15 @@ namespace KsGameLauncher.Properties {
         internal static string TosCheckPath {
             get {
                 return ResourceManager.GetString("TosCheckPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   https://launcher-app.sdvx.net/update.xml に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string UpdateXML {
+            get {
+                return ResourceManager.GetString("UpdateXML", resourceCulture);
             }
         }
     }

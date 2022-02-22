@@ -26,6 +26,13 @@ namespace KsGameLauncher
             mainForm = _form;
             InitializeComponent();
             CreateNotificationIcon();
+
+
+            if (Properties.Settings.Default.UpdateCheckInterval > 0)
+                Utils.UpdateChecker.CreateUpdateCheker(Properties.Settings.Default.UpdateCheckInterval, 
+                    Properties.Settings.Default.UpdateCheckIntervalUnit);
+            else
+                Utils.AppUtil.CheckUpdate();
         }
 
         ~MainContext()
