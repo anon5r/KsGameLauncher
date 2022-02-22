@@ -235,9 +235,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="Structures\CheckInterval.cs" />
     <Compile Include="Structures\InternetShortcut.cs" />
     <Compile Include="Exceptions\InvalidFormatException.cs" />
     <Compile Include="Utils\AppUtil.cs" />
+    <Compile Include="Utils\UpdateChecker.cs" />
     <Compile Include="Utils\Common.cs" />
     <Compile Include="Utils\Crypt.cs" />
     <Compile Include="Utils\GameRegistry.cs" />

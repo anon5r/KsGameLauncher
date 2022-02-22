@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using AutoUpdaterDotNET;
 
 namespace KsGameLauncher
 {
@@ -29,7 +28,11 @@ namespace KsGameLauncher
             CreateNotificationIcon();
 
 
-            AutoUpdater.Start(Properties.Resources.UpdateXML, typeof(Program).Assembly);
+            if (Properties.Settings.Default.UpdateCheckInterval > 0)
+                Utils.UpdateChecker.CreateUpdateCheker(Properties.Settings.Default.UpdateCheckInterval, 
+                    Properties.Settings.Default.UpdateCheckIntervalUnit);
+            else
+                Utils.AppUtil.CheckUpdate();
         }
 
         ~MainContext()

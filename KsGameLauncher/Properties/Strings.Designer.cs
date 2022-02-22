@@ -215,11 +215,83 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
+        ///   Check auto update に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CheckAutoUpdate {
+            get {
+                return ResourceManager.GetString("CheckAutoUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Please check following page. (will open the web browser) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string CheckFollowingPage {
             get {
                 return ResourceManager.GetString("CheckFollowingPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Daily に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CheckUpdateInterval_Daily {
+            get {
+                return ResourceManager.GetString("CheckUpdateInterval_Daily", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Per {0} days に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CheckUpdateInterval_Days {
+            get {
+                return ResourceManager.GetString("CheckUpdateInterval_Days", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Hourly に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CheckUpdateInterval_Hourly {
+            get {
+                return ResourceManager.GetString("CheckUpdateInterval_Hourly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Per {0} hours に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CheckUpdateInterval_Hours {
+            get {
+                return ResourceManager.GetString("CheckUpdateInterval_Hours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Minutely に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CheckUpdateInterval_Minutely {
+            get {
+                return ResourceManager.GetString("CheckUpdateInterval_Minutely", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Per {0} minutes に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CheckUpdateInterval_Minutes {
+            get {
+                return ResourceManager.GetString("CheckUpdateInterval_Minutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   None に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CheckUpdateInterval_None {
+            get {
+                return ResourceManager.GetString("CheckUpdateInterval_None", resourceCulture);
             }
         }
         
@@ -263,6 +335,15 @@ namespace KsGameLauncher.Properties {
         internal static string ConfirmRegisterCustomURI {
             get {
                 return ResourceManager.GetString("ConfirmRegisterCustomURI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Do you want to check update ? に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ConfirmToExecuteCheckManualUpdate {
+            get {
+                return ResourceManager.GetString("ConfirmToExecuteCheckManualUpdate", resourceCulture);
             }
         }
         
@@ -579,6 +660,15 @@ namespace KsGameLauncher.Properties {
         internal static string LoginSessionHasBeenExpired {
             get {
                 return ResourceManager.GetString("LoginSessionHasBeenExpired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Manual check に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ManualUpdateCheckButton {
+            get {
+                return ResourceManager.GetString("ManualUpdateCheckButton", resourceCulture);
             }
         }
         
