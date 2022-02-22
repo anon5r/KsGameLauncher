@@ -171,8 +171,35 @@ You can try removing it from "Credential Manager" in Control Panel.\nIf you clic
   <data name="CannotSaveGameList" xml:space="preserve">
     <value>Could not be saved game list, because not allowed write files.</value>
   </data>
+  <data name="CheckAutoUpdate" xml:space="preserve">
+    <value>Check auto update</value>
+  </data>
   <data name="CheckFollowingPage" xml:space="preserve">
     <value>Please check following page. (will open the web browser)</value>
+  </data>
+  <data name="CheckUpdateInterval_Daily" xml:space="preserve">
+    <value>Daily</value>
+  </data>
+  <data name="CheckUpdateInterval_Days" xml:space="preserve">
+    <value>Per {0} days</value>
+    <comment>{0} is every N days</comment>
+  </data>
+  <data name="CheckUpdateInterval_Hourly" xml:space="preserve">
+    <value>Hourly</value>
+  </data>
+  <data name="CheckUpdateInterval_Hours" xml:space="preserve">
+    <value>Per {0} hours</value>
+    <comment>{0} is every N hours</comment>
+  </data>
+  <data name="CheckUpdateInterval_Minutely" xml:space="preserve">
+    <value>Minutely</value>
+  </data>
+  <data name="CheckUpdateInterval_Minutes" xml:space="preserve">
+    <value>Per {0} minutes</value>
+    <comment>{0} is every N minutes</comment>
+  </data>
+  <data name="CheckUpdateInterval_None" xml:space="preserve">
+    <value>None</value>
   </data>
   <data name="ConfirmAddNewGame" xml:space="preserve">
     <value>Are you sure you want to add "{0}" ?</value>
@@ -192,6 +219,9 @@ If you select "No", this changes will be applied at the next time.</value>
 
 This will be registered the protocol to boot as {0}:// on your computer.
 This is used to launch the game directly from the shortcut.</value>
+  </data>
+  <data name="ConfirmToExecuteCheckManualUpdate" xml:space="preserve">
+    <value>Do you want to check update ?</value>
   </data>
   <data name="ConfirmToRemove" xml:space="preserve">
     <value>Remove confirm</value>
@@ -303,6 +333,9 @@ This file may not exist or may be temporarily unavailable.</value>
   </data>
   <data name="LoginSessionHasBeenExpired" xml:space="preserve">
     <value>Login session has been expired. Please login again.</value>
+  </data>
+  <data name="ManualUpdateCheckButton" xml:space="preserve">
+    <value>Manual check</value>
   </data>
   <data name="NoAccountRegistered" xml:space="preserve">
     <value>No account registered</value>

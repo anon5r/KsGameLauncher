@@ -369,5 +369,18 @@ namespace KsGameLauncher.Properties {
                 return ((global::System.Collections.Specialized.StringCollection)(this["SupportedLanguage"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int UpdateCheckInterval {
+            get {
+                return ((int)(this["UpdateCheckInterval"]));
+            }
+            set {
+                this["UpdateCheckInterval"] = value;
+            }
+        }
+        
     }
 }

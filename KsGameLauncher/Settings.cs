@@ -55,5 +55,20 @@
             }
             set { this["Cookie"] = value; }
         }
+
+        [System.Configuration.UserScopedSettingAttribute()]
+        [System.Configuration.SettingsDescription("UpdateIntervalUnit")]
+        [System.Configuration.DefaultSettingValueAttribute("0")]
+        public Structures.CheckInterval.UnitType UpdateCheckIntervalUnit
+        {
+            get
+            {
+                return ((Structures.CheckInterval.UnitType)(this["UpdateCheckIntervalUnit"]));
+            }
+            set
+            {
+                this["UpdateCheckIntervalUnit"] = value;
+            }
+        }
     }
 }

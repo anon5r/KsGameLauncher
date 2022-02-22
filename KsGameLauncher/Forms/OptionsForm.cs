@@ -1,4 +1,5 @@
 ﻿using KsGameLauncher.Utils;
+using KsGameLauncher.Structures;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
@@ -24,15 +25,15 @@ namespace KsGameLauncher
         private void OptionsForm_Load(object sender, EventArgs e)
         {
             Icon = Properties.Resources.appIcon;
-            string[] items = {
+            string[] menuSizes = {
                 // Normal
                 Properties.Strings.ContextMenuSize_Text_Normal,
                 // Large
                 Properties.Strings.ContextMenuSize_Text_Large
             };
             comboBox_ContextMenuSize.Items.Clear();
-            comboBox_ContextMenuSize.Items.AddRange(items);
-            // Language
+            comboBox_ContextMenuSize.Items.AddRange(menuSizes);
+            // Languages
             Language currentLang = (string.IsNullOrEmpty(Properties.Settings.Default.Language) 
                 || Properties.Settings.Default.Language == Properties.Resources.DefaultLanguage)
                 ? Languages.GetLanguage(Properties.Resources.DefaultLanguage)
@@ -47,6 +48,25 @@ namespace KsGameLauncher
             Debug.WriteLine(String.Format("[OPTION:Load] Language comboBox selectedIndex: {0}", comboBox_Languages.Items.IndexOf(currentLang)));
 #endif
 
+            // Check update
+            int[] updateIntervalsDays = { 1, 3, 7, 14 }; // None, everyday, 3 days, 7 days, 2 weeks
+            comboBox_CheckInterval.Items.Clear();
+            comboBox_CheckInterval.Items.Add(new CheckInterval(0, CheckInterval.UnitType.None));
+            for (int i = 0; i < updateIntervalsDays.Length; i++)
+            {
+                CheckInterval check = new CheckInterval(updateIntervalsDays[i], CheckInterval.UnitType.Days);
+                comboBox_CheckInterval.Items.Add(check);
+            }
+#if DEBUG
+            for (int i = 0; i < updateIntervalsDays.Length; i++)
+            {
+                CheckInterval check = new CheckInterval(updateIntervalsDays[i], CheckInterval.UnitType.Minutes);
+                comboBox_CheckInterval.Items.Add(check);
+            }
+#endif
+
+
+
             // Default values
             checkBox_UseProxy.Checked = Properties.Settings.Default.UseProxy;
             checkBox_Notification.Checked = Properties.Settings.Default.EnableNotification;
@@ -54,6 +74,22 @@ namespace KsGameLauncher
             checkBox_DisplayInstalledGamesOnly.Checked = Properties.Settings.Default.ShowOnlyInstalledGames;
             checkBox_RegisterCustomURI.Checked = Properties.Settings.Default.RegisterCustomURI;
             comboBox_ContextMenuSize.SelectedIndex = Properties.Settings.Default.ContextMenuSize;
+            int intervalSelectedIndex = 0;
+            if (Properties.Settings.Default.UpdateCheckInterval > 0)
+            {
+                int settingInterval = Properties.Settings.Default.UpdateCheckInterval;
+                CheckInterval.UnitType settingUnit = Properties.Settings.Default.UpdateCheckIntervalUnit;
+                for (int i = 0; i < comboBox_CheckInterval.Items.Count; i++)
+                {
+                    CheckInterval intervalItem = (CheckInterval)comboBox_CheckInterval.Items[i];
+                    if (intervalItem.Interval == settingInterval && intervalItem.Unit == settingUnit)
+                    {
+                        intervalSelectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            comboBox_CheckInterval.SelectedIndex = intervalSelectedIndex;
 
             // String
             Text = Properties.Strings.OptionsWindowTitle;
@@ -66,6 +102,8 @@ namespace KsGameLauncher
             linkLabel_OpenProxySettings.Text = Properties.Strings.OptionsProxySettingsLink;
             button_Save.Text = Properties.Strings.ButtonSave;
             button_SyncAppInfo.Text = Properties.Strings.SynchWithServerButton;
+            label_CheckAutoUpdateInterval.Text = Properties.Strings.CheckAutoUpdate;
+            button_ManualCheck.Text = Properties.Strings.ManualUpdateCheckButton;
 
             checkBox_RegisterCustomURI.Text = (checkBox_RegisterCustomURI.Checked)
                 ? Properties.Strings.ShortcutLaunchCheckboxDisable
@@ -104,17 +142,38 @@ namespace KsGameLauncher
                     restartApp = true;
             }
 
+            // AutoUpdate settings
+            CheckInterval selectedInterval = (CheckInterval)comboBox_CheckInterval.Items[comboBox_CheckInterval.SelectedIndex];
+#if DEBUG
+            Debug.WriteLine(String.Format("[OPTION:Save] AutoUpdateCheck.Interval before changes: {0}", Properties.Settings.Default.UpdateCheckInterval));
+            Debug.WriteLine(String.Format("[OPTION:Save] AutoUpdateCheck.Interval before unit: {0}", Properties.Settings.Default.UpdateCheckIntervalUnit));
+            Debug.WriteLine(String.Format("[OPTION:Save] AutoUpdateCheck.Interval selected: {0}", selectedInterval.Interval));
+            Debug.WriteLine(String.Format("[OPTION:Save] AutoUpdateCheck.Interval unit: {0}", selectedInterval.Unit));
+#endif
+            // need to update thread interval
+            bool reloadAutoUpdate = false;
+            if (Properties.Settings.Default.UpdateCheckInterval != selectedInterval.Interval
+                || Properties.Settings.Default.UpdateCheckIntervalUnit != selectedInterval.Unit)
+                reloadAutoUpdate = true;
+
+
             // Save settings
             Properties.Settings.Default.UseProxy = checkBox_UseProxy.Checked;
             Properties.Settings.Default.EnableNotification = checkBox_Notification.Checked;
             Properties.Settings.Default.ShowConfirmExit = checkBox_ConfirmExit.Checked;
             Properties.Settings.Default.ShowOnlyInstalledGames = checkBox_DisplayInstalledGamesOnly.Checked;
             Properties.Settings.Default.ContextMenuSize = comboBox_ContextMenuSize.SelectedIndex;
-            Properties.Settings.Default.Language = ((Language)comboBox_Languages.Items[comboBox_Languages.SelectedIndex]).ID;
+            Properties.Settings.Default.Language = selectedLang.ID;
+            Properties.Settings.Default.UpdateCheckInterval = selectedInterval.Interval;
+            Properties.Settings.Default.UpdateCheckIntervalUnit = selectedInterval.Unit;
             Properties.Settings.Default.Save();
 
             if (needsUpdateGames)
-                Program.mainContext.LoadGamesMenu();   // Re-load menu
+                Program.mainContext.LoadGamesMenu();   // Reload menu
+
+            if (reloadAutoUpdate)
+                UpdateChecker.UpdateInterval(selectedInterval.Interval, selectedInterval.Unit);
+
 
             if (restartApp)
             {
@@ -202,6 +261,14 @@ namespace KsGameLauncher
                 else
                     checkBox_RegisterCustomURI.Checked = true;
             }
+        }
+
+        private void Button_ManualCheck_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(Properties.Strings.ConfirmToExecuteCheckManualUpdate, 
+                Properties.Strings.AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+            if (result == DialogResult.Yes)
+                AppUtil.CheckUpdate();
         }
     }
 }

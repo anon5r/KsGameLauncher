@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.Win32;
 using System.Reflection;
 using System.Windows.Forms;
+using AutoUpdaterDotNET;
 #if DEBUG
 using System.Diagnostics;
 #endif
@@ -87,6 +88,20 @@ namespace KsGameLauncher.Utils
             }
             catch (ObjectDisposedException) { }
             catch (ArgumentException) { }
+        }
+
+
+        internal static void CheckUpdate()
+        {
+#if DEBUG
+            Debug.WriteLine(String.Format("[CheckUpdate {0}] Start check update", DateTime.Now));
+#endif
+            AutoUpdater.Synchronous = true;
+            AutoUpdater.RunUpdateAsAdmin = false;
+            AutoUpdater.Start(Properties.Resources.UpdateXML, typeof(Program).Assembly);
+#if DEBUG
+            Debug.WriteLine(String.Format("[CheckUpdate {0}] Done called", DateTime.Now));
+#endif
         }
 
     }
