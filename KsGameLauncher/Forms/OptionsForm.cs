@@ -72,6 +72,7 @@ namespace KsGameLauncher
             checkBox_Notification.Checked = Properties.Settings.Default.EnableNotification;
             checkBox_ConfirmExit.Checked = Properties.Settings.Default.ShowConfirmExit;
             checkBox_DisplayInstalledGamesOnly.Checked = Properties.Settings.Default.ShowOnlyInstalledGames;
+            checkBox_RunDirect.Checked = Properties.Settings.Default.RunGameDirect;
             checkBox_RegisterCustomURI.Checked = Properties.Settings.Default.RegisterCustomURI;
             comboBox_ContextMenuSize.SelectedIndex = Properties.Settings.Default.ContextMenuSize;
             int intervalSelectedIndex = 0;
@@ -99,6 +100,7 @@ namespace KsGameLauncher
             checkBox_Notification.Text = Properties.Strings.OptionsDisplayNotification;
             checkBox_ConfirmExit.Text = Properties.Strings.ShowConfirmExit;
             checkBox_DisplayInstalledGamesOnly.Text = Properties.Strings.ShowOnlyInstalledGames;
+            checkBox_RunDirect.Text = Properties.Strings.RunGameDirectly;
             linkLabel_OpenProxySettings.Text = Properties.Strings.OptionsProxySettingsLink;
             button_Save.Text = Properties.Strings.ButtonSave;
             button_SyncAppInfo.Text = Properties.Strings.SynchWithServerButton;
@@ -162,6 +164,7 @@ namespace KsGameLauncher
             Properties.Settings.Default.EnableNotification = checkBox_Notification.Checked;
             Properties.Settings.Default.ShowConfirmExit = checkBox_ConfirmExit.Checked;
             Properties.Settings.Default.ShowOnlyInstalledGames = checkBox_DisplayInstalledGamesOnly.Checked;
+            Properties.Settings.Default.RunGameDirect = checkBox_RunDirect.Checked;
             Properties.Settings.Default.ContextMenuSize = comboBox_ContextMenuSize.SelectedIndex;
             Properties.Settings.Default.Language = selectedLang.ID;
             Properties.Settings.Default.UpdateCheckInterval = selectedInterval.Interval;

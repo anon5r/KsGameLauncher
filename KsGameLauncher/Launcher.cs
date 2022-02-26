@@ -36,6 +36,9 @@ namespace KsGameLauncher
             return instance;
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         private Launcher()
         {
 
@@ -552,6 +555,7 @@ namespace KsGameLauncher
         /// Start game launcher
         /// </summary>
         /// <param name="app"></param>
+        /// <returns></returns>
         public async Task StartApp(AppInfo app)
         {
             NetworkCredential credential = GetCredential();
@@ -708,6 +712,12 @@ namespace KsGameLauncher
             return;
         }
 
+        /// <summary>
+        /// Parse launcher launch page
+        /// </summary>
+        /// <param name="content"></param>
+        /// <param name="querySelector"></param>
+        /// <exception cref="LauncherException"></exception>
         async Task<bool> LauncherLoginPage(string content, string querySelector)
         {
             if (content == null || content.Length < 0)
@@ -741,24 +751,72 @@ namespace KsGameLauncher
                 Debug.WriteLine(String.Format("launcherUri: {0}", launcherCustomProtocol));
                 Debug.WriteLine(String.Format("custom scheme: {0}", customUri.Scheme));
 #endif
-                string launcherPath = Utils.GameRegistry.GetLauncherPath(customUri.Scheme);
-#if DEBUG
-                Debug.WriteLine(String.Format("Launcher exec path: {0}", launcherPath));
-#endif
-
-                Process.Start(launcherPath, launcherCustomProtocol);
+                RunGame(customUri);
             }
             return true;
         }
 
+        /// <summary>
+        /// Launch the launcher or game
+        /// </summary>
+        /// <param name="launcherUri"></param>
+        private void RunGame(Uri launcherUri)
+        {
+            string execPath = Utils.GameRegistry.GetLauncherPath(launcherUri.Scheme);
+            string args = launcherUri.ToString();
+#if DEBUG
+            Debug.WriteLine(String.Format("Launcher exec path: {0}", execPath));
+#endif
+            if (Properties.Settings.Default.RunGameDirect)
+            {
+                string launcherPath, errorReporterPath;
+                launcherPath = Properties.Settings.Default.LauncherPath;
+                errorReporterPath = Properties.Settings.Default.ErrorReporterPath;
+                if (launcherUri.Scheme.StartsWith("bm2dxinf"))
+                {
+                    launcherPath = Properties.Settings.Default.LauncherPath_2dx;
+                    errorReporterPath = Properties.Settings.Default.ErrorReporterPath_2dx;
+                }
+
+                string testPath = execPath.Replace(launcherPath, errorReporterPath);
+
+                if (File.Exists(testPath))
+                {
+                    execPath = testPath;
+                    string param = "tk=";
+                    if (launcherUri.Query.Contains("&"))
+                        args = string.Format("-t {0}", launcherUri.Query.Substring(1).Substring(launcherUri.Query.IndexOf(param)+param.Length, launcherUri.Query.IndexOf("&")));
+                    else
+                        args = string.Format("-t {0}", launcherUri.Query.Substring(1).Substring(launcherUri.Query.IndexOf(param) + param.Length));
+                }
+                else
+                {
+                    MessageBox.Show(Properties.Strings.CannotFindErrorReporter, Properties.Strings.AppName,
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.DefaultDesktopOnly);
+                }
+            }
+
+            Process.Start(execPath, launcherUri.ToString());
+        }
+
+        /// <summary>
+        /// Get credentials
+        /// </summary>
+        /// <returns></returns>
         private NetworkCredential GetCredential()
         {
             return CredentialManager.GetCredentials(target: Properties.Resources.CredentialTarget);
         }
 
+        /// <summary>
+        /// Find game exe
+        /// </summary>
+        /// <param name="launcherPath"></param>
+        /// <returns></returns>
         private string GetGamePathFromLauncher(string launcherPath)
         {
-            string gamePath = launcherPath.Replace(@"\launcher\modules\launcher.exe", @"game\modules\");
+            string gamePath = launcherPath.Replace(Properties.Settings.Default.LauncherPath, @"game\modules\");
             string[] files = Directory.GetFiles(gamePath, "*.exe");
             if (files.Length < 0)
                 return null;

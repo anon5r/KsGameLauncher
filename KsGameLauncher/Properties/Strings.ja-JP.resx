@@ -164,6 +164,9 @@
   <data name="ButtonUpdate_Register" xml:space="preserve">
     <value>登録 (&amp;G)</value>
   </data>
+  <data name="CannotFindErrorReporter" xml:space="preserve">
+    <value>ゲーム実行ファイルが見つからないためランチャーを起動します。</value>
+  </data>
   <data name="CannotLoadLoginPage" xml:space="preserve">
     <value>ログインページを読み込むことができませんでした</value>
   </data>
@@ -357,6 +360,9 @@
   </data>
   <data name="OptionsWindowTitle" xml:space="preserve">
     <value>オプション</value>
+  </data>
+  <data name="RunGameDirectly" xml:space="preserve">
+    <value>ランチャーをスキップ</value>
   </data>
   <data name="OTPDialogMessage_2FA" xml:space="preserve">
     <value>メールで受け取った{0}桁のコードを入力してください。</value>

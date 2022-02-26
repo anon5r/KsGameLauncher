@@ -258,6 +258,15 @@ namespace KsGameLauncher.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("launcher\\modules\\errorreporter.exe")]
+        public string ErrorReporterPath {
+            get {
+                return ((string)(this["ErrorReporterPath"]));
+            }
+        }
+
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("ksgamelauncher")]
         public string AppUriScheme {
             get {
@@ -268,12 +277,42 @@ namespace KsGameLauncher.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RunGameDirect {
+            get {
+                return ((bool)(this["RunGameDirect"]));
+            }
+            set {
+                this["RunGameDirect"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool RegisterCustomURI {
             get {
                 return ((bool)(this["RegisterCustomURI"]));
             }
             set {
                 this["RegisterCustomURI"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("launcher\\modules\\bm2dx_er.exe")]
+        public string ErrorReporterPath_2dx {
+            get {
+                return ((string)(this["ErrorReporterPath_2dx"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("launcher\\modules\\launcher.exe")]
+        public string LauncherPath {
+            get {
+                return ((string)(this["LauncherPath"]));
             }
         }
         
@@ -356,6 +395,15 @@ namespace KsGameLauncher.Properties {
             }
             set {
                 this["Language"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("launcher\\modules\\bm2dx_launcher.exe")]
+        public string LauncherPath_2dx {
+            get {
+                return ((string)(this["LauncherPath_2dx"]));
             }
         }
         

@@ -197,6 +197,15 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
+        ///   Launcher launches because the game execution file cannot be found. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CannotFindErrorReporter {
+            get {
+                return ResourceManager.GetString("CannotFindErrorReporter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cannot load login page に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string CannotLoadLoginPage {
@@ -735,6 +744,15 @@ namespace KsGameLauncher.Properties {
             }
         }
         
+        /// <summary>
+        ///   Run the game directly に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string RunGameDirectly {
+            get {
+                return ResourceManager.GetString("RunGameDirectly", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Enter {0}-digits code you received here. に類似しているローカライズされた文字列を検索します。
         /// </summary>
