@@ -140,6 +140,9 @@
   <data name="AlreadyRunning" xml:space="preserve">
     <value>すでに起動しています</value>
   </data>
+  <data name="ApplicationRequiresRestarting" xml:space="preserve">
+    <value>アプリケーションの再起動が必要です</value>
+  </data>
   <data name="AppName" xml:space="preserve">
     <value>Ks Game Launcher</value>
   </data>
@@ -164,18 +167,64 @@
   <data name="CannotFindErrorReporter" xml:space="preserve">
     <value>ゲーム実行ファイルが見つからないためランチャーを起動します。</value>
   </data>
+  <data name="CannotLoadLoginPage" xml:space="preserve">
+    <value>ログインページを読み込むことができませんでした</value>
+  </data>
   <data name="CannotSaveGameList" xml:space="preserve">
     <value>ファイルへの書き込みが許可されていないため
 ゲーム一覧を保存できませんでした。</value>
   </data>
+  <data name="CheckAutoUpdate" xml:space="preserve">
+    <value>自動アップデート確認</value>
+  </data>
   <data name="CheckFollowingPage" xml:space="preserve">
     <value>ページを確認してください (ブラウザが開きます)</value>
+  </data>
+  <data name="CheckUpdateInterval_Daily" xml:space="preserve">
+    <value>1日1回</value>
+  </data>
+  <data name="CheckUpdateInterval_Days" xml:space="preserve">
+    <value>{0}日ごと</value>
+    <comment>{0} is every N days</comment>
+  </data>
+  <data name="CheckUpdateInterval_Hourly" xml:space="preserve">
+    <value>1時間に1回</value>
+  </data>
+  <data name="CheckUpdateInterval_Hours" xml:space="preserve">
+    <value>{0}時間ごと</value>
+  </data>
+  <data name="CheckUpdateInterval_Minutely" xml:space="preserve">
+    <value>1分に1回</value>
+  </data>
+  <data name="CheckUpdateInterval_Minutes" xml:space="preserve">
+    <value>{0}分ごと</value>
+  </data>
+  <data name="CheckUpdateInterval_None" xml:space="preserve">
+    <value>しない</value>
   </data>
   <data name="ConfirmAddNewGame" xml:space="preserve">
     <value>"{0}" を追加してよろしいですか？</value>
   </data>
+  <data name="ConfirmApplicationRestartingForLanguageSettings" xml:space="preserve">
+    <value>言語設定を変更するにはアプリの再起動が必要です。
+再起動してよろしいですか？
+「はい」を選択すると、すぐに再起動されます。
+「いいえ」を選択すると、次回起動時に変更が適用されます。</value>
+  </data>
   <data name="ConfirmExitDialogMessage" xml:space="preserve">
     <value>本当に終了しますか？</value>
+  </data>
+  <data name="ConfirmRegisterCustomURI" xml:space="preserve">
+    <value>ショートカット起動を有効にします。よろしいですか？
+
+これはコンピューターに {0}:// として起動するプロトコルを登録します。 
+これはショートカットからのゲームを起動する際に使用します。</value>
+  </data>
+  <data name="ConfirmToExecuteCheckManualUpdatConfirmToExecuteCheckManualUpdate" xml:space="preserve">
+    <value>アップデートを確認しますか？</value>
+  </data>
+  <data name="ConfirmToExecuteCheckManualUpdate" xml:space="preserve">
+    <value>アップデートの確認をします。よろしいですか？</value>
   </data>
   <data name="ConfirmToRemove" xml:space="preserve">
     <value>削除確認</value>
@@ -183,8 +232,26 @@
   <data name="ConfirmToRemoveAccountFromList" xml:space="preserve">
     <value>アカウント情報の登録を削除してもよろしいですか？</value>
   </data>
+  <data name="ConfirmUnregisterCustomURI" xml:space="preserve">
+    <value>ショートカット起動を無効にします。よろしいですか？</value>
+  </data>
   <data name="ConnectionTimeout" xml:space="preserve">
     <value>通信がタイムアウトしました。接続状況を確認してください。</value>
+  </data>
+  <data name="ContextMenuItems_About" xml:space="preserve">
+    <value>アプリについて (&amp;A)</value>
+  </data>
+  <data name="ContextMenuItems_AddNewGame" xml:space="preserve">
+    <value>ゲームの追加 (&amp;N)</value>
+  </data>
+  <data name="ContextMenuItems_Exit" xml:space="preserve">
+    <value>終了 (&amp;X)</value>
+  </data>
+  <data name="ContextMenuItems_ManageAccount" xml:space="preserve">
+    <value>アカウント管理 (&amp;M)</value>
+  </data>
+  <data name="ContextMenuItems_Options" xml:space="preserve">
+    <value>オプション (&amp;O)</value>
   </data>
   <data name="ContextMenuSize_Text_Large" xml:space="preserve">
     <value>大きめ</value>
@@ -192,8 +259,17 @@
   <data name="ContextMenuSize_Text_Normal" xml:space="preserve">
     <value>通常</value>
   </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>無効にしました。</value>
+  </data>
+  <data name="DisplayLanguage" xml:space="preserve">
+    <value>表示言語</value>
+  </data>
   <data name="DropHere" xml:space="preserve">
     <value>ここにショートカットをドラッグ＆ドロップ</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>有効にしました。</value>
   </data>
   <data name="EnterYourAccountPasswordPrompt" xml:space="preserve">
     <value>アカウントIDとパスワードを入力してください。</value>
@@ -258,6 +334,9 @@
   <data name="LoginSessionHasBeenExpired" xml:space="preserve">
     <value>ログイン時のセッションが切れました。再度実行し直してください。</value>
   </data>
+  <data name="ManualUpdateCheckButton" xml:space="preserve">
+    <value>手動確認</value>
+  </data>
   <data name="NoAccountRegistered" xml:space="preserve">
     <value>アカウントは登録されていません</value>
     <comment>DIalog error message</comment>
@@ -285,8 +364,20 @@
   <data name="RunGameDirectly" xml:space="preserve">
     <value>ランチャーをスキップ</value>
   </data>
+  <data name="OTPDialogMessage_2FA" xml:space="preserve">
+    <value>メールで受け取った{0}桁のコードを入力してください。</value>
+  </data>
+  <data name="OTPDialogMessage_OTP" xml:space="preserve">
+    <value>トークンに表示されている{0}桁のコードを入力してください。</value>
+  </data>
   <data name="ServiceIsTemporaryUnavailable" xml:space="preserve">
     <value>サービスが一時的に停止しているか、利用できません。</value>
+  </data>
+  <data name="ShortcutLaunchCheckboxDisable" xml:space="preserve">
+    <value>ショートカット起動を無効にする</value>
+  </data>
+  <data name="ShortcutLaunchCheckboxEnable" xml:space="preserve">
+    <value>ショートカット起動を有効にする</value>
   </data>
   <data name="ShouldBeSetAccountBeforeLaunch" xml:space="preserve">
     <value>最初に"アカウント管理"からアカウントの登録を行ってください。</value>
@@ -322,7 +413,23 @@
   <data name="SyncWithServerSuccessMessage" xml:space="preserve">
     <value>同期に成功しました</value>
   </data>
+  <data name="SystemText" xml:space="preserve">
+    <value>システム</value>
+  </data>
+  <data name="ToolTipHintOTPDescription" xml:space="preserve">
+    <value>チェックするとログイン時にOTPの入力を求められます。</value>
+  </data>
+  <data name="UnderMaintenanceMessage" xml:space="preserve">
+    <value>ただいまサービスはメンテナンス中のため利用できません。
+メンテナンス情報を表示しますか？</value>
+  </data>
   <data name="UnknownStatusReceived" xml:space="preserve">
     <value>不明なステータスを受信しました。</value>
+  </data>
+  <data name="UseOTP" xml:space="preserve">
+    <value>OTPを使用</value>
+  </data>
+  <data name="WhatsOTP" xml:space="preserve">
+    <value>OTPとは</value>
   </data>
 </root>

@@ -1,0 +1,29 @@
+[
+	{
+		"game_id": "infinitas",
+		"name": "beatmania IIDX INFINITAS",
+		"launch" : {
+			"url":"https://p.eagate.573.jp/game/infinitas/2/api/login/login.html",
+			"selector": "#login>div>a.link-btn"
+		},
+		"iconFile": "{{installDir}}\\beatmania IIDX INFINITAS.ico"
+	},
+	{
+		"game_id": "sdvx",
+		"name": "SOUND VOLTEX EXCEED GEAR",
+		"launch": {
+			"url": "https://p.eagate.573.jp/game/konasteapp/API/login/login.html?game_id=sdvx",
+			"selector": "#login>div>a.link-btn"
+		},
+		"iconFile": "{{installDir}}\\SOUND VOLTEX EXCEED GEAR.ico"
+	},
+	{
+		"game_id": "bomber-girl",
+		"name": "BomberGirl",
+		"launch": {
+			"url": "https://p.eagate.573.jp/game/konasteapp/API/login/login.html?game_id=bomber-girl",
+			"selector": "#login>div>a.link-btn"
+		},
+		"iconFile": "{{installDir}}\\BomberGirl.ico"
+	}
+]

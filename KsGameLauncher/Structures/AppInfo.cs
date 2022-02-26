@@ -101,7 +101,22 @@ namespace KsGameLauncher
             return List;
         }
 
-        async internal static void save()
+        /// <summary>
+        /// Find appinfo
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>If find it, will return AppInfo, otherwise returns null</returns>
+        public static AppInfo Find(string id)
+        {
+            foreach (AppInfo app in List)
+            {
+                if (app.ID.Equals(id))
+                    return app;
+            }
+            return null;
+        }
+
+        async internal static void Save()
         {
             try
             {
@@ -110,7 +125,7 @@ namespace KsGameLauncher
                 {
                     if (!fstream.CanWrite)
                     {
-                        MessageBox.Show(Resources.CannotSaveGameList);
+                        MessageBox.Show(Properties.Strings.CannotSaveGameList);
                         return;
                     }
 

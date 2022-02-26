@@ -139,6 +139,9 @@ You can try removing it from "Credential Manager" in Control Panel.\nIf you clic
   <data name="AlreadyRunning" xml:space="preserve">
     <value>Already running</value>
   </data>
+  <data name="ApplicationRequiresRestarting" xml:space="preserve">
+    <value>Application requires restarting</value>
+  </data>
   <data name="AppName" xml:space="preserve">
     <value>Ks Game Launcher</value>
   </data>
@@ -165,17 +168,63 @@ You can try removing it from "Credential Manager" in Control Panel.\nIf you clic
   <data name="CannotFindErrorReporter" xml:space="preserve">
     <value>Launcher launches because the game execution file cannot be found.</value>
   </data>
+  <data name="CannotLoadLoginPage" xml:space="preserve">
+    <value>Cannot load login page</value>
+  </data>
   <data name="CannotSaveGameList" xml:space="preserve">
     <value>Could not be saved game list, because not allowed write files.</value>
+  </data>
+  <data name="CheckAutoUpdate" xml:space="preserve">
+    <value>Check auto update</value>
   </data>
   <data name="CheckFollowingPage" xml:space="preserve">
     <value>Please check following page. (will open the web browser)</value>
   </data>
+  <data name="CheckUpdateInterval_Daily" xml:space="preserve">
+    <value>Daily</value>
+  </data>
+  <data name="CheckUpdateInterval_Days" xml:space="preserve">
+    <value>Per {0} days</value>
+    <comment>{0} is every N days</comment>
+  </data>
+  <data name="CheckUpdateInterval_Hourly" xml:space="preserve">
+    <value>Hourly</value>
+  </data>
+  <data name="CheckUpdateInterval_Hours" xml:space="preserve">
+    <value>Per {0} hours</value>
+    <comment>{0} is every N hours</comment>
+  </data>
+  <data name="CheckUpdateInterval_Minutely" xml:space="preserve">
+    <value>Minutely</value>
+  </data>
+  <data name="CheckUpdateInterval_Minutes" xml:space="preserve">
+    <value>Per {0} minutes</value>
+    <comment>{0} is every N minutes</comment>
+  </data>
+  <data name="CheckUpdateInterval_None" xml:space="preserve">
+    <value>None</value>
+  </data>
   <data name="ConfirmAddNewGame" xml:space="preserve">
     <value>Are you sure you want to add "{0}" ?</value>
   </data>
+  <data name="ConfirmApplicationRestartingForLanguageSettings" xml:space="preserve">
+    <value>You need to restart the app to change the language.
+Are you sure you want to restart?
+
+If you select "Yes", it will be restarted immediately.
+If you select "No", this changes will be applied at the next time.</value>
+  </data>
   <data name="ConfirmExitDialogMessage" xml:space="preserve">
     <value>Are you sure you want to exit ?</value>
+  </data>
+  <data name="ConfirmRegisterCustomURI" xml:space="preserve">
+    <value>Are you sure you want to enable shortcut launch ?
+
+This will be registered the protocol to boot as {0}:// on your computer.
+This is used to launch the game directly from the shortcut.</value>
+  </data>
+  <data name="ConfirmToExecuteCheckManualUpdate" xml:space="preserve">
+    <value>Do you want to check update ?</value>
   </data>
   <data name="ConfirmToRemove" xml:space="preserve">
     <value>Remove confirm</value>
@@ -183,8 +232,26 @@ You can try removing it from "Credential Manager" in Control Panel.\nIf you clic
   <data name="ConfirmToRemoveAccountFromList" xml:space="preserve">
     <value>Are you sure you want to logout your account from the registered List ?</value>
   </data>
+  <data name="ConfirmUnregisterCustomURI" xml:space="preserve">
+    <value>Are you sure you want to disable shortcut launch feature ?</value>
+  </data>
   <data name="ConnectionTimeout" xml:space="preserve">
     <value>Network connection was time out. please check your network.</value>
+  </data>
+  <data name="ContextMenuItems_About" xml:space="preserve">
+    <value>&amp;About</value>
+  </data>
+  <data name="ContextMenuItems_AddNewGame" xml:space="preserve">
+    <value>Add &amp;New Game</value>
+  </data>
+  <data name="ContextMenuItems_Exit" xml:space="preserve">
+    <value>E&amp;xit</value>
+  </data>
+  <data name="ContextMenuItems_ManageAccount" xml:space="preserve">
+    <value>&amp;Manage Accounts</value>
+  </data>
+  <data name="ContextMenuItems_Options" xml:space="preserve">
+    <value>&amp;Options</value>
   </data>
   <data name="ContextMenuSize_Text_Large" xml:space="preserve">
     <value>Large</value>
@@ -192,8 +259,17 @@ You can try removing it from "Credential Manager" in Control Panel.\nIf you clic
   <data name="ContextMenuSize_Text_Normal" xml:space="preserve">
     <value>Normal</value>
   </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Disabled.</value>
+  </data>
+  <data name="DisplayLanguage" xml:space="preserve">
+    <value>Display language</value>
+  </data>
   <data name="DropHere" xml:space="preserve">
     <value>Drop shortcut here</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>Enabled.</value>
   </data>
   <data name="EnterYourAccountPasswordPrompt" xml:space="preserve">
     <value>Enter your account ID and password</value>
@@ -261,6 +337,9 @@ This file may not exist or may be temporarily unavailable.</value>
   <data name="LoginSessionHasBeenExpired" xml:space="preserve">
     <value>Login session has been expired. Please login again.</value>
   </data>
+  <data name="ManualUpdateCheckButton" xml:space="preserve">
+    <value>Manual check</value>
+  </data>
   <data name="NoAccountRegistered" xml:space="preserve">
     <value>No account registered</value>
     <comment>DIalog error message</comment>
@@ -289,8 +368,20 @@ This file may not exist or may be temporarily unavailable.</value>
   <data name="RunGameDirectly" xml:space="preserve">
     <value>Run the game directly</value>
   </data>
+  <data name="OTPDialogMessage_2FA" xml:space="preserve">
+    <value>Enter {0}-digits code you received here.</value>
+  </data>
+  <data name="OTPDialogMessage_OTP" xml:space="preserve">
+    <value>Enter {0}-digits code displayed on your token device/app.</value>
+  </data>
   <data name="ServiceIsTemporaryUnavailable" xml:space="preserve">
     <value>Service is temporarily down or unavailable.</value>
+  </data>
+  <data name="ShortcutLaunchCheckboxDisable" xml:space="preserve">
+    <value>Disable shortcut launch</value>
+  </data>
+  <data name="ShortcutLaunchCheckboxEnable" xml:space="preserve">
+    <value>Enable shortcut launch</value>
   </data>
   <data name="ShouldBeSetAccountBeforeLaunch" xml:space="preserve">
     <value>Please setup your account from "Manage account" before launch app</value>
@@ -326,7 +417,24 @@ When you sync with the server, the games you manually registered will be initial
   <data name="SyncWithServerSuccessMessage" xml:space="preserve">
     <value>Synchronization was successful!</value>
   </data>
+  <data name="SystemText" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="ToolTipHintOTPDescription" xml:space="preserve">
+    <value>If you check this, you will be prompted to enter the OTP at login.</value>
+  </data>
+  <data name="UnderMaintenanceMessage" xml:space="preserve">
+    <value>The service is currently under maintenance and cannot be used.
+
+Do you want to display maintenance information?</value>
+  </data>
   <data name="UnknownStatusReceived" xml:space="preserve">
     <value>Unknown status received.</value>
+  </data>
+  <data name="UseOTP" xml:space="preserve">
+    <value>Use OTP</value>
+  </data>
+  <data name="WhatsOTP" xml:space="preserve">
+    <value>What is OTP</value>
   </data>
 </root>

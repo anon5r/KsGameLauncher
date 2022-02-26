@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CS8632: '#nullable' 注釈コンテキスト内のコードでのみ、Null 許容参照型の注釈を使用する必要があります。
+dotnet_diagnostic.CS8632.severity = none

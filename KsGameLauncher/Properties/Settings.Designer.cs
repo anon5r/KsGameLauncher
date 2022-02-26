@@ -82,13 +82,13 @@ namespace KsGameLauncher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#login-form>div.form-area>form>input[type=hidden][name=csrfmiddlewaretoken]")]
-        public string selector_login_csrf {
+        [global::System.Configuration.DefaultSettingValueAttribute("div.form-area>form>input[type=hidden][name=csrfmiddlewaretoken]")]
+        public string selector_csrf {
             get {
-                return ((string)(this["selector_login_csrf"]));
+                return ((string)(this["selector_csrf"]));
             }
             set {
-                this["selector_login_csrf"] = value;
+                this["selector_csrf"] = value;
             }
         }
         
@@ -168,7 +168,7 @@ namespace KsGameLauncher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public int NotificationTimeout {
             get {
                 return ((int)(this["NotificationTimeout"]));
@@ -264,6 +264,12 @@ namespace KsGameLauncher.Properties {
                 return ((string)(this["ErrorReporterPath"]));
             }
         }
+        [global::System.Configuration.DefaultSettingValueAttribute("ksgamelauncher")]
+        public string AppUriScheme {
+            get {
+                return ((string)(this["AppUriScheme"]));
+            }
+        }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -274,6 +280,18 @@ namespace KsGameLauncher.Properties {
             }
             set {
                 this["RunGameDirect"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RegisterCustomURI {
+            get {
+                return ((bool)(this["RegisterCustomURI"]));
+            }
+            set {
+                this["RegisterCustomURI"] = value;
             }
         }
         
@@ -297,11 +315,117 @@ namespace KsGameLauncher.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://my.konami.net/otp.html")]
+        public string LinkUrlOTP {
+            get {
+                return ((string)(this["LinkUrlOTP"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#id_pincode")]
+        public string selector_2fa_pincode {
+            get {
+                return ((string)(this["selector_2fa_pincode"]));
+            }
+            set {
+                this["selector_2fa_pincode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#is_persistent")]
+        public string selector_2fa_pincod_persistnt {
+            get {
+                return ((string)(this["selector_2fa_pincod_persistnt"]));
+            }
+            set {
+                this["selector_2fa_pincod_persistnt"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("two_step.html")]
+        public string AuthPage_2FAPath {
+            get {
+                return ((string)(this["AuthPage_2FAPath"]));
+            }
+            set {
+                this["AuthPage_2FAPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UseOTP {
+            get {
+                return ((bool)(this["UseOTP"]));
+            }
+            set {
+                this["UseOTP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#two-step-form>div.form-area>form")]
+        public string selector_2fa_form {
+            get {
+                return ((string)(this["selector_2fa_form"]));
+            }
+            set {
+                this["selector_2fa_form"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("system")]
+        public string Language {
+            get {
+                return ((string)(this["Language"]));
+            }
+            set {
+                this["Language"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("launcher\\modules\\bm2dx_launcher.exe")]
         public string LauncherPath_2dx {
             get {
                 return ((string)(this["LauncherPath_2dx"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsd=\"http://www.w3." +
+            "org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n  <s" +
+            "tring>en-US</string>\r\n  <string>ja-JP</string>\r\n</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection SupportedLanguage {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["SupportedLanguage"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int UpdateCheckInterval {
+            get {
+                return ((int)(this["UpdateCheckInterval"]));
+            }
+            set {
+                this["UpdateCheckInterval"] = value;
+            }
+        }
+        
     }
 }

@@ -15,11 +15,14 @@ namespace KsGameLauncher
         public AccountForm()
         {
             InitializeComponent();
-            button_Update.Text = Resources.ButtonUpdate;
-            button_Remove.Text = Resources.ButtonRemove;
-            button_Close.Text = Resources.ButtonClose;
-            groupBox_AccountInfo.Text = Resources.GroupBoxAccountInfo;
-            label_AccountID.Text = Resources.LabelAccountID;
+            button_Update.Text = Properties.Strings.ButtonUpdate;
+            button_Remove.Text = Properties.Strings.ButtonRemove;
+            button_Close.Text = Properties.Strings.ButtonClose;
+            groupBox_AccountInfo.Text = Properties.Strings.GroupBoxAccountInfo;
+            label_AccountID.Text = Properties.Strings.LabelAccountID;
+            toolTip_Hint.SetToolTip(checkBox_UseOTP, Properties.Strings.ToolTipHintOTPDescription);
+            linkLabel_OTP.Text = Properties.Strings.WhatsOTP;
+            checkBox_UseOTP.Text = Properties.Strings.UseOTP;
         }
 
         ~AccountForm()
@@ -29,10 +32,11 @@ namespace KsGameLauncher
 
         private void AccountForm_Load(object sender, EventArgs e)
         {
-            Icon = Properties.Resources.app;
-            Text = Resources.AccountManagerForm;
-            button_Update.Text = Resources.ButtonUpdate_Register;
+            Icon = Properties.Resources.appIcon;
+            Text = Properties.Strings.AccountManagerForm;
+            button_Update.Text = Properties.Strings.ButtonUpdate_Register;
             button_Remove.Enabled = false;
+            checkBox_UseOTP.Checked = Properties.Settings.Default.UseOTP;
             if (!RefreshRegisteredAccounts())
             {
                 try
@@ -42,7 +46,7 @@ namespace KsGameLauncher
                     // Display credential input prompt
                     bool save = true;
                     credential = CredentialManager.PromptForCredentials(CredentialName, ref save,
-                        Resources.EnterYourAccountPasswordPrompt, Resources.AppName, "");
+                        Properties.Strings.EnterYourAccountPasswordPrompt, Properties.Strings.AppName, "");
                     if (credential != null)
                     {
                         credential.Domain = Properties.Resources.AuthorizeDomain;
@@ -59,7 +63,7 @@ namespace KsGameLauncher
 
         private async void Button_Remove_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(Resources.ConfirmToRemoveAccountFromList, Resources.ConfirmToRemove, 
+            DialogResult result = MessageBox.Show(Properties.Strings.ConfirmToRemoveAccountFromList, Properties.Strings.ConfirmToRemove,
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question,
                 MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             if (result == DialogResult.Yes)
@@ -71,11 +75,11 @@ namespace KsGameLauncher
                         await Launcher.Logout();
                         credential = CredentialManager.GetCredentials(CredentialName);
                         RefreshRegisteredAccounts();
-                        MessageBox.Show(Resources.AccountRemoveSucceeded);
+                        MessageBox.Show(Properties.Strings.AccountRemoveSucceeded);
                     }
                     else
                     {
-                        result = MessageBox.Show(Resources.AccountRemoveFailed, Resources.AppName, 
+                        result = MessageBox.Show(Properties.Strings.AccountRemoveFailed, Properties.Strings.AppName,
                             MessageBoxButtons.RetryCancel, MessageBoxIcon.Error,
                             MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                         if (result == DialogResult.Retry)
@@ -86,7 +90,7 @@ namespace KsGameLauncher
                 }
                 catch (CredentialAPIException)
                 {
-                    result = MessageBox.Show(Resources.AccountRemoveFailed, Resources.AppName, 
+                    result = MessageBox.Show(Properties.Strings.AccountRemoveFailed, Properties.Strings.AppName,
                         MessageBoxButtons.RetryCancel, MessageBoxIcon.Error,
                         MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                     if (result == DialogResult.Retry)
@@ -107,7 +111,7 @@ namespace KsGameLauncher
             {
 
                 credential = CredentialManager.PromptForCredentials(CredentialName, ref save,
-                    Resources.EnterYourAccountPasswordPrompt, Resources.AppName, defaultUserName);
+                    Properties.Strings.EnterYourAccountPasswordPrompt, Properties.Strings.AppName, defaultUserName);
                 if (credential != null)
                 {
                     credential.Domain = Properties.Resources.AuthorizeDomain;
@@ -133,8 +137,8 @@ namespace KsGameLauncher
 
         private bool RefreshRegisteredAccounts()
         {
-            label_UserAccountID_Value.Text = Resources.NoAccountRegistered;
-            button_Update.Text = Resources.ButtonUpdate_Register;
+            label_UserAccountID_Value.Text = Properties.Strings.NoAccountRegistered;
+            button_Update.Text = Properties.Strings.ButtonUpdate_Register;
             button_Remove.Enabled = false;
             List<NetworkCredential> list = CredentialManager.EnumerateCredentials(CredentialName);
             if (list != null && list.Count > 0)
@@ -145,10 +149,20 @@ namespace KsGameLauncher
                     label_UserAccountID_Value.Text = credential.UserName;
                 });
                 button_Remove.Enabled = true;
-                button_Update.Text = Resources.ButtonUpdate;
+                button_Update.Text = Properties.Strings.ButtonUpdate;
             }
             return list != null && list.Count > 0;
         }
 
+        private void LinkLabel_OTP_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Utils.Common.OpenUrlByDefaultBrowser(Properties.Settings.Default.LinkUrlOTP);
+        }
+
+        private void AccountForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.UseOTP = checkBox_UseOTP.Checked;
+            Properties.Settings.Default.Save();
+        }
     }
 }

@@ -63,9 +63,9 @@ namespace KsGameLauncher.Properties {
         /// <summary>
         ///   (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
         /// </summary>
-        internal static System.Drawing.Icon app {
+        internal static System.Drawing.Icon appIcon {
             get {
-                object obj = ResourceManager.GetObject("app", resourceCulture);
+                object obj = ResourceManager.GetObject("appIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -89,6 +89,15 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
+        ///   Default game icon by flaticon (https://www.flaticon.com) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Copyrights {
+            get {
+                return ResourceManager.GetString("Copyrights", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ks Game Launcher に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string CredentialTarget {
@@ -108,11 +117,38 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
+        ///   en-US に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string DefaultInternalLanguage {
+            get {
+                return ResourceManager.GetString("DefaultInternalLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   system に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string DefaultLanguage {
+            get {
+                return ResourceManager.GetString("DefaultLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   anon に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string Developers {
             get {
                 return ResourceManager.GetString("Developers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   https://github.com/anon5r/KsGameLauncher に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string GithubURL {
+            get {
+                return ResourceManager.GetString("GithubURL", resourceCulture);
             }
         }
         
@@ -128,6 +164,7 @@ namespace KsGameLauncher.Properties {
         
         /// <summary>
         ///   AdysTech.CredentialManager (https://github.com/AdysTech/CredentialManager) 
+        ///AutoUpdater.NET (https://github.com/ravibpatel/AutoUpdater.NET)
         ///
         ///HtmlAgilityPack (https://github.com/atifaziz/Hazz) に類似しているローカライズされた文字列を検索します。
         /// </summary>
@@ -156,16 +193,6 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
-        ///   KONAMI Amusement Inc.
-        ///flaticon ( https://www.flaticon.com ) に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string SpecialThanks {
-            get {
-                return ResourceManager.GetString("SpecialThanks", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Support に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SupportLabelText {
@@ -175,7 +202,7 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
-        ///   https://github.com/anon5r/KsGameLauncher に類似しているローカライズされた文字列を検索します。
+        ///   https://launcher-app.sdvx.net に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SupportLabelURL {
             get {
@@ -189,6 +216,15 @@ namespace KsGameLauncher.Properties {
         internal static string TosCheckPath {
             get {
                 return ResourceManager.GetString("TosCheckPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   https://launcher-app.sdvx.net/update.xml に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string UpdateXML {
+            get {
+                return ResourceManager.GetString("UpdateXML", resourceCulture);
             }
         }
     }

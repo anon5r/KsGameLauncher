@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KsGameLauncher {
+namespace KsGameLauncher.Properties {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace KsGameLauncher {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class Strings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal Strings() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace KsGameLauncher {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("KsGameLauncher.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("KsGameLauncher.Properties.Strings", typeof(Strings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -125,6 +125,15 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   Application requires restarting に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ApplicationRequiresRestarting {
+            get {
+                return ResourceManager.GetString("ApplicationRequiresRestarting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ks Game Launcher に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string AppName {
@@ -197,11 +206,29 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   Cannot load login page に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CannotLoadLoginPage {
+            get {
+                return ResourceManager.GetString("CannotLoadLoginPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Could not be saved game list, because not allowed write files. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string CannotSaveGameList {
             get {
                 return ResourceManager.GetString("CannotSaveGameList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Check auto update に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CheckAutoUpdate {
+            get {
+                return ResourceManager.GetString("CheckAutoUpdate", resourceCulture);
             }
         }
         
@@ -215,6 +242,69 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   Daily に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CheckUpdateInterval_Daily {
+            get {
+                return ResourceManager.GetString("CheckUpdateInterval_Daily", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Per {0} days に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CheckUpdateInterval_Days {
+            get {
+                return ResourceManager.GetString("CheckUpdateInterval_Days", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Hourly に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CheckUpdateInterval_Hourly {
+            get {
+                return ResourceManager.GetString("CheckUpdateInterval_Hourly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Per {0} hours に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CheckUpdateInterval_Hours {
+            get {
+                return ResourceManager.GetString("CheckUpdateInterval_Hours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Minutely に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CheckUpdateInterval_Minutely {
+            get {
+                return ResourceManager.GetString("CheckUpdateInterval_Minutely", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Per {0} minutes に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CheckUpdateInterval_Minutes {
+            get {
+                return ResourceManager.GetString("CheckUpdateInterval_Minutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   None に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CheckUpdateInterval_None {
+            get {
+                return ResourceManager.GetString("CheckUpdateInterval_None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Are you sure you want to add &quot;{0}&quot; ? に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ConfirmAddNewGame {
@@ -224,11 +314,45 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   You need to restart the app to change the language.
+        ///Are you sure you want to restart?
+        ///
+        ///If you select &quot;Yes&quot;, it will be restarted immediately.
+        ///If you select &quot;No&quot;, this changes will be applied at the next time. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ConfirmApplicationRestartingForLanguageSettings {
+            get {
+                return ResourceManager.GetString("ConfirmApplicationRestartingForLanguageSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Are you sure you want to exit ? に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ConfirmExitDialogMessage {
             get {
                 return ResourceManager.GetString("ConfirmExitDialogMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Are you sure you want to enable shortcut launch ?
+        ///
+        ///This will be registered the protocol to boot as {0}:// on your computer.
+        ///This is used to launch the game directly from the shortcut. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ConfirmRegisterCustomURI {
+            get {
+                return ResourceManager.GetString("ConfirmRegisterCustomURI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Do you want to check update ? に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ConfirmToExecuteCheckManualUpdate {
+            get {
+                return ResourceManager.GetString("ConfirmToExecuteCheckManualUpdate", resourceCulture);
             }
         }
         
@@ -251,11 +375,65 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   Are you sure you want to disable shortcut launch feature ? に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ConfirmUnregisterCustomURI {
+            get {
+                return ResourceManager.GetString("ConfirmUnregisterCustomURI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Network connection was time out. please check your network. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ConnectionTimeout {
             get {
                 return ResourceManager.GetString("ConnectionTimeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &amp;About に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ContextMenuItems_About {
+            get {
+                return ResourceManager.GetString("ContextMenuItems_About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Add &amp;New Game に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ContextMenuItems_AddNewGame {
+            get {
+                return ResourceManager.GetString("ContextMenuItems_AddNewGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   E&amp;xit に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ContextMenuItems_Exit {
+            get {
+                return ResourceManager.GetString("ContextMenuItems_Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &amp;Manage Accounts に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ContextMenuItems_ManageAccount {
+            get {
+                return ResourceManager.GetString("ContextMenuItems_ManageAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &amp;Options に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ContextMenuItems_Options {
+            get {
+                return ResourceManager.GetString("ContextMenuItems_Options", resourceCulture);
             }
         }
         
@@ -278,11 +456,38 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   Disabled. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Disabled {
+            get {
+                return ResourceManager.GetString("Disabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Display language に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string DisplayLanguage {
+            get {
+                return ResourceManager.GetString("DisplayLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Drop shortcut here に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string DropHere {
             get {
                 return ResourceManager.GetString("DropHere", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Enabled. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Enabled {
+            get {
+                return ResourceManager.GetString("Enabled", resourceCulture);
             }
         }
         
@@ -468,6 +673,15 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   Manual check に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ManualUpdateCheckButton {
+            get {
+                return ResourceManager.GetString("ManualUpdateCheckButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   No account registered に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NoAccountRegistered {
@@ -538,6 +752,24 @@ namespace KsGameLauncher {
                 return ResourceManager.GetString("RunGameDirectly", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Enter {0}-digits code you received here. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string OTPDialogMessage_2FA {
+            get {
+                return ResourceManager.GetString("OTPDialogMessage_2FA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Enter {0}-digits code displayed on your token device/app. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string OTPDialogMessage_OTP {
+            get {
+                return ResourceManager.GetString("OTPDialogMessage_OTP", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Service is temporarily down or unavailable. に類似しているローカライズされた文字列を検索します。
@@ -545,6 +777,24 @@ namespace KsGameLauncher {
         internal static string ServiceIsTemporaryUnavailable {
             get {
                 return ResourceManager.GetString("ServiceIsTemporaryUnavailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Disable shortcut launch に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ShortcutLaunchCheckboxDisable {
+            get {
+                return ResourceManager.GetString("ShortcutLaunchCheckboxDisable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Enable shortcut launch に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ShortcutLaunchCheckboxEnable {
+            get {
+                return ResourceManager.GetString("ShortcutLaunchCheckboxEnable", resourceCulture);
             }
         }
         
@@ -649,11 +899,58 @@ namespace KsGameLauncher {
         }
         
         /// <summary>
+        ///   System に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SystemText {
+            get {
+                return ResourceManager.GetString("SystemText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   If you check this, you will be prompted to enter the OTP at login. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ToolTipHintOTPDescription {
+            get {
+                return ResourceManager.GetString("ToolTipHintOTPDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   The service is currently under maintenance and cannot be used.
+        ///
+        ///Do you want to display maintenance information? に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string UnderMaintenanceMessage {
+            get {
+                return ResourceManager.GetString("UnderMaintenanceMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Unknown status received. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string UnknownStatusReceived {
             get {
                 return ResourceManager.GetString("UnknownStatusReceived", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Use OTP に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string UseOTP {
+            get {
+                return ResourceManager.GetString("UseOTP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   What is OTP に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string WhatsOTP {
+            get {
+                return ResourceManager.GetString("WhatsOTP", resourceCulture);
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace KsGameLauncher
@@ -8,24 +9,40 @@ namespace KsGameLauncher
         public AboutForm()
         {
             InitializeComponent();
-            Icon = Properties.Resources.app;
+            Icon = Properties.Resources.appIcon;
         }
 
         private void About_Load(object sender, EventArgs e)
         {
-            Icon = Properties.Resources.app;
-            Text = Resources.AboutThisApp;
-            label_Application.Text = Resources.AppName;
+            Icon = Properties.Resources.appIcon;
+            Text = Properties.Strings.AboutThisApp;
+            label_Application.Text = Properties.Strings.AppName;
             label_Version.Text = "ver. " + Application.ProductVersion;
-            label_Develop.Text = Resources.LabelDeveloper;
+            label_Develop.Text = Properties.Strings.LabelDeveloper;
             AppDeveloper.Text = Properties.Resources.Developers;
-            textBox_SpecialThanks.Text =
-                //string.Format("AppIcon: {0}", Properties.Resources.AppIconDesigner) + 
-                Properties.Resources.SpecialThanks;
+            textBox_Copyrights.Text = "";
+            if (GetInstalledGamesName().Length > 0)
+            {
+                string installedGameRights = string.Format("\"{0}\"", string.Join("\", \"", GetInstalledGamesName()));
+                textBox_Copyrights.Text += string.Format("{0} are KONAMI Amusement All Rights Reserved.\r\n", installedGameRights);
+            }
+            textBox_Copyrights.Text += Properties.Resources.Copyrights;
             linkLabel_Support.Text = Properties.Resources.SupportLabelText;
-            linkLabel_License.Text = Resources.ShowLicense;
+            linkLabel_License.Text = Properties.Strings.ShowLicense;
 
             button_Ok.Focus();
+        }
+
+        private string[] GetInstalledGamesName()
+        {
+            List<AppInfo> appInfo = AppInfo.GetList();
+            string[] gameList = new string[appInfo.Count];
+            int i = 0;
+            AppInfo.GetList().ForEach(info =>
+            {
+                gameList[i++] = info.Name;
+            });
+            return gameList;
         }
 
         private void LinkLabel_Support_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -37,12 +54,15 @@ namespace KsGameLauncher
 
         private void LinkLabel_License_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            (new LicensesForm()).ShowDialog(this);
+            (new LicensesForm()
+            {
+                ShowInTaskbar = false,
+            }).ShowDialog(this);
         }
 
-        private void AboutForm_KeyPress(object sender, KeyPressEventArgs e)
+        private void LinkLabel_Github_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            System.Diagnostics.Process.Start(Properties.Resources.GithubURL);
         }
     }
 }
