@@ -243,11 +243,24 @@ namespace KsGameLauncher
                 }
                 catch (LauncherException ex)
                 {
-                    MessageBox.Show(String.Format(
-                        "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
-                        appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
-                    , ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error,
-                    MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+
+                    if (ex.OpenURL != null)
+                    {
+                        DialogResult result = MessageBox.Show(ex.Message, Properties.Strings.AppName, MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                        if (result == DialogResult.Yes)
+                        {
+                            Utils.Common.OpenUrlByDefaultBrowser(ex.OpenURL);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(String.Format(
+                            "Launcher: {0}, Exception: {1}\nMessage: {2}\n\nSource: {3}\n\n{4}",
+                            appInfo.Name, ex.GetType().Name, ex.Message, ex.Source, ex.StackTrace)
+                        , ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                    }
                 }
                 catch (Exception ex)
                 {
