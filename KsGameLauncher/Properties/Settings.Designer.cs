@@ -264,6 +264,9 @@ namespace KsGameLauncher.Properties {
                 return ((string)(this["ErrorReporterPath"]));
             }
         }
+
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("ksgamelauncher")]
         public string AppUriScheme {
             get {

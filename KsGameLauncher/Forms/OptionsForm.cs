@@ -100,7 +100,7 @@ namespace KsGameLauncher
             checkBox_Notification.Text = Properties.Strings.OptionsDisplayNotification;
             checkBox_ConfirmExit.Text = Properties.Strings.ShowConfirmExit;
             checkBox_DisplayInstalledGamesOnly.Text = Properties.Strings.ShowOnlyInstalledGames;
-            checkBox_RunDirect.Text = Resources.RunGameDirectly;
+            checkBox_RunDirect.Text = Properties.Strings.RunGameDirectly;
             linkLabel_OpenProxySettings.Text = Properties.Strings.OptionsProxySettingsLink;
             button_Save.Text = Properties.Strings.ButtonSave;
             button_SyncAppInfo.Text = Properties.Strings.SynchWithServerButton;

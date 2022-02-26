@@ -555,6 +555,7 @@ namespace KsGameLauncher
         /// Start game launcher
         /// </summary>
         /// <param name="app"></param>
+        /// <returns></returns>
         public async Task StartApp(AppInfo app)
         {
             NetworkCredential credential = GetCredential();
@@ -750,16 +751,16 @@ namespace KsGameLauncher
                 Debug.WriteLine(String.Format("launcherUri: {0}", launcherCustomProtocol));
                 Debug.WriteLine(String.Format("custom scheme: {0}", customUri.Scheme));
 #endif
-                LaunchGame(customUri);
+                RunGame(customUri);
             }
-
+            return true;
         }
 
         /// <summary>
         /// Launch the launcher or game
         /// </summary>
         /// <param name="launcherUri"></param>
-        private void LaunchGame(Uri launcherUri)
+        private void RunGame(Uri launcherUri)
         {
             string execPath = Utils.GameRegistry.GetLauncherPath(launcherUri.Scheme);
             string args = launcherUri.ToString();
@@ -790,13 +791,13 @@ namespace KsGameLauncher
                 }
                 else
                 {
-                    MessageBox.Show(Resources.CannotFindErrorReporter, Resources.AppName,
+                    MessageBox.Show(Properties.Strings.CannotFindErrorReporter, Properties.Strings.AppName,
                         MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1,
                         MessageBoxOptions.DefaultDesktopOnly);
                 }
-
             }
-            return true;
+
+            Process.Start(execPath, launcherUri.ToString());
         }
 
         /// <summary>
