@@ -100,7 +100,7 @@ namespace KsGameLauncher.Utils
             AutoUpdater.RunUpdateAsAdmin = false;
             AutoUpdater.Start(Properties.Resources.UpdateXML, typeof(Program).Assembly);
 #if DEBUG
-            Debug.WriteLine(String.Format("[CheckUpdate {0}] Done called", DateTime.Now));
+            Debug.WriteLine(String.Format("[CheckUpdate {0}] Done", DateTime.Now));
 #endif
         }
 

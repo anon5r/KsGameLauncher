@@ -143,7 +143,10 @@
     <value>..\resources\icons\default-game-icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Developers" xml:space="preserve">
-    <value>anon</value>
+    <value>anon5r</value>
+  </data>
+  <data name="GamePublisher" xml:space="preserve">
+    <value>KONAMI Amusement Co.,Ltd.</value>
   </data>
   <data name="GithubURL" xml:space="preserve">
     <value>https://github.com/anon5r/KsGameLauncher</value>
