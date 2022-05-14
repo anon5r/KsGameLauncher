@@ -215,6 +215,9 @@ If you select "No", this changes will be applied at the next time.</value>
   <data name="ConfirmExitDialogMessage" xml:space="preserve">
     <value>Are you sure you want to exit ?</value>
   </data>
+  <data name="ConfirmPrivacyPolicy" xml:space="preserve">
+    <value>Privacy policy has updated, please check it.</value>
+  </data>
   <data name="ConfirmRegisterCustomURI" xml:space="preserve">
     <value>Are you sure you want to enable shortcut launch ?
 
@@ -375,6 +378,9 @@ This file may not exist or may be temporarily unavailable.</value>
   <data name="OTPDialogMessage_OTP" xml:space="preserve">
     <value>Enter {0}-digits code displayed on your token device/app.</value>
     <comment>{0} is required number of digits</comment>
+  </data>
+  <data name="PrivacyConfirmationExceptionDialogName" xml:space="preserve">
+    <value>Privacy policy update</value>
   </data>
   <data name="ServiceIsTemporaryUnavailable" xml:space="preserve">
     <value>Service is temporarily down or unavailable.</value>

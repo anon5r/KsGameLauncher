@@ -426,4 +426,10 @@
   <data name="WhatsOTP" xml:space="preserve">
     <value>OTPとは</value>
   </data>
+  <data name="ConfirmPrivacyPolicy" xml:space="preserve">
+    <value>プライバシーポリシーが更新されました。内容をご確認ください。</value>
+  </data>
+  <data name="PrivacyConfirmationExceptionDialogName" xml:space="preserve">
+    <value>プライバシーポリシーの更新</value>
+  </data>
 </root>
