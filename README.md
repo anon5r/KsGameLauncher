@@ -1,6 +1,7 @@
-﻿Ks Game Launcher
+Ks Game Launcher
 ====
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/anon5r/KSGameLauncher)](https://github.com/anon5r/KSGameLauncher/releases/latest) [![GitHub all releases](https://img.shields.io/github/downloads/anon5r/KSGameLauncher/total)](https://github.com/anon5r/KSGameLauncher/releases/latest)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fanon5r%2FKsGameLauncher.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fanon5r%2FKsGameLauncher?ref=badge_shield)
 <a href="https://github.com/anon5r/KSGameLauncher/releases"><img src="https://github.com/anon5r/ksgamelauncher-docs/raw/main/assets/images/app-logo.png" alt="KS Game Launcher" width="120" align="right"></a>
 
 [Japanese (日本語)](README.ja-JP.md)
@@ -150,3 +151,6 @@ If it overlaps with an existing port, change it with `services.web.ports` in` do
       IsSuccess2 -- No  --> LoginFail;
       LoginFail([Display dialog 'Failed to login']);
 ```
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fanon5r%2FKsGameLauncher.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fanon5r%2FKsGameLauncher?ref=badge_large)
