@@ -52,13 +52,17 @@ namespace KsGameLauncher.Utils
             try
             {
                 //using (RegistryKey key = Registry.ClassesRoot.CreateSubKey(Properties.Settings.Default.AppCustomURIScheme);
-                using (RegistryKey key = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Classes\" + Properties.Settings.Default.AppUriScheme))
+                string appScheme = Properties.Settings.Default.AppUriScheme;
+#if DEBUG
+                appScheme = string.Format("{0}.dev", appScheme);
+#endif
+                using (RegistryKey key = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Classes\" + appScheme))
                 {
                     // Replace typeof(App) by the class that contains the Main method or any class located in the project that produces the exe.
                     // or replace typeof(App).Assembly.Location by anything that gives the full path to the exe
                     string appLocation = Assembly.GetExecutingAssembly().Location;
 
-                    key.SetValue("", "URL:" + Properties.Settings.Default.AppUriScheme);
+                    key.SetValue("", "URL:" + appScheme);
                     key.SetValue("URL Protocol", "");
 
                     using (RegistryKey defaultIcon = key.CreateSubKey("DefaultIcon"))
@@ -83,8 +87,12 @@ namespace KsGameLauncher.Utils
         {
             try
             {
+                string appScheme = Properties.Settings.Default.AppUriScheme;
+#if DEBUG
+                appScheme = string.Format("{0}.dev", appScheme);
+#endif
                 // Remove keys about URI Scheme for this program
-                Registry.CurrentUser.DeleteSubKeyTree(@"SOFTWARE\Classes\" + Properties.Settings.Default.AppUriScheme);
+                Registry.CurrentUser.DeleteSubKeyTree(@"SOFTWARE\Classes\" + appScheme);
             }
             catch (ObjectDisposedException) { }
             catch (ArgumentException) { }

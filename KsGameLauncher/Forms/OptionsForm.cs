@@ -228,9 +228,13 @@ namespace KsGameLauncher
         {
             DialogResult dialogResult;
             CheckState state = ((CheckBox)sender).CheckState;
+            string appScheme = Properties.Settings.Default.AppUriScheme;
+#if DEBUG
+            appScheme = String.Format("{0}.dev", appScheme);
+#endif
             if (state == CheckState.Checked)
             {
-                string message = string.Format(Properties.Strings.ConfirmRegisterCustomURI, Properties.Settings.Default.AppUriScheme);
+                string message = string.Format(Properties.Strings.ConfirmRegisterCustomURI, appScheme);
                 dialogResult = MessageBox.Show(message, Properties.Strings.AppName,
                     MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
                 if (dialogResult == DialogResult.Yes)
@@ -238,7 +242,7 @@ namespace KsGameLauncher
                     // Enable shortcut launch mode / Register custom URI scheme
                     AppUtil.RegisterScheme();
                     checkBox_RegisterCustomURI.Text = Properties.Strings.ShortcutLaunchCheckboxDisable;
-                    Properties.Settings.Default.RegisterCustomURI = (state == CheckState.Checked);
+                    Properties.Settings.Default.RegisterCustomURI = state == CheckState.Checked;
                     Properties.Settings.Default.Save();
                     MessageBox.Show(Properties.Strings.Enabled, Properties.Strings.AppName, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
@@ -254,7 +258,7 @@ namespace KsGameLauncher
                     // Disable shortcut launch mode / Remove custom URI scheme
                     AppUtil.DeleteScheme();
                     checkBox_RegisterCustomURI.Text = Properties.Strings.ShortcutLaunchCheckboxEnable;
-                    Properties.Settings.Default.RegisterCustomURI = (state == CheckState.Checked);
+                    Properties.Settings.Default.RegisterCustomURI = state == CheckState.Checked;
                     Properties.Settings.Default.Save();
                     MessageBox.Show(Properties.Strings.Disabled, Properties.Strings.AppName, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
