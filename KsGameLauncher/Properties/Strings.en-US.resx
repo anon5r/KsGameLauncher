@@ -289,6 +289,9 @@ This file may not exist or may be temporarily unavailable.</value>
   <data name="ErrorWhileLogin" xml:space="preserve">
     <value>Error has occrred while login</value>
   </data>
+  <data name="FailedToGetAuthURL" xml:space="preserve">
+    <value>Failed to get authURL. This url was changed or removed from the servicve.</value>
+  </data>
   <data name="FailedToLoadFile" xml:space="preserve">
     <value>Failed to load {0}</value>
     <comment>{0} is JSON filename</comment>

@@ -318,19 +318,10 @@ namespace KsGameLauncher
             using (var response = await httpClient.GetAsync(Properties.Settings.Default.LoginURL))
             {
                 response.EnsureSuccessStatusCode();
-
-                Stream stream = response.Content.ReadAsStreamAsync().Result;
-                Encoding enc = null;
-                if (response.Content.Headers.Contains("Content-Type"))
-                    enc = EncodingMapJapanese(response.Content.Headers.ContentType.CharSet);
-                else
-                    enc = Encoding.UTF8;
-                string content = ConvertEncoding(stream, enc);
-
-                if (content == null || !content.StartsWith("https:"))
+                
+                if (response.StatusCode != HttpStatusCode.OK)
                     throw new LoginUriException("Failed to get login URL");
-
-                return new Uri(content);
+                return response.RequestMessage.RequestUri;
             }
         }
 
@@ -597,6 +588,11 @@ namespace KsGameLauncher
                             MessageBox.Show(string.Format("Failed to login, cannot launch {0}", app.Name));
                             return;
                         }
+                    }
+                    catch (LoginUriException ex)
+                    {
+                        MessageBox.Show(Properties.Strings.FailedToGetAuthURL, Properties.Strings.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        throw ex;
                     }
                     catch (LoginCancelException ex)
                     {

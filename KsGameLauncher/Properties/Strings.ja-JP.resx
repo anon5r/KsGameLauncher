@@ -432,4 +432,7 @@
   <data name="PrivacyConfirmationExceptionDialogName" xml:space="preserve">
     <value>プライバシーポリシーの更新</value>
   </data>
+  <data name="FailedToGetAuthURL" xml:space="preserve">
+    <value>認証URLの取得に失敗しました。URLは変更されたか、サービスから削除されました。</value>
+  </data>
 </root>

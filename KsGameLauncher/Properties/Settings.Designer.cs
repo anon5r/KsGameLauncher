@@ -128,7 +128,7 @@ namespace KsGameLauncher.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://p.eagate.573.jp/gate/k/API/common/getloginurl.html")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://p.eagate.573.jp/gate/p/login.html")]
         public string LoginURL {
             get {
                 return ((string)(this["LoginURL"]));

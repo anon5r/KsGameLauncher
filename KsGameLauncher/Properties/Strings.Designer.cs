@@ -529,6 +529,15 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
+        ///   Failed to get authURL. This url was changed or removed from the servicve. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string FailedToGetAuthURL {
+            get {
+                return ResourceManager.GetString("FailedToGetAuthURL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Failed to load {0} に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string FailedToLoadFile {
@@ -768,15 +777,6 @@ namespace KsGameLauncher.Properties {
         internal static string PrivacyConfirmationExceptionDialogName {
             get {
                 return ResourceManager.GetString("PrivacyConfirmationExceptionDialogName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Run the game directly に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string RunGameDirectly {
-            get {
-                return ResourceManager.GetString("RunGameDirectly", resourceCulture);
             }
         }
         
