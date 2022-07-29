@@ -42,19 +42,35 @@
 
 
         [System.Configuration.UserScopedSettingAttribute()]
-        [System.Configuration.SettingsDescription("Cookie as login session")]
+        [System.Configuration.SettingsDescription("Cookie collection as login session")]
         [System.Configuration.DefaultSettingValue(null)]
         [System.Configuration.SettingsSerializeAs(System.Configuration.SettingsSerializeAs.Binary)]
-        public System.Net.Cookie Cookie
+        public System.Net.CookieContainer Cookies
         {
             get
             {
-                if (this["Cookie"] == null)
+                if (this["Cookies"] == null)
                     return null;
-                return (System.Net.Cookie)this["Cookie"];
+                return (System.Net.CookieContainer)this["Cookies"];
             }
-            set { this["Cookie"] = value; }
+            set { this["Cookies"] = value; }
         }
+
+        //[System.Configuration.UserScopedSettingAttribute()]
+        //[System.Configuration.SettingsDescription("Cookie collection as login session")]
+        //[System.Configuration.DefaultSettingValue(null)]
+        //[System.Configuration.SettingsSerializeAs(System.Configuration.SettingsSerializeAs.Binary)]
+        //public System.Collections.Generic.Dictionary<string, System.Net.CookieCollection> Cookies
+        //{
+        //    get
+        //    {
+        //        if (this["Cookies"] == null)
+        //            return null;
+        //        return (System.Collections.Generic.Dictionary<string, System.Net.CookieCollection>)this["Cookies"];
+        //    }
+        //    set { this["Cookies"] = value; }
+        //}
+
 
         [System.Configuration.UserScopedSettingAttribute()]
         [System.Configuration.SettingsDescription("UpdateIntervalUnit")]

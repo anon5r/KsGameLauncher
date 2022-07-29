@@ -147,7 +147,11 @@ namespace KsGameLauncher
         /// <param name="uri">Custom URI starts with `Properties.Settings.Default.AppUriScheme`</param>
         static async Task ProcessUri(Uri uri)
         {
-            if (string.Equals(uri.Scheme, Properties.Settings.Default.AppUriScheme, StringComparison.OrdinalIgnoreCase))
+            string appScheme = Properties.Settings.Default.AppUriScheme;
+#if DEBUG
+            appScheme = string.Format("{0}.dev", Properties.Settings.Default.AppUriScheme);
+#endif
+            if (string.Equals(uri.Scheme, appScheme, StringComparison.OrdinalIgnoreCase))
             {
 
 #if DEBUG
@@ -179,7 +183,7 @@ namespace KsGameLauncher
         }
 
 
-        #region isLoaded()
+#region isLoaded()
         /// <summary>
         /// Does it has been already running
         /// </summary>
@@ -196,6 +200,6 @@ namespace KsGameLauncher
             }
             return false;
         }
-        #endregion
+#endregion
     }
 }

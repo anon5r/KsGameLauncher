@@ -128,7 +128,7 @@ namespace KsGameLauncher.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://p.eagate.573.jp/gate/k/API/common/getloginurl.html")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://p.eagate.573.jp/gate/p/login.html")]
         public string LoginURL {
             get {
                 return ((string)(this["LoginURL"]));
@@ -382,5 +382,53 @@ namespace KsGameLauncher.Properties {
             }
         }
         
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://p.eagate.573.jp/gate/agree/p/privacy_confirm.html")]
+        public string PrivacyConfirmPath {
+            get {
+                return ((string)(this["PrivacyConfirmPath"]));
+            }
+            set {
+                this["PrivacyConfirmPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("launcher\\modules\\errorreporter.exe")]
+        public string ErrorReporterPath {
+            get {
+                return ((string)(this["ErrorReporterPath"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("launcher\\modules\\bm2dx_er.exe")]
+        public string ErrorReporterPath_2dx {
+            get {
+                return ((string)(this["ErrorReporterPath_2dx"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("launcher\\modules\\launcher.exe")]
+        public string LauncherPath {
+            get {
+                return ((string)(this["LauncherPath"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("launcher\\modules\\bm2dx_launcher.exe")]
+        public string LauncherPath_2dx {
+            get {
+                return ((string)(this["LauncherPath_2dx"]));
+            }
+        }
     }
 }

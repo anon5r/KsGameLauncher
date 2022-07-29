@@ -135,11 +135,20 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
-        ///   anon に類似しているローカライズされた文字列を検索します。
+        ///   anon5r に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string Developers {
             get {
                 return ResourceManager.GetString("Developers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   KONAMI Amusement Co.,Ltd. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string GamePublisher {
+            get {
+                return ResourceManager.GetString("GamePublisher", resourceCulture);
             }
         }
         

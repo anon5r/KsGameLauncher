@@ -12,6 +12,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KsGameLauncher.Properties;
 
 namespace KsGameLauncher
 {
@@ -170,11 +171,26 @@ namespace KsGameLauncher
             {
                 httpHandler.Proxy = WebRequest.GetSystemWebProxy();
             }
-            Cookie savedCookie = Properties.Settings.Default.Cookie;
-            if (savedCookie != null
-                && !savedCookie.Expired)
+
+            CookieContainer savedCookies = Properties.Settings.Default.Cookies;
+            if (savedCookies != null)
             {
-                httpHandler.CookieContainer.Add(savedCookie);
+                bool expired = true;
+                Debug.WriteLine(savedCookies.GetType().ToString());
+                foreach (Cookie cookie in savedCookies.GetCookies(new Uri(Properties.Settings.Default.BaseURL)))
+                {
+                    Debug.WriteLine(cookie.GetType().ToString());
+                    // cookie : CookieCollection
+                    if (cookie != null && cookie.Name == Properties.Resources.LoginCookieSessionKey)
+                    {
+                        //expired = collection[Properties.Resources.LoginCookieSessionKey].Expired;
+                        expired = cookie.Expired;
+                    }
+                }
+                if (!expired)
+                {
+                    httpHandler.CookieContainer = savedCookies;
+                }
             }
             HttpClient httpClient = new HttpClient(httpHandler)
             {
@@ -213,19 +229,21 @@ namespace KsGameLauncher
             }
 
             bool isLogin = false;
-            CookieCollection cookies = httpHandler.CookieContainer.GetCookies(new Uri(Properties.Settings.Default.BaseURL));
-            Cookie savedCookie = Properties.Settings.Default.Cookie;
+            Uri BaseURL = new Uri(Properties.Settings.Default.BaseURL);
+            CookieCollection cookies = httpHandler.CookieContainer.GetCookies(BaseURL);
+            CookieContainer savedCookies = Properties.Settings.Default.Cookies;
             foreach (Cookie cookie in cookies)
             {
+                Debug.WriteLine(String.Format("DomainName: {0}; Path={1}", cookie.Domain, cookie.Path));
                 Debug.WriteLine(String.Format("CookieName: {0}", cookie.Name));
                 if (cookie.Name == Properties.Resources.LoginCookieSessionKey)
                 {
                     Debug.WriteLine(String.Format("Cookie: {0}", cookie.ToString()));
                     isLogin = true;
-                    if (savedCookie == null || savedCookie.Expired)
+                    if (savedCookies == null || cookie.Expired)
                     {
                         // Save latest cookie value if it does not exists, or expired
-                        Properties.Settings.Default.Cookie = cookie;
+                        Properties.Settings.Default.Cookies = httpHandler.CookieContainer;
                         Properties.Settings.Default.Save();
                     }
                     break;
@@ -300,19 +318,10 @@ namespace KsGameLauncher
             using (var response = await httpClient.GetAsync(Properties.Settings.Default.LoginURL))
             {
                 response.EnsureSuccessStatusCode();
-
-                Stream stream = response.Content.ReadAsStreamAsync().Result;
-                Encoding enc = null;
-                if (response.Content.Headers.Contains("Content-Type"))
-                    enc = EncodingMapJapanese(response.Content.Headers.ContentType.CharSet);
-                else
-                    enc = Encoding.UTF8;
-                string content = ConvertEncoding(stream, enc);
-
-                if (content == null || !content.StartsWith("https:"))
+                
+                if (response.StatusCode != HttpStatusCode.OK)
                     throw new LoginUriException("Failed to get login URL");
-
-                return new Uri(content);
+                return response.RequestMessage.RequestUri;
             }
         }
 
@@ -580,6 +589,11 @@ namespace KsGameLauncher
                             return;
                         }
                     }
+                    catch (LoginUriException ex)
+                    {
+                        MessageBox.Show(Properties.Strings.FailedToGetAuthURL, Properties.Strings.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        throw ex;
+                    }
                     catch (LoginCancelException ex)
                     {
                         // Canceled process
@@ -606,14 +620,17 @@ namespace KsGameLauncher
                 {
                     response.EnsureSuccessStatusCode();
 
-
+                    Debug.WriteLine(String.Format("After get launcher URL:  {0}", response.RequestMessage.RequestUri));
                     if (response.RequestMessage.RequestUri.Host.Contains(Properties.Resources.AuthorizeDomain))
                     {
-                        MessageBox.Show(Properties.Strings.IncorrectUsernameOrPassword, Properties.Strings.AppName,
-                            MessageBoxButtons.OK, MessageBoxIcon.Error,
-                            MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
-                        await Logout();
-                        return;
+                        //if (!await Login(GetCredential(), response.RequestMessage.RequestUri))
+                        //{
+                            MessageBox.Show(Properties.Strings.IncorrectUsernameOrPassword, Properties.Strings.AppName,
+                                MessageBoxButtons.OK, MessageBoxIcon.Error,
+                                MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                            await Logout();
+                            return;
+                        //}
                     }
 
                     if (response.StatusCode != HttpStatusCode.OK)
@@ -651,6 +668,10 @@ namespace KsGameLauncher
                     else if (loadedURL.Contains(Properties.Resources.TosCheckPath))
                     {
                         throw new GameTermsOfServiceException(Properties.Strings.ShouldCheckTermOfService, loadedURL);
+                    }
+                    else if (loadedURL.Contains(Properties.Settings.Default.PrivacyConfirmPath))
+                    {
+                        throw new PrivacyConfirmationException(Properties.Strings.ConfirmPrivacyPolicy, loadedURL);
                     }
 
                     string content = GetResponseContentWithEncoding(response);
@@ -699,6 +720,14 @@ namespace KsGameLauncher
                     MessageBoxButtons.OK, MessageBoxIcon.Information,
                     MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                 Utils.Common.OpenUrlByDefaultBrowser(ex.GetTosURL());
+            }
+            catch (PrivacyConfirmationException ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Strings.PrivacyConfirmationExceptionDialogName,
+                    MessageBoxButtons.OK, MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                Utils.Common.OpenUrlByDefaultBrowser(ex.GetPrivacyURL());
+
             }
             catch (Exception e)
             {
@@ -782,7 +811,7 @@ namespace KsGameLauncher
             response.EnsureSuccessStatusCode();
 
             instance.httpClient = null;
-            Properties.Settings.Default.Cookie = null;
+            Properties.Settings.Default.Cookies = null;
             Properties.Settings.Default.Save();
 
             return response;

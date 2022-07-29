@@ -24,7 +24,8 @@ namespace KsGameLauncher
             if (GetInstalledGamesName().Length > 0)
             {
                 string installedGameRights = string.Format("\"{0}\"", string.Join("\", \"", GetInstalledGamesName()));
-                textBox_Copyrights.Text += string.Format("{0} are KONAMI Amusement All Rights Reserved.\r\n", installedGameRights);
+                string allrightsReserved = string.Format("{0} All Rights Reserved.", Properties.Resources.GamePublisher);
+                textBox_Copyrights.Text += string.Format("{0} are {1}.\r\n", installedGameRights, allrightsReserved);
             }
             textBox_Copyrights.Text += Properties.Resources.Copyrights;
             linkLabel_Support.Text = Properties.Resources.SupportLabelText;

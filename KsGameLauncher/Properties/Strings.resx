@@ -431,4 +431,13 @@ Do you want to display maintenance information?</value>
   <data name="WhatsOTP" xml:space="preserve">
     <value>What is OTP</value>
   </data>
+  <data name="ConfirmPrivacyPolicy" xml:space="preserve">
+    <value>Privacy policy has updated, please check it.</value>
+  </data>
+  <data name="PrivacyConfirmationExceptionDialogName" xml:space="preserve">
+    <value>Privacy policy update</value>
+  </data>
+  <data name="FailedToGetAuthURL" xml:space="preserve">
+    <value>Failed to get authURL. This url was changed or removed from the servicve.</value>
+  </data>
 </root>

@@ -327,6 +327,15 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
+        ///   Privacy policy has updated, please check it. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ConfirmPrivacyPolicy {
+            get {
+                return ResourceManager.GetString("ConfirmPrivacyPolicy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Are you sure you want to enable shortcut launch ?
         ///
         ///This will be registered the protocol to boot as {0}:// on your computer.
@@ -516,6 +525,15 @@ namespace KsGameLauncher.Properties {
         internal static string ErrorWhileLogin {
             get {
                 return ResourceManager.GetString("ErrorWhileLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Failed to get authURL. This url was changed or removed from the servicve. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string FailedToGetAuthURL {
+            get {
+                return ResourceManager.GetString("FailedToGetAuthURL", resourceCulture);
             }
         }
         
@@ -750,6 +768,15 @@ namespace KsGameLauncher.Properties {
         internal static string OTPDialogMessage_OTP {
             get {
                 return ResourceManager.GetString("OTPDialogMessage_OTP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Privacy policy update に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PrivacyConfirmationExceptionDialogName {
+            get {
+                return ResourceManager.GetString("PrivacyConfirmationExceptionDialogName", resourceCulture);
             }
         }
         

@@ -30,7 +30,7 @@
       <Value Profile="(Default)">https://p.eagate.573.jp/gate/p/logout.html</Value>
     </Setting>
     <Setting Name="LoginURL" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">https://p.eagate.573.jp/gate/k/API/common/getloginurl.html</Value>
+      <Value Profile="(Default)">https://p.eagate.573.jp/gate/p/login.html</Value>
     </Setting>
     <Setting Name="BaseURL" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">https://p.eagate.573.jp/game/konasteapp/</Value>
@@ -104,6 +104,21 @@
     </Setting>
     <Setting Name="UpdateCheckIntervalUnit" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="PrivacyConfirmPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://p.eagate.573.jp/gate/agree/p/privacy_confirm.html</Value>
+    </Setting>
+    <Setting Name="ErrorReporterPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">launcher\modules\errorreporter.exe</Value>
+    </Setting>
+    <Setting Name="ErrorReporterPath_2dx" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">launcher\modules\bm2dx_er.exe</Value>
+    </Setting>
+    <Setting Name="LauncherPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">launcher\modules\launcher.exe</Value>
+    </Setting>
+    <Setting Name="LauncherPath_2dx" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">launcher\modules\bm2dx_launcher.exe</Value>
     </Setting>
   </Settings>
 </SettingsFile>
