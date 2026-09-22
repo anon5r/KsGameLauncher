@@ -1,0 +1,127 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="KsGameLauncher2.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="appInfoURL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://launcher-app.sdvx.net/conf/appinfo.json</Value>
+    </Setting>
+    <Setting Name="appInfoLocal" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">appinfo.json</Value>
+    </Setting>
+    <Setting Name="selector_login_user" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#id_userId</Value>
+    </Setting>
+    <Setting Name="selector_login_pass" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#id_password</Value>
+    </Setting>
+    <Setting Name="selector_login_button" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#login&gt;div&gt;a.link-btn</Value>
+    </Setting>
+    <Setting Name="selector_csrf" Type="System.String" Scope="User">
+      <Value Profile="(Default)">div.form-area&gt;form&gt;input[type=hidden][name=csrfmiddlewaretoken]</Value>
+    </Setting>
+    <Setting Name="selector_login_form" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#login-form&gt;div.form-area&gt;form</Value>
+    </Setting>
+    <Setting Name="UseProxy" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="LogoutURL" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://p.eagate.573.jp/gate/p/logout.html</Value>
+    </Setting>
+    <Setting Name="LoginURL" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://p.eagate.573.jp/gate/p/login.html</Value>
+    </Setting>
+    <Setting Name="BaseURL" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://p.eagate.573.jp/game/konasteapp/</Value>
+    </Setting>
+    <Setting Name="AuthPageURL" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://account.konami.net/auth/login</Value>
+    </Setting>
+    <Setting Name="EnableNotification" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NotificationTimeout" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="ShowConfirmExit" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ContextMenuSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="AppInfo_selector_default" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#login&gt;div&gt;a.link-btn</Value>
+    </Setting>
+    <Setting Name="MenuIconSize_Large" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">64</Value>
+    </Setting>
+    <Setting Name="MenuIconSize_Default" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">16</Value>
+    </Setting>
+    <Setting Name="ShowOnlyInstalledGames" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NewGameFormSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">400, 300</Value>
+    </Setting>
+    <Setting Name="AppUriScheme" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ksgamelauncher</Value>
+    </Setting>
+    <Setting Name="RegisterCustomURI" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="LinkUrlOTP" Type="(Web Service URL)" Scope="User">
+      <Value Profile="(Default)">https://my.konami.net/otp.html</Value>
+    </Setting>
+    <Setting Name="selector_2fa_pincode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#id_pincode</Value>
+    </Setting>
+    <Setting Name="selector_2fa_pincod_persistnt" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#is_persistent</Value>
+    </Setting>
+    <Setting Name="AuthPage_2FAPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">two_step.html</Value>
+    </Setting>
+    <Setting Name="UseOTP" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="selector_2fa_form" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#two-step-form&gt;div.form-area&gt;form</Value>
+    </Setting>
+    <Setting Name="Language" Type="System.String" Scope="User">
+      <Value Profile="(Default)">system</Value>
+    </Setting>
+    <Setting Name="SupportedLanguage" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;string&gt;en-US&lt;/string&gt;
+  &lt;string&gt;ja-JP&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="UpdateCheckInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="UpdateCheckIntervalUnit" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="PrivacyConfirmPath" Type="(Web Service URL)" Scope="User">
+      <Value Profile="(Default)">https://p.eagate.573.jp/gate/agree/p/privacy_confirm.html</Value>
+    </Setting>
+    <Setting Name="ErrorReporterPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">launcher\modules\errorreporter.exe</Value>
+    </Setting>
+    <Setting Name="ErrorReporterPath_2dx" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">launcher\modules\bm2dx_er.exe</Value>
+    </Setting>
+    <Setting Name="LauncherPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">launcher\modules\launcher.exe</Value>
+    </Setting>
+    <Setting Name="LauncherPath_2dx" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">launcher\modules\bm2dx_launcher.exe</Value>
+    </Setting>
+    <Setting Name="UpdateXML" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://launcher-app.sdvx.net/update.xml</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

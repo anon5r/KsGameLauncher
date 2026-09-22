@@ -348,7 +348,7 @@ namespace KsGameLauncher.Properties {
         }
         
         /// <summary>
-        ///   Do you want to check update ? に類似しているローカライズされた文字列を検索します。
+        ///    に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ConfirmToExecuteCheckManualUpdate {
             get {

@@ -19,14 +19,16 @@
 
 動作、機能などの詳細は[こちらのドキュメント](https://launcher-app.sdvx.net/index.ja.html)を確認してください。
 
+> **注記:** 現在メンテナンスしているソースは [`src/KsGameLauncher2`](src/KsGameLauncher2) (.NET 10) です。
+> `.NET Framework 4.8` 版の [`KsGameLauncher`](KsGameLauncher) プロジェクトは非推奨(deprecated)となり、
+> 参考用として残していますが、ソリューションの既定のビルド対象からは除外しています。
+
 
 # 開発環境
 
 OS: Microsoft&reg; Windows&trade; 10 以上
 
-必要ランタイム: Microsoft&reg; .NET Framework 4.8
-
-インストールが必要な場合は [こちら](https://docs.microsoft.com/ja-jp/dotnet/framework/install/on-windows-10) からインストールしてください。
+必要ランタイム: [.NET 10 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/10.0)
 
 
 ## オプショナル
@@ -36,7 +38,11 @@ OS: Microsoft&reg; Windows&trade; 10 以上
 
 # ビルド方法
 
-Microsoft&reg; Visual Studio、または [MSBuild](https://docs.microsoft.com/ja-jp/visualstudio/msbuild/msbuild?view=vs-2022) を用いてビルドすることができます。
+Microsoft&reg; Visual Studio、または `dotnet` CLI でビルドすることができます。
+
+```
+dotnet build KsGameLauncher.sln
+```
 
 ## NuGet
 
