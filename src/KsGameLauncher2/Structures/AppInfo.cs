@@ -116,7 +116,7 @@ namespace KsGameLauncher2
         {
             try
             {
-                using (FileStream fstream = new FileStream(Properties.Settings.Default.appInfoLocal, FileMode.Create,
+                using (FileStream fstream = new FileStream(Utils.AppUtil.GetAppInfoLocalPath(), FileMode.Create,
                            FileAccess.Write))
                 {
                     if (!fstream.CanWrite)
