@@ -20,12 +20,16 @@ This is an application to start the BEMANI for Konaste (コナステ) with one c
 
 Please check [this document](https://launcher-app.sdvx.net) for details such as operation and functions.
 
+> **Note:** The maintained source is [`src/KsGameLauncher2`](src/KsGameLauncher2) (.NET 10). The original
+> `.NET Framework 4.8` project under [`KsGameLauncher`](KsGameLauncher) is deprecated and kept for reference
+> only; it is excluded from the solution's default build.
+
 
 # Development Environment
 
 OS: Microsoft&reg; Windows&trade; 10 or later
 
-Required runtime: Microsoft&reg; .NET Framework 4.8
+Required runtime: [.NET 10 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/10.0)
 
 
 ## Optional
@@ -35,7 +39,11 @@ Required runtime: Microsoft&reg; .NET Framework 4.8
 
 # How can I build this
 
-You can build on your machine with Microsoft&reg; Visual Studio or [MSBuild](https://docs.microsoft.com/visualstudio/msbuild/msbuild?view=vs-2022) 
+You can build on your machine with Microsoft&reg; Visual Studio, or the `dotnet` CLI:
+
+```
+dotnet build KsGameLauncher.sln
+```
 
 ## NuGet
 

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "KsGameLauncher2": {
+      "commandName": "Project",
+      "jsWebView2Debugging": true
+    }
+  }
+}
