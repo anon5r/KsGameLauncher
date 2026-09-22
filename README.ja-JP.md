@@ -44,15 +44,39 @@ Microsoft&reg; Visual Studio、または `dotnet` CLI でビルドすること�
 dotnet build KsGameLauncher.sln
 ```
 
-## NuGet
+NuGetパッケージはビルド時に自動的に復元されるため、`nuget restore` を個別に実行する必要はありません。
 
-いくつかのNuGetライブラリを使用しています。
 
-それらをインストールするためにNuGetから復元する必要があります。
+## テストの実行
 
 ```
-nuget restore KsGameLauncher.sln
+dotnet test src/KsGameLauncher2.Tests/KsGameLauncher2.Tests.csproj
 ```
+
+
+# リリース発行方法
+
+発行すると、単一の自己展開型実行ファイルが生成されます（非推奨となった旧プロジェクトが
+PostBuildEvent で行っていた ILMerge 相当の処理を、.NET SDK ネイティブ機能で置き換えたものです）。
+
+```
+dotnet publish src/KsGameLauncher2/KsGameLauncher2.csproj -c Release -r win-x64 --self-contained false
+```
+
+`bin/Release/net10.0-windows10.0.22000.0/win-x64/publish/` に出力されるファイル:
+
+| ファイル | 説明 |
+| --- | --- |
+| `KsGameLauncher2.exe` | 単一ファイル。マネージド/ネイティブの依存関係をすべて同梱 |
+| `KsGameLauncher2.dll.config` | アプリケーション設定・ユーザー設定の既定値 |
+| `KsGameLauncher2.pdb` | クラッシュダイアログにファイル名と行番号を表示するために同梱 |
+
+これらをzipに固めてGitHubリリースに添付してください。`update.xml` が AutoUpdater.NET を
+`.zip` に向けているため、アーカイブ構成はフラットなまま維持する必要があります。
+
+発行オプション（`PublishSingleFile`、`IncludeNativeLibrariesForSelfExtract`、
+`PublishReferencesDocumentationFiles`）は `KsGameLauncher2.csproj` に記述しています。
+`-r win-x64` は通常のビルドの出力パスに影響させないため、コマンドライン側で指定します。
 
 
 # デバッグ
