@@ -31,7 +31,6 @@
     <PackageReference Include="AdysTech.CredentialManager" Version="3.1.0" />
     <PackageReference Include="AngleSharp" Version="1.8.2" />
     <PackageReference Include="Autoupdater.NET.Official" Version="1.9.3" />
-    <PackageReference Include="ILMerge" Version="3.0.40" />
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4191.47" />
     <PackageReference Include="Resource.Embedder" Version="2.2.0" />
   </ItemGroup>
