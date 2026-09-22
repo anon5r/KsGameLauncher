@@ -440,4 +440,7 @@ Do you want to display maintenance information?</value>
   <data name="FailedToGetAuthURL" xml:space="preserve">
     <value>Failed to get authURL. This url was changed or removed from the servicve.</value>
   </data>
+  <data name="ConfirmToExecuteCheckManualUpdate" xml:space="preserve">
+    <value />
+  </data>
 </root>

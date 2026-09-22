@@ -217,9 +217,6 @@
 これはコンピューターに {0}:// として起動するプロトコルを登録します。 
 これはショートカットからのゲームを起動する際に使用します。</value>
   </data>
-  <data name="ConfirmToExecuteCheckManualUpdatConfirmToExecuteCheckManualUpdate" xml:space="preserve">
-    <value>アップデートを確認しますか？</value>
-  </data>
   <data name="ConfirmToExecuteCheckManualUpdate" xml:space="preserve">
     <value>アップデートの確認をします。よろしいですか？</value>
   </data>
