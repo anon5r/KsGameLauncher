@@ -34,12 +34,6 @@ namespace KsGameLauncher2
                 Utils.AppUtil.CheckUpdate();
         }
 
-        ~MainContext()
-        {
-            notifyIcon.Visible = false;
-            notifyIcon.Dispose();
-        }
-
         private void OnQuit(object sender, EventArgs e)
         {
             notifyIcon.Dispose();
