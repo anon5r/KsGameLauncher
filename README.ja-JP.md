@@ -56,8 +56,19 @@ dotnet test src/KsGameLauncher2.Tests/KsGameLauncher2.Tests.csproj
 
 # リリース発行方法
 
-発行すると、単一の自己展開型実行ファイルが生成されます（非推奨となった旧プロジェクトが
-PostBuildEvent で行っていた ILMerge 相当の処理を、.NET SDK ネイティブ機能で置き換えたものです）。
+リリースは自動化されています。`v*` 形式のタグをpushすると `Release` ワークフローが実行され、
+テスト・発行・`ksgamelauncher-<タグ>.zip` へのzip化を行い、新規GitHubリリースに添付します。
+
+```
+git tag v1.1.0 && git push origin v1.1.0
+```
+
+なお AutoUpdater.NET が参照する `update.xml` は本リポジトリ外でホストされているため、
+新バージョンへの向け先変更は手動で行う必要があります。
+
+同じ成果物をローカルで生成する場合は、自分で発行してください。単一の自己展開型実行ファイルが
+生成されます（非推奨となった旧プロジェクトが PostBuildEvent で行っていた ILMerge 相当の処理を、
+.NET SDK ネイティブ機能で置き換えたものです）。
 
 ```
 dotnet publish src/KsGameLauncher2/KsGameLauncher2.csproj -c Release -r win-x64 --self-contained false
