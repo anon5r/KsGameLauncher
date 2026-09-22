@@ -68,14 +68,23 @@ namespace KsGameLauncher2.Utils
             proc.Start();
         }
 
+        /// <summary>
+        /// .NET (Core以降) は ProcessStartInfo.UseShellExecute の既定値が false のため、
+        /// 明示的に true にしないと URL を実行ファイルパスとして解釈しようとして失敗する。
+        /// </summary>
+        internal static ProcessStartInfo CreateUrlProcessStartInfo(string url)
+        {
+            return new ProcessStartInfo(url) { UseShellExecute = true };
+        }
+
         public static void OpenUrlByDefaultBrowser(string url)
         {
-            System.Diagnostics.Process.Start(url);
+            Process.Start(CreateUrlProcessStartInfo(url));
         }
 
         public static void OpenUrlByDefaultBrowser(Uri uri)
         {
-            System.Diagnostics.Process.Start(uri.AbsoluteUri.ToString());
+            OpenUrlByDefaultBrowser(uri.AbsoluteUri);
         }
 
         [DllImport("user32.dll", SetLastError = true)]

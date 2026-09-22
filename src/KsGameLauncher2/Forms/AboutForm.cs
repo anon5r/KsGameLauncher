@@ -48,7 +48,7 @@ namespace KsGameLauncher2
 
         private void LinkLabel_Support_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start(Properties.Resources.SupportLabelURL);
+            Utils.Common.OpenUrlByDefaultBrowser(Properties.Resources.SupportLabelURL);
         }
 
         private void Button_Ok_Click(object sender, EventArgs e) => Close();
@@ -63,7 +63,7 @@ namespace KsGameLauncher2
 
         private void LinkLabel_Github_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start(Properties.Resources.GithubURL);
+            Utils.Common.OpenUrlByDefaultBrowser(Properties.Resources.GithubURL);
         }
     }
 }
