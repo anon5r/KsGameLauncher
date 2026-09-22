@@ -19,7 +19,7 @@ namespace KsGameLauncher2.Properties {
     // または Visual Studio のようなツールを使用して自動生成されました。
     // メンバーを追加または削除するには、.ResX ファイルを編集して、/str オプションと共に
     // ResGen を実行し直すか、または VS プロジェクトをビルドし直します。
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -69,7 +69,7 @@ namespace KsGameLauncher2.Properties {
                 return ((System.Drawing.Icon)(obj));
             }
         }
-
+        
         /// <summary>
         ///   anon に類似しているローカライズされた文字列を検索します。
         /// </summary>
@@ -105,25 +105,7 @@ namespace KsGameLauncher2.Properties {
                 return ResourceManager.GetString("CredentialTarget", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///   en-US に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string DefaultInternalLanguage {
-            get {
-                return ResourceManager.GetString("DefaultInternalLanguage", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   system に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string DefaultLanguage {
-            get {
-                return ResourceManager.GetString("DefaultLanguage", resourceCulture);
-            }
-        }
-
+        
         /// <summary>
         ///   (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
         /// </summary>
@@ -133,7 +115,25 @@ namespace KsGameLauncher2.Properties {
                 return ((System.Drawing.Icon)(obj));
             }
         }
-
+        
+        /// <summary>
+        ///   en-US に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string DefaultInternalLanguage {
+            get {
+                return ResourceManager.GetString("DefaultInternalLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   system に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string DefaultLanguage {
+            get {
+                return ResourceManager.GetString("DefaultLanguage", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   anon5r に類似しているローカライズされた文字列を検索します。
         /// </summary>
@@ -153,7 +153,7 @@ namespace KsGameLauncher2.Properties {
         }
         
         /// <summary>
-        ///   https://github.com/anon5r/KsLoginManager に類似しているローカライズされた文字列を検索します。
+        ///   https://github.com/anon5r/KsGameManager に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string GithubURL {
             get {
@@ -217,7 +217,7 @@ namespace KsGameLauncher2.Properties {
                 return ResourceManager.GetString("TosCheckPath", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   https://launcher-app.sdvx.net/update.xml に類似しているローカライズされた文字列を検索します。
         /// </summary>

@@ -102,9 +102,11 @@
     <Setting Name="UpdateCheckInterval" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="UpdateCheckIntervalUnit" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
+    <!-- UpdateCheckIntervalUnit is intentionally not declared here: it is hand-written in
+         Properties/Settings.cs as an enum-typed property (Structures.CheckInterval.UnitType),
+         matching how Cookies is handled. Declaring it here as well makes the
+         SettingsSingleFileGenerator regenerate a conflicting int-typed duplicate in
+         Settings.Designer.cs (CS0102) whenever the designer file regenerates. -->
     <Setting Name="PrivacyConfirmPath" Type="(Web Service URL)" Scope="User">
       <Value Profile="(Default)">https://p.eagate.573.jp/gate/agree/p/privacy_confirm.html</Value>
     </Setting>
