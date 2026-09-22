@@ -14,6 +14,23 @@
     <AssemblyVersion>1.1.0.0</AssemblyVersion>
     <FileVersion>1.1.0.0</FileVersion>
     <Product>Ks Game Launcher</Product>
+    <!-- 対応言語のみサテライトアセンブリを取り込む。
+         これを指定しないと依存パッケージ(AutoUpdater.NET)が ar/cs/da/de/... と
+         10言語以上のサテライトアセンブリを出力に撒く。 -->
+    <SatelliteResourceLanguages>en-US;ja-JP</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <!-- 配布用の発行設定。旧 KsGameLauncher の PostBuildEvent による ILMerge 相当を
+       .NET SDK ネイティブの単一ファイル発行で置き換えたもの。
+       発行コマンドは README の "How to publish a release" を参照。
+       RuntimeIdentifier は build 時の出力パスにも影響するため、ここでは指定せず
+       発行時に -r win-x64 を渡す。 -->
+  <PropertyGroup>
+    <PublishSingleFile>true</PublishSingleFile>
+    <!-- WebView2 等のネイティブライブラリも単一ファイルへ同梱する -->
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <!-- 参照パッケージの XML ドキュメント(WebView2 だけで約 800KB)は実行時不要 -->
+    <PublishReferencesDocumentationFiles>false</PublishReferencesDocumentationFiles>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

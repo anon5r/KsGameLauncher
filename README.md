@@ -45,15 +45,41 @@ You can build on your machine with Microsoft&reg; Visual Studio, or the `dotnet`
 dotnet build KsGameLauncher.sln
 ```
 
-## NuGet
+NuGet packages are restored automatically as part of the build, so no separate
+`nuget restore` step is needed.
 
-We are using some NuGet libraries.
 
-You need to run the following command to install from NuGet.
+## Running the tests
 
 ```
-nuget restore KsGameLauncher.sln
+dotnet test src/KsGameLauncher2.Tests/KsGameLauncher2.Tests.csproj
 ```
+
+
+# How to publish a release
+
+Publishing produces a single self-extracting executable (the .NET SDK equivalent
+of the ILMerge post-build step the deprecated project used):
+
+```
+dotnet publish src/KsGameLauncher2/KsGameLauncher2.csproj -c Release -r win-x64 --self-contained false
+```
+
+The output under `bin/Release/net10.0-windows10.0.22000.0/win-x64/publish/` is:
+
+| File | Notes |
+| --- | --- |
+| `KsGameLauncher2.exe` | Single file, all managed and native dependencies bundled |
+| `KsGameLauncher2.dll.config` | Application/user settings defaults |
+| `KsGameLauncher2.pdb` | Kept so crash dialogs report file names and line numbers |
+
+Zip those files and attach the archive to the GitHub release — `update.xml` points
+AutoUpdater.NET at a `.zip`, so the archive layout must stay flat.
+
+The publish options (`PublishSingleFile`, `IncludeNativeLibrariesForSelfExtract`,
+`PublishReferencesDocumentationFiles`) are set in `KsGameLauncher2.csproj`;
+`-r win-x64` is passed on the command line so that ordinary builds are not forced
+into a runtime-specific output path.
 
 
 
