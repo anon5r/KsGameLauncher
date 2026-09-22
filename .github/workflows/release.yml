@@ -1,0 +1,62 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to build the release artifact for (e.g. v1.1.0)'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Resolve tag
+        id: tag
+        shell: pwsh
+        run: |
+          $tag = if ($env:INPUT_TAG) { $env:INPUT_TAG } else { $env:GITHUB_REF_NAME }
+          "tag=$tag" >> $env:GITHUB_OUTPUT
+        env:
+          INPUT_TAG: ${{ github.event.inputs.tag }}
+
+      - name: Test
+        run: dotnet test src/KsGameLauncher2.Tests/KsGameLauncher2.Tests.csproj --configuration Release
+
+      - name: Publish
+        # Single-file publish options live in KsGameLauncher2.csproj.
+        # Framework-dependent: users install the .NET 10 Desktop Runtime.
+        run: dotnet publish src/KsGameLauncher2/KsGameLauncher2.csproj -c Release -r win-x64 --self-contained false -o publish
+
+      - name: Package
+        shell: pwsh
+        run: |
+          $tag = '${{ steps.tag.outputs.tag }}'
+          # Flat archive layout: update.xml points AutoUpdater.NET at this zip
+          # and it extracts straight over the install directory.
+          Compress-Archive -Path publish\* -DestinationPath "ksgamelauncher-$tag.zip"
+          Get-ChildItem "ksgamelauncher-$tag.zip" | Format-List Name, Length
+
+      - name: Create release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $tag = '${{ steps.tag.outputs.tag }}'
+          gh release create $tag "ksgamelauncher-$tag.zip" `
+            --repo '${{ github.repository }}' `
+            --title $tag `
+            --generate-notes

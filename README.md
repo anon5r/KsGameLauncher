@@ -58,8 +58,20 @@ dotnet test src/KsGameLauncher2.Tests/KsGameLauncher2.Tests.csproj
 
 # How to publish a release
 
-Publishing produces a single self-extracting executable (the .NET SDK equivalent
-of the ILMerge post-build step the deprecated project used):
+Releases are automated. Pushing a `v*` tag runs the `Release` workflow, which
+tests, publishes, zips the output as `ksgamelauncher-<tag>.zip` and attaches it to
+a new GitHub release:
+
+```
+git tag v1.1.0 && git push origin v1.1.0
+```
+
+Note that `update.xml`, which AutoUpdater.NET polls, is hosted outside this
+repository and still has to be pointed at the new version by hand.
+
+To produce the same artifact locally, publish it yourself. This produces a single
+self-extracting executable (the .NET SDK equivalent of the ILMerge post-build step
+the deprecated project used):
 
 ```
 dotnet publish src/KsGameLauncher2/KsGameLauncher2.csproj -c Release -r win-x64 --self-contained false
