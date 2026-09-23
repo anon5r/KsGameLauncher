@@ -73,6 +73,14 @@ namespace KsGameLauncher2.Forms
             try
             {
                 await _webView.EnsureCoreWebView2Async(await GetEnvironmentAsync());
+
+                // WebView2 の既定はどちらも無効。ログインのたびに手入力させないため、
+                // ブラウザと同じようにパスワードの保存と自動入力を有効にする。
+                // 保存先は UserDataFolder (%LocalAppData%\KsGameLauncher\WebView2) で、
+                // Windows のユーザーアカウントに紐づいて暗号化される。
+                _webView.CoreWebView2.Settings.IsPasswordAutosaveEnabled = true;
+                _webView.CoreWebView2.Settings.IsGeneralAutofillEnabled = true;
+
                 await _work(this, _webView.CoreWebView2);
                 _completion.TrySetResult();
             }

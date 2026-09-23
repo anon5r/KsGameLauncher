@@ -107,12 +107,12 @@ namespace KsGameLauncher2
             Application.Run(mainContext);
         }
 
-        private static async void RunUriActionOnce(object sender, EventArgs e)
+        private static async void RunUriActionOnce(object? sender, EventArgs e)
         {
             Application.Idle -= RunUriActionOnce;
             try
             {
-                if (Uri.TryCreate(args[0], UriKind.Absolute, out Uri uri))
+                if (Uri.TryCreate(args[0], UriKind.Absolute, out Uri? uri))
                 {
                     await ProcessUri(uri);
                 }

@@ -34,8 +34,7 @@ namespace KsGameLauncher2.Web
             }
             catch (WebView2RuntimeNotFoundException)
             {
-                // TODO: Strings.resx に文言を追加する
-                throw new LauncherException("Microsoft Edge WebView2 Runtime is not installed.",
+                throw new LauncherException(Properties.Strings.WebView2RuntimeNotInstalled,
                     "https://developer.microsoft.com/microsoft-edge/webview2/");
             }
 
@@ -56,12 +55,12 @@ namespace KsGameLauncher2.Web
         internal static void StartGameLauncher(string launchUri)
         {
             if (!LaunchPageClassifier.IsGameLaunchUri(launchUri))
-                throw new LauncherException("Unexpected launch URI.");
+                throw new LauncherException(Properties.Strings.UnexpectedLaunchUri);
 
             string scheme = new Uri(launchUri).Scheme;
             string? launcherPath = Utils.GameRegistry.GetLauncherPath(scheme);
             if (string.IsNullOrEmpty(launcherPath))
-                throw new LauncherException($"Launcher for \"{scheme}\" is not installed.");
+                throw new LauncherException(string.Format(Properties.Strings.GameLauncherNotInstalled, scheme));
 
             Process.Start(launcherPath, launchUri);
         }

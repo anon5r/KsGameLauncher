@@ -962,5 +962,32 @@ namespace KsGameLauncher2.Properties {
                 return ResourceManager.GetString("WhatsOTP", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Microsoft Edge WebView2 Runtime is not installed. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string WebView2RuntimeNotInstalled {
+            get {
+                return ResourceManager.GetString("WebView2RuntimeNotInstalled", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Unexpected launch URI. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string UnexpectedLaunchUri {
+            get {
+                return ResourceManager.GetString("UnexpectedLaunchUri", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Launcher for &quot;{0}&quot; is not installed. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string GameLauncherNotInstalled {
+            get {
+                return ResourceManager.GetString("GameLauncherNotInstalled", resourceCulture);
+            }
+        }
     }
 }

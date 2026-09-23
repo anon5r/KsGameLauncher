@@ -88,17 +88,31 @@ namespace KsGameLauncher2.Utils
             return (string)GetValue(GameName, "ResourceDir").ToString();
         }
 
-        public static string GetLauncherPath(string ProtocolScheme)
+        /// <summary>
+        /// Get the launcher executable registered for a custom URI scheme.
+        /// </summary>
+        /// <param name="ProtocolScheme">URI scheme, e.g. "konaste.sdvx"</param>
+        /// <returns>Launcher path, or null when the game is not installed</returns>
+        public static string? GetLauncherPath(string ProtocolScheme)
         {
             if (string.IsNullOrEmpty(ProtocolScheme))
                 return null;
 
-            RegistryKey key = Registry.ClassesRoot.OpenSubKey(ProtocolScheme);
-            if (key.SubKeyCount < 1)
+            // ゲームが未インストールならスキームのキー自体が存在しない。
+            // OpenSubKey は例外ではなく null を返すため、各段階で null を確認する。
+            using RegistryKey? key = Registry.ClassesRoot.OpenSubKey(ProtocolScheme);
+            using RegistryKey? command = key?.OpenSubKey(@"shell\open\command");
+
+            // 既定値は `"<launcher.exe への絶対パス>" "%1"` の形式
+            if (command?.GetValue(null)?.ToString() is not string value)
                 return null;
 
-            string path = key.OpenSubKey(@"shell\open\command").GetValue(null).ToString();
-            return path.Remove(path.Length - 5).Replace("\"", "").Trim();
+            const string UriArgument = " \"%1\"";
+            string path = value.EndsWith(UriArgument, StringComparison.Ordinal)
+                ? value[..^UriArgument.Length]
+                : value;
+
+            return path.Replace("\"", "").Trim();
         }
     }
 }

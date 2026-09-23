@@ -435,4 +435,14 @@
   <data name="FailedToGetAuthURL" xml:space="preserve">
     <value>認証URLの取得に失敗しました。URLは変更されたか、サービスから削除されました。</value>
   </data>
+  <data name="WebView2RuntimeNotInstalled" xml:space="preserve">
+    <value>Microsoft Edge WebView2 ランタイムがインストールされていません。</value>
+  </data>
+  <data name="UnexpectedLaunchUri" xml:space="preserve">
+    <value>予期しない起動URIです。</value>
+  </data>
+  <data name="GameLauncherNotInstalled" xml:space="preserve">
+    <value>「{0}」のランチャーがインストールされていません。</value>
+    <comment>{0} is the custom URI scheme, e.g. konaste.sdvx</comment>
+  </data>
 </root>
