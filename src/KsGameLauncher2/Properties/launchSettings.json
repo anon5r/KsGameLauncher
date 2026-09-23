@@ -3,7 +3,7 @@
     "KsGameLauncher2": {
       "commandName": "Project"
     },
-    "KsGameLauncher2 (WebView2 JS debugging)": {
+    "KsGameLauncher2 (WebView2 JS debugging - open a game within 30s)": {
       "commandName": "Project",
       "jsWebView2Debugging": true
     }
