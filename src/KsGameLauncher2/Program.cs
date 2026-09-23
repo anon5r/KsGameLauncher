@@ -26,40 +26,8 @@ namespace KsGameLauncher2
 
             if (args.Length == 1)
             {
-
-                Thread t = new(new ThreadStart(async () =>
-                {
-                    // Set as running on background
-                    MainContext.RunBackground = true;
-
-                    try
-                    {
-                        if (Uri.TryCreate(args[0], UriKind.Absolute, out Uri uri))
-                        {
-                            await ProcessUri(uri);
-                            // Exit app when the game launched
-                            Application.Exit();
-                        }
-                    }
-                    catch (FormatException ex)
-                    {
-                        MessageBox.Show("Unknown parameters specified. " + ex.Message, Properties.Strings.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, Properties.Strings.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-                    if (mainContext != null)
-                    {
-                        mainContext.ExitingProcess();
-                    }
-                    return;
-
-                }));
-                t.SetApartmentState(System.Threading.ApartmentState.STA);
-                t.Start();
-
+                // Set as running on background
+                MainContext.RunBackground = true;
             }
 
 
@@ -130,7 +98,36 @@ namespace KsGameLauncher2
                 ShowInTaskbar = false,
                 WindowState = FormWindowState.Minimized,
             });
+            if (MainContext.RunBackground)
+            {
+                // WebView2 は UI スレッドのメッセージループ上でしか動かないため、
+                // 別スレッドではなく Application.Run 開始後に UI スレッドで URI を処理する
+                Application.Idle += RunUriActionOnce;
+            }
             Application.Run(mainContext);
+        }
+
+        private static async void RunUriActionOnce(object? sender, EventArgs e)
+        {
+            Application.Idle -= RunUriActionOnce;
+            try
+            {
+                if (Uri.TryCreate(args[0], UriKind.Absolute, out Uri? uri))
+                {
+                    await ProcessUri(uri);
+                }
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Unknown parameters specified. " + ex.Message, Properties.Strings.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Strings.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            // Exit app when the game launched
+            mainContext?.ExitingProcess();
         }
 
 

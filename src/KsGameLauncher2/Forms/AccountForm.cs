@@ -72,7 +72,7 @@ namespace KsGameLauncher2
                 {
                     if (CredentialManager.RemoveCredentials(CredentialName))
                     {
-                        await Launcher.Logout();
+                        await Web.WebLauncher.LogoutAsync();
                         credential = CredentialManager.GetCredentials(CredentialName);
                         RefreshRegisteredAccounts();
                         MessageBox.Show(Properties.Strings.AccountRemoveSucceeded);
@@ -120,7 +120,7 @@ namespace KsGameLauncher2
 
                 if (save)
                 {
-                    await Launcher.Logout();
+                    await Web.WebLauncher.LogoutAsync();
                     RefreshRegisteredAccounts();
                 }
             }

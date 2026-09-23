@@ -212,8 +212,7 @@ namespace KsGameLauncher2
                 _launcherMutex = true;
                 try
                 {
-                    Launcher launcher = Launcher.Create();
-                    await launcher.StartApp(appInfo);
+                    await Web.WebLauncher.StartAppAsync(appInfo);
                 }
                 catch (LoginCancelException)
                 {

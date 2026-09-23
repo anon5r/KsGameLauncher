@@ -445,4 +445,14 @@ Do you want to display maintenance information?</value>
   <data name="FailedToGetAuthURL" xml:space="preserve">
     <value>Failed to get authURL. This url was changed or removed from the servicve.</value>
   </data>
+  <data name="WebView2RuntimeNotInstalled" xml:space="preserve">
+    <value>Microsoft Edge WebView2 Runtime is not installed.</value>
+  </data>
+  <data name="UnexpectedLaunchUri" xml:space="preserve">
+    <value>Unexpected launch URI.</value>
+  </data>
+  <data name="GameLauncherNotInstalled" xml:space="preserve">
+    <value>Launcher for "{0}" is not installed.</value>
+    <comment>{0} is the custom URI scheme, e.g. konaste.sdvx</comment>
+  </data>
 </root>
