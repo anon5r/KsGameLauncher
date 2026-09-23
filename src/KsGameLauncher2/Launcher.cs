@@ -842,18 +842,15 @@ namespace KsGameLauncher2
 
             try
             {
-                Launcher launcher = Launcher.Create();
-                await launcher.StartApp(appInfo);
+                await Web.WebLauncher.StartAppAsync(appInfo);
             }
             catch (LoginCancelException)
             {
                 // Canceled process while login
-                instance.httpClient = null;
                 return;
             }
             catch (LoginException ex)
             {
-                instance.httpClient = null;
                 //MessageBox.Show(ex.Message, Properties.Strings.LoginExceptionDialogName,
                 //    MessageBoxButtons.OK, MessageBoxIcon.Error,
                 //    MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
