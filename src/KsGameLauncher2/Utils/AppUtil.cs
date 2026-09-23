@@ -14,10 +14,23 @@ namespace KsGameLauncher2.Utils
 {
     internal class AppUtil
     {
+        /// <summary>
+        /// appinfo.json の絶対パスを返す。
+        /// 設定値 appInfoLocal はファイル名のみのため、そのまま File 系 API に渡すと
+        /// カレントディレクトリ基準になってしまう。カスタムURI (konaste.*://launch/...) 経由の
+        /// 起動ではOSが任意の作業ディレクトリでプロセスを開始するため、読み書きで参照先がずれる。
+        /// 読み込み・保存の双方が必ずこのメソッドを経由すること。
+        /// </summary>
+        internal static string GetAppInfoLocalPath()
+        {
+            return Path.Combine(
+                Path.GetDirectoryName(Application.ExecutablePath)!,
+                Properties.Settings.Default.appInfoLocal);
+        }
+
         public static async Task<bool> DownloadJson()
         {
-            string defaultPath = Directory.GetParent(Application.ExecutablePath) + "\\" + Properties.Settings.Default.appInfoLocal;
-            return await DownloadJson(defaultPath);
+            return await DownloadJson(GetAppInfoLocalPath());
         }
 
         public static async Task<bool> DownloadJson(string path)
@@ -37,7 +50,7 @@ namespace KsGameLauncher2.Utils
             using (TextReader reader = (new StreamReader(jsonStream)) as TextReader)
             {
                 string json = reader.ReadToEnd();
-                File.WriteAllText(Properties.Settings.Default.appInfoLocal, json);
+                File.WriteAllText(path, json);
             }
 
             FileInfo finfo = new FileInfo(path);

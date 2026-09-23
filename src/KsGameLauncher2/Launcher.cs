@@ -258,7 +258,7 @@ namespace KsGameLauncher2
             try
             {
                 string json;
-                string localPath = Directory.GetParent(Application.ExecutablePath) + "\\" + Properties.Settings.Default.appInfoLocal;
+                string localPath = Utils.AppUtil.GetAppInfoLocalPath();
                 if (!File.Exists(localPath))
                 {
                     // Load appinfo.json from the internet
